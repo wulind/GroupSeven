@@ -1,10 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "finishbutton.hpp"
+#include "menu.hpp"
+#include "gameState.hpp"
 
 int main(int argc, char** argv)
 {
   // create main window
   sf::RenderWindow App(sf::VideoMode(800,600,32), "The Great Escape");
-
+    FinishButton finishButton;
+    Menu menu;
+    GameState gs;
+    gs.init();
   // start main loop
   while(App.isOpen())
   {
@@ -18,8 +24,11 @@ int main(int argc, char** argv)
     }
 
     // clear screen and fill with blue
-    App.clear(sf::Color::Black);
-
+    App.clear(sf::Color::White);
+    menu.update(&App, &gs);
+    finishButton.update(&App, &gs);
+      
+      
     // display
     App.display();
   }
