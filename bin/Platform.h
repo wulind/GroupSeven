@@ -4,11 +4,14 @@ namespace gameObject {
 	class Platform {
 
 	private:
-		float xCoord;
-		float yCoord;
-		bool isBeingDragged;
 
 	public:
 		Platform();
+		float xCoord;
+		float yCoord;
+		int height;
+		int width;
+		bool isBeingDragged;
+		sf::Color color;
 	};
 }
