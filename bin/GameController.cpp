@@ -15,6 +15,32 @@ GameController::GameController(sf::RenderWindow* newWindow) :
 
 }
 
+bool GameController::checkMouseOverPlatform() {
+	Vector2i mousePosition = Mouse::getPosition(*this->window);
+
+	float mouseX = mousePosition.x;
+	float mouseY = mousePosition.y;
+
+	float platformXStart = this->platform.xCoord;
+	float platformYStart = this->platform.yCoord;
+
+	float platformXEnd = platformXStart + this->platform.width;
+	float platformYEnd = platformYStart + this->platform.height;
+
+	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
+	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
+
+	if (hitsX && hitsY) {
+		this->platform.isBeingDragged = true;
+		return true;
+	}
+	return false;
+}
+
+void GameController::releaseAllPlatforms() {
+	this->platform.isBeingDragged = false;
+}
+
 void GameController::updateGame() {
 
 }

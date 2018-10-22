@@ -15,7 +15,11 @@ namespace controller {
 
 	public:
 		GameController(sf::RenderWindow* newWindow);
+
 		void updateGame();
 		void updateView();
+
+		bool checkMouseOverPlatform();
+		void releaseAllPlatforms();
 	};
 }

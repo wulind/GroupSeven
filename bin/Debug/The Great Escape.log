@@ -1,7 +1,12 @@
-﻿  GameView.cpp
-g:\groupseven\bin\gameview.cpp(19): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  GameController.cpp
+g:\groupseven\bin\gamecontroller.cpp(21): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
           with
           [
-              T=float
+              T=int
+          ]
+g:\groupseven\bin\gamecontroller.cpp(22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
           ]
   The Great Escape.vcxproj -> G:\GroupSeven\bin\Debug\The Great Escape.exe
