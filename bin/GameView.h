@@ -14,9 +14,11 @@ namespace view {
 
 		Platform* draggablePlatform;
 
+		void drawPlatform();
+
 	public:
 		GameView(sf::RenderWindow* newWindow);
-		void Update();
+		void update();
 		void setPlatform(Platform* draggablePlatform);
 	};
 }

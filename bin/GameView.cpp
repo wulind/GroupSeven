@@ -10,3 +10,21 @@ GameView::GameView(RenderWindow* newWindow) :
 void GameView::setPlatform(Platform* newDraggablePlatform) {
 	this->draggablePlatform = newDraggablePlatform;
 }
+
+void GameView::drawPlatform() {
+	RectangleShape platformRectangle;
+
+	platformRectangle.setSize(Vector2f(draggablePlatform->height, draggablePlatform->width));
+	platformRectangle.setPosition(draggablePlatform->xCoord, draggablePlatform->yCoord);
+	platformRectangle.setFillColor(draggablePlatform->color);
+
+	window->draw(platformRectangle);
+}
+
+void GameView::update() {
+	window->clear(sf::Color::Black);
+
+	drawPlatform();
+
+	window->display();
+}
