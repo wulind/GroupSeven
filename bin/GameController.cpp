@@ -8,8 +8,10 @@ using namespace sf;
 
 GameController::GameController(sf::RenderWindow* newWindow) :
 	window(newWindow),
-	platform(gameObject::Platform()),
 	mainView(GameView(newWindow)) {
+
+	this->platform = gameObject::Platform();
+	this->mainView.setPlatform(&this->platform);
 
 }
 

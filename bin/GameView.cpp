@@ -12,9 +12,10 @@ void GameView::setPlatform(Platform* newDraggablePlatform) {
 }
 
 void GameView::drawPlatform() {
+
 	RectangleShape platformRectangle;
 
-	platformRectangle.setSize(Vector2f(draggablePlatform->height, draggablePlatform->width));
+	platformRectangle.setSize(Vector2f(draggablePlatform->width, draggablePlatform->height));
 	platformRectangle.setPosition(draggablePlatform->xCoord, draggablePlatform->yCoord);
 	platformRectangle.setFillColor(draggablePlatform->color);
 
