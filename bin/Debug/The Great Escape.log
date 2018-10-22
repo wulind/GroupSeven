@@ -1,12 +1,2 @@
-﻿  GameController.cpp
-g:\groupseven\bin\gamecontroller.cpp(21): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
-g:\groupseven\bin\gamecontroller.cpp(22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-          with
-          [
-              T=int
-          ]
+﻿  platform.cpp
   The Great Escape.vcxproj -> G:\GroupSeven\bin\Debug\The Great Escape.exe

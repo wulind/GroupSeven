@@ -17,12 +17,19 @@ int main(int argc, char** argv)
 			switch (Event.type) {
 				case sf::Event::Closed:
 					App.close();
+					break;
 				case sf::Event::MouseButtonPressed:
 					gameController.checkMouseOverPlatform();
+					break;
 				case sf::Event::MouseButtonReleased:
 					gameController.releaseAllPlatforms();
+					break;
+				default:
+					break;
 			}
 		}
+
+		gameController.updateGame();
 
 		gameController.updateView();
 	}

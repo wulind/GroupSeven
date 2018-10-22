@@ -32,17 +32,24 @@ bool GameController::checkMouseOverPlatform() {
 
 	if (hitsX && hitsY) {
 		this->platform.isBeingDragged = true;
+
+		this->platform.mouseDragOffsetX = mouseX - platformXStart;
+		this->platform.mouseDragOffsetY = mouseY - platformYStart;
+
 		return true;
 	}
 	return false;
 }
 
 void GameController::releaseAllPlatforms() {
+
 	this->platform.isBeingDragged = false;
 }
 
 void GameController::updateGame() {
+	Vector2i mousePosition = Mouse::getPosition(*this->window);
 
+	this->platform.updateDragPosition(mousePosition.x, mousePosition.y);
 }
 
 void GameController::updateView() {

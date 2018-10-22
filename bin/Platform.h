@@ -13,6 +13,10 @@ namespace gameObject {
 		int height;
 		int width;
 		bool isBeingDragged;
+		float mouseDragOffsetX;
+		float mouseDragOffsetY;
 		sf::Color color;
+
+		void updateDragPosition(float mouseX, float mouseY);
 	};
 }
