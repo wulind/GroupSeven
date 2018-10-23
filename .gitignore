@@ -34,3 +34,6 @@
 # VS Code things
 *.opendb
 *.vs
+*.sln
+*.vsproj
+*.vsproj.*
