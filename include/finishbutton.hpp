@@ -2,6 +2,7 @@
 #define Finishbutton_h
 #include "gameState.hpp"
 
+
 class FinishButton{
 
 public:
@@ -19,16 +20,10 @@ public:
     int screenX;
     int screenY;
 
-    FinishButton::FinishButton(){
-    	
-    }
+    FinishButton();
 
-    void update(sf::RenderWindow *App, GameState *gs){
-        
-    }
+    void update(sf::RenderWindow *App, GameState *gs);
 
-    void clickButton(GameState *gs){
-
-    }
+    void clickButton(GameState *gs);
 };
 #endif

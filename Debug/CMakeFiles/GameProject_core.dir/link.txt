@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGameProject_core.a  CMakeFiles/GameProject_core.dir/src/menu.cpp.o CMakeFiles/GameProject_core.dir/src/finishbutton.cpp.o CMakeFiles/GameProject_core.dir/src/gameState.cpp.o
+/usr/bin/ranlib libGameProject_core.a

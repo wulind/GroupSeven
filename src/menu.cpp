@@ -1,36 +1,38 @@
-#include "../menu.hpp"
-class Menu{
+#include "menu.hpp"
+#include <iostream>
 
-    
-
-    
-    menu::menu(){
+   /* Menu::Menu(){
         int screenX = 800;
         int screenY = 600;
     }
-
-    menu::update(sf::RenderWindow *App, GameState *gs){
+*/
+    void Menu::update(sf::RenderWindow *App, GameState *gs){
+       int screenX = 800;
+        int screenY = 600;
+        
         //Game is in design mode
         if(gs->play == 0){
             //Load texture for side menu and font for text
             if (!texture.loadFromFile("../data/menutexture.png"))
             {
+                std::cout<<"Error loading menu texture \n";
                 // error...
             }
             if (!font.loadFromFile("../data/sansation.ttf"))
             {
+                std::cout<<"Error font\n";
                 // error...
             }
             
-            menuTopText.setFont(font);
-            menuTopText.setPosition(screenX-165,5);
-            menuTopText.setString("Click & Drag");
-            menuTopText.setCharacterSize(24);
-            menuTopText.setFillColor(sf::Color::White);
+            this -> menuTopText.setFont(font);
+            this -> menuTopText.setPosition(screenX-165,5);
+            this -> menuTopText.setString("Click & Drag");
+            this -> menuTopText.setCharacterSize(24);
+            this -> menuTopText.setFillColor(sf::Color::Black);
             
-            menu.setTextureRect(sf::IntRect(125, 300, 180, 600));
-            menu.setPosition(sf::Vector2f(screenX-180, 0)); // absolute position
-            menu.setTexture(texture);
+            this -> menu.setTextureRect(sf::IntRect(125, 300, 180, 600));
+            this -> menu.setPosition(sf::Vector2f(screenX-180, 0)); // absolute position
+            this -> menu.setTexture(texture);
             
             App->draw(menu);
             App->draw(menuTopText);
@@ -43,5 +45,4 @@ class Menu{
         
         
     }
-    
-}
+  

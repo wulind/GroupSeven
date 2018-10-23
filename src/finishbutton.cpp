@@ -1,21 +1,12 @@
-#include "../finishbutton.hpp"
+#include "finishbutton.hpp"
 
-class FinishButton{
+FinishButton::FinishButton(){
+    scale = .2f;
+    screenX = 800;
+    screenY = 600;
+}
 
-
-
-
-    
-
-    FinishButton::FinishButton() :
-        scale(.2f),
-        screenX(800),
-        screenY(600) {
-
-        
-    }
-
-    finishbutton::update(sf::RenderWindow *App, GameState *gs){
+    void FinishButton::update(sf::RenderWindow *App, GameState *gs){
         posX = .85*screenX;
         posY = .85*screenY;
         
@@ -54,9 +45,8 @@ class FinishButton{
         }
     }
 
-    finishbutton::clickButton(GameState *gs){
+void FinishButton::clickButton(GameState *gs){
         //Finish button is pressed
         //Gamestate is now play
     	gs->play = 1;
     }
-}
