@@ -8,7 +8,7 @@ public:
     
     sf::Sprite button;
     sf::Texture texture;
-    float scale = .2f;
+    float scale;
     
     int posX;
     int posY;
@@ -18,6 +18,10 @@ public:
     
     int screenX;
     int screenY;
+
+    FinishButton::FinishButton(){
+    	
+    }
 
     void update(sf::RenderWindow *App, GameState *gs){
         

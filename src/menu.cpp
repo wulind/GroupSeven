@@ -1,20 +1,15 @@
-
-#ifndef menu_h
-#define menu_h
-#include "menu.hpp"
-#include "gameState.hpp"
+#include "../menu.hpp"
 class Menu{
-    public:
-    sf::Texture texture;
-    sf::Sprite menu;
-    sf::Font font;
-    sf::Text menuTopText;
-
-    int screenX = 800;
-    int screenY = 600;
 
     
-    void update(sf::RenderWindow *App, GameState *gs){
+
+    
+    menu::menu(){
+        int screenX = 800;
+        int screenY = 600;
+    }
+
+    menu::update(sf::RenderWindow *App, GameState *gs){
         //Game is in design mode
         if(gs->play == 0){
             //Load texture for side menu and font for text
@@ -49,7 +44,4 @@ class Menu{
         
     }
     
-};
-
-
-#endif /* menu_h */
+}

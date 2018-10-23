@@ -14,6 +14,11 @@ class Menu{
     int screenY;
 
     
+    menu::menu(){
+    	
+    }
+
+
     void update(sf::RenderWindow *App, GameState *gs){
     
         }

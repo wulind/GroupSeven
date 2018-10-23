@@ -4,7 +4,11 @@
 class GameState{
 	public:
         int play;
-    
+
+        gameState::gameState(){
+        	
+        }
+
     void init(){
 
     }

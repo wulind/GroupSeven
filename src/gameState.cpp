@@ -1,17 +1,16 @@
-#ifndef Gamestate_h
-#define Gamestate_h
-#include "gameState.hpp"
 
+#include "../gameState.hpp"
 class GameState{
-	public:
-        int play;
-    
-    void init(){
+        
+
+	gameState::gameState(){
+    	    	
+        }
+
+    gameState::init(){
         //Level starts in level planning mode
         play = 0;
     }
 		//play 0 - Level Planning
 		//play 1 - Level Playing
-};
-
-#endif
+}

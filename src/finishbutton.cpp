@@ -1,25 +1,21 @@
-#ifndef Finishbutton_h
-#define Finishbutton_h
-#include "finishbutton.hpp"
+#include "../finishbutton.hpp"
 
 class FinishButton{
 
-public:
-    
-    sf::Sprite button;
-    sf::Texture texture;
-    float scale = .2f;
-    
-    int posX;
-    int posY;
-    
-    int clickX;
-    int clickY;
-    
-    int screenX = 800;
-    int screenY = 600;
 
-    void update(sf::RenderWindow *App, GameState *gs){
+
+
+    
+
+    FinishButton::FinishButton() :
+        scale(.2f),
+        screenX(800),
+        screenY(600) {
+
+        
+    }
+
+    finishbutton::update(sf::RenderWindow *App, GameState *gs){
         posX = .85*screenX;
         posY = .85*screenY;
         
@@ -58,10 +54,9 @@ public:
         }
     }
 
-    void clickButton(GameState *gs){
+    finishbutton::clickButton(GameState *gs){
         //Finish button is pressed
         //Gamestate is now play
     	gs->play = 1;
     }
-};
-#endif
+}
