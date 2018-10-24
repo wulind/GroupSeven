@@ -3,23 +3,25 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace gameObject {
+namespace escape {
 	class Platform {
 
-	private:
+		public:
+			Platform();
 
-	public:
-		Platform();
-		float xCoord;
-		float yCoord;
-		int height;
-		int width;
-		bool isBeingDragged;
-		float mouseDragOffsetX;
-		float mouseDragOffsetY;
-		sf::Color color;
+			float xCoord;
+			float yCoord;
+	    float mouseDragOffsetX;
+			float mouseDragOffsetY;
 
-		void updateDragPosition(float mouseX, float mouseY);
+			int height;
+			int width;
+
+			bool isBeingDragged;
+
+			sf::Color color;
+
+			void updateDragPosition(float mouseX, float mouseY);
 	};
 }
 #endif

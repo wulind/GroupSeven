@@ -2,26 +2,25 @@
 #define GAMEVIEW_H
 
 #include <SFML/Graphics.hpp>
-#include "Platform.h"
+#include "../include/Platform.h"
 
-using namespace gameObject;
+namespace escape{
+	class GameView{
 
-namespace view {
-	class GameView
-	{
+		private:
+	    //Window
+			sf::RenderWindow *App;
 
-	private:
-		sf::RenderWindow* window;
-		sf::Font font;
+			sf::Font font;
 
-		Platform* draggablePlatform;
+			void drawPlatform(sf::RectangleShape platform);
 
-		void drawPlatform();
+		public:
+			GameView();
+			GameView(sf::RenderWindow *App);
 
-	public:
-		GameView(sf::RenderWindow* newWindow);
-		void update();
-		void setPlatform(Platform* draggablePlatform);
+	    void update(Platform *platform);
+
 	};
 }
 #endif

@@ -1,23 +1,26 @@
 #include "../include/Platform.h"
 
-using namespace gameObject;
+using namespace escape;
 
-Platform::Platform() :
-	xCoord(50),
-	yCoord(50),
-	height(20),
-	width(100),
-	isBeingDragged(false),
-	mouseDragOffsetX(0),
-	mouseDragOffsetY(0),
-	color(sf::Color::White) {
+Platform::Platform(){
+	this -> xCoord = 50;
+	this -> yCoord = 50;
+  this -> mouseDragOffsetX = 0;
+	this -> mouseDragOffsetY = 0;
+
+	this -> height = 20;
+	this -> width = 100;
+
+	this -> isBeingDragged = false;
+
+	this -> color = sf::Color::White;
 
 }
 
 void Platform::updateDragPosition(float mouseX, float mouseY) {
-	if (!isBeingDragged)
+	if (!this -> isBeingDragged)
 		return;
 
-	this->xCoord = mouseX - mouseDragOffsetX;
-	this->yCoord = mouseY - mouseDragOffsetY;
+	this -> xCoord = mouseX - mouseDragOffsetX;
+	this -> yCoord = mouseY - mouseDragOffsetY;
 }

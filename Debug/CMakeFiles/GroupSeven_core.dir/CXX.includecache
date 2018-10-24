@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/f85/lywu01/GroupSeven/include/GameLogic.h
+SFML/Graphics.hpp
+-
+../include/Platform.h
+/home/f85/lywu01/GroupSeven/include/Platform.h
+../include/GameView.h
+/home/f85/lywu01/GroupSeven/include/GameView.h
+
+/home/f85/lywu01/GroupSeven/include/GameView.h
+SFML/Graphics.hpp
+-
+../include/Platform.h
+/home/f85/lywu01/GroupSeven/include/Platform.h
+
+/home/f85/lywu01/GroupSeven/include/Platform.h
+SFML/Graphics.hpp
+-
+
+/home/f85/lywu01/GroupSeven/src/GameLogic.cpp
+../include/GameLogic.h
+/home/f85/lywu01/GroupSeven/include/GameLogic.h
+
+/home/f85/lywu01/GroupSeven/src/GameView.cpp
+../include/GameView.h
+/home/f85/lywu01/GroupSeven/include/GameView.h
+
+/home/f85/lywu01/GroupSeven/src/Platform.cpp
+../include/Platform.h
+/home/f85/lywu01/GroupSeven/include/Platform.h
+

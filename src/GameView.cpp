@@ -1,31 +1,27 @@
 #include "../include/GameView.h"
 
-using namespace view;
-using namespace sf;
+using namespace escape;
 
-GameView::GameView(RenderWindow* newWindow) :
-	window(newWindow) {
+GameView::GameView(){
 }
 
-void GameView::setPlatform(Platform* newDraggablePlatform) {
-	this->draggablePlatform = newDraggablePlatform;
+GameView::GameView(sf::RenderWindow *App){
+	this -> App = App;
 }
 
-void GameView::drawPlatform() {
-
-	RectangleShape platformRectangle;
-
-	platformRectangle.setSize(Vector2f(draggablePlatform->width, draggablePlatform->height));
-	platformRectangle.setPosition(draggablePlatform->xCoord, draggablePlatform->yCoord);
-	platformRectangle.setFillColor(draggablePlatform->color);
-
-	window->draw(platformRectangle);
+void GameView::drawPlatform(sf::RectangleShape platform) {
+	this -> App -> draw(platform);
 }
 
-void GameView::update() {
-	window->clear(sf::Color::Black);
+void GameView::update(Platform *platform) {
+	this -> App -> clear(sf::Color::Black);
 
-	drawPlatform();
+  sf::RectangleShape shape; //TODO: fix
+	shape.setSize(sf::Vector2f(platform->width, platform->height));
+	shape.setPosition(platform->xCoord, platform->yCoord);
+	shape.setFillColor(platform->color);
 
-	window->display();
+	this -> drawPlatform(shape);
+
+	this -> App -> display();
 }
