@@ -2,14 +2,17 @@
 
 using namespace escape;
 
-Platform::Platform(){
-	this -> xCoord = 50;
-	this -> yCoord = 50;
+Platform::Platform(){}
+
+Platform::Platform(float x, float y, int height, int width){
+	//TODO: Update this to be in the menu
+	this -> xCoord = x;
+	this -> yCoord = y;
   this -> mouseDragOffsetX = 0;
 	this -> mouseDragOffsetY = 0;
 
-	this -> height = 20;
-	this -> width = 100;
+	this -> height = height;
+	this -> width = width;
 
 	this -> isBeingDragged = false;
 

@@ -8,6 +8,7 @@ namespace escape {
 
 		public:
 			Platform();
+			Platform(float x, float y, int height, int width);
 
 			float xCoord;
 			float yCoord;

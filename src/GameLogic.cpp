@@ -6,8 +6,10 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
 	this -> mainView = GameView(App);
 
-	this -> platform = Platform();
-
+	this -> platform = Platform(50, 50, 20, 100);
+	this -> stolenObject = StolenObject(100, 100, 25);
+	this -> menu = PlatformMenu(App);
+	this -> finishButton = FinishButton(App);
 }
 
 int GameLogic::gameLoop(){
@@ -15,15 +17,17 @@ int GameLogic::gameLoop(){
 	while(this -> App -> isOpen()) {
 
     // process events
-		sf::Event Event;
-		while(this -> App -> pollEvent(Event)) {
+		sf::Event event;
+		while(this -> App -> pollEvent(event)) {
 
-			switch (Event.type) {
+			switch (event.type) {
 				case sf::Event::Closed:
 					this -> App -> close();
 					break;
 				case sf::Event::MouseButtonPressed:
-					this -> checkMouseOverPlatform();
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+						this -> checkMouseOverPlatform();
+					}
 					break;
 				case sf::Event::MouseButtonReleased:
 					this -> releaseAllPlatforms();
@@ -35,7 +39,7 @@ int GameLogic::gameLoop(){
 
 		this -> updateGame();
 
-		this -> mainView.update(&this -> platform);
+		this -> mainView.update(&this -> platform, &this -> stolenObject, NULL);
 	}
 }
 

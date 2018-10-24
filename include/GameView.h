@@ -3,6 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 #include "../include/Platform.h"
+#include "../include/StolenObject.h"
+#include "../include/PlatformMenu.h"
+#include "../include/FinishButton.h"
 
 namespace escape{
 	class GameView{
@@ -14,12 +17,15 @@ namespace escape{
 			sf::Font font;
 
 			void drawPlatform(sf::RectangleShape platform);
+			void drawStolenObject(sf::CircleShape circle);
+			void drawText(sf::Text text);
+			void drawSprite(sf::Sprite sprite);
 
 		public:
 			GameView();
 			GameView(sf::RenderWindow *App);
 
-	    void update(Platform *platform);
+	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
 
 	};
 }
