@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11 -g   CMakeFiles/greatEscape.dir/bin/greatEscape.cpp.o  -o greatEscape -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network libGroupSeven_core.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 
