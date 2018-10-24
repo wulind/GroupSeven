@@ -46,6 +46,8 @@ file(GLOB EXECLIST bin/*cpp)
 #  link_libraries(${Boost_LIBRARIES})           #
 #################################################
 
+INCLUDE_DIRECTORIES(Box2D-master)
+LINK_DIRECTORIES(Box2D-master)
 
 
 #############

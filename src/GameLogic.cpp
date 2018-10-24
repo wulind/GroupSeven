@@ -1,4 +1,5 @@
 #include "../include/GameLogic.h"
+#include <Box2D/Box2D.h>
 
 using namespace escape;
 

@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <Box2D/Box2D.h>
+
 #include "../include/Platform.h"
 #include "../include/GameView.h"
 
@@ -11,7 +13,8 @@ namespace escape {
 
 		private:
 		  //Window
-		  sf::RenderWindow* App;
+			sf::RenderWindow* App;
+			b2World* World;
 
 			//gameState
 
