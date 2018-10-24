@@ -35,7 +35,7 @@ int GameLogic::gameLoop(){
 
 		this -> updateGame();
 
-		this -> mainView.update(this -> platform);
+		this -> mainView.update(&this -> platform);
 	}
 }
 
