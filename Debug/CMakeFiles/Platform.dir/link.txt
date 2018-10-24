@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/Platform.dir/bin/Platform.cpp.o  -o Platform -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 

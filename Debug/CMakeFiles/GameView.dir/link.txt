@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/GameView.dir/bin/GameView.cpp.o  -o GameView -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 
