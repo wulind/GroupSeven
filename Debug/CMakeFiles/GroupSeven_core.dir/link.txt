@@ -1,2 +1,0 @@
-/usr/bin/ar qc libGroupSeven_core.a  CMakeFiles/GroupSeven_core.dir/src/GameController.cpp.o CMakeFiles/GroupSeven_core.dir/src/GameView.cpp.o CMakeFiles/GroupSeven_core.dir/src/Platform.cpp.o
-/usr/bin/ranlib libGroupSeven_core.a

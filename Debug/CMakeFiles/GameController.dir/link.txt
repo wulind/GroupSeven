@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++11 -g   CMakeFiles/GameController.dir/bin/GameController.cpp.o  -o GameController -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 
