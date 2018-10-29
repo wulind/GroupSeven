@@ -15,6 +15,7 @@ namespace escape {
 		  //Window
 			sf::RenderWindow* App;
 			b2World* World;
+			b2Body** Body;
 
 			//gameState
 

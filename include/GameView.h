@@ -19,7 +19,7 @@ namespace escape{
 			GameView();
 			GameView(sf::RenderWindow *App);
 
-	    void update(Platform *platform);
+	    void update(Platform* platform);
 
 	};
 }

@@ -11,13 +11,13 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
 	this -> mainView = GameView(App);
 
-	this -> platform = Platform();
-
 	//Initializes world
 	b2Vec2 Gravity(0.f, 0.1f);
 	this -> World = new b2World(Gravity);
+	this -> platform = Platform(this -> World);
 
 	//Defines a Box. Could move this into class. Would need to pass a reference to World.
+/*
 	b2BodyDef BodyDef;
     	BodyDef.position = b2Vec2(platform.xCoord/SCALE, platform.yCoord/SCALE);
    	BodyDef.type = b2_dynamicBody;
@@ -32,6 +32,7 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	Body->CreateFixture(&FixtureDef);
 	this -> Body = &Body;
 	//End Box Def
+*/
 
 /* Not functioning bottom platform
 	//Bottom platform
@@ -74,7 +75,8 @@ int GameLogic::gameLoop(){
 
 		this -> updateGame();
 
-		this -> mainView.update(&this -> platform);
+		Platform* p = &this -> platform;
+		this -> mainView.update(p);
 	}
 }
 
@@ -113,18 +115,21 @@ void GameLogic::releaseAllPlatforms(){
 
 void GameLogic::updateGame(){
 	this->World->Step(1/2000.f, 8, 3);
-	b2Body* BodyIterator = this->World->GetBodyList();
+	//b2Body* BodyIterator = this->World->GetBodyList();
 	//BodyIterator = BodyIterator->GetNext();
 
 
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
 
+	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
+	/*
 	if (this -> platform.isBeingDragged){
 		this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
-		BodyIterator->SetTransform(b2Vec2(platform.xCoord, platform.yCoord),BodyIterator->GetAngle());
+		/BodyIterator->SetTransform(b2Vec2(platform.xCoord, platform.yCoord),BodyIterator->GetAngle());
 	}
 	else{
 		this -> platform.xCoord = BodyIterator->GetPosition().x;
 		this -> platform.yCoord = BodyIterator->GetPosition().y;
 	}
+	*/
 }

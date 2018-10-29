@@ -13,7 +13,7 @@ void GameView::drawPlatform(sf::RectangleShape platform) {
 	this -> App -> draw(platform);
 }
 
-void GameView::update(Platform *platform) {
+void GameView::update(Platform* platform) {
 	this -> App -> clear(sf::Color::Black);
 
   sf::RectangleShape shape; //TODO: fix
