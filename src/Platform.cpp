@@ -50,10 +50,11 @@ Platform::Platform(b2World* World){
 }
 
 void Platform::updateDragPosition(float mouseX, float mouseY) {
-	if (!this -> isBeingDragged)
-		//this -> xCoord = this -> Body -> GetPosition().x;
-		//this -> yCoord = this -> Body -> GetPosition().y;
+	if (!this -> isBeingDragged){
+		this -> xCoord = this -> Body -> GetPosition().x;
+		this -> yCoord = this -> Body -> GetPosition().y;
 		return;
+	}
 
 	//this -> Body -> SetTransform(b2Vec2(this -> xCoord, this -> yCoord),this -> Body -> GetAngle());
 	this -> xCoord = mouseX - mouseDragOffsetX;
