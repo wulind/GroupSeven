@@ -16,25 +16,25 @@ namespace escape {
 	class GameLogic {
 
 		private:
-		  //Window
-		  sf::RenderWindow* App;
+			//Window
+			sf::RenderWindow* App;
 
 			//gameState
 			//GameState state;
 
-		  //Objects
+		  	//Objects
 			Platform platform;
 			StolenObject stolenObject;
 			PlatformMenu menu;
 			FinishButton finishButton;
 
-		  //Views
+		  	//Views
 			GameView mainView;
 
 		public:
 			GameLogic(sf::RenderWindow *App);
 
-	  	int gameLoop();
+	  		int gameLoop();
 
 			void updateGame();
 
