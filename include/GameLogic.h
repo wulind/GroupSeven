@@ -30,17 +30,20 @@ namespace escape {
 
 		  	//Views
 			GameView mainView;
+		
+			void updateGame();
+			
+			//Platform moving
+			void updateMouse();
+			bool checkMouseOverPlatform();
+			void releaseAllPlatforms();
 
 		public:
 			GameLogic(sf::RenderWindow *App);
 
 	  		int gameLoop();
 
-			void updateGame();
-
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
+			
 	};
 }
 #endif
