@@ -12,7 +12,7 @@ namespace escape {
 
 			float xCoord;
 			float yCoord;
-	    float mouseDragOffsetX;
+	    		float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
 			int height;
