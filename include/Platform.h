@@ -20,7 +20,7 @@ namespace escape {
 
 			bool isBeingDragged;
 
-			sf::Color color;
+			sf::Color color; //TODO: Remove, this is temporary until we add sprites
 
 			void updateDragPosition(float mouseX, float mouseY);
 	};
