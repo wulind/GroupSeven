@@ -34,7 +34,7 @@ namespace escape {
 		public:
 			GameLogic(sf::RenderWindow *App);
 
-	  	int gameLoop();
+	  	int gameLoop(sf::Clock gameTime, double targetMs);
 
 			void updateGame();
 

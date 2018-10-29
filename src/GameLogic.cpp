@@ -12,9 +12,11 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> finishButton = FinishButton(App);
 }
 
-int GameLogic::gameLoop(){
+int GameLogic::gameLoop(sf::Clock gameTime, double targetMs){
   // start main loop
 	while(this -> App -> isOpen()) {
+		//Restart the game clock
+        gameTime.restart();
 
     // process events
 		sf::Event event;
@@ -36,6 +38,14 @@ int GameLogic::gameLoop(){
 					break;
 			}
 		}
+
+		//Get the elapsed time since the loop started
+		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+		//Adjust game timing by sleeping
+		if(deltaMs < targetMs){
+            sf::sleep(sf::milliseconds(targetMs-deltaMs));
+        }
 
 		this -> updateGame();
 
