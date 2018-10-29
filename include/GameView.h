@@ -11,10 +11,10 @@ namespace escape{
 	class GameView{
 
 		private:
-	    //Window
+	    		//Window
 			sf::RenderWindow *App;
 
-			sf::Font font;
+			sf::Font font; //TODO: get rid
 
 			void drawPlatform(sf::RectangleShape platform);
 			void drawStolenObject(sf::CircleShape circle);
@@ -25,7 +25,7 @@ namespace escape{
 			GameView();
 			GameView(sf::RenderWindow *App);
 
-	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
+	    	void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
 
 	};
 }
