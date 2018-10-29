@@ -2,6 +2,9 @@
 
 using namespace escape;
 
+/*
+* @param *App: pointer to game window
+*/
 GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
 	this -> mainView = GameView(App);
@@ -12,6 +15,9 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> finishButton = FinishButton(App);
 }
 
+/*
+* Main loop
+*/
 int GameLogic::gameLoop(){
   // start main loop
 	while(this -> App -> isOpen()) {
@@ -37,11 +43,16 @@ int GameLogic::gameLoop(){
 			}
 		}
 
-		this -> updateGame();
+		this -> updateMouse();
 
-		this -> mainView.update(&this -> platform, &this -> stolenObject, NULL);
+		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
 	}
 }
+
+/*
+* Checks game state and updates screen based on that
+*/
+void updateGame();
 
 bool GameLogic::checkMouseOverPlatform(){
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
@@ -73,7 +84,7 @@ void GameLogic::releaseAllPlatforms(){
 	this -> platform.isBeingDragged = false;
 }
 
-void GameLogic::updateGame(){
+void GameLogic::updateMouse(){
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
 
 	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);

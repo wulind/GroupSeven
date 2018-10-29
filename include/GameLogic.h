@@ -38,6 +38,7 @@ namespace escape {
 
 			void updateGame();
 
+			void updateMouse();
 			bool checkMouseOverPlatform();
 			void releaseAllPlatforms();
 	};

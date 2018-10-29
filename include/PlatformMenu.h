@@ -6,21 +6,21 @@
 //TODO: Merge with FinishButton
 namespace escape{
   class PlatformMenu{
+
+     private:
+         sf::RenderWindow *App;
+
+         sf::Font font;
+         sf::Texture texture;
+
      public:
          PlatformMenu();
          PlatformMenu(sf::RenderWindow *App);
 
-         sf::RenderWindow *App;
-
-         sf::Texture texture;
          sf::Sprite menu;
-         sf::Font font;
          sf::Text title;
 
-         int screenX;
-         int screenY;
-
-         void update(GameState *state);
+         void update();
   };
 }
 #endif

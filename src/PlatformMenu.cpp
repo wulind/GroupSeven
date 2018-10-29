@@ -8,14 +8,14 @@ PlatformMenu::PlatformMenu(sf::RenderWindow *App){
   this -> App = App;
 }
 
-void PlatformMenu::update(GameState *state){
+void PlatformMenu::update(){
   int screenX = 800; //TODO: make it more flexible to App's changing frame
   int screenY = 600;
 
   if (!texture.loadFromFile("../data/menutexture.png")){
     // TODO:error...
   }
-  if (!font.loadFromFile("../data/sansation.ttf")){
+  if (!font.loadFromFile("../data/arial.ttf")){
     // TODO:error...
   }
 
