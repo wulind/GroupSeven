@@ -1,15 +1,18 @@
 #include "../include/GameLogic.h"
 
 using namespace escape;
+using namespace factory;
 
 /*
 * @param *App: pointer to game window
 */
 GameLogic::GameLogic(sf::RenderWindow *App){
+
 	this -> App = App;
 	this -> mainView = GameView(App);
 
-	this -> platform = Platform(50, 50, 20, 100);
+	this -> levelFactory = LevelFactory();
+	this -> platforms = this->levelFactory.getPlatforms(1);
 	this -> stolenObject = StolenObject(100, 100, 25);
 	this -> menu = PlatformMenu(App);
 	this -> finishButton = FinishButton(App);
@@ -33,6 +36,7 @@ int GameLogic::gameLoop(){
 				case sf::Event::MouseButtonPressed:
 					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 						this -> checkMouseOverPlatform();
+						this -> updateMouse();
 					}
 					break;
 				case sf::Event::MouseButtonReleased:
@@ -43,10 +47,10 @@ int GameLogic::gameLoop(){
 			}
 		}
 
-		this -> updateMouse();
-
-		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
+		this -> mainView.update(&this -> platforms, &this -> stolenObject, &this -> menu);
 	}
+
+	return 1;
 }
 
 /*
@@ -60,32 +64,44 @@ bool GameLogic::checkMouseOverPlatform(){
 	float mouseX = mousePosition.x;
 	float mouseY = mousePosition.y;
 
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
+	for (Platform curPlatform : platforms) {
+		float platformXStart = curPlatform.xCoord;
+		float platformYStart = curPlatform.yCoord;
 
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
+		float platformXEnd = platformXStart + curPlatform.width;
+		float platformYEnd = platformYStart + curPlatform.height;
 
-	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
-	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
+		bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
+		bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
 
-	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
+		if (hitsX && hitsY) {
+			curPlatform.startDrag();
 
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
+			printf("Is being dragged: %d\n", curPlatform.isBeingDragged);
 
-		return true;
+			curPlatform.mouseDragOffsetX = mouseX - platformXStart;
+			curPlatform.mouseDragOffsetY = mouseY - platformYStart;
+
+			return true;
+		}
 	}
+
 	return false;
 }
 
 void GameLogic::releaseAllPlatforms(){
-	this -> platform.isBeingDragged = false;
+	for (Platform curPlatform : platforms) {
+		printf("sweet release");
+		curPlatform.endDrag();
+	}
 }
 
 void GameLogic::updateMouse(){
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
 
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
+	for (Platform curPlatform : platforms) {
+		if(curPlatform.isBeingDragged)
+			curPlatform.updateDragPosition(mousePosition.x, mousePosition.y);
+	}
+	
 }

@@ -49,7 +49,7 @@ void GameView::drawSprite(sf::Sprite sprite) {
 * @param stolenObject: objects that need to be stolen
 * @param menu: menu that contains platforms
 */
-void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu) { //TODO: Fix
+void GameView::update(std::vector<Platform> *platforms, StolenObject *stolenObject, PlatformMenu *menu) { //TODO: Fix
 	this -> App -> clear(sf::Color(103, 164, 207));
 
 	if (menu){
@@ -58,13 +58,19 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 		this -> drawText(menu -> title);
 	}
 
-	if (platform){
-		sf::RectangleShape rectangle(sf::Vector2f(platform -> width, platform -> height)); //TODO: fix
-		//shape.setSize(sf::Vector2f(platform->width, platform->height));
-		rectangle.setPosition(platform -> xCoord, platform -> yCoord);
-		rectangle.setFillColor(platform -> color);
+	if (platforms){
 
-		this -> drawPlatform(rectangle);
+
+		for (Platform curPlatform: *platforms) {
+
+			sf::RectangleShape rectangle(sf::Vector2f(curPlatform.width, curPlatform.height)); //TODO: fix
+			//shape.setSize(sf::Vector2f(platform->width, platform->height));
+			rectangle.setPosition(curPlatform.xCoord, curPlatform.yCoord);
+			rectangle.setFillColor(curPlatform.color);
+
+			this->drawPlatform(rectangle);
+		}
+			
 	}
 
 	if (stolenObject){

@@ -9,6 +9,7 @@
 #include "../include/StolenObject.h"
 #include "../include/PlatformMenu.h"
 #include "../include/FinishButton.h"
+#include "../include/LevelFactory.h"
 
 #include "../include/GameView.h"
 
@@ -23,13 +24,18 @@ namespace escape {
 			//GameState state;
 
 		  	//Objects
-			Platform platform;
 			StolenObject stolenObject;
 			PlatformMenu menu;
 			FinishButton finishButton;
 
 		  	//Views
 			GameView mainView;
+
+			// Level Factory
+			factory::LevelFactory levelFactory;
+
+			// Platforms
+			std::vector <escape::Platform> platforms;
 		
 			void updateGame();
 			

@@ -12,7 +12,7 @@ namespace escape {
 
 			float xCoord;
 			float yCoord;
-	    		float mouseDragOffsetX;
+	    	float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
 			int height;
@@ -23,6 +23,9 @@ namespace escape {
 			sf::Color color; //TODO: Remove, this is temporary until we add sprites
 
 			void updateDragPosition(float mouseX, float mouseY);
+
+			void startDrag();
+			void endDrag();
 	};
 }
 #endif

@@ -12,12 +12,14 @@ void PlatformMenu::update(){
   int screenX = 800; //TODO: make it more flexible to App's changing frame
   int screenY = 600;
 
+  /*
   if (!texture.loadFromFile("../data/menutexture.png")){
     // TODO:error...
   }
   if (!font.loadFromFile("../data/arial.ttf")){
     // TODO:error...
   }
+  */
 
   this -> title.setFont(font);
   this -> title.setPosition(screenX-165,5);

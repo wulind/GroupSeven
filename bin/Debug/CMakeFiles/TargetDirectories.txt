@@ -1,0 +1,4 @@
+G:/GroupSeven/bin/Debug/CMakeFiles/rebuild_cache.dir
+G:/GroupSeven/bin/Debug/CMakeFiles/GroupSeven_core.dir
+G:/GroupSeven/bin/Debug/CMakeFiles/greatEscape.dir
+G:/GroupSeven/bin/Debug/CMakeFiles/edit_cache.dir
