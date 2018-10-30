@@ -1,29 +1,15 @@
 #include <SFML/Graphics.hpp>
+#include "../include/GameLogic.h"
 
 int main(int argc, char** argv)
 {
-  // create main window
-  sf::RenderWindow App(sf::VideoMode(800,600,32), "The Great Escape");
+	// create main window
+	sf::RenderWindow App(sf::VideoMode(800,600,32), "The Great Escape");
 
-  // start main loop
-  while(App.isOpen())
-  {
-    // process events
-    sf::Event Event;
-    while(App.pollEvent(Event))
-    {
-      // Exit
-      if(Event.type == sf::Event::Closed)
-        App.close();
-    }
+	escape::GameLogic *gameLogic = new escape::GameLogic(&App);
 
-    // clear screen and fill with blue
-    App.clear(sf::Color::Black);
+	gameLogic -> gameLoop();
 
-    // display
-    App.display();
-  }
-
-  // Done.
-  return 0;
+	// Done.
+	return 0;
 }
