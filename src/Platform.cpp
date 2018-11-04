@@ -6,7 +6,7 @@ using namespace escape;
 
 Platform::Platform(){};
 
-Platform::Platform(float x, float y, int height, int width){
+Platform::Platform(float x, float y, int height, int width, b2World* World){
 	//TODO: Update this to be in the menu
 	this -> xCoord = x;
 	this -> yCoord = y;
@@ -20,25 +20,11 @@ Platform::Platform(float x, float y, int height, int width){
 
 	this -> color = sf::Color::White;
 
-}
-Platform::Platform(b2World* World){
-	this -> xCoord = 50;
-	this -> yCoord = 50;
-  	this -> mouseDragOffsetX = 0;
-	this -> mouseDragOffsetY = 0;
-
-	this -> height = 20;
-	this -> width = 100;
-
-	this -> isBeingDragged = false;
-
-	this -> color = sf::Color::White;
-
 	this -> World = World;
 
 	b2BodyDef BodyDef;
     	BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
-   	BodyDef.type = b2_dynamicBody;
+   	BodyDef.type = b2_staticBody;
     	b2Body* Body = this -> World -> CreateBody(&BodyDef);
 	
 	b2PolygonShape Shape;
@@ -49,8 +35,8 @@ Platform::Platform(b2World* World){
 	FixtureDef.shape = &Shape;
 	Body->CreateFixture(&FixtureDef);
 	this -> Body = Body;
-
 }
+
 
 void Platform::updateDragPosition(float mouseX, float mouseY) {
 	if (!this -> isBeingDragged){

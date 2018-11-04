@@ -11,15 +11,17 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
 	this -> mainView = GameView(App);
 
-	this -> platform = Platform(50, 50, 20, 100);
-	this -> stolenObject = StolenObject(100, 100, 25);
-	this -> menu = PlatformMenu(App);
-	this -> finishButton = FinishButton(App);
-
 	//Initializes world
 	b2Vec2 Gravity(0.f, 0.1f);
 	this -> World = new b2World(Gravity);
-	this -> platform = Platform(this -> World);
+	this -> platform = Platform(50, 50, 20, 100, this -> World);
+
+	//this -> platform = Platform(50, 50, 20, 100);
+	this -> stolenObject = StolenObject(100, 100, 25, this -> World);
+	this -> menu = PlatformMenu(App);
+	this -> finishButton = FinishButton(App);
+
+
 }
 
 /*
@@ -49,6 +51,10 @@ int GameLogic::gameLoop(){
 					break;
 			}
 		}
+
+		this->World->Step(1/30.f, 8, 3);
+		this -> stolenObject.UpdatePosition();
+		
 
 		this -> updateMouse();
 
@@ -92,8 +98,6 @@ void GameLogic::releaseAllPlatforms(){
 }
 
 void GameLogic::updateMouse(){
-	this->World->Step(1/2000.f, 8, 3);
-
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
 
 	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);

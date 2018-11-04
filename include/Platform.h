@@ -9,8 +9,7 @@ namespace escape {
 
 		public:
 			Platform();
-			Platform(b2World* World);
-			Platform(float x, float y, int height, int width);
+			Platform(float x, float y, int height, int width, b2World* World);
 
 			float xCoord;
 			float yCoord;
