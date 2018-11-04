@@ -25,7 +25,7 @@ namespace escape{
 			GameView();
 			GameView(sf::RenderWindow *App);
 
-	    		void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
+	    		void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base);
 
 	};
 }

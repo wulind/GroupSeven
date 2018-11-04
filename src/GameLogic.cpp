@@ -12,12 +12,13 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> mainView = GameView(App);
 
 	//Initializes world
-	b2Vec2 Gravity(0.f, 0.1f);
+	b2Vec2 Gravity(0.f, 1.0f);
 	this -> World = new b2World(Gravity);
-	this -> platform = Platform(150, 150, 20, 100, this -> World);
+	this -> platform = Platform(150, 450, 20, 100, this -> World);
 
 	//this -> platform = Platform(50, 50, 20, 100);
 	this -> stolenObject = StolenObject(100, 100, 25, this -> World);
+	this -> base = Platform(300,500,10,600, this -> World);
 	this -> menu = PlatformMenu(App);
 	this -> finishButton = FinishButton(App);
 
@@ -52,13 +53,13 @@ int GameLogic::gameLoop(){
 			}
 		}
 
-		this -> World -> Step(1/120.f, 8, 3);
+		this -> World -> Step(1.f/60.f, 5, 8);
 		this -> stolenObject.UpdatePosition();
 		
 
 		this -> updateMouse();
 
-		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
+		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu, &this -> base);
 	}
 }
 

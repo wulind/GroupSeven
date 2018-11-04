@@ -22,15 +22,18 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 
 	this -> World = World;
 
+	float h = (float) height;
+	float w = (float) width;
+
 	b2BodyDef BodyDef;
     	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
    	BodyDef.type = b2_staticBody;
     	b2Body* Body = this -> World -> CreateBody(&BodyDef);
 	
 	b2PolygonShape Shape;
-	Shape.SetAsBox((((float)height)/2)/SCALE, ((float)width/2)/SCALE);
+	Shape.SetAsBox((float)(width/2)/SCALE, (float)(height/2)/SCALE);
 	b2FixtureDef FixtureDef;
-	FixtureDef.density = 0.f;
+	FixtureDef.density = 100.f;
 	FixtureDef.shape = &Shape;
 	Body->CreateFixture(&FixtureDef);
 	this -> Body = Body;
@@ -41,11 +44,14 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 	if (!this -> isBeingDragged){
 		this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 		this -> yCoord = this -> Body -> GetPosition().y * SCALE;
-		return;
+	}
+	else{
+		this -> xCoord = mouseX - mouseDragOffsetX;
+		this -> yCoord = mouseY - mouseDragOffsetY;
+		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), M_PI);
 	}
 
-	//this -> Body -> SetTransform(b2Vec2(this -> xCoord, this -> yCoord),this -> Body -> GetAngle());
-	this -> xCoord = mouseX - mouseDragOffsetX;
-	this -> yCoord = mouseY - mouseDragOffsetY;
-	this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), 0);
+	//printf("Platform xCoord: %f, yCoord: %f\n", this -> xCoord, this -> yCoord);
+	//printf("Box2d    xCoord: %f, yCoord: %f\n", this -> Body -> GetPosition().x * SCALE, this -> Body -> GetPosition().y * SCALE); 
+	return;
 }

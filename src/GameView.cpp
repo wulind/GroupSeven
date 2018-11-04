@@ -49,7 +49,7 @@ void GameView::drawSprite(sf::Sprite sprite) {
 * @param stolenObject: objects that need to be stolen
 * @param menu: menu that contains platforms
 */
-void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu) { //TODO: Fix
+void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base) { //TODO: Fix
 	this -> App -> clear(sf::Color(103, 164, 207));
 
 	if (menu){
@@ -60,6 +60,7 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 
 	if (platform){
 		sf::RectangleShape rectangle(sf::Vector2f(platform -> width, platform -> height)); //TODO: fix
+		rectangle.setOrigin(platform -> width/2, platform -> height/2);
 		//shape.setSize(sf::Vector2f(platform->width, platform->height));
 		rectangle.setPosition(platform -> xCoord, platform -> yCoord);
 		rectangle.setFillColor(platform -> color);
@@ -67,8 +68,19 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 		this -> drawPlatform(rectangle);
 	}
 
+	if (base){
+		sf::RectangleShape rectangle(sf::Vector2f(base -> width, base -> height)); //TODO: fix
+		rectangle.setOrigin(base -> width/2, base -> height/2);
+		//shape.setSize(sf::Vector2f(platform->width, platform->height));
+		rectangle.setPosition(base -> xCoord, base -> yCoord);
+		rectangle.setFillColor(base -> color);
+
+		this -> drawPlatform(rectangle);
+	}
+
 	if (stolenObject){
 		sf::CircleShape circle(stolenObject -> radius); //TODO: fix
+		circle.setOrigin(stolenObject -> radius,stolenObject -> radius);
 		circle.setPosition(stolenObject -> xCoord, stolenObject -> yCoord);
 		circle.setFillColor(stolenObject -> color);
 		//TODO: Smooth it out when we pick a texture
