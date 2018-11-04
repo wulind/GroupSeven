@@ -26,7 +26,7 @@ namespace escape {
 			Platform platform;
 			StolenObject stolenObject;
 			PlatformMenu menu;
-			FinishButton finishButton;
+      FinishButton finishButton;
 
 		  	//Views
 			GameView mainView;

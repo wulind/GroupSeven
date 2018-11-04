@@ -12,7 +12,7 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> platform = Platform(50, 50, 20, 100);
 	this -> stolenObject = StolenObject(100, 100, 25);
 	this -> menu = PlatformMenu(App);
-	this -> finishButton = FinishButton(App);
+  this -> finishButton = FinishButton(App);
 }
 
 /*
