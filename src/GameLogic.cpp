@@ -14,7 +14,7 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	//Initializes world
 	b2Vec2 Gravity(0.f, 0.1f);
 	this -> World = new b2World(Gravity);
-	this -> platform = Platform(50, 50, 20, 100, this -> World);
+	this -> platform = Platform(150, 150, 20, 100, this -> World);
 
 	//this -> platform = Platform(50, 50, 20, 100);
 	this -> stolenObject = StolenObject(100, 100, 25, this -> World);
@@ -52,7 +52,7 @@ int GameLogic::gameLoop(){
 			}
 		}
 
-		this->World->Step(1/30.f, 8, 3);
+		this -> World -> Step(1/120.f, 8, 3);
 		this -> stolenObject.UpdatePosition();
 		
 

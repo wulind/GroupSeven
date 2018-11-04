@@ -18,12 +18,12 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 	this -> World = World;
 
 	b2BodyDef BodyDef;
-    	BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
+    	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
    	BodyDef.type = b2_dynamicBody;
     	b2Body* Body = this -> World -> CreateBody(&BodyDef);
 	
 	b2CircleShape Shape;
-	Shape.m_p.Set(x/SCALE, y/SCALE);
+	Shape.m_p.Set(((float)x/2)/SCALE, ((float)y/2)/SCALE);
 	Shape.m_radius = radius / SCALE;
 	b2FixtureDef FixtureDef;
 	FixtureDef.density = 1.f;
@@ -34,6 +34,6 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 }
 
 void StolenObject::UpdatePosition(){
-	this -> xCoord = this -> Body -> GetPosition().x;
-	this -> yCoord = this -> Body -> GetPosition().y;
+	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
+	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 }
