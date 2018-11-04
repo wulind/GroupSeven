@@ -2,8 +2,7 @@
 #define GAMELOGIC_H
 
 #include <SFML/Graphics.hpp>
-
-#include "../include/GameState.h"
+#include <Box2D/Box2D.h>
 
 #include "../include/Platform.h"
 #include "../include/StolenObject.h"
@@ -18,7 +17,8 @@ namespace escape {
 		private:
 			//Window
 			sf::RenderWindow* App;
-
+			b2World* World;
+			b2Body** Body;
 			//gameState
 			//GameState state;
 
@@ -30,20 +30,3 @@ namespace escape {
 
 		  	//Views
 			GameView mainView;
-		
-			void updateGame();
-			
-			//Platform moving
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
-
-		public:
-			GameLogic(sf::RenderWindow *App);
-
-	  		int gameLoop();
-
-			
-	};
-}
-#endif

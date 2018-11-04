@@ -47,6 +47,12 @@ file(GLOB EXECLIST bin/*cpp)
 #################################################
 
 
+find_library(LIBBOX2D Box2D Box2D)
+link_libraries(${LIBBOX2D})
+
+
+
+
 
 #############
 # Find SFML #

@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/test.dir/bin/test.cpp.o  -o test -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network libGroupSeven_core.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 

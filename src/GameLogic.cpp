@@ -1,5 +1,7 @@
 #include "../include/GameLogic.h"
 
+static const float SCALE = 30.f;
+
 using namespace escape;
 
 /*
@@ -13,6 +15,11 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> stolenObject = StolenObject(100, 100, 25);
 	this -> menu = PlatformMenu(App);
 	this -> finishButton = FinishButton(App);
+
+	//Initializes world
+	b2Vec2 Gravity(0.f, 0.1f);
+	this -> World = new b2World(Gravity);
+	this -> platform = Platform(this -> World);
 }
 
 /*
@@ -85,6 +92,8 @@ void GameLogic::releaseAllPlatforms(){
 }
 
 void GameLogic::updateMouse(){
+	this->World->Step(1/2000.f, 8, 3);
+
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
 
 	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
