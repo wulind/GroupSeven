@@ -4,6 +4,8 @@ static const float SCALE = 30.f;
 
 using namespace escape;
 
+Platform::Platform(){};
+
 Platform::Platform(float x, float y, int height, int width){
 	//TODO: Update this to be in the menu
 	this -> xCoord = x;
