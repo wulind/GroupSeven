@@ -1,39 +1,15 @@
-#include "../include/PlatformMenu.h"
+#include "../include/FinishButton.h"
 
 using namespace escape;
 
-PlatformMenu::PlatformMenu(){}
+FinishButton::FinishButton(){}
 
-PlatformMenu::PlatformMenu(sf::RenderWindow *App){
+FinishButton::FinishButton(sf::RenderWindow *App){
   this -> App = App;
-}
-
-void PlatformMenu::update(){
   this -> scale = .2f;
 }
 
-void PlatformMenu::updateMenu(){
-  int screenX = 800; //TODO: make it more flexible to App's changing frame
-  int screenY = 600;
-
-  if (!texture.loadFromFile("../data/menutexture.png")){
-    // TODO:error...
-  }
-  if (!font.loadFromFile("../data/arial.ttf")){
-    // TODO:error...
-  }
-
-  this -> title.setFont(font);
-  this -> title.setPosition(screenX-165,5);
-  this -> title.setString("Click & Drag");
-  this -> title.setCharacterSize(24);
-  this -> title.setFillColor(sf::Color::White);
-
-  this -> menu.setTextureRect(sf::IntRect(125, 300, 180, 600));
-  this -> menu.setPosition(sf::Vector2f(screenX-180, 0)); // absolute position
-  this -> menu.setTexture(texture);
-}
-void PlatformMenu::updateFinish(GameState *state){
+void FinishButton::update(GameState *state){
   //Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
   int relativeX = .8 * this -> App->getSize().x;
   int relativeY = .85 * this -> App->getSize().y;

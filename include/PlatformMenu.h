@@ -14,28 +14,35 @@ namespace escape{
          sf::Texture texture;
 
      public:
+         PlatformMenu();
+         PlatformMenu(sf::RenderWindow *App);
 
-        PlatformMenu();
-        PlatformMenu(sf::RenderWindow *App);
+         sf::Sprite menu;
+         sf::Text title;
 
-        sf::Sprite menu;
-        sf::Text title;
+         void update();
 
-        void updateMenu();
+         PlatformMenu();
+         PlatformMenu(sf::RenderWindow *App);
 
-        // FinishButton();
-        // FinishButton(sf::RenderWindow *App);
+         sf::Sprite menu;
+         sf::Text title;
 
-        sf::RenderWindow* App;
+         void updateMenu();
 
-        sf::Sprite button;
-        sf::Texture texture;
+         // FinishButton();
+         // FinishButton(sf::RenderWindow *App);
 
-        float scale;
+         sf::RenderWindow* App;
 
-        void updateFinish(GameState *state);
+         sf::Sprite button;
+         sf::Texture texture;
 
-        void clickButton(GameState *state);
+         float scale;
+
+         void updateFinish(GameState *state);
+
+         void clickButton(GameState *state);
   };
 }
 #endif
