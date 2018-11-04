@@ -5,7 +5,7 @@ namespace escape{
   class GameState{
    public:
          GameState();
-         
+
          int play;
 
          void setState(int state);
