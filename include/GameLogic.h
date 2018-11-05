@@ -28,10 +28,6 @@ namespace escape {
 		
 			void updateGame();
 			
-			//Platform moving
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
 
 		public:
 			GameLogic(sf::RenderWindow *App);
