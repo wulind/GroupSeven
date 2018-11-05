@@ -5,7 +5,6 @@
 #include "../include/Platform.h"
 #include "../include/StolenObject.h"
 #include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
 
 namespace escape{
 	class GameView{
