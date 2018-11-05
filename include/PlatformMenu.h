@@ -9,31 +9,26 @@ namespace escape{
 
      private:
          sf::RenderWindow *App;
-
+         //Graphical variables for the menu
          sf::Font font;
-         sf::Texture texture;
+         sf::Texture menu;
+         sf::Text title;
+         //Graphical variables for the finish button
+         sf::Texture buttonTexture;
+         sf::Sprite finishButton;
+
+         float scale;
+
 
      public:
 
         PlatformMenu();
-        PlatformMenu(sf::RenderWindow *App);
+        PlatformMenu(sf::RenderWindow *App);  
+        void update(GameState *state);
 
-        sf::Sprite menu;
-        sf::Text title;
 
-        void updateMenu();
 
-        // FinishButton();
-        // FinishButton(sf::RenderWindow *App);
-
-        sf::RenderWindow* App;
-
-        sf::Sprite button;
-        sf::Texture texture;
-
-        float scale;
-
-        void updateFinish(GameState *state);
+        
 
   };
 }

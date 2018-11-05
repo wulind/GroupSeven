@@ -7,6 +7,11 @@ namespace escape{
    	EventManager();
    	void clickButton(GameState *state);
 
+   	void updateMouse();
+   	void checkMouseOverPlatform(Platform *platform);
+   	void releaseAllPlatforms(Platform *platform);
+
+
 	};
 
 #endif
