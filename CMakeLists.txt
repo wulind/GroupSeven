@@ -45,10 +45,18 @@ file(GLOB EXECLIST bin/*cpp)
 #  include_directories(${Boost_INCLUDE_DIRS})   #
 #  link_libraries(${Boost_LIBRARIES})           #
 #################################################
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+#$target_link_libraries(<math.h> m)
 
-find_library(LIBBOX2D Box2D Box2D)
+#include_directories (${Box2D/})
+add_subdirectory(Box2D)
+
+#find_library(LIBBOX2D Box2D Box2D)
 link_libraries(${LIBBOX2D})
+
+#add_library(${LIBBOX2D})
+#add_executable(${LIBBOX2D})
 
 
 

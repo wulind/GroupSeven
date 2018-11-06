@@ -35,9 +35,16 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 	FixtureDef.restitution = .5f;
 	Body->CreateFixture(&FixtureDef);
 	this -> Body = Body;
+	this -> Body -> SetAwake(1);
 }
 
 void StolenObject::UpdatePosition(){
+	/*
+	if (this -> xCoord == this -> Body -> GetPosition().x * SCALE && this -> yCoord == this -> Body -> GetPosition().y * SCALE){
+		this -> Body -> ApplyForce(b2Vec2(0,1), this -> Body -> GetWorldCenter());
+	}
+*/
+
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 	//printf("Stolen Object xCoord: %f, yCoord: %f\n", this -> xCoord, this -> yCoord);
@@ -45,6 +52,7 @@ void StolenObject::UpdatePosition(){
 	for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())
         {
 		printf("Obj %i is at x:%f y:%f\n", BodyIterator, BodyIterator -> GetPosition().x * SCALE, BodyIterator -> GetPosition().y * SCALE);
+		printf("is active %i", this -> Body -> IsActive());
 	}
 	printf("\n");
 }
