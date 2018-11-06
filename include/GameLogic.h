@@ -2,39 +2,32 @@
 #define GAMELOGIC_H
 
 #include <SFML/Graphics.hpp>
-
 #include "../include/GameState.h"
-
 #include "../include/Platform.h"
 #include "../include/StolenObject.h"
 #include "../include/PlatformMenu.h"
-
 #include "../include/GameView.h"
 
 namespace escape {
 	class GameLogic {
 
 		private:
-			//Window
-			sf::RenderWindow* App;
+		  //Window
+		  sf::RenderWindow* App;
 
-		  	//Objects
+		  //Objects
 			Platform platform;
 			StolenObject stolenObject;
 			PlatformMenu menu;
-
-		  	//Views
+		  //Views
 			GameView mainView;
-		
-			void updateGame();
-			
 
 		public:
 			GameLogic(sf::RenderWindow *App);
-
-	  		int gameLoop();
-
-			
+            int gameLoop(sf::Clock gameTime, double targetMs);
+			void updateGame();
+			bool checkMouseOverPlatform();
+			void releaseAllPlatforms();
 	};
 }
 #endif

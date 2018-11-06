@@ -7,7 +7,7 @@ namespace escape {
 	class StolenObject {
 
 		public:
-      			StolenObject();
+      StolenObject();
 			StolenObject(float x, float y, int radius);
 
 			float xCoord;
