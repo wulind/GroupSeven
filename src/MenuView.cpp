@@ -5,6 +5,7 @@ using namespace escape;
 MenuView::MenuView(){}
 
 /*
+* MenuView Constructor
 * @param *App: pointer to game window
 */
 MenuView::MenuView(sf::RenderWindow *App){

@@ -8,6 +8,7 @@ namespace escape{
 	class MenuView{
 
 		private:
+
 	    //Window
 			sf::RenderWindow *App;
 

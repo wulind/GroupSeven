@@ -11,6 +11,7 @@ namespace escape {
        FinishButton();
        FinishButton(sf::RenderWindow *App);
 
+       //Window
        sf::RenderWindow* App;
 
        sf::Sprite button;
