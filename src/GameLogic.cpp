@@ -3,6 +3,7 @@
 using namespace escape;
 
 /*
+* GameLogic Constructor
 * @param *App: pointer to game window
 */
 GameLogic::GameLogic(sf::RenderWindow *App){
