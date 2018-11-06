@@ -9,7 +9,7 @@ FinishButton::FinishButton(sf::RenderWindow *App){
   this -> scale = .2f;
 }
 
-void FinishButton::update(GameState *state){
+void FinishButton::update(GameState &state){
   //Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
   int relativeX = .8 * this -> App->getSize().x;
   int relativeY = .85 * this -> App->getSize().y;
@@ -20,7 +20,7 @@ void FinishButton::update(GameState *state){
   }
 
   //Game is in design mode
-  if(state -> play == 0){
+  if(state.getState() == GameState::State::SETUP){
     //Setup finish button
     button.setTexture(texture);
     button.setScale(sf::Vector2f(scale, scale));
@@ -43,8 +43,8 @@ void FinishButton::update(GameState *state){
   }
 }
 
-void FinishButton::clickButton(GameState *state){
+void FinishButton::clickButton(GameState &state){
     //Finish button is pressed
     //Gamestate is now play
-     state->play = 1;
+     state.setState(GameState::State::PLAY);
 }

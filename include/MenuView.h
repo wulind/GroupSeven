@@ -18,7 +18,7 @@ namespace escape{
 			MenuView();
 			MenuView(sf::RenderWindow *App);
 
-	    void update(GameState state);
+	    void update(GameState &state);
 
 	};
 }

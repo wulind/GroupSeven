@@ -3,9 +3,13 @@
 using namespace escape;
 
 GameState::GameState(){
-  this -> play = 0;
+  this -> state = TITLE;
 }
 
-void GameState::setState(int state){
-  this -> play = state;
+void GameState::setState(GameState::State _state){
+  this -> state = _state;
+}
+
+GameState::State GameState::getState(){
+  return this -> state;
 }

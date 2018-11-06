@@ -15,24 +15,26 @@ MenuView::MenuView(sf::RenderWindow *App){
 * updates the screen to whichever menu (title, level selection) is required
 * @param state: current game state
 */
-MenuView::update(GameState state){
-  if(state == GameState::title){
-    this -> loadTitleScreen();
-  } else if (state == GameState::levelSelect){
-    this -> loadLevelSelect();
-  }
+void MenuView::update(GameState &state){
+  switch(state.getState()){
+			case GameState::State::TITLE:
+				break;
+
+			case GameState::State::LEVELSELECT:
+				break;
+	}
 }
 
 /*
 * Loads title screen
 */
-MenuView::loadTitleScreen(){
+void MenuView::loadTitleScreen(){
 
 }
 
 /*
 * Loads level selection screen
 */
-MenuView::loadLevelSelect(){
+void MenuView::loadLevelSelect(){
 
 }

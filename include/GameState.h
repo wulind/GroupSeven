@@ -3,12 +3,16 @@
 
 namespace escape{
   class GameState{
-   public:
-         GameState();
+    public:
+      GameState();
 
-         int play;
+      enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL};
 
-         void setState(int state);
+      void setState(GameState::State _state);
+      GameState::State getState();
+
+    private:
+      State state;
 
   };
 }
