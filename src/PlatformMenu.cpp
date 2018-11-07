@@ -22,7 +22,7 @@ void PlatformMenu::update(){
   if (!texture.loadFromFile("../data/menutexture.png")){
     // TODO:error...
   }
-  if (!font.loadFromFile("../data/arial.ttf")){
+  if (!font.loadFromFile("../data/aliensCows.ttf")){
     // TODO:error...
   }
 

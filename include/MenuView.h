@@ -8,12 +8,15 @@ namespace escape{
 	class MenuView{
 
 		private:
+			float screenX = 800;
+			float screenY = 600;
 
-	    //Window
+			//Window
 			sf::RenderWindow *App;
 
 			void loadTitleScreen();
       void loadLevelSelect();
+			void drawText(sf::Text text);
 
 		public:
 			MenuView();

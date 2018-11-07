@@ -11,6 +11,7 @@
 #include "../include/FinishButton.h"
 
 #include "../include/GameView.h"
+#include "../include/MenuView.h"
 
 namespace escape {
 	class GameLogic {
@@ -20,7 +21,7 @@ namespace escape {
 		  sf::RenderWindow* App;
 
 			//gameState
-			//GameState state;
+			GameState state;
 
 		  //Objects
 			Platform platform;
@@ -30,6 +31,7 @@ namespace escape {
 
 		  //Views
 			GameView mainView;
+			MenuView menuView;
 
 		public:
 			GameLogic(sf::RenderWindow *App);
@@ -38,9 +40,9 @@ namespace escape {
 
 			void updateGame();
 
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
+			//void updateMouse();
+			//bool checkMouseOverPlatform();
+			//void releaseAllPlatforms();
 	};
 }
 #endif
