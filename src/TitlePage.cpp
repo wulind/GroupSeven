@@ -25,6 +25,7 @@ TitlePage::TitlePage(sf::RenderWindow *App){
 
 /*
 * Checks if mouse cliked "play" button, and if it has, changes game state to level select
+* @param state: current game state
 */
 void TitlePage::changeToLevelSelect(GameState &state){
   sf::Vector2i mousePosition = sf::Mouse::getPosition(*this -> App);

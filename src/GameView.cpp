@@ -44,8 +44,10 @@ void GameView::drawText(sf::Text text) {
 void GameView::drawSprite(sf::Sprite sprite) {
 	this -> App -> draw(sprite);
 }
+
 /*
 * Loads title screen
+* @param titlePage: title page object that holds all text
 */
 void GameView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.title.setFont(this -> font);

@@ -33,6 +33,7 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 
 /*
 * Main loop
+* TODO: where does loop go?
 */
 int GameLogic::gameLoop(){
 
