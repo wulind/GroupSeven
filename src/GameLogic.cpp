@@ -1,5 +1,5 @@
-#include "../include/GameLogic.h"
-
+#include "GameLogic.h"
+#include <iostream>
 using namespace escape;
 
 /*
@@ -10,25 +10,32 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
 
 	//Views
-	this -> mainView = GameView(App);
-	this -> menuView = MenuView(App);
+	sf::Font font;
+	if (!font.loadFromFile("../data/aliensCows.ttf")){
+		// TODO:error...
+	}
+	this -> mainView = GameView(this -> App, font);
 
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
+
+	//TitlePage
+	this -> titlePage = TitlePage(this -> App);
 
 	//Test platforms & stolen objects
 	//TODO: get rid of them
 	//this -> platform = Platform(50, 50, 20, 100);
 	//this -> stolenObject = StolenObject(100, 100, 25);
 
-	this -> menu = PlatformMenu(App);
-	this -> finishButton = FinishButton(App);
+	//this -> menu = PlatformMenu(App);
+	//this -> finishButton = FinishButton(App);
 }
 
 /*
 * Main loop
 */
 int GameLogic::gameLoop(){
+
   // start main loop
 	while(this -> App -> isOpen()) {
 
@@ -40,11 +47,20 @@ int GameLogic::gameLoop(){
 				case sf::Event::Closed:
 					this -> App -> close();
 					break;
+
 				case sf::Event::MouseButtonPressed:
+
 					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
+						switch(this -> state.getState()){//TODO: put in event handler
+							case GameState::State::TITLE:
+								this -> titlePage.changeToLevelSelect(this -> state);
+								break;
+						}
 						//this -> checkMouseOverPlatform();
 					}
 					break;
+
 				case sf::Event::MouseButtonReleased:
 					//this -> releaseAllPlatforms();
 					break;
@@ -53,8 +69,8 @@ int GameLogic::gameLoop(){
 			}
 		}
 
+		this -> updateGame();
 		//this -> updateMouse();
-		this -> menuView.update(this -> state);
 		//this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
 	}
 }
@@ -63,7 +79,30 @@ int GameLogic::gameLoop(){
 * Checks game state and updates screen based on that
 */
 void GameLogic::updateGame(){
+	switch(this -> state.getState()){
+		case GameState::State::TITLE:
+			this -> mainView.loadTitleScreen(this -> titlePage);
+			break;
 
+		case GameState::State::LEVELSELECT:
+			this -> mainView.loadLevelSelect();
+			break;
+
+		case GameState::State::LOADING:
+			break;
+
+		case GameState::State::SETUP:
+			break;
+
+		case GameState::State::PLAY:
+			break;
+
+		case GameState::State::SUCCESS:
+			break;
+
+		case GameState::State::FAIL:
+			break;
+	}
 }
 
 /*bool GameLogic::checkMouseOverPlatform(){

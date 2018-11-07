@@ -2,10 +2,13 @@
 #define GAMEVIEW_H
 
 #include <SFML/Graphics.hpp>
-#include "../include/Platform.h"
-#include "../include/StolenObject.h"
-#include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
+
+#include "TitlePage.h"
+
+#include "Platform.h"
+#include "StolenObject.h"
+#include "PlatformMenu.h"
+#include "FinishButton.h"
 
 namespace escape{
 	class GameView{
@@ -13,6 +16,9 @@ namespace escape{
 		private:
 	    //Window
 			sf::RenderWindow *App;
+
+			float screenX = 800;
+			float screenY = 600;
 
 			sf::Font font;
 
@@ -23,7 +29,10 @@ namespace escape{
 
 		public:
 			GameView();
-			GameView(sf::RenderWindow *App);
+			GameView(sf::RenderWindow *App, sf::Font &font);
+
+			void loadTitleScreen(TitlePage &titlePage);
+      void loadLevelSelect();
 
 	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
 

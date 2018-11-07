@@ -14,9 +14,9 @@ namespace escape{
 			//Window
 			sf::RenderWindow *App;
 
-			void loadTitleScreen();
-      void loadLevelSelect();
-			void drawText(sf::Text text);
+
+
+			void drawText(sf::Text &text);
 
 		public:
 			MenuView();

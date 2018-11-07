@@ -3,25 +3,29 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "../include/GameState.h"
+#include "GameState.h"
 
-#include "../include/Platform.h"
-#include "../include/StolenObject.h"
-#include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
+#include "TitlePage.h"
 
-#include "../include/GameView.h"
-#include "../include/MenuView.h"
+#include "Platform.h"
+#include "StolenObject.h"
+#include "PlatformMenu.h"
+#include "FinishButton.h"
+
+#include "GameView.h"
 
 namespace escape {
 	class GameLogic {
 
 		private:
 		  //Window
-		  sf::RenderWindow* App;
+		  sf::RenderWindow *App;
 
 			//gameState
 			GameState state;
+
+			//Title Page
+			TitlePage titlePage;
 
 		  //Objects
 			Platform platform;
@@ -31,7 +35,6 @@ namespace escape {
 
 		  //Views
 			GameView mainView;
-			MenuView menuView;
 
 		public:
 			GameLogic(sf::RenderWindow *App);

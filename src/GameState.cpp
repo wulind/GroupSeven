@@ -1,12 +1,12 @@
 #include "../include/GameState.h"
-
+#include <iostream>
 using namespace escape;
 
 /*
 * GameState Constructor
 */
 GameState::GameState(){
-  this -> state = TITLE;
+  this -> state = GameState::State::TITLE;
 }
 
 /*
