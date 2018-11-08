@@ -15,13 +15,13 @@ namespace escape{
 			//Window
 			sf::RenderWindow *App;
 
-			sf::Font font;
+			sf::Font *font;
 
 			void drawText(sf::Text &text);
 
 		public:
 			MenuView();
-			MenuView(sf::RenderWindow *_App, sf::Font &_font);
+			MenuView(sf::RenderWindow *_App, sf::Font *_font);
 
 			void loadTitleScreen(TitlePage &titlePage);
       void loadLevelSelect();

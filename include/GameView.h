@@ -15,23 +15,24 @@ namespace escape{
 
 		private:
 	    //Window
-			sf::RenderWindow *App;
+			sf::RenderWindow App;
 
 			float screenX = 800;
 			float screenY = 600;
 
-			sf::Font font;
+			sf::Font *font;
 
-			void drawPlatform(sf::RectangleShape platform);
-			void drawStolenObject(sf::CircleShape circle);
-			void drawText(sf::Text text);
-			void drawSprite(sf::Sprite sprite);
+			void drawText(sf::Text &text);
+			void drawSprite(sf::Sprite &sprite);
 
 		public:
 			GameView();
-			GameView(sf::RenderWindow *App, sf::Font &font);
+			GameView(sf::Font *_font);
+
+			sf::RenderWindow* getApp();
 
 	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
+
 
 	};
 }

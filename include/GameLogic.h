@@ -4,36 +4,14 @@
 #include <SFML/Graphics.hpp>
 
 #include "GameState.h"
-
 #include "TitlePage.h"
-
-#include "Platform.h"
-#include "StolenObject.h"
-#include "PlatformMenu.h"
-#include "FinishButton.h"
-
-#include "GameView.h"
-#include "MenuView.h"
+#include "ResourceManager.h"
 
 namespace escape {
 	class GameLogic {
 
-		private:
-		  //Window
-		  sf::RenderWindow *App;
-
-		  //Objects
-			Platform platform;
-			StolenObject stolenObject;
-			PlatformMenu menu;
-			FinishButton finishButton;
-
-		  //Views
-			GameView mainView;
-			MenuView menuView;
-
 		public:
-			GameLogic(sf::RenderWindow *App);
+			GameLogic();
 
 			//gameState
 			GameState state;
@@ -41,11 +19,10 @@ namespace escape {
 			//Title Page
 			TitlePage titlePage;
 
-			void updateGame();
+			//Resources (fonts, sprites)
+			ResourceManager resources;
 
-			//void updateMouse();
-			//bool checkMouseOverPlatform();
-			//void releaseAllPlatforms();
+			void pollEvent(sf::RenderWindow *App);
 	};
 }
 #endif

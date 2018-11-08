@@ -1,100 +1,51 @@
 #include "GameLogic.h"
-#include <iostream>
 using namespace escape;
 
 /*
 * GameLogic Constructor
 * @param *App: pointer to game window
 */
-GameLogic::GameLogic(sf::RenderWindow *App){
-	this -> App = App;
-
-	//Views
-	sf::Font font;
-	if (!font.loadFromFile("../data/aliensCows.ttf")){
-		// TODO:error...
-	}
-
-	this -> mainView = GameView(this -> App, font);
-	this -> menuView = MenuView(this -> App, font);
-
+GameLogic::GameLogic(){
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
 
 	//TitlePage
-	this -> titlePage = TitlePage(this -> App);
+	this -> titlePage = TitlePage();
 
-	//Test platforms & stolen objects
-	//TODO: get rid of them
-	//this -> platform = Platform(50, 50, 20, 100);
-	//this -> stolenObject = StolenObject(100, 100, 25);
-
-	//this -> menu = PlatformMenu(App);
-	//this -> finishButton = FinishButton(App);
+	//Resources
+	this -> resources = ResourceManager();
 }
 
 /*
-* Checks game state and updates screen based on that
+* Polls game events, to be replaced by EventHandler
+* @param *App: pointer to current window
 */
-void GameLogic::updateGame(){
-	switch(this -> state.getState()){
-		case GameState::State::TITLE:
-			this -> menuView.loadTitleScreen(this -> titlePage);
-			break;
+void GameLogic::pollEvent(sf::RenderWindow *App){
+	// process events
+	sf::Event event;
+	while(App -> pollEvent(event)) {
 
-		case GameState::State::LEVELSELECT:
-			this -> menuView.loadLevelSelect();
-			break;
+		switch (event.type) {
 
-		case GameState::State::LOADING:
-			break;
+			case sf::Event::Closed:
+				App -> close();// TODO: move in GameView?
+				break;
 
-		case GameState::State::SETUP:
-			break;
+			case sf::Event::MouseButtonPressed:
 
-		case GameState::State::PLAY:
-			break;
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
-		case GameState::State::SUCCESS:
-			break;
+					switch(this -> state.getState()){//TODO: put in event handler
 
-		case GameState::State::FAIL:
-			break;
+						case GameState::State::TITLE:
+							this -> titlePage.changeToLevelSelect(*App, this -> state);
+							break;
+					}
+				}
+				break;
+
+			default:
+				break;
+		}
 	}
 }
-
-/*bool GameLogic::checkMouseOverPlatform(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	float mouseX = mousePosition.x;
-	float mouseY = mousePosition.y;
-
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
-
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
-
-	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
-	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
-
-	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
-
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
-
-		return true;
-	}
-	return false;
-}
-
-void GameLogic::releaseAllPlatforms(){
-	this -> platform.isBeingDragged = false;
-}
-
-void GameLogic::updateMouse(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
-}*/
