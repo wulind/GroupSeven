@@ -44,6 +44,7 @@ void StolenObject::UpdatePosition(){
 		this -> Body -> ApplyForce(b2Vec2(0,1), this -> Body -> GetWorldCenter());
 	}
 */
+	this -> Body -> SetAwake(1);
 
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
