@@ -13,6 +13,7 @@
 #include "FinishButton.h"
 
 #include "GameView.h"
+#include "MenuView.h"
 
 namespace escape {
 	class GameLogic {
@@ -35,6 +36,7 @@ namespace escape {
 
 		  //Views
 			GameView mainView;
+			MenuView menuView;
 
 		public:
 			GameLogic(sf::RenderWindow *App);

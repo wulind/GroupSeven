@@ -31,9 +31,6 @@ namespace escape{
 			GameView();
 			GameView(sf::RenderWindow *App, sf::Font &font);
 
-			void loadTitleScreen(TitlePage &titlePage);
-      void loadLevelSelect();
-
 	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
 
 	};

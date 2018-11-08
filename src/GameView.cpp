@@ -46,43 +46,6 @@ void GameView::drawSprite(sf::Sprite sprite) {
 }
 
 /*
-* Loads title screen
-* @param titlePage: title page object that holds all text
-*/
-void GameView::loadTitleScreen(TitlePage &titlePage){
-	titlePage.title.setFont(this -> font);
-	titlePage.play.setFont(this-> font);
-
-	titlePage.title.setPosition((this -> screenX/2.0f) - (titlePage.title.getLocalBounds().width/2.0f), 50);
-	titlePage.play.setPosition((this -> screenX/2.0f) - (titlePage.play.getLocalBounds().width/2.0f), 500);
-	//Draw to screen
-	this -> App -> clear(sf::Color::Black);
-
-	this -> drawText(titlePage.title);
-	this -> drawText(titlePage.play);
-
-	this -> App -> display();
-}
-
-/*
-* Loads level selection screen
-*/
-void GameView::loadLevelSelect(){
-	sf::Text title;
-	title.setFont(this -> font);
-	title.setString("Select a Level");
-	title.setCharacterSize(50);
-	title.setFillColor(sf::Color::White);
-	title.setPosition((this -> screenX/2.0f) - (title.getLocalBounds().width/2.0f), 50);
-	//Draw to screen
-	this -> App -> clear(sf::Color::Black);
-
-	this -> drawText(title);
-
-	this -> App -> display();
-}
-
-/*
 * Creates all of the SFML-related objects that need to be drawn
 * @param platform: platform needed for the level
 * @param stolenObject: objects that need to be stolen

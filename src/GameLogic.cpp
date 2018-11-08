@@ -14,7 +14,9 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 	if (!font.loadFromFile("../data/aliensCows.ttf")){
 		// TODO:error...
 	}
+
 	this -> mainView = GameView(this -> App, font);
+	this -> menuView = MenuView(this -> App, font);
 
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
@@ -65,6 +67,7 @@ int GameLogic::gameLoop(){
 				case sf::Event::MouseButtonReleased:
 					//this -> releaseAllPlatforms();
 					break;
+
 				default:
 					break;
 			}
@@ -82,11 +85,11 @@ int GameLogic::gameLoop(){
 void GameLogic::updateGame(){
 	switch(this -> state.getState()){
 		case GameState::State::TITLE:
-			this -> mainView.loadTitleScreen(this -> titlePage);
+			this -> menuView.loadTitleScreen(this -> titlePage);
 			break;
 
 		case GameState::State::LEVELSELECT:
-			this -> mainView.loadLevelSelect();
+			this -> menuView.loadLevelSelect();
 			break;
 
 		case GameState::State::LOADING:

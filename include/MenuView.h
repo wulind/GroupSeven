@@ -2,7 +2,8 @@
 #define MENUVIEW_H
 
 #include <SFML/Graphics.hpp>
-#include "../include/GameState.h"
+#include "GameState.h"
+#include "TitlePage.h"
 
 namespace escape{
 	class MenuView{
@@ -14,13 +15,16 @@ namespace escape{
 			//Window
 			sf::RenderWindow *App;
 
-
+			sf::Font font;
 
 			void drawText(sf::Text &text);
 
 		public:
 			MenuView();
-			MenuView(sf::RenderWindow *App);
+			MenuView(sf::RenderWindow *_App, sf::Font &_font);
+
+			void loadTitleScreen(TitlePage &titlePage);
+      void loadLevelSelect();
 
 	    void update(GameState &state);
 
