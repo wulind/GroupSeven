@@ -7,21 +7,21 @@
 namespace escape{
 	class TitlePage{
 
-    private:
-      float screenX = 800;
-      float screenY = 600;
+    		private:
+			float screenX = 800;
+			float screenY = 600;
 
-      //Window
-      sf::RenderWindow *App;
+			//Window
+			sf::RenderWindow *App;
 
 		public:
-      TitlePage();
-      TitlePage(sf::RenderWindow *App);
+			TitlePage();
+			TitlePage(sf::RenderWindow *App);
 
-      sf::Text title;
-    	sf::Text play;
+			sf::Text title;
+    			sf::Text play;
 
-      void changeToLevelSelect(GameState &state);
+      			void changeToLevelSelect(GameState &state);
 
 	};
 }
