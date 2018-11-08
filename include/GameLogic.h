@@ -3,47 +3,45 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "../include/GameState.h"
+#include "GameState.h"
 
-#include "../include/Platform.h"
-#include "../include/StolenObject.h"
-#include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
+#include "TitlePage.h"
 
-#include "../include/GameView.h"
+#include "Platform.h"
+#include "StolenObject.h"
+#include "PlatformMenu.h"
+#include "FinishButton.h"
+
+#include "GameView.h"
+#include "MenuView.h"
 
 namespace escape {
 	class GameLogic {
 
 		private:
-			//Window
-			sf::RenderWindow* App;
+		  //Window
+		  sf::RenderWindow *App;
 
-			//gameState
-			//GameState state;
-
-		  	//Objects
+		  //Objects
 			Platform platform;
 			StolenObject stolenObject;
 			PlatformMenu menu;
-      FinishButton finishButton;
+			FinishButton finishButton;
 
-		  	//Views
+		  //Views
 			GameView mainView;
-		
-			void updateGame();
-			
-			//Platform moving
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
+			MenuView menuView;
 
 		public:
 			GameLogic(sf::RenderWindow *App);
 
-	  		int gameLoop();
+			//gameState
+			GameState state;
 
-			
+			//Title Page
+			TitlePage titlePage;
+
+			void updateGame();
 	};
 }
 #endif

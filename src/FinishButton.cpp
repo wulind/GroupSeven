@@ -4,12 +4,22 @@ using namespace escape;
 
 FinishButton::FinishButton(){}
 
+/*
+* FinishButton Constructor
+* @param *App: pointer to game window
+*/
 FinishButton::FinishButton(sf::RenderWindow *App){
   this -> App = App;
   this -> scale = .2f;
 }
 
-void FinishButton::update(GameState *state){
+
+/*
+* Updates the finish button based off the game state
+* If the player is in design mode & clicks button, switch mode to play mode and get rid of the button
+* @param &state: current state of the game
+*/
+void FinishButton::update(GameState &state){
   //Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
   int relativeX = .8 * this -> App->getSize().x;
   int relativeY = .85 * this -> App->getSize().y;
@@ -20,7 +30,8 @@ void FinishButton::update(GameState *state){
   }
 
   //Game is in design mode
-  if(state -> play == 0){
+  if(state.getState() == GameState::State::SETUP){
+
     //Setup finish button
     button.setTexture(texture);
     button.setScale(sf::Vector2f(scale, scale));
@@ -43,8 +54,12 @@ void FinishButton::update(GameState *state){
   }
 }
 
-void FinishButton::clickButton(GameState *state){
+/*
+* If button is pressed & game is in setup mode, swtich it to play mode
+* @param &state: current state of the game
+*/
+void FinishButton::clickButton(GameState &state){
     //Finish button is pressed
     //Gamestate is now play
-     state->play = 1;
+     state.setState(GameState::State::PLAY);
 }

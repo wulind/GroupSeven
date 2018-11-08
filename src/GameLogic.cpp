@@ -1,91 +1,56 @@
-#include "../include/GameLogic.h"
+#include "GameLogic.h"
 
 using namespace escape;
 
 /*
+* GameLogic Constructor
 * @param *App: pointer to game window
 */
 GameLogic::GameLogic(sf::RenderWindow *App){
 	this -> App = App;
-	this -> mainView = GameView(App);
 
-	this -> platform = Platform(50, 50, 20, 100);
-	this -> stolenObject = StolenObject(100, 100, 25);
-	this -> menu = PlatformMenu(App);
-  this -> finishButton = FinishButton(App);
-}
-
-/*
-* Main loop
-*/
-int GameLogic::gameLoop(){
-  // start main loop
-	while(this -> App -> isOpen()) {
-
-    // process events
-		sf::Event event;
-		while(this -> App -> pollEvent(event)) {
-
-			switch (event.type) {
-				case sf::Event::Closed:
-					this -> App -> close();
-					break;
-				case sf::Event::MouseButtonPressed:
-					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-						this -> checkMouseOverPlatform();
-					}
-					break;
-				case sf::Event::MouseButtonReleased:
-					this -> releaseAllPlatforms();
-					break;
-				default:
-					break;
-			}
-		}
-
-		this -> updateMouse();
-
-		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
+	//Views
+	sf::Font font;
+	if (!font.loadFromFile("../data/aliensCows.ttf")){
+		// TODO:error...
 	}
+
+	this -> mainView = GameView(this -> App, font);
+	this -> menuView = MenuView(this -> App, font);
+
+	//Game State
+	this -> state.setState(GameState::State::TITLE);
+
+	//TitlePage
+	this -> titlePage = TitlePage(this -> App);
 }
 
 /*
 * Checks game state and updates screen based on that
 */
-void updateGame();
+void GameLogic::updateGame(){
+	switch(this -> state.getState()){
+		case GameState::State::TITLE:
+			this -> menuView.loadTitleScreen(this -> titlePage);
+			break;
 
-bool GameLogic::checkMouseOverPlatform(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
+		case GameState::State::LEVELSELECT:
+			this -> menuView.loadLevelSelect();
+			break;
 
-	float mouseX = mousePosition.x;
-	float mouseY = mousePosition.y;
+		case GameState::State::LOADING:
+			break;
 
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
+		case GameState::State::SETUP:
+			break;
 
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
+		case GameState::State::PLAY:
+			break;
 
-	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
-	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
+		case GameState::State::SUCCESS:
+			break;
 
-	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
-
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
-
-		return true;
+		case GameState::State::FAIL:
+			break;
 	}
-	return false;
-}
-
-void GameLogic::releaseAllPlatforms(){
-	this -> platform.isBeingDragged = false;
-}
-
-void GameLogic::updateMouse(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
 }

@@ -21,28 +21,6 @@ namespace escape{
          sf::Text title;
 
          void update();
-
-         PlatformMenu();
-         PlatformMenu(sf::RenderWindow *App);
-
-         sf::Sprite menu;
-         sf::Text title;
-
-         void updateMenu();
-
-         // FinishButton();
-         // FinishButton(sf::RenderWindow *App);
-
-         sf::RenderWindow* App;
-
-         sf::Sprite button;
-         sf::Texture texture;
-
-         float scale;
-
-         void updateFinish(GameState *state);
-
-         void clickButton(GameState *state);
   };
 }
 #endif

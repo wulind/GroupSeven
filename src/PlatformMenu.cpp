@@ -4,22 +4,27 @@ using namespace escape;
 
 PlatformMenu::PlatformMenu(){}
 
+
+/*
+* Constructor
+* @param *App: pointer to game window
+*/
 PlatformMenu::PlatformMenu(sf::RenderWindow *App){
   this -> App = App;
 }
 
+/*
+* Loads menu to be displayed onto screen
+*/
 void PlatformMenu::update(){
-  this -> scale = .2f;
-}
-
-void PlatformMenu::updateMenu(){
   int screenX = 800; //TODO: make it more flexible to App's changing frame
   int screenY = 600;
 
   if (!texture.loadFromFile("../data/menutexture.png")){
     // TODO:error...
   }
-  if (!font.loadFromFile("../data/arial.ttf")){
+
+  if (!font.loadFromFile("../data/aliensCows.ttf")){
     // TODO:error...
   }
 
@@ -32,43 +37,4 @@ void PlatformMenu::updateMenu(){
   this -> menu.setTextureRect(sf::IntRect(125, 300, 180, 600));
   this -> menu.setPosition(sf::Vector2f(screenX-180, 0)); // absolute position
   this -> menu.setTexture(texture);
-}
-void PlatformMenu::updateFinish(GameState *state){
-  //Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
-  int relativeX = .8 * this -> App->getSize().x;
-  int relativeY = .85 * this -> App->getSize().y;
-
-  //Used with the mouse click event when resizing the window to keep the button coordinates relative
-  if (!texture.loadFromFile("../data/finish_button.png")){
-    // error
-  }
-
-  //Game is in design mode
-  if(state -> play == 0){
-    //Setup finish button
-    button.setTexture(texture);
-    button.setScale(sf::Vector2f(scale, scale));
-    button.setPosition(relativeX, relativeY);
-
-    sf::FloatRect size = button.getLocalBounds();
-
-    App -> draw(button);
-
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        //If left mouse click, get mouse
-        int clickX = sf::Mouse::getPosition(*this -> App).x;
-        int clickY = sf::Mouse::getPosition(*this -> App).y;
-
-        if(clickX >= relativeX && clickX <= relativeX+size.width && clickY >= relativeY && clickY <= relativeY+size.height){
-          //If the mouse clicks on the finish button then call clickButton()
-          clickButton(state);
-        }
-      }
-  }
-}
-
-void FinishButton::clickButton(GameState *state){
-    //Finish button is pressed
-    //Gamestate is now play
-     state->play = 1;
 }

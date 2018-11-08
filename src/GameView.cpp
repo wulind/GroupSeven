@@ -6,9 +6,12 @@ GameView::GameView(){}
 
 /*
 * @param *App: pointer to game window
+* @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::RenderWindow *App){
+GameView::GameView(sf::RenderWindow *App, sf::Font &font){
 	this -> App = App;
+	this -> font = font;
+
 }
 
 /*
