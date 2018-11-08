@@ -24,9 +24,9 @@ namespace escape{
 			MenuView(sf::RenderWindow *_App, sf::Font *_font);
 
 			void loadTitleScreen(TitlePage &titlePage);
-      void loadLevelSelect();
+      			void loadLevelSelect();
 
-	    void update(GameState &state);
+	    		void update(GameState &state);
 
 	};
 }
