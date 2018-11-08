@@ -23,8 +23,8 @@ namespace escape{
 
 			sf::Font *font;
 
-			void drawText(sf::Text text);
-			void drawSprite(sf::Sprite sprite);
+			void drawText(sf::Text &text);
+			void drawSprite(sf::Sprite &sprite);
 
 		public:
 			GameView();
