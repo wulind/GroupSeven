@@ -14,6 +14,7 @@ namespace escape{
 	class GameView{
 
 		private:
+
 	    //Window
 			sf::RenderWindow *App;
 
@@ -21,6 +22,7 @@ namespace escape{
 			float screenY = 600;
 
 			sf::Font font;
+
 
 			void drawPlatform(sf::RectangleShape platform);
 			void drawStolenObject(sf::CircleShape circle);
@@ -32,6 +34,7 @@ namespace escape{
 			GameView(sf::RenderWindow *App, sf::Font &font);
 
 	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
+
 
 	};
 }

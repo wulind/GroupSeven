@@ -42,10 +42,6 @@ namespace escape {
 			TitlePage titlePage;
 
 			void updateGame();
-
-			//void updateMouse();
-			//bool checkMouseOverPlatform();
-			//void releaseAllPlatforms();
 	};
 }
 #endif

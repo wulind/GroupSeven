@@ -1,5 +1,5 @@
 #include "GameLogic.h"
-#include <iostream>
+
 using namespace escape;
 
 /*
@@ -23,14 +23,6 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 
 	//TitlePage
 	this -> titlePage = TitlePage(this -> App);
-
-	//Test platforms & stolen objects
-	//TODO: get rid of them
-	//this -> platform = Platform(50, 50, 20, 100);
-	//this -> stolenObject = StolenObject(100, 100, 25);
-
-	//this -> menu = PlatformMenu(App);
-	//this -> finishButton = FinishButton(App);
 }
 
 /*
@@ -62,39 +54,3 @@ void GameLogic::updateGame(){
 			break;
 	}
 }
-
-/*bool GameLogic::checkMouseOverPlatform(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	float mouseX = mousePosition.x;
-	float mouseY = mousePosition.y;
-
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
-
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
-
-	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
-	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
-
-	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
-
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
-
-		return true;
-	}
-	return false;
-}
-
-void GameLogic::releaseAllPlatforms(){
-	this -> platform.isBeingDragged = false;
-}
-
-void GameLogic::updateMouse(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
-}*/

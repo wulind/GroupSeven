@@ -3,6 +3,7 @@
 
 using namespace escape;
 
+
 int main(int argc, char** argv)
 {
 	// create main window

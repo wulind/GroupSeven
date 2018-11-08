@@ -20,7 +20,6 @@ namespace escape {
        float scale;
 
        void update(GameState &state);
-
        void clickButton(GameState &state);
   };
 }

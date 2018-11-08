@@ -4,6 +4,7 @@ using namespace escape;
 
 PlatformMenu::PlatformMenu(){}
 
+
 /*
 * Constructor
 * @param *App: pointer to game window
@@ -22,6 +23,7 @@ void PlatformMenu::update(){
   if (!texture.loadFromFile("../data/menutexture.png")){
     // TODO:error...
   }
+
   if (!font.loadFromFile("../data/aliensCows.ttf")){
     // TODO:error...
   }

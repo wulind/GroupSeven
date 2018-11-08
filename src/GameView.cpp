@@ -11,6 +11,7 @@ GameView::GameView(){}
 GameView::GameView(sf::RenderWindow *App, sf::Font &font){
 	this -> App = App;
 	this -> font = font;
+
 }
 
 /*

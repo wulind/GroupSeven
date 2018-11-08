@@ -13,6 +13,7 @@ FinishButton::FinishButton(sf::RenderWindow *App){
   this -> scale = .2f;
 }
 
+
 /*
 * Updates the finish button based off the game state
 * If the player is in design mode & clicks button, switch mode to play mode and get rid of the button
@@ -30,6 +31,7 @@ void FinishButton::update(GameState &state){
 
   //Game is in design mode
   if(state.getState() == GameState::State::SETUP){
+
     //Setup finish button
     button.setTexture(texture);
     button.setScale(sf::Vector2f(scale, scale));
