@@ -22,12 +22,6 @@ namespace escape {
 		  //Window
 		  sf::RenderWindow *App;
 
-			//gameState
-			GameState state;
-
-			//Title Page
-			TitlePage titlePage;
-
 		  //Objects
 			Platform platform;
 			StolenObject stolenObject;
@@ -41,7 +35,11 @@ namespace escape {
 		public:
 			GameLogic(sf::RenderWindow *App);
 
-	  	int gameLoop();
+			//gameState
+			GameState state;
+
+			//Title Page
+			TitlePage titlePage;
 
 			void updateGame();
 

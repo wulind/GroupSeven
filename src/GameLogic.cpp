@@ -34,52 +34,6 @@ GameLogic::GameLogic(sf::RenderWindow *App){
 }
 
 /*
-* Main loop
-* TODO: where does loop go?
-*/
-int GameLogic::gameLoop(){
-
-  // start main loop
-	while(this -> App -> isOpen()) {
-
-    // process events
-		sf::Event event;
-		while(this -> App -> pollEvent(event)) {
-
-			switch (event.type) {
-				case sf::Event::Closed:
-					this -> App -> close();
-					break;
-
-				case sf::Event::MouseButtonPressed:
-
-					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-
-						switch(this -> state.getState()){//TODO: put in event handler
-							case GameState::State::TITLE:
-								this -> titlePage.changeToLevelSelect(this -> state);
-								break;
-						}
-						//this -> checkMouseOverPlatform();
-					}
-					break;
-
-				case sf::Event::MouseButtonReleased:
-					//this -> releaseAllPlatforms();
-					break;
-
-				default:
-					break;
-			}
-		}
-
-		this -> updateGame();
-		//this -> updateMouse();
-		//this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
-	}
-}
-
-/*
 * Checks game state and updates screen based on that
 */
 void GameLogic::updateGame(){
