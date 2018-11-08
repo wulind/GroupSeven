@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+
 using namespace escape;
 
 /*

@@ -27,6 +27,7 @@ Platform::Platform(float x, float y, int height, int width){
 
 }
 
+
 /*
 * Updates position of platform when it's being dragged across the screen
 * @param mouseX: x coordinate of mouse Position

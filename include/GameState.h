@@ -3,6 +3,7 @@
 
 namespace escape{
   class GameState{
+
     public:
       GameState();
 
