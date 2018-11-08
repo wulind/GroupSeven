@@ -8,42 +8,32 @@ GameView::GameView(){}
 * @param *App: pointer to game window
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::RenderWindow *App, sf::Font &font){
-	this -> App = App;
-	this -> font = font;
-
+GameView::GameView(sf::Font *_font){
+	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape");
+	this -> font = _font;
 }
 
 /*
-* Draws any platforms needed for the level
-* @param platform: rectangle shape to draw
+* Returns current window
 */
-void GameView::drawPlatform(sf::RectangleShape platform) {//TODO:Replace this eventually with sprite & take in a bunch of platforms
-	this -> App -> draw(platform);
-}
-
-/*
-* Draws any circles needed for the level
-* @param circle: circle shape to draw
-*/
-void GameView::drawStolenObject(sf::CircleShape circle) {//TODO:Replace this eventually with sprite
-	this -> App -> draw(circle);
+sf::RenderWindow* GameView::getApp(){
+	return &this -> App;
 }
 
 /*
 * Draws any text needed for the level
 * @param text: text to draw
 */
-void GameView::drawText(sf::Text text) {
-	this -> App -> draw(text);
+void GameView::drawText(sf::Text &text) {
+	this -> App.draw(text);
 }
 
 /*
 * Draws any sprite needed for the level
 * @param sprite: sprite to draw
 */
-void GameView::drawSprite(sf::Sprite sprite) {
-	this -> App -> draw(sprite);
+void GameView::drawSprite(sf::Sprite &sprite) {
+	this -> App.draw(sprite);
 }
 
 /*
@@ -53,7 +43,7 @@ void GameView::drawSprite(sf::Sprite sprite) {
 * @param menu: menu that contains platforms
 */
 void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu) { //TODO: Fix
-	this -> App -> clear(sf::Color(103, 164, 207));
+	this -> App.clear(sf::Color(103, 164, 207));
 
 	if (menu){
 		menu -> update();
@@ -62,21 +52,12 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 	}
 
 	if (platform){
-		sf::RectangleShape rectangle(sf::Vector2f(platform -> width, platform -> height)); //TODO: fix
-		//shape.setSize(sf::Vector2f(platform->width, platform->height));
-		rectangle.setPosition(platform -> xCoord, platform -> yCoord);
-		rectangle.setFillColor(platform -> color);
-
-		this -> drawPlatform(rectangle);
+		//TODO: load platform sprites from resources
 	}
 
 	if (stolenObject){
-		sf::CircleShape circle(stolenObject -> radius); //TODO: fix
-		circle.setPosition(stolenObject -> xCoord, stolenObject -> yCoord);
-		circle.setFillColor(stolenObject -> color);
-		//TODO: Smooth it out when we pick a texture
-		this -> drawStolenObject(circle);
+		//TODO: load stolen object sprites from resources
 	}
 
-	this -> App -> display();
+	this -> App.display();
 }

@@ -7,6 +7,7 @@ using namespace escape;
 */
 GameState::GameState(){
   this -> state = GameState::State::TITLE;
+  this -> currentLevel = 0;
 }
 
 /*
