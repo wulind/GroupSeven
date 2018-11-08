@@ -1,5 +1,0 @@
-/home/zach/Desktop/Game/GroupSeven/Debug/CMakeFiles/rebuild_cache.dir
-/home/zach/Desktop/Game/GroupSeven/Debug/CMakeFiles/edit_cache.dir
-/home/zach/Desktop/Game/GroupSeven/Debug/CMakeFiles/test.dir
-/home/zach/Desktop/Game/GroupSeven/Debug/CMakeFiles/GroupSeven_core.dir
-/home/zach/Desktop/Game/GroupSeven/Debug/CMakeFiles/greatEscape.dir
