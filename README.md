@@ -4,21 +4,10 @@
 Build a route from your location and collect special abilities on the way to help ward off the officials. Steal from all locations to become the greatest band of thieves alive!
 
 ## About
-**Group Members:** Michael Darr, Alex Day, Zach Greenfield, Linda Wu
+**Team Lead:** Linda Wu
+
+**Group Members:** Michael Darr, Alex Day, Zach Greenfield
 
 **Genre:** Puzzle
 
 **Platform:** Windows, Max OS, Linux
-
-**Market:** Children
-
-**Setting:** Museums, Banks, Atlantis
-
-## Mechanics
-1. Physics
-
-   Gravity for ground, Bouyancy for underwater setting
-
-2. Platform layout
-
-   User can layout platforms & other tools to guide objects to goal
