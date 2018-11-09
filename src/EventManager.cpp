@@ -6,12 +6,10 @@ using namespace escape;
  * EventManager Constructor
  * @param *App: current window
  * @param *platform: platform
- * @param *state: current game state
  */
-EventManager::EventManager(sf::RenderWindow *App, Platform *platform, GameState *state){
+EventManager::EventManager(sf::RenderWindow *App, Platform *platform){
 	this -> App = App;
 	this -> platform = platform;
-    	this -> state = state;
 }
 
 /*
