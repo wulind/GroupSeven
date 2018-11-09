@@ -3,12 +3,21 @@
 
 namespace escape{
   class GameState{
-   public:
-        //Constructor
-         GameState();
-         int play;  //Represents designing and playing (0 for design and 1 for playing)
-         //Set the state of the game
-         void setState(int state);
+
+    public:
+      GameState();
+
+      //Possible game states
+      enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL};
+
+      int currentLevel;
+
+      void setState(GameState::State _state);
+      GameState::State getState();
+
+    private:
+      State state; //Current game state
+
   };
 }
 #endif

@@ -1,16 +1,27 @@
 #include "../include/GameState.h"
 
 using namespace escape;
+
 /*
- * GameState constructor 
- */
+* GameState Constructor
+*/
 GameState::GameState(){
-    //Default is in design mode
-  this -> play = 0;
+  this -> state = GameState::State::TITLE;
+  this -> currentLevel = 0;
 }
+
 /*
- * Sets the game state, represented by an integer value
- */
-void GameState::setState(int state){
-  this -> play = state;
+* Sets current game state
+* @param _state: Next game state
+* TODO: place checks so that you can't jump from not logical game state to game state
+*/
+void GameState::setState(GameState::State _state){
+  this -> state = _state;
+}
+
+/*
+* Gets current game state
+*/
+GameState::State GameState::getState(){
+  return this -> state;
 }

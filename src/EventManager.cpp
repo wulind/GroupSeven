@@ -6,9 +6,9 @@ using namespace escape;
 /*
  * EventManager Constructor
  */
-EventManager::EventManager(){
+EventManager::EventManager(sf::RenderWindow *App, Platform *platform, GameState *state){
 	this -> App = App;
-	this -> platform = Platform(50, 50, 20, 100);
+	this -> platform = platform;
     this -> state = state;
 }
 
@@ -36,9 +36,8 @@ void EventManager::clickButton(GameState *state, sf::Sprite finishButton){
         int clickY = sf::Mouse::getPosition(*this -> App).y;
 
         if(clickX >= relativeX && clickX <= relativeX+size.width && clickY >= relativeY && clickY <= relativeY+size.height){
-          //If the mouse clicks on the finish button then call clickButton()
-          // clickButton(state);
-          state->play = 1;
+          //If the mouse clicks on the finish button then set the state to play
+          state->setState(state->PLAY);
         }
       }
 }
@@ -49,7 +48,7 @@ void EventManager::clickButton(GameState *state, sf::Sprite finishButton){
  */
 void EventManager::updateMouse(){
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
+	this -> platform -> updateDragPosition(mousePosition.x, mousePosition.y);
 }
 
 /*
@@ -61,20 +60,20 @@ bool EventManager::checkMouseOverPlatform(Platform *platform){
 	float mouseX = mousePosition.x;
 	float mouseY = mousePosition.y;
 
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
+	float platformXStart = this -> platform->xCoord;
+	float platformYStart = this -> platform->yCoord;
 
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
+	float platformXEnd = platformXStart + this -> platform -> width;
+	float platformYEnd = platformYStart + this -> platform -> height;
 
 	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
 	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
 
 	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
+		this -> platform -> isBeingDragged = true;
 
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
+		this -> platform -> mouseDragOffsetX = mouseX - platformXStart;
+		this -> platform -> mouseDragOffsetY = mouseY - platformYStart;
 
 		return true;
 	}
@@ -85,5 +84,5 @@ bool EventManager::checkMouseOverPlatform(Platform *platform){
  * Releases all platforms. Sets the platform to not being dragged.
  */
 void EventManager::releaseAllPlatforms(Platform *platform){
-	this -> platform.isBeingDragged = false;
+	this -> platform -> isBeingDragged = false;
 }

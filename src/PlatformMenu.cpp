@@ -50,7 +50,7 @@ void PlatformMenu::update(GameState *state){
   }
 
   //Game is in design mode
-  if(state -> play == 0){
+  if(state -> getState() == state -> SETUP){
     //Setup finish button
     finishButton.setTexture(buttonTexture);
     finishButton.setScale(sf::Vector2f(scale, scale));

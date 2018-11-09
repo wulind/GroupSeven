@@ -2,14 +2,14 @@
 #define EVENTMANAGER_H
 
 
-#include "../include/GameState.h"
-#include "../include/Platform.h"
+#include "GameState.h"
+#include "Platform.h"
 
 namespace escape{
   class EventManager{
   public:
       //Constructor
-      EventManager();
+      EventManager(sf::RenderWindow *App, Platform *platform, GameState *state);
       //Handles clicking the mouse on the finish button
       void clickButton(GameState *state, sf::Sprite finishButton);
       //These methods handle platform moving
@@ -21,9 +21,9 @@ namespace escape{
       //The RenderWindow
       sf::RenderWindow *App;
       //The current game state
-      GameState state;
+      GameState *state;
       //The platform object
-      Platform platform;
+      Platform *platform;
       //The relative positions are used with window resizing.
       int relativeX;
       int relativeY;
