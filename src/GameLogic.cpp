@@ -12,10 +12,11 @@ GameLogic::GameLogic(){
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
 
-	//Initializes world
+	//Initializes world.
+	//Takes in Gravity (change second param to change gravity)
 	b2Vec2 Gravity(0.f, 1.0f);
 	this -> World = new b2World(Gravity);
-	//this -> platform = Platform(150, 450, 20, 100, this -> World);
+
 	//TitlePage
 	this -> titlePage = TitlePage();
 

@@ -12,6 +12,7 @@ Platform::Platform(){}
 * @param y: y coordinate of platform
 * @param height: height of platform
 * @param width: width of platform
+* @param World: Box2D World where platform is to be placed
 */
 Platform::Platform(float x, float y, int height, int width, b2World* World){
 	//TODO: Update this to be in the menu
@@ -32,11 +33,13 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 	float h = (float) height;
 	float w = (float) width;
 
+	//Creates Box2D Body.  Static body so that It won't move.
 	b2BodyDef BodyDef;
     	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
    	BodyDef.type = b2_staticBody;
     	b2Body* Body = this -> World -> CreateBody(&BodyDef);
 	
+	//Add a rectangle to go with the platform body
 	b2PolygonShape Shape;
 	Shape.SetAsBox((float)(width/2)/SCALE, (float)(height/2)/SCALE);
 	b2FixtureDef FixtureDef;
@@ -53,6 +56,7 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 * @param mouseY: y coordinate of mouse Position
 */
 void Platform::updateDragPosition(float mouseX, float mouseY) {
+	//Need to update platform based on Box2D if not being dragged
 	if (!this -> isBeingDragged){
 		this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 		this -> yCoord = this -> Body -> GetPosition().y * SCALE;
@@ -62,8 +66,5 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 		this -> yCoord = mouseY - mouseDragOffsetY;
 		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), M_PI);
 	}
-
-	//printf("Platform xCoord: %f, yCoord: %f\n", this -> xCoord, this -> yCoord);
-	//printf("Box2d    xCoord: %f, yCoord: %f\n", this -> Body -> GetPosition().x * SCALE, this -> Body -> GetPosition().y * SCALE); 
 	return;
 }
