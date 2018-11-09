@@ -4,7 +4,9 @@
 Build a route from your location and collect special abilities on the way to help ward off the officials. Steal from all locations to become the greatest band of thieves alive!
 
 ## About
-**Group Members:** Michael Darr, Alex Day, Zach Greenfield, Linda Wu
+**Team Lead:** Linda Wu
+
+**Group Members:** Michael Darr, Alex Day, Zach Greenfield
 
 **Genre:** Puzzle
 
