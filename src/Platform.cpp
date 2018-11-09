@@ -4,8 +4,15 @@ static const float SCALE = 30.f;
 
 using namespace escape;
 
-Platform::Platform(){};
+Platform::Platform(){}
 
+/*
+* Constructor
+* @param x: x coordinate of platform
+* @param y: y coordinate of platform
+* @param height: height of platform
+* @param width: width of platform
+*/
 Platform::Platform(float x, float y, int height, int width, b2World* World){
 	//TODO: Update this to be in the menu
 	this -> xCoord = x;
@@ -40,6 +47,11 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 }
 
 
+/*
+* Updates position of platform when it's being dragged across the screen
+* @param mouseX: x coordinate of mouse Position
+* @param mouseY: y coordinate of mouse Position
+*/
 void Platform::updateDragPosition(float mouseX, float mouseY) {
 	if (!this -> isBeingDragged){
 		this -> xCoord = this -> Body -> GetPosition().x * SCALE;

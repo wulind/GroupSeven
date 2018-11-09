@@ -4,45 +4,29 @@
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
 
-#include "../include/Platform.h"
-#include "../include/StolenObject.h"
-#include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
-
-#include "../include/GameView.h"
+#include "GameState.h"
+#include "TitlePage.h"
+#include "ResourceManager.h"
 
 namespace escape {
 	class GameLogic {
 
 		private:
-			//Window
-			sf::RenderWindow* App;
 			b2World* World;
 			b2Body** Body;
-			//gameState
-			//GameState state;
-
-		  	//Objects
-			Platform platform;
-			StolenObject stolenObject;
-			PlatformMenu menu;
-			FinishButton finishButton;
-			Platform base;
-
-		  	//Views
-			GameView mainView;
-
-			void updateGame();
-			
-			//Platform moving
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
-
 		public:
-			GameLogic(sf::RenderWindow *App);
+			GameLogic();
 
-			int gameLoop();
+			//gameState
+			GameState state;
+
+			//Title Page
+			TitlePage titlePage;
+
+			//Resources (fonts, sprites)
+			ResourceManager resources;
+
+			void pollEvent(sf::RenderWindow *App);
 	};
 }
 #endif
