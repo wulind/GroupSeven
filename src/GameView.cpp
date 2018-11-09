@@ -42,11 +42,11 @@ void GameView::drawSprite(sf::Sprite &sprite) {
 * @param stolenObject: objects that need to be stolen
 * @param menu: menu that contains platforms
 */
-void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base) { //TODO: Fix
+void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base, GameState *state) { //TODO: Fix
 	this -> App.clear(sf::Color(103, 164, 207));
 
 	if (menu){
-		menu -> update();
+		menu -> update(state);
 		this -> drawSprite(menu -> menu);
 		this -> drawText(menu -> title);
 	}
