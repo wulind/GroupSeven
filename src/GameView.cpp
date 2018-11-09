@@ -58,7 +58,7 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 		rectangle.setPosition(platform -> xCoord, platform -> yCoord);
 		rectangle.setFillColor(platform -> color);
 
-		this -> drawPlatform(rectangle);
+		//this -> drawPlatform(rectangle);
 	}
 
 	if (base){
@@ -68,7 +68,7 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 		rectangle.setPosition(base -> xCoord, base -> yCoord);
 		rectangle.setFillColor(base -> color);
 
-		this -> drawPlatform(rectangle);
+		//this -> drawPlatform(rectangle);
 	}
 
 	if (stolenObject){
@@ -77,7 +77,7 @@ void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMe
 		circle.setPosition(stolenObject -> xCoord, stolenObject -> yCoord);
 		circle.setFillColor(stolenObject -> color);
 		//TODO: Smooth it out when we pick a texture
-		this -> drawStolenObject(circle);
+		//this -> drawStolenObject(circle);
 	}
 
 	this -> App.display();

@@ -15,7 +15,7 @@ GameLogic::GameLogic(){
 	//Initializes world
 	b2Vec2 Gravity(0.f, 1.0f);
 	this -> World = new b2World(Gravity);
-	this -> platform = Platform(150, 450, 20, 100, this -> World);
+	//this -> platform = Platform(150, 450, 20, 100, this -> World);
 	//TitlePage
 	this -> titlePage = TitlePage();
 

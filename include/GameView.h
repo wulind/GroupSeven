@@ -31,8 +31,9 @@ namespace escape{
 			GameView(sf::Font *_font);
 
 	    		void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base);
+			sf::RenderWindow* getApp();
 
-	    void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
+	    //void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu);
 
 
 	};
