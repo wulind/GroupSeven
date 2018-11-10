@@ -24,8 +24,8 @@ void EventManager::clickButton(GameState *state, sf::Sprite finishButton){
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
         
 		//Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
-		relativeX = .8 * this -> App->getSize().x;
-		relativeY = .85 * this -> App->getSize().y;
+		relativeX = .8 * this -> App -> getSize().x;
+		relativeY = .85 * this -> App -> getSize().y;
 
 		size = finishButton.getLocalBounds();
 
@@ -33,9 +33,9 @@ void EventManager::clickButton(GameState *state, sf::Sprite finishButton){
 		int clickX = sf::Mouse::getPosition(*this -> App).x;
 		int clickY = sf::Mouse::getPosition(*this -> App).y;
 
-		if(clickX >= relativeX && clickX <= relativeX+size.width && clickY >= relativeY && clickY <= relativeY+size.height){
+		if(clickX >= relativeX && clickX <= relativeX + size.width && clickY >= relativeY && clickY <= relativeY + size.height){
 			//If the mouse clicks on the finish button then set the state to play
-			state->setState(state->PLAY);
+			state -> setState(state->PLAY);
 		}
       }
 }
