@@ -15,7 +15,7 @@ namespace escape{
 			TitlePage();
 
 			sf::Text title;
-    			sf::Text play;
+    		sf::Text play;
 
       			void changeToLevelSelect(sf::RenderWindow &App, GameState &state);
 

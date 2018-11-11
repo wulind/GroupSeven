@@ -36,18 +36,18 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * Loads level selection screen
 */
 void MenuView::loadLevelSelect(){
-	sf::Text title;
-	title.setFont(*this -> font);
-	title.setString("Select a Level");
-	title.setCharacterSize(50);
-	title.setFillColor(sf::Color::White);
-	title.setPosition((this -> screenX/2.0f) - (title.getLocalBounds().width/2.0f), 50);
 
-	//Draw to screen
-	this -> App -> clear(sf::Color::Black);
 
-	this -> drawText(title);
+    // Load a sprite to display
+    sf::Texture mapTexture;
+    if (!mapTexture.loadFromFile(resourcePath() + "../data/LevelSelectionBlank.png")) {
+        return EXIT_FAILURE;
+    }
+    sf::Sprite mapSprite(mapTexture);
+    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
 
+
+	this -> draw(mapSprite);
 	this -> App -> display();
 }
 
