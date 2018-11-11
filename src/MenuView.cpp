@@ -1,4 +1,4 @@
-#include "../include/MenuView.h"
+#include "MenuView.h"
 
 using namespace escape;
 
@@ -36,18 +36,12 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * Loads level selection screen
 */
 void MenuView::loadLevelSelect(){
+    LevelSelect levelSelect(this -> App);
+    levelSelect.drawBackground();
+    levelSelect.drawLevelDots();
 
 
-    // Load a sprite to display
-    sf::Texture mapTexture;
-    if (!mapTexture.loadFromFile(resourcePath() + "../data/LevelSelectionBlank.png")) {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite mapSprite(mapTexture);
-    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
 
-
-	this -> draw(mapSprite);
 	this -> App -> display();
 }
 

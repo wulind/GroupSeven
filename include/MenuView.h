@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
 #include "TitlePage.h"
+#include "LevelSelect.h"
 
 namespace escape{
 	class MenuView{
@@ -11,8 +12,7 @@ namespace escape{
 		private:
 			float screenX = 800;
 			float screenY = 600;
-			float imageX = 1114;
-			float imageY = 590;
+
 
 			//Window
 			sf::RenderWindow *App;
