@@ -48,6 +48,10 @@ void GameLogic::pollEvent(sf::RenderWindow *App){
 						case GameState::State::TITLE:
 							this -> titlePage.changeToLevelSelect(*App, this -> state);
 							break;
+
+						case GameState::State::LEVELSELECT:
+							this -> changeToLoading();
+							break;
 					}
 				}
 				break;
@@ -56,4 +60,21 @@ void GameLogic::pollEvent(sf::RenderWindow *App){
 				break;
 		}
 	}
+}
+
+/*
+* Sets the state to loading when the user clicks the mouse anywhere on the level select screen
+* Temporary solution
+* TODO: Move into levelSelect class
+*/
+void GameLogic::changeToLoading(){
+	state.setState(GameState::State::LOADING);
+}
+
+/*
+* Loads level using level factory
+* @param level: int representation of current level to load
+*/
+void GameLogic::loadLevel(int level){
+	this -> factory.readXML();
 }

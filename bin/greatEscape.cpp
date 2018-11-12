@@ -41,6 +41,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LOADING:
+			gameLogic.loadLevel(1);
 			break;
 
 		case GameState::State::SETUP:

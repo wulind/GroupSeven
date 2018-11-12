@@ -7,6 +7,7 @@
 #include "GameState.h"
 #include "TitlePage.h"
 #include "ResourceManager.h"
+#include "LevelFactory.h"
 
 namespace escape {
 	class GameLogic {
@@ -14,20 +15,23 @@ namespace escape {
 		private:
 			b2World* World;
 			b2Body** Body;
-			
+
+			void changeToLoading();
+
 		public:
 			GameLogic();
 
-			//gameState
 			GameState state;
 
-			//Title Page
 			TitlePage titlePage;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
+			LevelFactory factory;
+
 			void pollEvent(sf::RenderWindow *App);
+			void loadLevel(int level);
 	};
 }
 #endif
