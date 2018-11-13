@@ -26,7 +26,7 @@ namespace escape {
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
-			void pollEvent(sf::RenderWindow *App);
+			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 	};
 }
 #endif
