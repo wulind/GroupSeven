@@ -10,12 +10,9 @@ namespace escape{
 		private:
 			int levelUnlocked = 1;
             
-            sf::Sprite sprite;
-            
-            sf::CircleShape level1;
-            sf::CircleShape level2;
-            sf::CircleShape level3;
-            sf::CircleShape level4;
+		        sf::Sprite sprite;
+
+		        sf::CircleShape level1;
             
             
 
