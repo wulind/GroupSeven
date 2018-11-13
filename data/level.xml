@@ -1,9 +1,7 @@
 <?xml version="1.0" ?>
-<Level>
-  <1>
-    <Background>Metropolitan Museum of Art</Background>
-    <!--<Background Filename="../data/bank.jpg" startX="331.76276" startY="173.65878" endX="891.76276" endY="733.65881" width="2048" height="2048"/>-->
-    <platform value="1"/>
-    <stolenObject Filename="../data/money.jpg"/>
-  </1>
-</Level>
+<Level>Text</Level>
+  <!-- <Background>Metropolitan Museum of Art</Background> -->
+  <!-- <Location xCoord = "" yCoord = ""/> -->
+  <!-- <Background Filename="../data/Met.jpg" startX="1" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <platform value="1"/>
+  <stolenObject Filename="../data/money.jpg"/> -->

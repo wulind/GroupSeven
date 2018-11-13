@@ -9,11 +9,11 @@ namespace escape {
 
 		public:
 			Platform();
-			Platform(float x, float y, int height, int width, b2World* World);
+			Platform(float x, float y, int height, int width);//, b2World* World);
 
 			float xCoord;
 			float yCoord;
-	    		float mouseDragOffsetX;
+	    float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
 			int height;

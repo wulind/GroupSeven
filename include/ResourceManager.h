@@ -3,10 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
-
 namespace escape {
 	class ResourceManager {
-		
+
 		private:
 			sf::Font font;
 			//TODO: Add sprite sheets here

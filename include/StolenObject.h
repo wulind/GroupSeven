@@ -8,8 +8,8 @@ namespace escape {
 	class StolenObject {
 
 		public:
-      			StolenObject();
-			StolenObject(float x, float y, int radius, b2World* World);
+      StolenObject();
+			StolenObject(float x, float y, int radius);//, b2World* World);
 
 			void UpdatePosition();
 
