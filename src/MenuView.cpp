@@ -1,4 +1,4 @@
-#include "../include/MenuView.h"
+#include "MenuView.h"
 
 using namespace escape;
 
@@ -35,18 +35,16 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 /*
 * Loads level selection screen
 */
-void MenuView::loadLevelSelect(){
-	sf::Text title;
-	title.setFont(*this -> font);
-	title.setString("Select a Level");
-	title.setCharacterSize(50);
-	title.setFillColor(sf::Color::White);
-	title.setPosition((this -> screenX/2.0f) - (title.getLocalBounds().width/2.0f), 50);
-
-	//Draw to screen
-	this -> App -> clear(sf::Color::Black);
-
-	this -> drawText(title);
+void MenuView::loadLevelSelect(GameState *state){
+    //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
+    LevelSelect levelSelect;
+    levelSelect.drawBackground(App);
+    levelSelect.drawLevelDots(App);
+    
+    //Handle clicking on the screen and clicking on the level dot
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+        levelSelect.levelClick(*App, state);
+    }
 
 	this -> App -> display();
 }

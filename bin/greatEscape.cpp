@@ -12,14 +12,20 @@ int main(int argc, char** argv){
 	//Game Logic
 	GameLogic gameLogic = GameLogic();
 
+	//Game Time for fps
+	sf::Clock gameTime;
+
 	//Views
 	GameView mainView(gameLogic.resources.getFont());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
+	//Target 60 fps
+    double targetMs = 1000/60;	
+
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
-    gameLogic.pollEvent(mainView.getApp());
+    gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
 		updateGame(gameLogic, menuView, mainView);
 	}
 
@@ -37,7 +43,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
-			menuView.loadLevelSelect();
+			menuView.loadLevelSelect(&gameLogic.state);
 			break;
 
 		case GameState::State::LOADING:

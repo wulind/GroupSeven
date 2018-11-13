@@ -28,10 +28,14 @@ namespace escape {
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
+<<<<<<< HEAD
 			LevelFactory factory;
 
 			void pollEvent(sf::RenderWindow *App);
 			void loadLevel(int level);
+=======
+			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
+>>>>>>> origin/master
 	};
 }
 #endif

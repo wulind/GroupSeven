@@ -27,11 +27,11 @@ GameLogic::GameLogic(){
 * Polls game events, to be replaced by EventHandler
 * @param *App: pointer to current window
 */
-void GameLogic::pollEvent(sf::RenderWindow *App){
+void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){
 	// process events
 	sf::Event event;
 	while(App -> pollEvent(event)) {
-
+		gameTime.restart();
 		switch (event.type) {
 
 			case sf::Event::Closed:
@@ -59,6 +59,14 @@ void GameLogic::pollEvent(sf::RenderWindow *App){
 				break;
 		}
 	}
+	//Get the elapsed time since the loop started
+	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+	//Adjust game timing by sleeping
+	if(deltaMs < targetMs){
+		sf::sleep(sf::milliseconds(targetMs-deltaMs));
+	}
+
 }
 
 /*
