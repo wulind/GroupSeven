@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -13,8 +14,10 @@ GameLogic::GameLogic(){
 
 	//Initializes world.
 	//Takes in Gravity (change second param to change gravity)
-	b2Vec2 Gravity(0.f, 1.0f);
+	b2Vec2 Gravity(0.f, 0.1f);
 	this -> World = new b2World(Gravity);
+	std::cout << this -> World << "\n";
+	
 
 	//LevelFactory & Level
 	this -> level = Level(this -> World);
@@ -57,7 +60,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							break;
 
 						case GameState::State::SETUP:
-							this -> eventManager.checkMouseOverPlatform(App, this -> level.platform);
+							//this -> eventManager.checkMouseOverPlatform(App, this -> level.platform);
 							break;
 					}
 				}
@@ -95,7 +98,8 @@ void GameLogic::loadLevel(int level){
 * Progresses the simluation in the Box2D world
 */
 void GameLogic::progressSimluation(sf::RenderWindow *App){
-	this -> eventManager.updateMouse(App, this -> level.platform);
+	std::cout << this -> World << "\n";
+	//this -> eventManager.updateMouse(App, this -> level.platform);
 	this -> level.stolenObject.updatePosition();
-	this -> World -> Step(1.f/60.f, 5, 8);
+	this -> World -> Step(1.f/1000.f, 5, 8);
 }

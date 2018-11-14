@@ -1,4 +1,5 @@
 #include "../include/StolenObject.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -28,9 +29,9 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 
 	//Box2D body with a dynamic body so it moves.
 	b2BodyDef BodyDef;
-  BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
-  BodyDef.type = b2_dynamicBody;
-  b2Body* Body = this -> World -> CreateBody(&BodyDef);
+  	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
+  	BodyDef.type = b2_dynamicBody;
+  	this -> Body = this -> World -> CreateBody(&BodyDef);
 
 	//Shape is a circle with radius r
 	b2CircleShape Shape;
@@ -41,8 +42,7 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 	FixtureDef.friction = 0.7f;
 	FixtureDef.shape = &Shape;
 	FixtureDef.restitution = .5f;
-	Body->CreateFixture(&FixtureDef);
-	this -> Body = Body;
+	this -> Body -> CreateFixture(&FixtureDef);
 	this -> Body -> SetAwake(1);
 }
 
@@ -53,17 +53,20 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 void StolenObject::updatePosition(){
 	//Set body to awake in case of it being 0 velocity in both x and y direction to prevent
 	//Freezing
+	std::cout << "Updating Stolen Obj \n";
 	this -> Body -> SetAwake(1);
 
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 
 	/*Keeping this Debug information for now to keep track of b2World Objects
+
 	for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())
         {
-		printf("Obj %i is at x:%f y:%f\n", BodyIterator, BodyIterator -> GetPosition().x * SCALE, BodyIterator -> GetPosition().y * SCALE);
-		printf("is active %i", this -> Body -> IsActive());
+		printf("Obj %i is at x:%f y:%f ", BodyIterator, BodyIterator -> GetPosition().x * SCALE, BodyIterator -> GetPosition().y * SCALE);
+		printf(" is active %i\n", this -> Body -> IsActive());
 	}
 	printf("\n");
 	*/
+	
 }

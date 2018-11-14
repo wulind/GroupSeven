@@ -1,4 +1,5 @@
 #include "../include/GameView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -59,7 +60,7 @@ void GameView::update(Level &level){//Platform *platform, StolenObject *stolenOb
 	// 	this -> drawSprite(menu -> menu);
 	// 	this -> drawText(menu -> title);
 	// }
-
+	std::cout << "width: " << level.platform.width << " height: " << level.platform.height << "\n";
 	sf::RectangleShape platform(sf::Vector2f(level.platform.width, level.platform.height)); //TODO: fix
 	platform.setOrigin(level.platform.width/2, level.platform.height/2);
 	//shape.setSize(sf::Vector2f(platform->width, platform->height));

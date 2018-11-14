@@ -5,7 +5,7 @@ using namespace escape;
 
 LevelFactory::LevelFactory(){}
 
-LevelFactory::LevelFactory(Level &_level){
+LevelFactory::LevelFactory(Level &level){
   this -> level = level;
 }
 

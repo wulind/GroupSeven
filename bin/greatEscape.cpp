@@ -27,8 +27,10 @@ int main(int argc, char** argv){
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
-    gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
-		gameLogic.progressSimluation(mainView.getApp());
+    		gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
+		if (gameLogic.state.getState() == GameState::State::PLAY){
+			gameLogic.progressSimluation(mainView.getApp());
+		}
 		updateGame(gameLogic, menuView, mainView);
 	}
 
@@ -56,9 +58,11 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SETUP:
+			gameLogic.state.setState(GameState::State::PLAY);
 			break;
 
 		case GameState::State::PLAY:
+			drawLevel(gameLogic.level, gameView);			
 			break;
 
 		case GameState::State::SUCCESS:
