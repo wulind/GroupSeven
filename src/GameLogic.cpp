@@ -55,14 +55,15 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 						case GameState::State::LEVELSELECT:
 							this -> changeToLoading();
 							break;
+
+						case GameState::State::SETUP:
+							this -> eventManager.checkMouseOverPlatform(App, this -> level.platform);
+							break;
 					}
 				}
 				break;
-
-			default:
-				break;
+			}
 		}
-	}
 	//Get the elapsed time since the loop started
 	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
 
@@ -88,4 +89,13 @@ void GameLogic::changeToLoading(){
 */
 void GameLogic::loadLevel(int level){
 	this -> factory.readXML(level);
+}
+
+/*
+* Progresses the simluation in the Box2D world
+*/
+void GameLogic::progressSimluation(sf::RenderWindow *App){
+	this -> eventManager.updateMouse(App, this -> level.platform);
+	this -> level.stolenObject.updatePosition();
+	this -> World -> Step(1.f/60.f, 5, 8);
 }

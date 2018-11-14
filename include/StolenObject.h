@@ -22,7 +22,7 @@ namespace escape {
 			b2Body* Body;
 			b2World* World;
 
-			void UpdatePosition();
+			void updatePosition();
 	};
 }
 #endif

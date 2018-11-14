@@ -1,26 +1,23 @@
 #ifndef EVENTMANAGER_H
 #define EVENTMANAGER_H
 
-
+#include <SFML/Graphics.hpp>
 #include "GameState.h"
 #include "Platform.h"
 
 namespace escape{
   class EventManager{
 	  public:
-	      EventManager(sf::RenderWindow *App, Platform *platform);
-	      
-	      void clickButton(GameState *state, sf::Sprite finishButton);
-	      
+	      EventManager();
+
+	      void clickButton(sf::RenderWindow &App, GameState *state, sf::Sprite finishButton);
+
 	      //platform moving
-	      void updateMouse();
-	      bool checkMouseOverPlatform(Platform *platform);
-	      void releaseAllPlatforms(Platform *platform);
+	      void updateMouse(sf::RenderWindow *App, Platform &platform);
+	      bool checkMouseOverPlatform(sf::RenderWindow *App, Platform &platform);
+	      void releaseAllPlatforms(Platform &platform);
 
 	  private:
-	      //Winodw
-	      sf::RenderWindow *App;
-
 	      //The platform object
 	      Platform *platform;
 

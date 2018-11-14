@@ -11,7 +11,7 @@ namespace escape{
     private:
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
-    
+
     public:
       Level();
       Level(b2World* World);

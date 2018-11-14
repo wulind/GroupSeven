@@ -7,6 +7,7 @@
 #include "GameState.h"
 #include "TitlePage.h"
 #include "ResourceManager.h"
+#include "EventManager.h"
 #include "LevelFactory.h"
 #include "Level.h"
 
@@ -32,8 +33,11 @@ namespace escape {
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
+			EventManager eventManager;
+
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 			void loadLevel(int level);
+			void progressSimluation(sf::RenderWindow *App);
 	};
 }
 #endif

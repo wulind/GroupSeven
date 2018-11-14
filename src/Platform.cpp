@@ -47,7 +47,7 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 	b2FixtureDef FixtureDef;
 	FixtureDef.density = 100.f;
 	FixtureDef.shape = &Shape;
-	Body->CreateFixture(&FixtureDef);
+	Body -> CreateFixture(&FixtureDef);
 	this -> Body = Body;
 
 }

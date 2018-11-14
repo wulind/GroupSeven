@@ -50,7 +50,7 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 /*
 * Update the Position of a Stolen Object based on Box2D Physics.
 */
-void StolenObject::UpdatePosition(){
+void StolenObject::updatePosition(){
 	//Set body to awake in case of it being 0 velocity in both x and y direction to prevent
 	//Freezing
 	this -> Body -> SetAwake(1);

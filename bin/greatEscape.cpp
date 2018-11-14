@@ -3,7 +3,6 @@
 #include "GameView.h"
 #include "MenuView.h"
 #include "Level.h"
-#include <iostream>
 
 using namespace escape;
 
@@ -23,12 +22,13 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
 	//Target 60 fps
-    double targetMs = 1000/60;
+  double targetMs = 1000/60;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
+		gameLogic.progressSimluation(mainView.getApp());
 		updateGame(gameLogic, menuView, mainView);
 	}
 
@@ -51,9 +51,8 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::LOADING:
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
-			std::cout << "here" << std::endl;
 			drawLevel(gameLogic.level, gameView);
-
+			gameLogic.state.setState(GameState::State::SETUP);
 			break;
 
 		case GameState::State::SETUP:
