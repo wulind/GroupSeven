@@ -22,12 +22,12 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
 	//Target 60 fps
-  double targetMs = 1000/60;
+  double targetMs = 1000/240;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
-    		gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
+    gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
 		if (gameLogic.state.getState() == GameState::State::PLAY){
 			gameLogic.progressSimluation(mainView.getApp());
 		}
@@ -48,7 +48,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
-			menuView.loadLevelSelect(&gameLogic.state);
+			menuView.loadLevelSelect(gameLogic.levelSelect);
 			break;
 
 		case GameState::State::LOADING:
@@ -62,7 +62,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::PLAY:
-			drawLevel(gameLogic.level, gameView);			
+			drawLevel(gameLogic.level, gameView);
 			break;
 
 		case GameState::State::SUCCESS:

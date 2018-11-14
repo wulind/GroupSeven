@@ -30,7 +30,7 @@ void LevelSelect::drawBackground(sf::RenderWindow *App){
  */
 
 void LevelSelect::drawLevelDots(sf::RenderWindow *App){
-	sf::Texture levelDot;
+	  sf::Texture levelDot;
     if (!levelDot.loadFromFile("../data/LevelDot.png")) {
 
     }
@@ -52,15 +52,15 @@ void LevelSelect::availableLevels(){
  * @param *App: pointer to game window
  * @param *state: pointer to the game state
  */
-void LevelSelect::levelClick(sf::RenderWindow &App, GameState *state){
+void LevelSelect::levelClick(sf::RenderWindow &App, GameState &state){
     //Get the mouse coordinates
     sf::Vector2i mousePosition = sf::Mouse::getPosition(App);
     //Get the level selection dot coordinaes
     sf::FloatRect boundOne = this -> level1.getGlobalBounds();
 
     //If the mouse clicks on the level 1 selector dot then change the state to game loading.
-	if(boundOne.contains(mousePosition.x, mousePosition.y)){
-    state -> setState(GameState::State::LOADING);
-  }
+	  if(boundOne.contains(mousePosition.x, mousePosition.y)){
+      state.setState(GameState::State::LOADING);
+    }
 
 }

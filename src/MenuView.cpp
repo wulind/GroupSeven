@@ -35,18 +35,11 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 /*
 * Loads level selection screen
 */
-void MenuView::loadLevelSelect(GameState *state){
+void MenuView::loadLevelSelect(LevelSelect &levelSelect){
     //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
-    LevelSelect levelSelect;
-    levelSelect.drawBackground(App);
+		levelSelect.drawBackground(App);
     levelSelect.drawLevelDots(App);
-    
-    //Handle clicking on the screen and clicking on the level dot
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        levelSelect.levelClick(*App, state);
-    }
-
-	this -> App -> display();
+		this -> App -> display();
 }
 
 void MenuView::drawText(sf::Text &text){

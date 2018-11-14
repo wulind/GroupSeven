@@ -36,6 +36,8 @@ namespace escape{
 
       sf::RenderWindow* getApp();
 
+			
+
 	};
 }
 #endif

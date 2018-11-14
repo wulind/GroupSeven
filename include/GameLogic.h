@@ -6,6 +6,7 @@
 
 #include "GameState.h"
 #include "TitlePage.h"
+#include "LevelSelect.h"
 #include "ResourceManager.h"
 #include "EventManager.h"
 #include "LevelFactory.h"
@@ -29,6 +30,7 @@ namespace escape {
 			LevelFactory factory;
 
 			TitlePage titlePage;
+			LevelSelect levelSelect;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;

@@ -16,6 +16,7 @@ namespace escape{
 
 			sf::RenderWindow *App;
 			GameState *state;
+
 			float screenX = 800;
 			float screenY = 600;
 
@@ -28,7 +29,7 @@ namespace escape{
 			void drawBackground(sf::RenderWindow *App);
 			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
-            void levelClick(sf::RenderWindow &App, GameState *state);
+      void levelClick(sf::RenderWindow &App, GameState &state);
 	};
 }
 #endif

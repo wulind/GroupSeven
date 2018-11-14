@@ -1,5 +1,4 @@
 #include "../include/StolenObject.h"
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -53,7 +52,6 @@ StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 void StolenObject::updatePosition(){
 	//Set body to awake in case of it being 0 velocity in both x and y direction to prevent
 	//Freezing
-	std::cout << "Updating Stolen Obj \n";
 	this -> Body -> SetAwake(1);
 
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
@@ -68,5 +66,5 @@ void StolenObject::updatePosition(){
 	}
 	printf("\n");
 	*/
-	
+
 }
