@@ -1,6 +1,4 @@
 #include "../include/Platform.h"
-#include <iostream>
-
 
 static const float SCALE = 30.f;
 

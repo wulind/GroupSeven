@@ -1,5 +1,4 @@
 #include "EventManager.h"
-#include <iostream>
 
 using namespace escape;
 
@@ -14,7 +13,6 @@ EventManager::EventManager(){}
  * @param &platform: platform to be checked
  */
 void EventManager::updateMouse(sf::Vector2i mousePosition, Platform &platform){
-	std::cout << "x: " << mousePosition.x << "\ty: " << mousePosition.y << std::endl;
 	platform.updateDragPosition(mousePosition.x, mousePosition.y);
 }
 

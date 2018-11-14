@@ -1,5 +1,4 @@
 #include "../include/GameView.h"
-#include <iostream>
 
 using namespace escape;
 
