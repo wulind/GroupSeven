@@ -13,6 +13,7 @@ namespace escape {
        sf::Text button;
 
        float scale;
+       bool show;
 
        void changeToPlay(sf::Vector2i mousePosition, GameState &state);
   };

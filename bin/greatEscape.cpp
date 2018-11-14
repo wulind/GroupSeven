@@ -29,7 +29,7 @@ int main(int argc, char** argv){
 
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
 		if (gameLogic.state.getState() == GameState::State::PLAY){
-			gameLogic.progressSimluation(mainView.getMousePosition());
+			gameLogic.progressSimluation();
 		}
 		updateGame(gameLogic, menuView, mainView);
 	}
@@ -58,7 +58,8 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SETUP:
-			gameView.drawText(gameLogic.finishButton.button);
+			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platform);
+			drawLevel(gameLogic.level, gameView);
 			break;
 
 		case GameState::State::PLAY:

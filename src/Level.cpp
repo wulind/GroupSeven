@@ -9,6 +9,7 @@ Level::Level(b2World* World){
   this -> platform = Platform(0, 300, 10, 200, World);//TODO: move into respective places
   this -> base = Platform(0, 600, 10, 800, World);
   this -> stolenObject = StolenObject(50, 100, 25, World);
+  this -> finishButton = FinishButton();
 }
 
 /*

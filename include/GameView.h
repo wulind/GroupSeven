@@ -23,6 +23,7 @@ namespace escape{
 
 			sf::Font *font;
 
+			void drawText(sf::Text &text);
 			void drawSprite(sf::Sprite &sprite);
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
@@ -31,8 +32,7 @@ namespace escape{
     	GameView();
       GameView(sf::Font *_font);
 
-			void drawText(sf::Text &text);
-			void update(Level &level);//Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base);
+			void update(Level &level);
 
       sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();

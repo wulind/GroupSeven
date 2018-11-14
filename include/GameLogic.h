@@ -32,7 +32,6 @@ namespace escape {
 
 			TitlePage titlePage;
 			LevelSelect levelSelect;
-			FinishButton finishButton;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;
@@ -41,7 +40,7 @@ namespace escape {
 
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 			void loadLevel(int level);
-			void progressSimluation(sf::Vector2i mousePosition);
+			void progressSimluation();
 	};
 }
 #endif

@@ -23,8 +23,6 @@ GameLogic::GameLogic(){
 	//TitlePage
 	this -> titlePage = TitlePage();
 
-	this -> finishButton = FinishButton();
-
 	//Resources
 	this -> resources = ResourceManager();
 }
@@ -59,15 +57,17 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							break;
 
 						case GameState::State::SETUP:
-							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platform);
-							this -> finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+
+							if(this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platform)){
+							}
+							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
 							break;
 					}
 				}
 				break;
 
 			case sf::Event::MouseButtonReleased:
-				if (this -> state.getState() == GameState::State::PLAY){//TODO: make state setup
+				if (this -> state.getState() == GameState::State::SETUP){
 					this -> eventManager.releaseAllPlatforms(this -> level.platform);
 				}
 			}
@@ -93,8 +93,7 @@ void GameLogic::loadLevel(int level){
 /*
 * Progresses the simluation in the Box2D world
 */
-void GameLogic::progressSimluation(sf::Vector2i mousePosition){
-	this -> eventManager.updateMouse(mousePosition, this -> level.platform);
+void GameLogic::progressSimluation(){
 	this -> level.stolenObject.updatePosition();
 	this -> World -> Step(1.f/1000.f, 5, 8);
 }

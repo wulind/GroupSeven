@@ -1,4 +1,5 @@
 #include "../include/GameView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -33,6 +34,7 @@ sf::Vector2i GameView::getMousePosition(){
 */
 void GameView::drawText(sf::Text &text) {
 	text.setFont(*this -> font);
+	text.setFillColor(sf::Color::White);
 	this -> App.draw(text);
 }
 
@@ -89,6 +91,10 @@ void GameView::update(Level &level){//Platform *platform, StolenObject *stolenOb
 	circle.setFillColor(level.stolenObject.color);
 	//TODO: Smooth it out when we pick a texture
   this -> drawCircle(circle);
+
+	if(level.finishButton.show){
+		this -> drawText(level.finishButton.button);
+	}
 
 	this -> App.display();
 }

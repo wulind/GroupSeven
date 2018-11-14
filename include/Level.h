@@ -4,6 +4,7 @@
 #include <Box2D/Box2D.h>
 #include "Platform.h"
 #include "StolenObject.h"
+#include "FinishButton.h"
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
@@ -19,6 +20,7 @@ namespace escape{
       Platform platform;//TODO: store multiple platforms
       Platform base;
       StolenObject stolenObject;
+      FinishButton finishButton;
 
       b2World* World;
       void setBackgroundFile(const char *_backgroundFile);
