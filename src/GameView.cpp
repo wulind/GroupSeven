@@ -19,6 +19,10 @@ GameView::GameView(sf::Font *_font){
 sf::RenderWindow* GameView::getApp(){
 	return &this -> App;
 }
+
+/*
+* Gets current position of mouse in relation to the current render window
+*/
 sf::Vector2i GameView::getMousePosition(){
 	return sf::Mouse::getPosition(this -> App);
 }

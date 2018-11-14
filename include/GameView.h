@@ -35,8 +35,9 @@ namespace escape{
 			void update(Level &level);//Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base);
 
       sf::RenderWindow* getApp();
+			sf::Vector2i getMousePosition();
 
-			
+
 
 	};
 }
