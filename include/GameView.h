@@ -8,7 +8,7 @@
 #include "Platform.h"
 #include "StolenObject.h"
 #include "PlatformMenu.h"
-#include "GameState.h"
+#include "Level.h"
 
 namespace escape{
 	class GameView{
@@ -25,13 +25,16 @@ namespace escape{
 
 			void drawText(sf::Text &text);
 			void drawSprite(sf::Sprite &sprite);
+			void drawRectangle(sf::RectangleShape &rect);
+			void drawCircle(sf::CircleShape &circle);
 
 		public:
-            GameView();
-            GameView(sf::Font *_font);
-            void update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base, GameState *state);
-            
-            sf::RenderWindow* getApp();
+    	GameView();
+      GameView(sf::Font *_font);
+
+			void update(Level &level);//Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base);
+
+      sf::RenderWindow* getApp();
 
 	};
 }

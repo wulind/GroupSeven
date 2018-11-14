@@ -9,9 +9,7 @@ namespace escape {
 
 		public:
       StolenObject();
-			StolenObject(float x, float y, int radius);//, b2World* World);
-
-			void UpdatePosition();
+			StolenObject(float x, float y, int radius, b2World* World);
 
 			float xCoord;
 			float yCoord;
@@ -23,6 +21,8 @@ namespace escape {
 			//Box2D Stuff
 			b2Body* Body;
 			b2World* World;
+
+			void UpdatePosition();
 	};
 }
 #endif

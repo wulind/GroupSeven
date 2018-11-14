@@ -16,7 +16,7 @@ void LevelSelect::drawBackground(sf::RenderWindow *App){
 	//Load the background map as a texture
     sf::Texture mapTexture;
     if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {
-        
+
     }
     //Use the texture as a sprite
     sf::Sprite mapSprite(mapTexture);
@@ -32,14 +32,14 @@ void LevelSelect::drawBackground(sf::RenderWindow *App){
 void LevelSelect::drawLevelDots(sf::RenderWindow *App){
 	sf::Texture levelDot;
     if (!levelDot.loadFromFile("../data/LevelDot.png")) {
-        
+
     }
-    
+
     //Sets the size, texture, and coordinates of the level 1 dot
     this -> level1.setRadius(25);
     this -> level1.setTexture(&levelDot);
     this -> level1.setPosition(190, 246);
-	
+
     App -> draw(level1);
 }
 
@@ -57,11 +57,10 @@ void LevelSelect::levelClick(sf::RenderWindow &App, GameState *state){
     sf::Vector2i mousePosition = sf::Mouse::getPosition(App);
     //Get the level selection dot coordinaes
     sf::FloatRect boundOne = this -> level1.getGlobalBounds();
-    
+
     //If the mouse clicks on the level 1 selector dot then change the state to game loading.
 	if(boundOne.contains(mousePosition.x, mousePosition.y)){
-        printf("Level 1 Selected\n");
-        state -> setState(GameState::State::LOADING);
-            }
+    state -> setState(GameState::State::LOADING);
+  }
 
 }

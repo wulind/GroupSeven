@@ -7,7 +7,7 @@ using namespace escape;
 */
 GameState::GameState(){
   this -> state = GameState::State::TITLE;
-  this -> currentLevel = 0;
+  this -> currentLevel = 1;
 }
 
 /*
@@ -20,8 +20,22 @@ void GameState::setState(GameState::State _state){
 }
 
 /*
+* Increases highest level available to play
+*/
+void GameState::incrementCurrentLevel(){
+  ++this -> currentLevel;
+}
+
+/*
 * Gets current game state
 */
 GameState::State GameState::getState(){
   return this -> state;
+}
+
+/*
+* Gets current level
+*/
+int GameState::getCurrentLevel(){
+  return this -> currentLevel;
 }

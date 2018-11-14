@@ -13,7 +13,7 @@ StolenObject::StolenObject(){}
 * @param radius: radius of stolen object
 * @param World: Box2D Object where the object will be placed
 */
-StolenObject::StolenObject(float x, float y, int radius){//, b2World* World){
+StolenObject::StolenObject(float x, float y, int radius, b2World* World){
 	this -> xCoord = x;
 	this -> yCoord = y;
 
@@ -28,9 +28,9 @@ StolenObject::StolenObject(float x, float y, int radius){//, b2World* World){
 
 	//Box2D body with a dynamic body so it moves.
 	b2BodyDef BodyDef;
-    	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
-   	BodyDef.type = b2_dynamicBody;
-    	b2Body* Body = this -> World -> CreateBody(&BodyDef);
+  BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
+  BodyDef.type = b2_dynamicBody;
+  b2Body* Body = this -> World -> CreateBody(&BodyDef);
 
 	//Shape is a circle with radius r
 	b2CircleShape Shape;
@@ -53,10 +53,10 @@ StolenObject::StolenObject(float x, float y, int radius){//, b2World* World){
 void StolenObject::UpdatePosition(){
 	//Set body to awake in case of it being 0 velocity in both x and y direction to prevent
 	//Freezing
-	// this -> Body -> SetAwake(1);
-	//
-	// this -> xCoord = this -> Body -> GetPosition().x * SCALE;
-	// this -> yCoord = this -> Body -> GetPosition().y * SCALE;
+	this -> Body -> SetAwake(1);
+
+	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
+	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 
 	/*Keeping this Debug information for now to keep track of b2World Objects
 	for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())

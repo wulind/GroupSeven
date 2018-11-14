@@ -2,10 +2,13 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include "Level.h"
+#include <iostream>
 
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
+void drawLevel(Level &level, GameView &gameView);
 
 int main(int argc, char** argv){
 
@@ -20,7 +23,7 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
 	//Target 60 fps
-    double targetMs = 1000/60;	
+    double targetMs = 1000/60;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
@@ -47,7 +50,10 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LOADING:
-			gameLogic.loadLevel(1);
+			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
+			std::cout << "here" << std::endl;
+			drawLevel(gameLogic.level, gameView);
+
 			break;
 
 		case GameState::State::SETUP:
@@ -57,9 +63,19 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
+			gameLogic.state.incrementCurrentLevel();
 			break;
 
 		case GameState::State::FAIL:
 			break;
 	}
+}
+
+/*
+* Uses game view to draw level
+* @param level: level object that holds everything needed to draw
+* @param gameView: gameView object
+*/
+void drawLevel(Level &level, GameView &gameView){
+	gameView.update(level);
 }

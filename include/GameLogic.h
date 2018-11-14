@@ -8,6 +8,7 @@
 #include "TitlePage.h"
 #include "ResourceManager.h"
 #include "LevelFactory.h"
+#include "Level.h"
 
 namespace escape {
 	class GameLogic {
@@ -23,12 +24,16 @@ namespace escape {
 
 			GameState state;
 
+			Level level;
+			LevelFactory factory;
+
 			TitlePage titlePage;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
+			void loadLevel(int level);
 	};
 }
 #endif

@@ -1,10 +1,25 @@
 #include "LevelFactory.h"
-#include <iostream>
+
+
 using namespace escape;
 
-void LevelFactory::readXML(){
-  tinyxml2::XMLDocument doc;
-  doc.Parse("../data/level.xml");
-  const char* title = doc.FirstChildElement( "Level" ) -> GetText();
-	std::cout << title << std::endl;
+LevelFactory::LevelFactory(){}
+
+LevelFactory::LevelFactory(Level &_level){
+  this -> level = level;
+}
+
+void LevelFactory::readXML(int levelToLoad){
+  tinyxml2::XMLDocument doc;//TODO: move into resource manager
+  doc.LoadFile( "../data/GreatEscape.xml" );
+
+  //get to element that contains information for current level
+  tinyxml2::XMLElement *root = doc.FirstChildElement("Level");
+  while(std::atoi(root -> Attribute("level")) != levelToLoad){
+    root = root -> NextSiblingElement();
+  }
+
+  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"));
+  this -> level.makePlatform(std::atoi(root -> FirstChildElement("Platform") -> GetText()));
+  this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
 }

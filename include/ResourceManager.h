@@ -8,12 +8,13 @@ namespace escape {
 
 		private:
 			sf::Font font;
+
 			//TODO: Add sprite sheets here
 
 		public:
 			ResourceManager();
 
-      			sf::Font* getFont();
+      sf::Font* getFont();
 	};
 }
 #endif

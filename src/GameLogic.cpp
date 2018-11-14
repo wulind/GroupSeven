@@ -16,6 +16,10 @@ GameLogic::GameLogic(){
 	b2Vec2 Gravity(0.f, 1.0f);
 	this -> World = new b2World(Gravity);
 
+	//LevelFactory & Level
+	this -> level = Level(this -> World);
+	this -> factory = LevelFactory(this -> level);
+
 	//TitlePage
 	this -> titlePage = TitlePage();
 
@@ -83,5 +87,5 @@ void GameLogic::changeToLoading(){
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
-	this -> factory.readXML();
+	this -> factory.readXML(level);
 }
