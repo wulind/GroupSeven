@@ -29,12 +29,12 @@ Goal::Goal(float x, float y, b2World* World){
     	b2Body* Body = this -> World -> CreateBody(&BodyDef);
 	
 	//Designed with length 8
-	//6 Shapes associated with this body.
+	//6 Shapes associated with this body.  
 	//Top left corner (placed at center - 3.5, center + 2.5)
-	//Underbody
-	//Forward Upward
-	//Front
-	//2 Wheels
+	//Underbody (center - 2, center - 1)
+	//Forward Upward (center + .5, center + .5)
+	//Front	(center + 2, center - 1)
+	//2 Wheels (center - 2.5, center - 1.5), (center + 2.5, center + 2.5)
 
 }
 
@@ -50,3 +50,20 @@ void Goal::UpdatePosition(){
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 }
+
+/*
+* Return 1 if stolen object is below roof and between sides
+*/
+int Goal::checkGoalReached(StolenObject* obj){
+	if (obj -> yCoord > this -> yCoord){
+		if (obj -> xCoord > this -> xCoord){
+			if (obj -> xCoord < this -> xCoord + this -> width){
+				return 1;
+			}
+		}
+	}		
+
+
+	return 0;
+}
+
