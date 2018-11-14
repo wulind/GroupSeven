@@ -10,11 +10,11 @@ namespace escape{
 	  public:
 	      EventManager();
 
-	      void clickButton(sf::RenderWindow &App, GameState *state, sf::Sprite finishButton);
+	      void clickButton(sf::RenderWindow &App, GameState &state, sf::Sprite finishButton);
 
 	      //platform moving
-	      void updateMouse(sf::RenderWindow *App, Platform &platform);
-	      bool checkMouseOverPlatform(sf::RenderWindow *App, Platform &platform);
+	      void updateMouse(sf::Vector2i mousePosition, Platform &platform);
+	      bool checkMouseOverPlatform(sf::Vector2i mousePosition, Platform &platform);
 	      void releaseAllPlatforms(Platform &platform);
 
 	  private:

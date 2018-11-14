@@ -2,15 +2,18 @@
 
 using namespace escape;
 
-FinishButton::FinishButton(){}
-
 /*
 * FinishButton Constructor
 * @param *App: pointer to game window
 */
-FinishButton::FinishButton(sf::RenderWindow *App){
-  this -> App = App;
+FinishButton::FinishButton(){
   this -> scale = .2f;
+
+  //Setup finish button
+  this -> button.setString("finish");
+  this -> button.setCharacterSize(50);
+  this -> button.setFillColor(sf::Color::White);
+  this -> button.setPosition(640, 510);
 }
 
 
@@ -19,47 +22,15 @@ FinishButton::FinishButton(sf::RenderWindow *App){
 * If the player is in design mode & clicks button, switch mode to play mode and get rid of the button
 * @param &state: current state of the game
 */
-void FinishButton::update(GameState &state){
+void FinishButton::changeToPlay(sf::Vector2i mousePosition, GameState &state){
   //Position of the finish button relative to the screen size defined. (Set to 800,600 by default).
-  int relativeX = .8 * this -> App->getSize().x;
-  int relativeY = .85 * this -> App->getSize().y;
+  int relativeX = 640;
+  int relativeY = 510;
 
-  //Used with the mouse click event when resizing the window to keep the button coordinates relative
-  if (!texture.loadFromFile("../data/finish_button.png")){
-    // error
+  sf::FloatRect size = button.getGlobalBounds();
+
+  //If the mouse clicks on the finish button then set state to play
+  if(mousePosition.x >= relativeX && mousePosition.x <= relativeX+size.width && mousePosition.y >= relativeY && mousePosition.y <= relativeY+size.height){
+          state.setState(GameState::State::PLAY);
   }
-
-  //Game is in design mode
-  if(state.getState() == GameState::State::SETUP){
-
-    //Setup finish button
-    button.setTexture(texture);
-    button.setScale(sf::Vector2f(scale, scale));
-    button.setPosition(relativeX, relativeY);
-
-    sf::FloatRect size = button.getLocalBounds();
-
-    App -> draw(button);
-
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-        //If left mouse click, get mouse
-        int clickX = sf::Mouse::getPosition(*this -> App).x;
-        int clickY = sf::Mouse::getPosition(*this -> App).y;
-
-        if(clickX >= relativeX && clickX <= relativeX+size.width && clickY >= relativeY && clickY <= relativeY+size.height){
-          //If the mouse clicks on the finish button then call clickButton()
-          clickButton(state);
-        }
-      }
-  }
-}
-
-/*
-* If button is pressed & game is in setup mode, swtich it to play mode
-* @param &state: current state of the game
-*/
-void FinishButton::clickButton(GameState &state){
-    //Finish button is pressed
-    //Gamestate is now play
-     state.setState(GameState::State::PLAY);
 }

@@ -27,12 +27,12 @@ sf::Vector2i GameView::getMousePosition(){
 	return sf::Mouse::getPosition(this -> App);
 }
 
-
 /*
 * Draws any text needed for the level
 * @param text: text to draw
 */
 void GameView::drawText(sf::Text &text) {
+	text.setFont(*this -> font);
 	this -> App.draw(text);
 }
 
@@ -50,6 +50,7 @@ void GameView::drawSprite(sf::Sprite &sprite) {
 void GameView::drawRectangle(sf::RectangleShape &rect) {
 	this -> App.draw(rect);
 }
+
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }

@@ -29,7 +29,7 @@ namespace escape{
 			void drawBackground(sf::RenderWindow *App);
 			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
-      void levelClick(sf::RenderWindow &App, GameState &state);
+      void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};
 }
 #endif

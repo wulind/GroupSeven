@@ -5,9 +5,10 @@
 #include <Box2D/Box2D.h>
 
 #include "GameState.h"
+#include "ResourceManager.h"
 #include "TitlePage.h"
 #include "LevelSelect.h"
-#include "ResourceManager.h"
+#include "FinishButton.h"
 #include "EventManager.h"
 #include "LevelFactory.h"
 #include "Level.h"
@@ -31,6 +32,7 @@ namespace escape {
 
 			TitlePage titlePage;
 			LevelSelect levelSelect;
+			FinishButton finishButton;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;
@@ -39,7 +41,7 @@ namespace escape {
 
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 			void loadLevel(int level);
-			void progressSimluation(sf::RenderWindow *App);
+			void progressSimluation(sf::Vector2i mousePosition);
 	};
 }
 #endif

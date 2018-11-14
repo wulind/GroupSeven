@@ -52,9 +52,7 @@ void LevelSelect::availableLevels(){
  * @param *App: pointer to game window
  * @param *state: pointer to the game state
  */
-void LevelSelect::levelClick(sf::RenderWindow &App, GameState &state){
-    //Get the mouse coordinates
-    sf::Vector2i mousePosition = sf::Mouse::getPosition(App);
+void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
     //Get the level selection dot coordinaes
     sf::FloatRect boundOne = this -> level1.getGlobalBounds();
 

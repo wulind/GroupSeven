@@ -24,8 +24,7 @@ TitlePage::TitlePage(){
 * @param &App: Reference to current window
 * @param state: current game state
 */
-void TitlePage::changeToLevelSelect(sf::RenderWindow &App, GameState &state){
-  sf::Vector2i mousePosition = sf::Mouse::getPosition(App);
+void TitlePage::changeToLevelSelect(sf::Vector2i mousePosition, GameState &state){
   sf::FloatRect playBoundingRectangle = this -> play.getGlobalBounds();
 
   if(playBoundingRectangle.contains(mousePosition.x, mousePosition.y)){

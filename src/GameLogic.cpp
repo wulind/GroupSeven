@@ -23,6 +23,8 @@ GameLogic::GameLogic(){
 	//TitlePage
 	this -> titlePage = TitlePage();
 
+	this -> finishButton = FinishButton();
+
 	//Resources
 	this -> resources = ResourceManager();
 }
@@ -31,7 +33,7 @@ GameLogic::GameLogic(){
 * Polls game events, to be replaced by EventHandler
 * @param *App: pointer to current window
 */
-void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){
+void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){//TODO: put clock in main loop
 	// process events
 	sf::Event event;
 	while(App -> pollEvent(event)) {
@@ -49,19 +51,25 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 					switch(this -> state.getState()){//TODO: put in event handler
 
 						case GameState::State::TITLE:
-							this -> titlePage.changeToLevelSelect(*App, this -> state);
+							this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
 							break;
 
 						case GameState::State::LEVELSELECT:
-							this -> levelSelect.levelClick(*App, this -> state);
+							this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
 							break;
 
 						case GameState::State::SETUP:
-							//this -> eventManager.checkMouseOverPlatform(App, this -> level.platform);
+							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platform);
+							this -> finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
 							break;
 					}
 				}
 				break;
+
+			case sf::Event::MouseButtonReleased:
+				if (this -> state.getState() == GameState::State::PLAY){//TODO: make state setup
+					this -> eventManager.releaseAllPlatforms(this -> level.platform);
+				}
 			}
 		}
 	//Get the elapsed time since the loop started
@@ -85,8 +93,8 @@ void GameLogic::loadLevel(int level){
 /*
 * Progresses the simluation in the Box2D world
 */
-void GameLogic::progressSimluation(sf::RenderWindow *App){
-	//this -> eventManager.updateMouse(App, this -> level.platform);
+void GameLogic::progressSimluation(sf::Vector2i mousePosition){
+	this -> eventManager.updateMouse(mousePosition, this -> level.platform);
 	this -> level.stolenObject.updatePosition();
 	this -> World -> Step(1.f/1000.f, 5, 8);
 }
