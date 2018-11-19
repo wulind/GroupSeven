@@ -5,8 +5,13 @@
 #include <Box2D/Box2D.h>
 
 #include "GameState.h"
-#include "TitlePage.h"
 #include "ResourceManager.h"
+#include "TitlePage.h"
+#include "LevelSelect.h"
+#include "FinishButton.h"
+#include "EventManager.h"
+#include "LevelFactory.h"
+#include "Level.h"
 
 namespace escape {
 	class GameLogic {
@@ -14,20 +19,29 @@ namespace escape {
 		private:
 			b2World* World;
 			b2Body** Body;
+
+			LevelFactory factory;
+
+			void changeToLoading();
+
 		public:
 			GameLogic();
 
-			//gameState
 			GameState state;
 
-			//Title Page
+			Level level;
+
 			TitlePage titlePage;
+			LevelSelect levelSelect;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;
 
+			EventManager eventManager;
+
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
+			void loadLevel(int level);
+			void progressSimluation();
 	};
 }
 #endif
-

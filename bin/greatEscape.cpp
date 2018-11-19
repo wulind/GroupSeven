@@ -2,10 +2,12 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include "Level.h"
 
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
+void drawLevel(Level &level, GameView &gameView);
 
 int main(int argc, char** argv){
 
@@ -20,12 +22,15 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
 	//Target 60 fps
-    double targetMs = 1000/60;	
+  double targetMs = 1000/240;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
+		if (gameLogic.state.getState() == GameState::State::PLAY){
+			gameLogic.progressSimluation();
+		}
 		updateGame(gameLogic, menuView, mainView);
 	}
 
@@ -43,22 +48,38 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
-			menuView.loadLevelSelect(&gameLogic.state);
+			menuView.loadLevelSelect(gameLogic.levelSelect);
 			break;
 
 		case GameState::State::LOADING:
+			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
+			drawLevel(gameLogic.level, gameView);
+			gameLogic.state.setState(GameState::State::SETUP);
 			break;
 
 		case GameState::State::SETUP:
+			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
+			drawLevel(gameLogic.level, gameView);
 			break;
 
 		case GameState::State::PLAY:
+			drawLevel(gameLogic.level, gameView);
 			break;
 
 		case GameState::State::SUCCESS:
+			gameLogic.state.incrementCurrentLevel();
 			break;
 
 		case GameState::State::FAIL:
 			break;
 	}
+}
+
+/*
+* Uses game view to draw level
+* @param level: level object that holds everything needed to draw
+* @param gameView: gameView object
+*/
+void drawLevel(Level &level, GameView &gameView){
+	gameView.update(level);
 }

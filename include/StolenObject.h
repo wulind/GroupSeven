@@ -7,11 +7,15 @@
 namespace escape {
 	class StolenObject {
 
-		public:
-      			StolenObject();
-			StolenObject(float x, float y, int radius, b2World* World);
+		private:
+			//Box2D Stuff
+			b2Body* Body;
+			b2World* World;
 
-			void UpdatePosition();
+
+		public:
+      StolenObject();
+			StolenObject(float x, float y, int radius);
 
 			float xCoord;
 			float yCoord;
@@ -20,9 +24,8 @@ namespace escape {
 
 			sf::Color color;
 
-			//Box2D Stuff
-			b2Body* Body;
-			b2World* World;
+			void setWorld(b2World* World);
+			void updatePosition();
 	};
 }
 #endif

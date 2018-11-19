@@ -9,18 +9,13 @@ namespace escape {
 
     public:
        FinishButton();
-       FinishButton(sf::RenderWindow *App);
 
-       //Window
-       sf::RenderWindow* App;
-
-       sf::Sprite button;
-       sf::Texture texture;
+       sf::Text button;
 
        float scale;
+       bool show;
 
-       void update(GameState &state);
-       void clickButton(GameState &state);
+       void changeToPlay(sf::Vector2i mousePosition, GameState &state);
   };
 }
 #endif

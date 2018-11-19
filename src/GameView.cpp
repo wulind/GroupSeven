@@ -21,10 +21,19 @@ sf::RenderWindow* GameView::getApp(){
 }
 
 /*
+* Gets current position of mouse in relation to the current render window
+*/
+sf::Vector2i GameView::getMousePosition(){
+	return sf::Mouse::getPosition(this -> App);
+}
+
+/*
 * Draws any text needed for the level
 * @param text: text to draw
 */
 void GameView::drawText(sf::Text &text) {
+	text.setFont(*this -> font);
+	text.setFillColor(sf::Color::White);
 	this -> App.draw(text);
 }
 
@@ -37,48 +46,50 @@ void GameView::drawSprite(sf::Sprite &sprite) {
 }
 
 /*
+* TODO: get rid of these
+*/
+void GameView::drawRectangle(sf::RectangleShape &rect) {
+	this -> App.draw(rect);
+}
+
+void GameView::drawCircle(sf::CircleShape &circle) {
+	this -> App.draw(circle);
+}
+
+/*
 * Creates all of the SFML-related objects that need to be drawn
 * @param platform: platform needed for the level
 * @param stolenObject: objects that need to be stolen
 * @param menu: menu that contains platforms
 */
-void GameView::update(Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base, GameState *state) { //TODO: Fix
-	this -> App.clear(sf::Color(103, 164, 207));
+void GameView::update(Level &level){
+	this -> App.clear(sf::Color::Black);
 
-	if (menu){
-		menu -> update(state);
-		this -> drawSprite(menu -> menu);
-		this -> drawText(menu -> title);
+	int i = 0;
+	for (i; i < level.platforms.size(); ++i){
+
+		sf::RectangleShape platform(sf::Vector2f(level.platforms[i].width, level.platforms[i].height)); //TODO: fix
+		platform.setOrigin(level.platforms[i].width/2, level.platforms[i].height/2);
+		platform.setPosition(level.platforms[i].xCoord, level.platforms[i].yCoord);
+		platform.setFillColor(level.platforms[i].color);
+		this -> drawRectangle(platform);
 	}
 
-	if (platform){
-		sf::RectangleShape rectangle(sf::Vector2f(platform -> width, platform -> height)); //TODO: fix
-		rectangle.setOrigin(platform -> width/2, platform -> height/2);
-		//shape.setSize(sf::Vector2f(platform->width, platform->height));
-		rectangle.setPosition(platform -> xCoord, platform -> yCoord);
-		rectangle.setFillColor(platform -> color);
+	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix
+	base.setOrigin(level.base.width/2, level.base.height/2);
+	base.setPosition(level.base.xCoord, level.base.yCoord);
+	base.setFillColor(level.base.color);
+	this -> drawRectangle(base);
 
-		//this -> drawPlatform(rectangle);
+	sf::CircleShape circle(level.stolenObject.radius); //TODO: fix
+	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
+	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
+	circle.setFillColor(level.stolenObject.color);
+	//TODO: Smooth it out when we pick a texture
+  this -> drawCircle(circle);
+
+	if(level.finishButton.show){
+		this -> drawText(level.finishButton.button);
 	}
-
-	if (base){
-		sf::RectangleShape rectangle(sf::Vector2f(base -> width, base -> height)); //TODO: fix
-		rectangle.setOrigin(base -> width/2, base -> height/2);
-		//shape.setSize(sf::Vector2f(platform->width, platform->height));
-		rectangle.setPosition(base -> xCoord, base -> yCoord);
-		rectangle.setFillColor(base -> color);
-
-		//this -> drawPlatform(rectangle);
-	}
-
-	if (stolenObject){
-		sf::CircleShape circle(stolenObject -> radius); //TODO: fix
-		circle.setOrigin(stolenObject -> radius,stolenObject -> radius);
-		circle.setPosition(stolenObject -> xCoord, stolenObject -> yCoord);
-		circle.setFillColor(stolenObject -> color);
-		//TODO: Smooth it out when we pick a texture
-		//this -> drawStolenObject(circle);
-	}
-
 	this -> App.display();
 }

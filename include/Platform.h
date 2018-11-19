@@ -6,27 +6,30 @@
 
 namespace escape {
 	class Platform {
+		private:
+			b2Body* Body;
+			b2World* World;
 
 		public:
 			Platform();
-			Platform(float x, float y, int height, int width, b2World* World);
+			Platform(float x, float y, int height, int width);
 
 			float xCoord;
 			float yCoord;
-	    		float mouseDragOffsetX;
+	    float mouseDragOffsetX;
 			float mouseDragOffsetY;
+
+			sf::Color color;
 
 			int height;
 			int width;
 
 			bool isBeingDragged;
 
-			sf::Color color;
-
+			void setWorld(b2World* World);
 			void updateDragPosition(float mouseX, float mouseY);
 
-			b2Body* Body;
-			b2World* World;
+
 	};
 }
 #endif

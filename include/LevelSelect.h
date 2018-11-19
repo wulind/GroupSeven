@@ -9,15 +9,14 @@ namespace escape{
 
 		private:
 			int levelUnlocked = 1;
-            
-		        sf::Sprite sprite;
 
-		        sf::CircleShape level1;
-            
-            
+		  sf::Sprite sprite;
+
+		  sf::CircleShape level1;
 
 			sf::RenderWindow *App;
 			GameState *state;
+
 			float screenX = 800;
 			float screenY = 600;
 
@@ -30,7 +29,7 @@ namespace escape{
 			void drawBackground(sf::RenderWindow *App);
 			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
-            void levelClick(sf::RenderWindow &App, GameState *state);
+      void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};
 }
 #endif

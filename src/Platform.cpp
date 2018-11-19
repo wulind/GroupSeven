@@ -14,7 +14,7 @@ Platform::Platform(){}
 * @param width: width of platform
 * @param World: Box2D World where platform is to be placed
 */
-Platform::Platform(float x, float y, int height, int width, b2World* World){
+Platform::Platform(float x, float y, int height, int width){
 	//TODO: Update this to be in the menu
 	this -> xCoord = x;
 	this -> yCoord = y;
@@ -28,27 +28,31 @@ Platform::Platform(float x, float y, int height, int width, b2World* World){
 
 	this -> color = sf::Color::White;
 
-	this -> World = World;
-
 	float h = (float) height;
 	float w = (float) width;
+}
 
+/*
+* Sets the world for Box2D
+* @param *World: current B2D world
+*/
+void Platform::setWorld(b2World* World){
 	//Creates Box2D Body.  Static body so that It won't move.
+	this -> World = World;
 	b2BodyDef BodyDef;
-    	BodyDef.position = b2Vec2(x/SCALE, y/SCALE);
-   	BodyDef.type = b2_staticBody;
-    	b2Body* Body = this -> World -> CreateBody(&BodyDef);
-	
-	//Add a rectangle to go with the platform body
+  BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
+  BodyDef.type = b2_staticBody;
+  b2Body* Body = this -> World -> CreateBody(&BodyDef);
+
+	// //Add a rectangle to go with the platform body
 	b2PolygonShape Shape;
-	Shape.SetAsBox((float)(width/2)/SCALE, (float)(height/2)/SCALE);
+	Shape.SetAsBox((float)(this -> width/2)/SCALE, (float)(this -> height/2)/SCALE);
 	b2FixtureDef FixtureDef;
 	FixtureDef.density = 100.f;
 	FixtureDef.shape = &Shape;
-	Body->CreateFixture(&FixtureDef);
+	Body -> CreateFixture(&FixtureDef);
 	this -> Body = Body;
 }
-
 
 /*
 * Updates position of platform when it's being dragged across the screen

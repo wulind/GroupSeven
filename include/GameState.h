@@ -10,13 +10,15 @@ namespace escape{
       //Possible game states
       enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL};
 
-      int currentLevel;
-
       void setState(GameState::State _state);
+      void incrementCurrentLevel();
+
       GameState::State getState();
+      int getCurrentLevel();
 
     private:
       State state; //Current game state
+      int currentLevel;
 
   };
 }
