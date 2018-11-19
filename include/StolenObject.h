@@ -2,12 +2,19 @@
 #define STOLENOBJECT_H
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 
 namespace escape {
 	class StolenObject {
 
+		private:
+			//Box2D Stuff
+			b2Body* Body;
+			b2World* World;
+
+
 		public:
-      			StolenObject();
+      StolenObject();
 			StolenObject(float x, float y, int radius);
 
 			float xCoord;
@@ -16,6 +23,9 @@ namespace escape {
 			int radius;//TODO: make this pertain to other shapes
 
 			sf::Color color;
+
+			void setWorld(b2World* World);
+			void updatePosition();
 	};
 }
 #endif

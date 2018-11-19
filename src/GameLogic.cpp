@@ -1,91 +1,96 @@
-#include "../include/GameLogic.h"
+#include "GameLogic.h"
+
+static const float SCALE = 30.f;
 
 using namespace escape;
 
 /*
-* @param *App: pointer to game window
+* GameLogic Constructor
 */
-GameLogic::GameLogic(sf::RenderWindow *App){
-	this -> App = App;
-	this -> mainView = GameView(App);
+GameLogic::GameLogic(){
+	//Game State
+	this -> state.setState(GameState::State::TITLE);
 
-	this -> platform = Platform(50, 50, 20, 100);
-	this -> stolenObject = StolenObject(100, 100, 25);
-	this -> menu = PlatformMenu(App);
-	this -> finishButton = FinishButton(App);
+	//Initializes world.
+	//Takes in Gravity (change second param to change gravity)
+	b2Vec2 Gravity(0.f, 1.0f);
+	this -> World = new b2World(Gravity);
+
+	//LevelFactory & Level
+	this -> factory = LevelFactory();
+
+	//TitlePage
+	this -> titlePage = TitlePage();
+
+	//Resources
+	this -> resources = ResourceManager();
 }
 
 /*
-* Main loop
+* Polls game events, to be replaced by EventHandler
+* @param *App: pointer to current window
 */
-int GameLogic::gameLoop(){
-  // start main loop
-	while(this -> App -> isOpen()) {
+void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){//TODO: put clock in main loop
+	// process events
+	sf::Event event;
+	while(App -> pollEvent(event)) {
+		gameTime.restart();
+		switch (event.type) {
 
-    // process events
-		sf::Event event;
-		while(this -> App -> pollEvent(event)) {
+			case sf::Event::Closed:
+				App -> close();// TODO: move in GameView?
+				break;
 
-			switch (event.type) {
-				case sf::Event::Closed:
-					this -> App -> close();
-					break;
-				case sf::Event::MouseButtonPressed:
-					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-						this -> checkMouseOverPlatform();
+			case sf::Event::MouseButtonPressed:
+
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
+					switch(this -> state.getState()){//TODO: put in event handler
+
+						case GameState::State::TITLE:
+							this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
+							break;
+
+						case GameState::State::LEVELSELECT:
+							this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
+							break;
+
+						case GameState::State::SETUP:
+							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
+							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+							break;
 					}
-					break;
-				case sf::Event::MouseButtonReleased:
-					this -> releaseAllPlatforms();
-					break;
-				default:
-					break;
+				}
+				break;
+
+			case sf::Event::MouseButtonReleased:
+				if (this -> state.getState() == GameState::State::SETUP){
+					this -> eventManager.releaseAllPlatforms(this -> level.platforms);
+				}
 			}
 		}
+	//Get the elapsed time since the loop started
+	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
 
-		this -> updateMouse();
-
-		this -> mainView.update(&this -> platform, &this -> stolenObject, &this -> menu);
+	//Adjust game timing by sleeping
+	if(deltaMs < targetMs){
+		sf::sleep(sf::milliseconds(targetMs-deltaMs));
 	}
+
 }
 
 /*
-* Checks game state and updates screen based on that
+* Loads level using level factory
+* @param level: int representation of current level to load
 */
-void updateGame();
-
-bool GameLogic::checkMouseOverPlatform(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	float mouseX = mousePosition.x;
-	float mouseY = mousePosition.y;
-
-	float platformXStart = this -> platform.xCoord;
-	float platformYStart = this -> platform.yCoord;
-
-	float platformXEnd = platformXStart + this -> platform.width;
-	float platformYEnd = platformYStart + this -> platform.height;
-
-	bool hitsX = (platformXStart <= mouseX && mouseX <= platformXEnd);
-	bool hitsY = (platformYStart <= mouseY && mouseY <= platformYEnd);
-
-	if (hitsX && hitsY) {
-		this -> platform.isBeingDragged = true;
-
-		this -> platform.mouseDragOffsetX = mouseX - platformXStart;
-		this -> platform.mouseDragOffsetY = mouseY - platformYStart;
-
-		return true;
-	}
-	return false;
+void GameLogic::loadLevel(int level){
+	this -> level = *this -> factory.makeLevel(level, this -> World);
 }
 
-void GameLogic::releaseAllPlatforms(){
-	this -> platform.isBeingDragged = false;
-}
-
-void GameLogic::updateMouse(){
-	sf::Vector2i mousePosition = sf::Mouse::getPosition(*this->App);
-
-	this -> platform.updateDragPosition(mousePosition.x, mousePosition.y);
+/*
+* Progresses the simluation in the Box2D world
+*/
+void GameLogic::progressSimluation(){
+	this -> level.stolenObject.updatePosition();
+	this -> World -> Step(1.f/1000.f, 5, 8);
 }

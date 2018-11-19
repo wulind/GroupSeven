@@ -1,3 +1,8 @@
+# Node Stuff
+*.env
+srv/node_modules/
+srv/package-lock.json
+
 # Prerequisites
 *.d
 
@@ -37,3 +42,5 @@
 *.sln
 *.vsproj
 *.vsproj.*
+
+Debug/

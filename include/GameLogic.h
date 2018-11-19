@@ -2,48 +2,46 @@
 #define GAMELOGIC_H
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 
-#include "../include/GameState.h"
-
-#include "../include/Platform.h"
-#include "../include/StolenObject.h"
-#include "../include/PlatformMenu.h"
-#include "../include/FinishButton.h"
-
-#include "../include/GameView.h"
+#include "GameState.h"
+#include "ResourceManager.h"
+#include "TitlePage.h"
+#include "LevelSelect.h"
+#include "FinishButton.h"
+#include "EventManager.h"
+#include "LevelFactory.h"
+#include "Level.h"
 
 namespace escape {
 	class GameLogic {
 
 		private:
-			//Window
-			sf::RenderWindow* App;
+			b2World* World;
+			b2Body** Body;
 
-			//gameState
-			//GameState state;
+			LevelFactory factory;
 
-		  	//Objects
-			Platform platform;
-			StolenObject stolenObject;
-			PlatformMenu menu;
-			FinishButton finishButton;
-
-		  	//Views
-			GameView mainView;
-		
-			void updateGame();
-			
-			//Platform moving
-			void updateMouse();
-			bool checkMouseOverPlatform();
-			void releaseAllPlatforms();
+			void changeToLoading();
 
 		public:
-			GameLogic(sf::RenderWindow *App);
+			GameLogic();
 
-	  		int gameLoop();
+			GameState state;
 
-			
+			Level level;
+
+			TitlePage titlePage;
+			LevelSelect levelSelect;
+
+			//Resources (fonts, sprites)
+			ResourceManager resources;
+
+			EventManager eventManager;
+
+			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
+			void loadLevel(int level);
+			void progressSimluation();
 	};
 }
 #endif
