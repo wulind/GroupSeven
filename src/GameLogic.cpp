@@ -17,8 +17,7 @@ GameLogic::GameLogic(){
 	this -> World = new b2World(Gravity);
 
 	//LevelFactory & Level
-	this -> level = Level(this -> World);
-	this -> factory = LevelFactory(this -> level);
+	this -> factory = LevelFactory();
 
 	//TitlePage
 	this -> titlePage = TitlePage();
@@ -57,9 +56,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							break;
 
 						case GameState::State::SETUP:
-
-							if(this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platform)){
-							}
+							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
 							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
 							break;
 					}
@@ -68,7 +65,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 
 			case sf::Event::MouseButtonReleased:
 				if (this -> state.getState() == GameState::State::SETUP){
-					this -> eventManager.releaseAllPlatforms(this -> level.platform);
+					this -> eventManager.releaseAllPlatforms(this -> level.platforms);
 				}
 			}
 		}
@@ -87,7 +84,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
-	this -> factory.readXML(level);
+	this -> level = *this -> factory.makeLevel(level, this -> World);
 }
 
 /*

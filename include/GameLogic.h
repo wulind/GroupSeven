@@ -20,6 +20,8 @@ namespace escape {
 			b2World* World;
 			b2Body** Body;
 
+			LevelFactory factory;
+
 			void changeToLoading();
 
 		public:
@@ -28,7 +30,6 @@ namespace escape {
 			GameState state;
 
 			Level level;
-			LevelFactory factory;
 
 			TitlePage titlePage;
 			LevelSelect levelSelect;

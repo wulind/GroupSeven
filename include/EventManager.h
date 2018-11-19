@@ -2,6 +2,7 @@
 #define EVENTMANAGER_H
 
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include "GameState.h"
 #include "Platform.h"
 
@@ -13,9 +14,9 @@ namespace escape{
 	      void clickButton(sf::RenderWindow &App, GameState &state, sf::Sprite finishButton);
 
 	      //platform moving
-	      void updateMouse(sf::Vector2i mousePosition, Platform &platform);
-	      bool checkMouseOverPlatform(sf::Vector2i mousePosition, Platform &platform);
-	      void releaseAllPlatforms(Platform &platform);
+	      void updateMouse(sf::Vector2i mousePosition, std::vector<Platform> &platforms);
+	      void checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms);
+	      void releaseAllPlatforms(std::vector<Platform> &platforms);
 
 	  private:
 	      //The platform object

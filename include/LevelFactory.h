@@ -8,11 +8,14 @@
 namespace escape{
   class LevelFactory{
 
+    private:
+      void readXML(int levelToLoad);
+
     public:
       LevelFactory();
       LevelFactory(Level &_level);
 
-      void readXML(int levelToLoad);
+      Level* makeLevel(int levelToLoad, b2World* World);
 
       Level level;
   };

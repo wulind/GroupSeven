@@ -62,27 +62,24 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 * @param stolenObject: objects that need to be stolen
 * @param menu: menu that contains platforms
 */
-void GameView::update(Level &level){//Platform *platform, StolenObject *stolenObject, PlatformMenu *menu, Platform *base) { //TODO: Fix
+void GameView::update(Level &level){
 	this -> App.clear(sf::Color::Black);
 
-	// if (menu){
-	// 	this -> drawSprite(menu -> menu);
-	// 	this -> drawText(menu -> title);
-	// }
-	sf::RectangleShape platform(sf::Vector2f(level.platform.width, level.platform.height)); //TODO: fix
-	platform.setOrigin(level.platform.width/2, level.platform.height/2);
-	//shape.setSize(sf::Vector2f(platform->width, platform->height));
-	platform.setPosition(level.platform.xCoord, level.platform.yCoord);
-	platform.setFillColor(level.platform.color);
-	this -> drawRectangle(platform);
+	int i = 0;
+	for (i; i < level.platforms.size(); ++i){
 
+		sf::RectangleShape platform(sf::Vector2f(level.platforms[i].width, level.platforms[i].height)); //TODO: fix
+		platform.setOrigin(level.platforms[i].width/2, level.platforms[i].height/2);
+		platform.setPosition(level.platforms[i].xCoord, level.platforms[i].yCoord);
+		platform.setFillColor(level.platforms[i].color);
+		this -> drawRectangle(platform);
+	}
 
-	sf::RectangleShape rectangle(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix
-	rectangle.setOrigin(level.base.width/2, level.base.height/2);
-	//shape.setSize(sf::Vector2f(platform->width, platform->height));
-	rectangle.setPosition(level.base.xCoord, level.base.yCoord);
-	rectangle.setFillColor(level.base.color);
-	this -> drawRectangle(rectangle);
+	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix
+	base.setOrigin(level.base.width/2, level.base.height/2);
+	base.setPosition(level.base.xCoord, level.base.yCoord);
+	base.setFillColor(level.base.color);
+	this -> drawRectangle(base);
 
 	sf::CircleShape circle(level.stolenObject.radius); //TODO: fix
 	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
@@ -94,6 +91,5 @@ void GameView::update(Level &level){//Platform *platform, StolenObject *stolenOb
 	if(level.finishButton.show){
 		this -> drawText(level.finishButton.button);
 	}
-
 	this -> App.display();
 }

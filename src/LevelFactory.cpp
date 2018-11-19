@@ -1,12 +1,16 @@
 #include "LevelFactory.h"
 
-
 using namespace escape;
 
-LevelFactory::LevelFactory(){}
+LevelFactory::LevelFactory(){
+  this -> level = Level();
+}
 
-LevelFactory::LevelFactory(Level &level){
-  this -> level = level;
+Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
+  this -> readXML(levelToLoad);
+  this -> level.setWorld(World);
+
+  return &this -> level;
 }
 
 void LevelFactory::readXML(int levelToLoad){

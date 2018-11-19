@@ -2,14 +2,25 @@
 
 using namespace escape;
 
-Level::Level(){}
-
-Level::Level(b2World* World){
-  this -> World = World;
-  this -> platform = Platform(0, 300, 10, 200, World);//TODO: move into respective places
-  this -> base = Platform(0, 600, 10, 800, World);
-  this -> stolenObject = StolenObject(50, 100, 25, World);
+Level::Level(){
+  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
+  this -> base = Platform(0, 600, 10, 800);
+  this -> stolenObject = StolenObject(50, 100, 25);
   this -> finishButton = FinishButton();
+
+}
+
+/*
+* Sets the world for Box2D for current level
+* @param *World: current B2D world
+*/
+void Level::setWorld(b2World* World){
+  int i = 0;
+  for (i; i < this -> platforms.size(); i++){
+    this -> platforms[i].setWorld(World);
+  }
+  this -> base.setWorld(World);
+  this -> stolenObject.setWorld(World);
 }
 
 /*
@@ -22,13 +33,13 @@ void Level::setBackgroundFile(const char *_backgroundFile){
 
 /*
 * Makes platforms available for level
+* @param count: the amount of platforms needed in the level
 */
-void Level::makePlatform(int platform){
-  //for (i; i < platform; i++){
-
-   //this -> platform = Platform(50, 50, 10, 50, this -> World);
-   //this -> base = Platform(0, 550, 10, 600, this -> World);
-  //}
+void Level::makePlatform(int count){
+  int i = 0;
+  for (i; i < count; i++){
+    this -> platforms.push_back(Platform(0, 300, 10, 100));
+  }
 }
 
 /*
