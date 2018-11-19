@@ -1,0 +1,19 @@
+Group: Seven
+Author: Michael Darr
+Software: node.js server to store high scores
+
+Technologies:
+* Node.js
+* Express.js
+* Google Firebase
+
+Prerequisites:
+* Node.js
+* NPM
+
+Installation:
+* Navigate to this directory
+* Create a .env file in directory - see sampleenv.txt
+* Run the following commands
+    npm install
+    node index
