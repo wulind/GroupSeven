@@ -13,6 +13,7 @@ namespace escape {
 			b2World* World;
 
 
+
 		public:
       StolenObject();
 			StolenObject(float x, float y, int radius);
@@ -23,6 +24,7 @@ namespace escape {
 			int radius;//TODO: make this pertain to other shapes
 
 			sf::Color color;
+			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
 			void updatePosition();

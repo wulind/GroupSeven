@@ -8,11 +8,17 @@ namespace escape{
 	class LevelSelect{
 
 		private:
-			int levelUnlocked = 1;
+			int levelUnlocked = 5;
+			sf::Text titleText;
+			sf::Font font;
 
 		  sf::Sprite sprite;
 
 		  sf::CircleShape level1;
+		  sf::CircleShape level2;
+		  sf::CircleShape level3;
+		  sf::CircleShape level4;
+		  sf::CircleShape level5;
 
 			sf::RenderWindow *App;
 			GameState *state;
@@ -29,7 +35,8 @@ namespace escape{
 			void drawBackground(sf::RenderWindow *App);
 			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
-      void levelClick(sf::Vector2i mousePosition, GameState &state);
+			void drawText();
+      		void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};
 }
 #endif

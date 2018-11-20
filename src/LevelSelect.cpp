@@ -30,17 +30,54 @@ void LevelSelect::drawBackground(sf::RenderWindow *App){
  */
 
 void LevelSelect::drawLevelDots(sf::RenderWindow *App){
+
 	  sf::Texture levelDot;
     if (!levelDot.loadFromFile("../data/LevelDot.png")) {
 
     }
 
     //Sets the size, texture, and coordinates of the level 1 dot
+    
     this -> level1.setRadius(25);
     this -> level1.setTexture(&levelDot);
-    this -> level1.setPosition(190, 246);
+    this -> level1.setPosition(190, 243);
 
-    App -> draw(level1);
+    this -> level2.setRadius(25);
+    this -> level2.setTexture(&levelDot);
+    this -> level2.setPosition(90, 173);
+
+
+
+
+
+    if(this -> levelUnlocked >= 1){
+        App -> draw(level1);
+    }
+    if(this -> levelUnlocked >= 2){
+        App -> draw(level2);
+    }
+    drawText();
+    App -> draw(titleText);
+}
+
+
+/*
+*   Draws the text on the level select screen using the game font
+*
+*/
+void LevelSelect::drawText(){
+    if (!font.loadFromFile("../data/aliensCows.ttf"))
+    {
+    // error...
+    }
+
+    
+    titleText.setFont(font);
+    titleText.setCharacterSize(74); 
+    titleText.setString("Select A Level");
+    titleText.setPosition(380,520);
+    titleText.setFillColor(sf::Color::White);
+
 }
 
 void LevelSelect::availableLevels(){
@@ -54,11 +91,16 @@ void LevelSelect::availableLevels(){
  */
 void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
     //Get the level selection dot coordinaes
-    sf::FloatRect boundOne = this -> level1.getGlobalBounds();
+    sf::FloatRect bound1 = this -> level1.getGlobalBounds();
+    sf::FloatRect bound2 = this -> level2.getGlobalBounds();
+    sf::FloatRect bound3 = this -> level3.getGlobalBounds();
 
     //If the mouse clicks on the level 1 selector dot then change the state to game loading.
-	  if(boundOne.contains(mousePosition.x, mousePosition.y)){
-      state.setState(GameState::State::LOADING);
-    }
+    if(bound1.contains(mousePosition.x, mousePosition.y)){
+        state.setState(GameState::State::LOADING);
+        }
 
+    if(bound2.contains(mousePosition.x, mousePosition.y)){
+        state.setState(GameState::State::LOADING);
+        }
 }

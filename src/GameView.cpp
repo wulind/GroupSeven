@@ -84,7 +84,8 @@ void GameView::update(Level &level){
 	sf::CircleShape circle(level.stolenObject.radius); //TODO: fix
 	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
 	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-	circle.setFillColor(level.stolenObject.color);
+	circle.setTexture(&level.stolenObject.objTexture);
+	// circle.setFillColor(level.stolenObject.color);
 	//TODO: Smooth it out when we pick a texture
   this -> drawCircle(circle);
 
