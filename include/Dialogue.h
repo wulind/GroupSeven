@@ -16,7 +16,7 @@ namespace escape{
 	
 	public:
 		Dialogue();
-		void playStory(sf::RenderWindow *App, GameState *state);
+		void playStory(sf::RenderWindow *App, GameState *state, int levelSelected);
 		void drawBackground(sf::RenderWindow *App);	
 
 	};

@@ -12,23 +12,25 @@ namespace escape{
 			sf::Text titleText;
 			sf::Font font;
 
-		  sf::Sprite sprite;
+		  	sf::Sprite sprite;
 
-		  sf::CircleShape level1;
-		  sf::CircleShape level2;
-		  sf::CircleShape level3;
-		  sf::CircleShape level4;
-		  sf::CircleShape level5;
+		  	sf::CircleShape level1;
+		  	sf::CircleShape level2;
+		  	sf::CircleShape level3;
+		  	sf::CircleShape level4;
+		  	sf::CircleShape level5;
 
-			sf::RenderWindow *App;
-			GameState *state;
+		  	sf::RenderWindow *App;
+		  	GameState *state;
 
-			float screenX = 800;
-			float screenY = 600;
+		  	float screenX = 800;
+		  	float screenY = 600;
+
+		  	float imageX = 1114;
+		  	float imageY = 590;
 
 
-			float imageX = 1114;
-			float imageY = 590;
+
 
 		public:
 			LevelSelect();
@@ -37,6 +39,7 @@ namespace escape{
 			void availableLevels();
 			void drawText();
       		void levelClick(sf::Vector2i mousePosition, GameState &state);
+			int levelSelected;
 	};
 }
 #endif

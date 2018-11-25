@@ -97,10 +97,12 @@ void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
 
     //If the mouse clicks on the level 1 selector dot then change the state to game loading.
     if(bound1.contains(mousePosition.x, mousePosition.y)){
-        state.setState(GameState::State::LOADING);
+        state.setState(GameState::State::STORY);
+        levelSelected = 1;
         }
 
     if(bound2.contains(mousePosition.x, mousePosition.y)){
-        state.setState(GameState::State::LOADING);
+        state.setState(GameState::State::STORY);
+        levelSelected = 2;
         }
 }

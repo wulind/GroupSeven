@@ -8,7 +8,7 @@ namespace escape{
       GameState();
 
       //Possible game states
-      enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL};
+      enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL, STORY};
 
       void setState(GameState::State _state);
       void incrementCurrentLevel();
