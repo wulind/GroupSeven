@@ -61,6 +61,7 @@ void StolenObject::updatePosition(){
 
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
+	this -> rotation = this -> Body -> GetAngle() * 180 / b2_pi;
 
 	/*Keeping this Debug information for now to keep track of b2World Objects
 

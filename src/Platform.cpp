@@ -72,3 +72,11 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 	}
 	return;
 }
+
+/*
+* Set rotational value for a platform
+*/
+void Platform::setRotation(float rotation){
+	this -> rotation = rotation;
+	this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180 );
+}

@@ -22,6 +22,8 @@ namespace escape {
 
 			int radius;//TODO: make this pertain to other shapes
 
+			float rotation;
+
 			sf::Color color;
 
 			void setWorld(b2World* World);

@@ -19,6 +19,9 @@ namespace escape {
 	    float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
+			//The absolute rotation of an object from base
+			float rotation;
+
 			sf::Color color;
 
 			int height;
@@ -28,6 +31,8 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updateDragPosition(float mouseX, float mouseY);
+
+			void setRotation(float rotation);
 
 
 	};
