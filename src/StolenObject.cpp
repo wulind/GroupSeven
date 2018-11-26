@@ -24,6 +24,8 @@ StolenObject::StolenObject(float x, float y, int radius){
 	float r = (float) radius;
 
 	this -> rotation  = 0;
+
+	this -> health = 100;
 }
 
 /*

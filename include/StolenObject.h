@@ -24,6 +24,8 @@ namespace escape {
 
 			float rotation;
 
+			float health;
+
 			sf::Color color;
 
 			void setWorld(b2World* World);
