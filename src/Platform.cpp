@@ -30,6 +30,9 @@ Platform::Platform(float x, float y, int height, int width){
 
 	float h = (float) height;
 	float w = (float) width;
+
+	//Set a default rotational value
+	this -> rotation = 0;
 }
 
 /*

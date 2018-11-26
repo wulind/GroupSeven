@@ -22,6 +22,8 @@ StolenObject::StolenObject(float x, float y, int radius){
 	this -> color = sf::Color::White;
 
 	float r = (float) radius;
+
+	this -> rotation  = 0;
 }
 
 /*
