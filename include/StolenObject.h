@@ -30,6 +30,7 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updatePosition();
+			int checkAlive();
 	};
 }
 #endif

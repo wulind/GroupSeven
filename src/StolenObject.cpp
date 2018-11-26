@@ -78,3 +78,15 @@ void StolenObject::updatePosition(){
 	*/
 
 }
+
+/*
+* Returns 1 if health is above 0
+*/
+int StolenObject::checkAlive(){
+	if (this -> health > 0){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
