@@ -1,0 +1,14 @@
+Introduction
+
+ball
+coords 30 45
+
+platform
+coords 50 200
+dimensions 20 100
+color white
+
+platform
+coords 150 400
+dimensions 30 150
+color white

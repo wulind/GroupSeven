@@ -36,4 +36,9 @@ module.exports = function(app){
 
     res.send(topScores)
   })
+
+  // get top 5 scores from database
+  app.get('/', function(req, res) {
+    res.send("Welcome to The Great Escape!")
+  })
 }

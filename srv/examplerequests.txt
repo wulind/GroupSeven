@@ -1,0 +1,43 @@
+	// set up generic http object for our server	
+	sf::Http http;
+	http.setHost("http://167.99.5.168/");
+
+// GET REQUEST FOR TOP 5 SCORES
+
+	sf::Http::Request getRequest;
+	getRequest.setMethod(sf::Http::Request::Get);
+	getRequest.setUri("/topScores");
+	getRequest.setHttpVersion(1, 1);
+	getRequest.setField("Content-Type", "application/x-www-form-urlencoded");
+	getRequest.setBody("");
+
+	sf::Http::Response getResponse = http.sendRequest(getRequest);
+
+	// check request status
+	if (getResponse.getStatus() == sf::Http::Response::Ok) {
+		// check the contents of the response
+		std::cout << getResponse.getBody() << std::endl;
+	}
+	else {
+		std::cout << "get request failed" << std::endl;
+	}
+
+// POST REQUEST FOR SCORE SUBMISSION
+
+	sf::Http::Request postRequest;
+	postRequest.setMethod(sf::Http::Request::Post);
+	postRequest.setUri("/score");
+	postRequest.setHttpVersion(1, 1);
+	postRequest.setField("Content-Type", "application/json");
+	postRequest.setBody("{\"username\":\"MIK\",\"score\":\"333\"}");
+
+	sf::Http::Response postResponse = http.sendRequest(postRequest);
+
+	// check request status
+	if (postResponse.getStatus() == sf::Http::Response::Ok) {
+		// check the contents of the response
+		std::cout << postResponse.getBody() << std::endl;
+	}
+	else {
+		std::cout << "post request failed. status: " << postResponse.getBody() << std::endl;
+	}
