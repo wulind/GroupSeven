@@ -74,12 +74,13 @@ void GameView::update(Level &level){
 		platform.setFillColor(level.platforms[i].color);
 
 		level.platforms[i].bounds = platform.getGlobalBounds();
-
+		level.platforms[i].origin = platform.getPosition();
 
 		level.platforms[i].setRotation(45);
 		platform.setRotation(level.platforms[i].rotation);
+
 		this -> drawRectangle(platform);
-		level.platforms[i].origin = platform.getPosition();
+
 	}
 
 	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix

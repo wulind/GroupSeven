@@ -30,23 +30,13 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
-		// float localXMouse = mousePosition.x*cos((platforms[i].rotation)*b2_pi/180) - (-1 * mousePosition.y*sin((platforms[i].rotation)*b2_pi/180));
-		// float localYMouse = (-1 * mousePosition.x*sin((platforms[i].rotation)*b2_pi/180)) + mousePosition.y*cos((platforms[i].rotation)*b2_pi/180);
-		float localXMouse = -1 * ((cos(-1 * platforms[i].rotation) * (mousePosition.x - platforms[i].origin.x)) - (sin (-1 * platforms[i].rotation) * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
-		float localYMouse = (sin(-1 * platforms[i].rotation) * (mousePosition.x - platforms[i].origin.x)) + (cos (-1 * platforms[i].rotation) * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
+		int s = sin(-1 * platforms[i].rotation);
+		int c = cos(-1 * platforms[i].rotation);
 
-		//float localXMouse = mousePosition.x;
-		//float localYMouse = mousePosition.y;
-
-		std::cout << "Mouse position: " << localXMouse << ", " << localYMouse << std::endl;
-		std::cout << "Mouse position: " << mousePosition.x << ", " << mousePosition.y << std::endl;
-		std::cout << "Originx : " << platforms[i].origin.x << " ";
-		std::cout << "Originy : " << platforms[i].origin.y << std::endl;
-
-		// std::cout << "Platform: " << platforms[i].top << std::endl;
+		float localXMouse = -1 * ((c * (mousePosition.x - platforms[i].origin.x)) - (s * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
+		float localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
 		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
-
 			platforms[i].isBeingDragged = true;
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
