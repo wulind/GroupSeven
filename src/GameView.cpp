@@ -2,7 +2,9 @@
 
 using namespace escape;
 
-GameView::GameView(){}
+GameView::GameView(){
+
+}
 
 /*
 * @param *App: pointer to game window
@@ -11,6 +13,11 @@ GameView::GameView(){}
 GameView::GameView(sf::Font *_font){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape");
 	this -> font = _font;
+
+	// if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(800, 600, 800, 600)))
+	// 	{	
+	// 		//Error
+	// 	}
 }
 
 /*
@@ -56,6 +63,19 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
+
+
+
+void GameView::setGraphics(Level &level){
+		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
+		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.startX, level.startY, 800, 600)))
+		{	
+			//Error
+		}
+		sprite.setTexture(backgroundTexture);
+
+}
+
 /*
 * Creates all of the SFML-related objects that need to be drawn
 * @param platform: platform needed for the level
@@ -63,7 +83,9 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 * @param menu: menu that contains platforms
 */
 void GameView::update(Level &level){
-	this -> App.clear(sf::Color::Black);
+	//Clear the screen so objects don't redraw as they  move
+	// this -> App.clear(sf::Color::Black);
+	this -> App.draw(sprite);
 
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
@@ -84,7 +106,8 @@ void GameView::update(Level &level){
 	sf::CircleShape circle(level.stolenObject.radius); //TODO: fix
 	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
 	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-	circle.setFillColor(level.stolenObject.color);
+	circle.setTexture(&level.stolenObject.objTexture);
+	// circle.setFillColor(level.stolenObject.color);
 	//TODO: Smooth it out when we pick a texture
   this -> drawCircle(circle);
 

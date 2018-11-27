@@ -3,6 +3,7 @@
 #include "GameView.h"
 #include "MenuView.h"
 #include "Level.h"
+#include "Dialogue.h"
 
 using namespace escape;
 
@@ -20,6 +21,7 @@ int main(int argc, char** argv){
 	//Views
 	GameView mainView(gameLogic.resources.getFont());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
+	
 
 	//Target 60 fps
   double targetMs = 1000/240;
@@ -42,6 +44,7 @@ int main(int argc, char** argv){
 * Checks game state and updates screen based on that
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
+	Dialogue dialogue = Dialogue();
 	switch(gameLogic.state.getState()){
 		case GameState::State::TITLE:
 			menuView.loadTitleScreen(gameLogic.titlePage);
@@ -59,7 +62,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
+			gameView.setGraphics(gameLogic.level);
 			drawLevel(gameLogic.level, gameView);
+			break;
+
+		case GameState::State::STORY:
+			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel());
 			break;
 
 		case GameState::State::PLAY:

@@ -15,6 +15,8 @@ namespace escape{
 
 		private:
 
+			sf::Texture backgroundTexture;
+			sf::Sprite sprite;
 	    //Window
 			sf::RenderWindow App;
 
@@ -29,12 +31,12 @@ namespace escape{
 			void drawCircle(sf::CircleShape &circle);
 
 		public:
-    	GameView();
-      GameView(sf::Font *_font);
-
+    		GameView();
+      		GameView(sf::Font *_font);
+      		void setGraphics(Level &level);
 			void update(Level &level);
 
-      sf::RenderWindow* getApp();
+      		sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
 
 
