@@ -39,7 +39,6 @@ namespace escape{
 			void availableLevels();
 			void drawText();
       		void levelClick(sf::Vector2i mousePosition, GameState &state);
-			int levelSelected;
 	};
 }
 #endif

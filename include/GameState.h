@@ -12,6 +12,7 @@ namespace escape{
 
       void setState(GameState::State _state);
       void incrementCurrentLevel();
+      void setCurrentLevel(int level);
 
       GameState::State getState();
       int getCurrentLevel();

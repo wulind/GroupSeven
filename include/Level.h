@@ -9,17 +9,16 @@
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
-  public:
 
-    // private:
+    private:
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
+
+
+    public:
+      Level();
       int startX;
       int startY;
-
-    // public:
-      Level();
-
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
       StolenObject stolenObject;

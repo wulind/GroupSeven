@@ -62,11 +62,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
+			gameView.setGraphics(gameLogic.level);
 			drawLevel(gameLogic.level, gameView);
 			break;
 
 		case GameState::State::STORY:
-			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.levelSelect.levelSelected);
+			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel());
 			break;
 
 		case GameState::State::PLAY:
