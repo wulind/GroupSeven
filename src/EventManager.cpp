@@ -1,6 +1,9 @@
 #include "EventManager.h"
+#include <math.h>
+#include <iostream>
 
 using namespace escape;
+
 
 /*
  * EventManager Constructor
@@ -27,20 +30,28 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
-		float platformXStart = platforms[i].xCoord - platforms[i].width/2;
-		float platformYStart = platforms[i].yCoord - platforms[i].height/2;
-		float platformXEnd = platforms[i].xCoord + platforms[i].width/2;
-		float platformYEnd = platforms[i].yCoord + platforms[i].height/2;
+		// float localXMouse = mousePosition.x*cos((platforms[i].rotation)*b2_pi/180) - (-1 * mousePosition.y*sin((platforms[i].rotation)*b2_pi/180));
+		// float localYMouse = (-1 * mousePosition.x*sin((platforms[i].rotation)*b2_pi/180)) + mousePosition.y*cos((platforms[i].rotation)*b2_pi/180);
+		float localXMouse = -1 * ((cos(-1 * platforms[i].rotation) * (mousePosition.x - platforms[i].origin.x)) - (sin (-1 * platforms[i].rotation) * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
+		float localYMouse = (sin(-1 * platforms[i].rotation) * (mousePosition.x - platforms[i].origin.x)) + (cos (-1 * platforms[i].rotation) * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
-		bool hitsX = (platformXStart <= mousePosition.x && mousePosition.x <= platformXEnd);
-		bool hitsY = (platformYStart <= mousePosition.y && mousePosition.y <= platformYEnd);
+		//float localXMouse = mousePosition.x;
+		//float localYMouse = mousePosition.y;
 
-		if (hitsX && hitsY) {
+		std::cout << "Mouse position: " << localXMouse << ", " << localYMouse << std::endl;
+		std::cout << "Mouse position: " << mousePosition.x << ", " << mousePosition.y << std::endl;
+		std::cout << "Originx : " << platforms[i].origin.x << " ";
+		std::cout << "Originy : " << platforms[i].origin.y << std::endl;
+
+		// std::cout << "Platform: " << platforms[i].top << std::endl;
+
+		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
+
 			platforms[i].isBeingDragged = true;
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
 			platforms[i].mouseDragOffsetY = mousePosition.y - platforms[i].yCoord;
-		}
+	  }
 	}
 }
 

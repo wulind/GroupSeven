@@ -67,16 +67,6 @@ void StolenObject::updatePosition(){
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 	this -> rotation = this -> Body -> GetAngle() * 180 / b2_pi;
 
-	/*Keeping this Debug information for now to keep track of b2World Objects
-
-	for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext())
-        {
-		printf("Obj %i is at x:%f y:%f ", BodyIterator, BodyIterator -> GetPosition().x * SCALE, BodyIterator -> GetPosition().y * SCALE);
-		printf(" is active %i\n", this -> Body -> IsActive());
-	}
-	printf("\n");
-	*/
-
 }
 
 /*

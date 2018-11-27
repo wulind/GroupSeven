@@ -23,6 +23,8 @@ namespace escape {
 			float rotation;
 
 			sf::Color color;
+			sf::FloatRect bounds;
+			sf::Vector2f origin;
 
 			int height;
 			int width;

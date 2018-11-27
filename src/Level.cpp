@@ -38,7 +38,7 @@ void Level::setBackgroundFile(const char *_backgroundFile){
 void Level::makePlatform(int count){
   int i = 0;
   for (i; i < count; i++){
-    this -> platforms.push_back(Platform(0, 300, 10, 100));
+    this -> platforms.push_back(Platform(100, 300, 10, 100));//DO NOT CHANGER
   }
 }
 
