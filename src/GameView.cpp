@@ -80,7 +80,6 @@ void GameView::update(Level &level){
 		platform.setRotation(level.platforms[i].rotation);
 
 		this -> drawRectangle(platform);
-
 	}
 
 	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix
