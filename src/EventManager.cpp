@@ -30,11 +30,11 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
-		int s = sin(-1 * platforms[i].rotation);
-		int c = cos(-1 * platforms[i].rotation);
+		double s = sin(-1 * platforms[i].rotation * b2_pi / 180);
+		double c = cos(-1 * platforms[i].rotation * b2_pi / 180);
 
-		float localXMouse = -1 * ((c * (mousePosition.x - platforms[i].origin.x)) - (s * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
-		float localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
+		double localXMouse = -1 * ((c * (mousePosition.x - platforms[i].origin.x)) - (s * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
+		double localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
 		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
 			platforms[i].isBeingDragged = true;
