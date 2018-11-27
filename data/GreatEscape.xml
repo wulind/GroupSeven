@@ -2,9 +2,9 @@
 <Level level="1">
     <!-- <Background>../data/Met.jpg</Background> -->
     <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+    <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="800" endY="600" width="800" height="600"/>
     <Platform>2</Platform>
-    <StolenObject Filename="../data/money.jpg"/>
+    <StolenObject Filename="../data/money.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
 </Level>
 <Level level="2">
     <!-- <Background>../data/Louvre.jpg</Background> -->
