@@ -10,6 +10,7 @@ namespace escape{
 
     private:
       void readXML(int levelToLoad);
+      void makePlatforms(tinyxml2::XMLElement *root);
 
     public:
       LevelFactory();

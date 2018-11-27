@@ -24,7 +24,6 @@ namespace escape{
 			sf::Font *font;
 
 			void drawText(sf::Text &text);
-			void drawSprite(sf::Sprite &sprite);
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 

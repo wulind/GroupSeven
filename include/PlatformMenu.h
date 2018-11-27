@@ -16,20 +16,13 @@ namespace escape{
          float scale;
 
   public:
-      sf::RenderWindow *App;
          //Graphical variables for the menu
          sf::Font font;
          sf::Text title;
-         sf::Sprite menu;
-         sf::Texture menuTexture;
+         sf::RectangleShape menu;
 
          //Constructor
         PlatformMenu();
-        PlatformMenu(sf::RenderWindow *App);
-        //Updates the visuals of the platform menu based on the game state
-        void update(GameState *state);
-
-
   };
 }
 #endif

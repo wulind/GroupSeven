@@ -1,22 +1,20 @@
 <?xml version="1.0" ?>
 <Level level="1">
-    <!-- <Background>../data/Met.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
     <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>2</Platform>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
     <StolenObject Filename="../data/money.jpg"/>
 </Level>
 <Level level="2">
-    <!-- <Background>../data/Louvre.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
     <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>tbd</Platform>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>
 <Level level="3">
-    <!-- <Background>../data/ForbiddenCity.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
     <Background Filename="../data/ForbiddenCity.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>tbd</Platform>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>

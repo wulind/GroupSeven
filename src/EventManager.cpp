@@ -1,6 +1,5 @@
 #include "EventManager.h"
 #include <math.h>
-#include <iostream>
 
 using namespace escape;
 
@@ -37,8 +36,6 @@ void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vecto
 		int localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
 		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
-			std::cout << "localXMouse: " << localXMouse << ", localYMouse: " << localYMouse << std::endl;
-			std::cout << "bound X: " << platforms[i].bounds.height << ", bound Y: " << platforms[i].bounds.width << std::endl;
 			platforms[i].isBeingDragged = true;
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
