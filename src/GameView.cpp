@@ -63,7 +63,25 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 * @param menu: menu that contains platforms
 */
 void GameView::update(Level &level){
-	this -> App.clear(sf::Color::Black);
+	
+	this -> App.clear(sf::Color::Red);
+	sf::Texture backgroundTexture;
+	
+
+	//TODO: This will use the spritesheet file name from Levels Class
+	//Levels will also hold the startX and startY value.
+	//This is a hardcoded placeholder for the texture
+
+	if (!texture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(0, 0, 800, 600)))
+		{	
+			//Error
+		}
+
+	//Create a sprite
+	sf::Sprite sprite;
+	sprite.setTexture(backgroundTexture);
+	//Draw a sprite with the background texture
+	this -> App.draw(sprite);
 
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){

@@ -9,12 +9,15 @@
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
+  public:
 
-    private:
+    // private:
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
+      int startX;
+      int startY;
 
-    public:
+    // public:
       Level();
 
       std::vector<Platform> platforms;//TODO: store multiple platforms
@@ -23,8 +26,8 @@ namespace escape{
       FinishButton finishButton;
 
       void setWorld(b2World* World);
-      void setBackgroundFile(const char *_backgroundFile);
       void setStolenObjectFile(const char *_stolenObjectFile);
+      void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
       void makePlatform(int count);
 
   };

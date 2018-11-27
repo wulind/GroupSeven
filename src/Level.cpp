@@ -25,10 +25,13 @@ void Level::setWorld(b2World* World){
 
 /*
 * Sets Filename for background
-* TODO: put all of this info into the respective classes
+* Sets starting x and y for image in sprite sheet
 */
-void Level::setBackgroundFile(const char *_backgroundFile){
+void Level::setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY){
+  //Pull 
   this -> backgroundFile = _backgroundFile;
+  this -> startX = std::atoi(_startX);
+  this -> startY = std::atoi(_startY);
 }
 
 /*

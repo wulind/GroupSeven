@@ -66,7 +66,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::STORY:
-			// dialogue.playStory(gameView.getApp(), gameLogic.levelSelect.levelSelected);
 			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.levelSelect.levelSelected);
 			break;
 

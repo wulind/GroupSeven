@@ -38,10 +38,18 @@ void Dialogue::playStory(sf::RenderWindow *App, GameState *state, int levelSelec
 
 		case 2:
 			text.setCharacterSize(24); 
-			text.setString("Not bad, [Player Name]. Alright you’re in. First job’s easy: the Met.");
+			text.setString("Not bad, Player. Alright you’re in. First job’s easy: the Met.");
 			text.setPosition(10,300);
 			App -> draw(text);
 		break;
+
+		case 3:
+			text.setCharacterSize(24); 
+			text.setString("Good work Player. Next job’s easy: the Louvre.");
+			text.setPosition(10,300);
+			App -> draw(text);
+		break;
+
 
 	}
 	App -> display();
