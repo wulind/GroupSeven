@@ -23,11 +23,16 @@ namespace escape {
 
 			int radius;//TODO: make this pertain to other shapes
 
+			float rotation;
+
+			float health;
+
 			sf::Color color;
 			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
 			void updatePosition();
+			int checkAlive();
 	};
 }
 #endif

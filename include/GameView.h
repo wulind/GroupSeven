@@ -26,7 +26,6 @@ namespace escape{
 			sf::Font *font;
 
 			void drawText(sf::Text &text);
-			void drawSprite(sf::Sprite &sprite);
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 
@@ -38,6 +37,7 @@ namespace escape{
 
       		sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
+
 
 
 

@@ -1,5 +1,4 @@
 #include "Level.h"
-
 using namespace escape;
 
 Level::Level(){
@@ -36,13 +35,16 @@ void Level::setBackgroundFile(const char *_backgroundFile, const char *_startX, 
 
 /*
 * Makes platforms available for level
-* @param count: the amount of platforms needed in the level
+* @param rotation: rotation in degrees of platform
+* @param yPos: y axis position on screen
 */
-void Level::makePlatform(int count){
-  int i = 0;
-  for (i; i < count; i++){
-    this -> platforms.push_back(Platform(0, 300, 10, 100));
-  }
+void Level::makePlatform(int rotation, int yPos){
+  Platform platform(700, yPos, 10, 100);
+
+  platform.setRotation(rotation);
+
+  this -> platforms.push_back(platform);
+
 }
 
 /*

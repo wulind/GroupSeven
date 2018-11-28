@@ -1,5 +1,4 @@
 #include "LevelFactory.h"
-
 using namespace escape;
 
 LevelFactory::LevelFactory(){
@@ -23,8 +22,20 @@ void LevelFactory::readXML(int levelToLoad){
     root = root -> NextSiblingElement();
   }
 
-
-  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"), root -> FirstChildElement("Background") -> Attribute("startX"), root -> FirstChildElement("Background") -> Attribute("startY"));
-  this -> level.makePlatform(std::atoi(root -> FirstChildElement("Platform") -> GetText()));
+  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"));
+  this -> makePlatforms(root);
   this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
+}
+
+void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
+  int yPos = 200;
+  tinyxml2::XMLElement *child = root -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
+
+  while(child != nullptr){
+    this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos);\
+
+    yPos += 100;
+    child = child -> NextSiblingElement();
+  }
+
 }

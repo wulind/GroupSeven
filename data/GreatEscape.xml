@@ -1,23 +1,20 @@
 <?xml version="1.0" ?>
 <Level level="1">
-    <!-- <Background>../data/Met.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
-    <Platform>2</Platform>
-    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="619" startY="260" endX="805"
-    	endY="504" width="186" height = "244"/>
+    <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+    <StolenObject Filename="../data/money.jpg"/>
 </Level>
 <Level level="2">
-    <!-- <Background>../data/Louvre.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="0" startY="600" endX="800" endY="1200" width="800" height="600"/>
-    <Platform>tbd</Platform>
+    <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>
 <Level level="3">
-    <!-- <Background>../data/ForbiddenCity.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="0" startY="0" endX="800" endY="600" width="800" height="600"/>
-    <Platform>tbd</Platform>
+    <Background Filename="../data/ForbiddenCity.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>

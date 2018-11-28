@@ -6,6 +6,7 @@
 #include "Platform.h"
 #include "StolenObject.h"
 #include "FinishButton.h"
+#include "PlatformMenu.h"
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
@@ -23,11 +24,11 @@ namespace escape{
       Platform base;
       StolenObject stolenObject;
       FinishButton finishButton;
+      PlatformMenu platformMenu;
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_stolenObjectFile);
-      void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
-      void makePlatform(int count);
+      void makePlatform(int rotation, int yPos);
 
   };
 }

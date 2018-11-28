@@ -34,6 +34,7 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 
 /*
 * Loads level selection screen
+* @param &levelSelect: Level Selection object
 */
 void MenuView::loadLevelSelect(LevelSelect &levelSelect){
     //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
@@ -42,6 +43,9 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 		this -> App -> display();
 }
 
+/*
+* Draws text onto screen
+*/
 void MenuView::drawText(sf::Text &text){
 	this -> App -> draw(text);
 }
