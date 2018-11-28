@@ -39,3 +39,7 @@ GameState::State GameState::getState(){
 int GameState::getCurrentLevel(){
   return this -> currentLevel;
 }
+
+void GameState::setCurrentLevel(int level){
+	this -> currentLevel = level;
+}

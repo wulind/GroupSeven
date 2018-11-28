@@ -2,7 +2,9 @@
 
 using namespace escape;
 
-GameView::GameView(){}
+GameView::GameView(){
+
+}
 
 /*
 * @param *App: pointer to game window
@@ -11,6 +13,11 @@ GameView::GameView(){}
 GameView::GameView(sf::Font *_font){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 	this -> font = _font;
+
+	// if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(800, 600, 800, 600)))
+	// 	{	
+	// 		//Error
+	// 	}
 }
 
 /*
@@ -46,6 +53,19 @@ void GameView::drawRectangle(sf::RectangleShape &rect) {
 
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
+}
+
+
+
+
+void GameView::setGraphics(Level &level){
+		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
+		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.startX, level.startY, 800, 600)))
+		{	
+			//Error
+		}
+		sprite.setTexture(backgroundTexture);
+
 }
 
 /*
@@ -88,7 +108,8 @@ void GameView::update(Level &level){
 	sf::CircleShape circle(level.stolenObject.radius);
 	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
 	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-	circle.setFillColor(level.stolenObject.color);
+	circle.setTexture(&level.stolenObject.objTexture);
+	// circle.setFillColor(level.stolenObject.color);
 	//TODO: Smooth it out when we pick a texture
 
 	this -> drawRectangle(base);

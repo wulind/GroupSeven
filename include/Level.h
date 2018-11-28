@@ -15,9 +15,11 @@ namespace escape{
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
 
+
     public:
       Level();
-
+      int startX;
+      int startY;
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
       StolenObject stolenObject;
@@ -25,7 +27,6 @@ namespace escape{
       PlatformMenu platformMenu;
 
       void setWorld(b2World* World);
-      void setBackgroundFile(const char *_backgroundFile);
       void setStolenObjectFile(const char *_stolenObjectFile);
       void makePlatform(int rotation, int yPos);
 
