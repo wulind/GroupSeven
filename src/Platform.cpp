@@ -71,16 +71,16 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 	else{
 		this -> xCoord = mouseX - mouseDragOffsetX;
 		this -> yCoord = mouseY - mouseDragOffsetY;
-		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), M_PI);
+		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180);
 	}
 }
 
 /*
 * Set rotational value for a platform
+* @param rotation: rotation of object in degrees
 */
 void Platform::setRotation(int rotation){
 	this -> rotation = rotation;
-	//this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180 );
-
+	// this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), rotation * b2_pi / 180 );
 
 }
