@@ -28,7 +28,7 @@ namespace escape{
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 
-			sf::RectangleShape makePlatform(Platform &platform);
+			sf::RectangleShape makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color);
 			sf::CircleShape makeStolenObject(StolenObject &stolenObject);
 
 

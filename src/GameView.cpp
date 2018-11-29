@@ -68,15 +68,27 @@ void GameView::update(Level &level){
 	//Platforms
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-		sf::RectangleShape platform = this -> makePlatform(level.platforms[i]);
+		sf::RectangleShape platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].color);
+
+		level.platforms[i].bounds = platform.getGlobalBounds();
+		level.platforms[i].origin = platform.getPosition();
+
 		level.platforms[i].setRotation(45);
 		platform.setRotation(level.platforms[i].rotation);
+
 		this -> drawRectangle(platform);
 	}
 
-	//Goal & base
-	sf::RectangleShape base = this -> makePlatform(level.base);
+	//=Base
+	sf::RectangleShape base = this -> makeRectangle(level.base.width, level.base.height, level.base.xCoord, level.base.yCoord, level.base.color);
+	level.base.bounds = base.getGlobalBounds();
+	level.base.origin = base.getPosition();
 	this -> drawRectangle(base);
+
+	//Goal
+	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, sf::Color(111, 82, 194));
+	level.goal.bounds = goal.getGlobalBounds();
+	this -> drawRectangle (goal);
 
 	//StolenObject
 	//TODO: Smooth it out when we pick a texture
@@ -89,14 +101,11 @@ void GameView::update(Level &level){
 	this -> App.display();
 }
 
-sf::RectangleShape GameView::makePlatform(Platform &platform){
-	sf::RectangleShape rectangle(sf::Vector2f(platform.width, platform.height));
-	rectangle.setOrigin(platform.width/2, platform.height/2);
-	rectangle.setPosition(platform.xCoord, platform.yCoord);
-	rectangle.setFillColor(platform.color);
-
-	platform.bounds = rectangle.getGlobalBounds();
-	platform.origin = rectangle.getPosition();
+sf::RectangleShape GameView::makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color){
+	sf::RectangleShape rectangle(sf::Vector2f(width, height));
+	rectangle.setOrigin(width/2, height/2);
+	rectangle.setPosition(xCoord, yCoord);
+	rectangle.setFillColor(color);
 
 	return rectangle;
 

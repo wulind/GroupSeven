@@ -3,8 +3,7 @@
 using namespace escape;
 
 Level::Level(){
-  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
-  this -> base = Platform(0, 600, 10, 800);
+  this -> base = Platform(0, 600, 10, 1080);
   this -> stolenObject = StolenObject(50, 100, 25);
 }
 
@@ -19,6 +18,7 @@ void Level::setWorld(b2World* World){
   }
   this -> base.setWorld(World);
   this -> stolenObject.setWorld(World);
+  this -> goal.setWorld(World);
 }
 
 /*

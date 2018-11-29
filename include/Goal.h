@@ -8,6 +8,8 @@ namespace escape{
   class Goal{//TODO: make this class a struct instead?
 
     private:
+      b2Body* Body;
+			b2World* World;
 
     public:
       Goal();
@@ -19,6 +21,8 @@ namespace escape{
       int yCoord;
 
       sf::FloatRect bounds;
+
+      void setWorld(b2World* World);
 
       bool detectWin(StolenObject &stolenObject);
 
