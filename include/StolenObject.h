@@ -24,13 +24,12 @@ namespace escape {
 
 			float rotation;
 
-			float health;
+			sf::FloatRect bounds;
 
 			sf::Color color;
 
 			void setWorld(b2World* World);
 			void updatePosition();
-			int checkAlive();
 	};
 }
 #endif

@@ -6,8 +6,6 @@ Level::Level(){
   // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
   this -> base = Platform(0, 600, 10, 800);
   this -> stolenObject = StolenObject(50, 100, 25);
-  this -> finishButton = FinishButton();
-
 }
 
 /*

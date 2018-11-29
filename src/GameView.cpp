@@ -65,39 +65,50 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 void GameView::update(Level &level){
 	this -> App.clear(sf::Color::Black);
 
+	//Platforms
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-
-		sf::RectangleShape platform(sf::Vector2f(level.platforms[i].width, level.platforms[i].height)); //TODO: fix
-		platform.setOrigin(level.platforms[i].width/2, level.platforms[i].height/2);
-		platform.setPosition(level.platforms[i].xCoord, level.platforms[i].yCoord);
-		platform.setFillColor(level.platforms[i].color);
-
-		level.platforms[i].bounds = platform.getGlobalBounds();
-		level.platforms[i].origin = platform.getPosition();
-
+		sf::RectangleShape platform = this -> makePlatform(level.platforms[i]);
 		level.platforms[i].setRotation(45);
 		platform.setRotation(level.platforms[i].rotation);
-
 		this -> drawRectangle(platform);
-
 	}
 
-	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height)); //TODO: fix
-	base.setOrigin(level.base.width/2, level.base.height/2);
-	base.setPosition(level.base.xCoord, level.base.yCoord);
-	base.setFillColor(level.base.color);
+	//Goal & base
+	sf::RectangleShape base = this -> makePlatform(level.base);
 	this -> drawRectangle(base);
 
-	sf::CircleShape circle(level.stolenObject.radius); //TODO: fix
-	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-	circle.setFillColor(level.stolenObject.color);
+	//StolenObject
 	//TODO: Smooth it out when we pick a texture
-  this -> drawCircle(circle);
+	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject);
+	this -> drawCircle(circle);
 
 	if(level.finishButton.show){
 		this -> drawText(level.finishButton.button);
 	}
 	this -> App.display();
+}
+
+sf::RectangleShape GameView::makePlatform(Platform &platform){
+	sf::RectangleShape rectangle(sf::Vector2f(platform.width, platform.height));
+	rectangle.setOrigin(platform.width/2, platform.height/2);
+	rectangle.setPosition(platform.xCoord, platform.yCoord);
+	rectangle.setFillColor(platform.color);
+
+	platform.bounds = rectangle.getGlobalBounds();
+	platform.origin = rectangle.getPosition();
+
+	return rectangle;
+
+}
+
+sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
+	sf::CircleShape circle(stolenObject.radius); //TODO: fix
+	circle.setOrigin(stolenObject.radius, stolenObject.radius);
+	circle.setPosition(stolenObject.xCoord, stolenObject.yCoord);
+	circle.setFillColor(stolenObject.color);
+
+	stolenObject.bounds = circle.getGlobalBounds();
+
+	return circle;
 }

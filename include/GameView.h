@@ -28,6 +28,10 @@ namespace escape{
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 
+			sf::RectangleShape makePlatform(Platform &platform);
+			sf::CircleShape makeStolenObject(StolenObject &stolenObject);
+
+
 		public:
     	GameView();
       GameView(sf::Font *_font);
@@ -36,10 +40,6 @@ namespace escape{
 
       sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
-
-
-
-
 	};
 }
 #endif

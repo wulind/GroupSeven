@@ -24,8 +24,6 @@ StolenObject::StolenObject(float x, float y, int radius){
 	float r = (float) radius;
 
 	this -> rotation  = 0;
-
-	this -> health = 100;
 }
 
 /*
@@ -67,16 +65,4 @@ void StolenObject::updatePosition(){
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 	this -> rotation = this -> Body -> GetAngle() * 180 / b2_pi;
 
-}
-
-/*
-* Returns 1 if health is above 0
-*/
-int StolenObject::checkAlive(){
-	if (this -> health > 0){
-		return 1;
-	}
-	else{
-		return 0;
-	}
 }
