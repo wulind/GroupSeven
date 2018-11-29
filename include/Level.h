@@ -29,6 +29,7 @@ namespace escape{
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_stolenObjectFile);
       void makePlatform(int rotation, int yPos);
+      void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
 
   };
 }

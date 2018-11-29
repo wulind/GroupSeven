@@ -73,7 +73,7 @@ void GameView::setGraphics(Level &level){
 * @param level: Level object representing current level
 */
 void GameView::update(Level &level){
-	this -> App.clear(sf::Color::Blue);
+	this -> App.draw(sprite);
 
 	if(level.finishButton.show){//if GameState setup
 		sf::RectangleShape menu(sf::Vector2f(180, screenY));

@@ -22,7 +22,7 @@ void LevelFactory::readXML(int levelToLoad){
     root = root -> NextSiblingElement();
   }
 
-  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"));
+  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"), root -> FirstChildElement("Background") -> Attribute("startX"), root -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(root);
   this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
 }
