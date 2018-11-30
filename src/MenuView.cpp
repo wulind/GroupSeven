@@ -39,18 +39,16 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 void MenuView::loadLevelSelect(LevelSelect &levelSelect){
     //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
 		levelSelect.drawBackground(App);
- 		
+
  		sf::Text titleText;
  		titleText.setFont(*font);
- 		titleText.setCharacterSize(74); 
-    	titleText.setString("Select A Level");
-    	titleText.setPosition(380,520);
-    	titleText.setFillColor(sf::Color::White);
-		drawText(titleText);
-		drawLevelDots(App, levelSelect);
+ 		titleText.setCharacterSize(74);
+    titleText.setString("Select A Level");
+    titleText.setPosition(380,520);
+    titleText.setFillColor(sf::Color::White);
+		this -> drawText(titleText);
+		this -> drawLevelDots(levelSelect);
 
-
-    	// levelSelect.drawLevelDots(App);
 		this -> App -> display();
 }
 
@@ -58,28 +56,20 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 /* Draws the individual level dots that represent unlocked levels to select a level
  * @param *App: pointer to game window
  */
-
-void MenuView::drawLevelDots(sf::RenderWindow *App, LevelSelect &levelSelect){
-
+void MenuView::drawLevelDots(LevelSelect &levelSelect){
 	  sf::Texture levelDot;
     if (!levelDot.loadFromFile("../data/LevelDot.png")) {
 
     }
 
-    levelSelect.levels.resize(10);
-    levelSelect.levels[0].setRadius(25);
-    levelSelect.levels[0].setTexture(&levelDot);
-    levelSelect.levels[0].setPosition(190, 243);
-    
-    levelSelect.levels[1].setRadius(25);
-    levelSelect.levels[1].setTexture(&levelDot);
-    levelSelect.levels[1].setPosition(90, 173);
-
-
-
-    for(int i = 0; i < 2; i++){
-        App -> draw(levelSelect.levels[i]);
-    }
+		int i = 0;
+		for (i; i < levelSelect.levels.size(); ++i){
+			levelSelect.levels[i].circle.setRadius(25);
+			levelSelect.levels[i].circle.setTexture(&levelDot);
+	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
+			App -> draw(levelSelect.levels[i].circle);
+		}
+		this -> App -> display();
 }
 
 

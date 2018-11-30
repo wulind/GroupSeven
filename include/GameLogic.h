@@ -40,7 +40,10 @@ namespace escape {
 			EventManager eventManager;
 
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
+
+			void makeNextLevelDot();
 			void loadLevel(int level);
+
 			void progressSimluation();
 	};
 }

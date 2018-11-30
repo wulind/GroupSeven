@@ -27,7 +27,7 @@ void Level::setWorld(b2World* World){
 * Sets starting x and y for image in sprite sheet
 */
 void Level::setBackgroundFile(const char *_backgroundFile, const char *_backgroundStartX, const char *_backgroundStartY){
-  //Pull 
+  //Pull
   this -> backgroundFile = _backgroundFile;
   this -> backgroundStartX = std::atoi(_backgroundStartX);
   this -> backgroundStartY = std::atoi(_backgroundStartY);
@@ -51,6 +51,5 @@ void Level::makePlatform(int rotation, int yPos){
 * Sets Filename for stolen object
 */
 void Level::setStolenObjectFile(const char *_stolenObjectFile){
-  // this -> stolenObject = StolenObject(50, 100, 25, this -> World);
   this -> stolenObjectFile = _stolenObjectFile;
 }

@@ -15,14 +15,16 @@ namespace escape{
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
 
-
     public:
       Level();
+
       int backgroundStartX;
       int backgroundStartY;
+
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
       StolenObject stolenObject;
+
       FinishButton finishButton;
       PlatformMenu platformMenu;
 

@@ -11,15 +11,17 @@ namespace escape{
       enum State {TITLE, LEVELSELECT, LOADING, SETUP, PLAY, SUCCESS, FAIL, STORY};
 
       void setState(GameState::State _state);
-      void incrementCurrentLevel();
+      void incrementUnlockedLevels();
       void setCurrentLevel(int level);
 
       GameState::State getState();
       int getCurrentLevel();
+      int getUnlockedLevels();
 
     private:
       State state; //Current game state
-      int currentLevel;
+      int unlockedLevels; //How many levels are unlocked
+      int currentLevel; //Which level the player is currently playing
 
   };
 }

@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -80,6 +81,16 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 		sf::sleep(sf::milliseconds(targetMs-deltaMs));
 	}
 
+}
+
+/*
+* Adds the next glowing orb that represents the next level available
+* Only adds one at a time because only one new level can be unlocked at a time
+*/
+void GameLogic::makeNextLevelDot(){
+  if (this -> state.getUnlockedLevels() > this -> levelSelect.levels.size()){
+		this -> levelSelect.appendDot(this -> factory.makeOrbs(this -> state.getUnlockedLevels()));
+  }
 }
 
 /*

@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <Level level="1">
+    <SelectOrb mapX = "650" mapY = "230"/>
     <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
     <Platforms>
       <Platform rotation = "45"/>
@@ -9,11 +10,13 @@
     <StolenObject Filename="../data/money.jpg"/>
 </Level>
 <Level level="2">
+    <SelectOrb mapX = "" mapY = ""/>
     <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
     <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>
 <Level level="3">
+    <SelectOrb mapX = "" mapY = ""/>
     <Background Filename="../data/ForbiddenCity.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
     <Platforms>tbd</Platforms>
     <StolenObject/>

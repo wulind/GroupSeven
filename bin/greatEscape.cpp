@@ -21,7 +21,7 @@ int main(int argc, char** argv){
 	//Views
 	GameView mainView(gameLogic.resources.getFont());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
-	
+
 
 	//Target 60 fps
   double targetMs = 1000/240;
@@ -51,6 +51,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
+			gameLogic.makeNextLevelDot();
 			break;
 
 		case GameState::State::LOADING:
@@ -74,7 +75,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			gameLogic.state.incrementCurrentLevel();
+			gameLogic.state.incrementUnlockedLevels();
 			break;
 
 		case GameState::State::FAIL:

@@ -6,15 +6,13 @@
 
 namespace escape{
 	class Dialogue{
-	private:
-		sf::Sprite sprite;
-		sf::RenderWindow *App;
+		private:
+			sf::Sprite sprite;
 
-	
-	public:
-		Dialogue();
-		void playStory(sf::RenderWindow *App, GameState *state, int levelSelected, GameView *gameView);
-		void drawBackground(sf::RenderWindow *App);	
+		public:
+			Dialogue();
+			void playStory(sf::RenderWindow *App, GameState *state, int levelSelected, GameView *gameView);
+			void drawBackground(sf::RenderWindow *App);
 	};
 }
 #endif

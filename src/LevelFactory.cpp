@@ -5,31 +5,59 @@ LevelFactory::LevelFactory(){
   this -> level = Level();
 }
 
+/*
+* Builds and returns a level object that represents current level that the user is playing
+* @param levelToLoad: Level that needs to be loaded
+* @param *World: Box2D world
+*/
 Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
-  this -> readXML(levelToLoad);
+  tinyxml2::XMLDocument doc;//TODO: move into resource manager
+  doc.LoadFile( "../data/GreatEscape.xml" );
+
+  //get to element that contains information for current level
+  tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
+
+  while(std::atoi(levelRoot -> Attribute("level")) != levelToLoad){
+    levelRoot = levelRoot -> NextSiblingElement();
+  }
+
+  this -> level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("Filename"), levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
+  this -> makePlatforms(levelRoot);
+  this -> level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("Filename"));
+
   this -> level.setWorld(World);
 
   return &this -> level;
 }
 
-void LevelFactory::readXML(int levelToLoad){
+/*
+* Makes the orbs for the level select page
+* Only makes one orb because only one new level can be unlocked per visit to the level select page
+* @param level: level which orb that needs to be created
+*/
+LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
   tinyxml2::XMLDocument doc;//TODO: move into resource manager
   doc.LoadFile( "../data/GreatEscape.xml" );
 
   //get to element that contains information for current level
-  tinyxml2::XMLElement *root = doc.FirstChildElement("Level");
-  while(std::atoi(root -> Attribute("level")) != levelToLoad){
-    root = root -> NextSiblingElement();
+  tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
+
+  while(std::atoi(levelRoot -> Attribute("level")) != level){
+    levelRoot = levelRoot -> NextSiblingElement();
   }
 
-  this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"), root -> FirstChildElement("Background") -> Attribute("startX"), root -> FirstChildElement("Background") -> Attribute("startY"));
-  this -> makePlatforms(root);
-  this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
+  LevelSelect::SelectOrb orb;
+  orb.xCoord = std::atoi(levelRoot -> FirstChildElement("SelectOrb") -> Attribute("mapX"));
+  orb.yCoord = std::atoi(levelRoot -> FirstChildElement("SelectOrb") -> Attribute("mapY"));
+  return orb;
 }
 
-void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
+/*
+* Makes the platforms for the level
+*/
+void LevelFactory::makePlatforms(tinyxml2::XMLElement *levelRoot){
   int yPos = 200;
-  tinyxml2::XMLElement *child = root -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
+  tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
     this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos);\
@@ -37,5 +65,4 @@ void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
     yPos += 100;
     child = child -> NextSiblingElement();
   }
-
 }
