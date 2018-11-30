@@ -64,6 +64,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::PLAY:
 			drawLevel(gameLogic.level, gameView);
+			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
+				gameLogic.state.setState(GameState::State::SUCCESS);
+			}
 			break;
 
 		case GameState::State::SUCCESS:

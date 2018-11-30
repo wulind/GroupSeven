@@ -9,10 +9,10 @@ using namespace escape;
 */
 Goal::Goal(){
   this -> width = 250;
-  this -> height = 150;
+  this -> height = 55;
 
   this -> xCoord = 670;
-  this -> yCoord = 520;
+  this -> yCoord = 570;
 }
 
 /*
@@ -20,29 +20,30 @@ Goal::Goal(){
 * @param *World: current B2D world
 */
 void Goal::setWorld(b2World* World){
-	//Creates Box2D Body.  Static body so that It won't move.
+	//Creates Box2D Body. Static body so that It won't move.
 	this -> World = World;
 	b2BodyDef BodyDef;
   BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
   BodyDef.type = b2_staticBody;
   this -> Body = this -> World -> CreateBody(&BodyDef);
 
-	//Add a rectangle to go with the platform body TODO:Finish
-  b2Vec2 vertices[5];
-  vertices[0].Set(this -> xCoord,  this -> yCoord);
-  vertices[1].Set(this -> xCoord,  this -> yCoord);
-  vertices[2].Set(this -> xCoord,  this -> yCoord);
-  vertices[3].Set(this -> xCoord,  this -> yCoord);
-  vertices[4].Set(this -> xCoord,  this -> yCoord);
-
   b2PolygonShape shape;
-  polygonShape.Set(vertices, 5);
-	b2FixtureDef FixtureDef;
-	FixtureDef.density = 100.f;
-	FixtureDef.shape = &Shape;
-	this -> Body -> CreateFixture(&FixtureDef);
+  const float density = 100.f;
+
+  shape.SetAsBox(10/SCALE, this -> height/2/SCALE, b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE), 0);
+  this -> Body -> CreateFixture(&shape, density);
+
+  // shape.SetAsBox(this -> width/2/SCALE, 10/SCALE, b2Vec2(this -> xCoord/SCALE, (this -> yCoord + this -> height - 20)/SCALE), 0);
+  // this -> Body -> CreateFixture(&shape, density);
+
+  shape.SetAsBox(10/SCALE, this -> height/2/SCALE, b2Vec2((this -> xCoord + this -> width - 20)/SCALE, this -> yCoord/SCALE), 0);
+  this -> Body -> CreateFixture(&shape, density);
 }
 
+/*
+* Detects win
+* @param &stolenObject: stolen object needed to detect collision
+*/
 bool Goal::detectWin(StolenObject &stolenObject){
 
   bool intersect = this -> bounds.intersects(stolenObject.bounds);
