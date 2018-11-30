@@ -14,7 +14,7 @@ namespace escape{
     private:
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
-      float gravity;
+
 
 
     public:
@@ -26,6 +26,7 @@ namespace escape{
       StolenObject stolenObject;
       FinishButton finishButton;
       PlatformMenu platformMenu;
+      float gravity;
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_stolenObjectFile);

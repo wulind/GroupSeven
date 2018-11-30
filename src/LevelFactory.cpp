@@ -5,9 +5,8 @@ LevelFactory::LevelFactory(){
   this -> level = Level();
 }
 
-Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
+Level* LevelFactory::makeLevel(int levelToLoad){
   this -> readXML(levelToLoad);
-  this -> level.setWorld(World);
 
   return &this -> level;
 }

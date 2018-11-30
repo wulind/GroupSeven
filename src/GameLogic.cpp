@@ -76,7 +76,13 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
-	this -> level = *this -> factory.makeLevel(level, this -> World);
+	delete this -> World;
+	this -> level = *this -> factory.makeLevel(level);
+
+	b2Vec2 Gravity(0.f, this -> level.gravity);
+	this -> World = new b2World(Gravity);
+
+	this -> level.setWorld(World);
 }
 
 /*
