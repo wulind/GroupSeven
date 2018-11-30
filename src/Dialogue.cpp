@@ -21,7 +21,7 @@ void Dialogue::playStory(sf::RenderWindow *App, GameState *state, int levelSelec
 
 	sf::Text text;
 	text.setFont(font);
-	text.setCharacterSize(20); 
+	text.setCharacterSize(20);
 	text.setFillColor(sf::Color::White);
 
 
@@ -37,14 +37,14 @@ void Dialogue::playStory(sf::RenderWindow *App, GameState *state, int levelSelec
 		break;
 
 		case 2:
-			text.setCharacterSize(24); 
+			text.setCharacterSize(24);
 			text.setString("Not bad, Player. Alright you’re in. First job’s easy: the Met.");
 			text.setPosition(10,300);
 			App -> draw(text);
 		break;
 
 		case 3:
-			text.setCharacterSize(24); 
+			text.setCharacterSize(24);
 			text.setString("Good work Player. Next job’s easy: the Louvre.");
 			text.setPosition(10,300);
 			App -> draw(text);
@@ -53,18 +53,4 @@ void Dialogue::playStory(sf::RenderWindow *App, GameState *state, int levelSelec
 
 	}
 	App -> display();
-
-
-//Handle a key input. If any key is pressed advance to LOADING game state and then to playing the level	
-	sf::Event event;
-	while (App -> pollEvent(event))
-{
-    switch (event.type)
-    {
-        // key pressed
-        case sf::Event::KeyPressed:
-           state -> setState(GameState::State::LOADING);
-            break;
-    }
-}
 }
