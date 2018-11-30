@@ -34,14 +34,28 @@ int main(int argc, char** argv){
 			gameLogic.progressSimluation();
 		}
 
+
+		updateGame(gameLogic, menuView, mainView);
+
 		//Get the elapsed time since the loop started
 		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+		//deltaMs = 1000/250;
 
 		//Adjust game timing by sleeping
 		if(deltaMs < targetMs){
 			sf::sleep(sf::milliseconds(targetMs-deltaMs));
 		}
-		updateGame(gameLogic, menuView, mainView);
+		//If behind skip frames
+		else{
+			if (gameLogic.state.getState() == GameState::State::PLAY){
+				int change = deltaMs/targetMs;
+				for (int x; x < change; x++){
+					gameLogic.progressSimluation();
+				}
+			}
+		}
+
+		gameTime.restart();
 	}
 
 	// Done.
