@@ -1,4 +1,5 @@
 #include "LevelFactory.h"
+#include <iostream>
 using namespace escape;
 
 LevelFactory::LevelFactory(){
@@ -32,7 +33,15 @@ void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
   tinyxml2::XMLElement *child = root -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
-    this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos);\
+    bool draggable;
+    std::cout << child -> Attribute("draggable") << "\n";
+    if (std::atoi(child -> Attribute("draggable")) == 1){
+      draggable = true;
+    }
+    else{
+      draggable = false;
+    }
+    this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos, draggable);
 
     yPos += 100;
     child = child -> NextSiblingElement();

@@ -38,10 +38,13 @@ void Level::setBackgroundFile(const char *_backgroundFile, const char *_startX, 
 * @param rotation: rotation in degrees of platform
 * @param yPos: y axis position on screen
 */
-void Level::makePlatform(int rotation, int yPos){
+void Level::makePlatform(int rotation, int yPos, bool draggable){
   Platform platform(700, yPos, 10, 100);
 
   platform.setRotation(rotation);
+
+  //TODO: Change so that it reads from XML
+  platform.draggable = draggable;
 
   this -> platforms.push_back(platform);
 
