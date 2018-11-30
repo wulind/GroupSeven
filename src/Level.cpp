@@ -38,8 +38,8 @@ void Level::setBackgroundFile(const char *_backgroundFile, const char *_startX, 
 * @param rotation: rotation in degrees of platform
 * @param yPos: y axis position on screen
 */
-void Level::makePlatform(int rotation, int yPos, bool draggable){
-  Platform platform(700, yPos, 10, 100);
+void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
+  Platform platform(xPos, yPos, height, width);
 
   platform.setRotation(rotation);
 

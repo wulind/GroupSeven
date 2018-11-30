@@ -29,7 +29,7 @@ void LevelFactory::readXML(int levelToLoad){
 }
 
 void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
-  int yPos = 200;
+  //int yPos = 200;
   tinyxml2::XMLElement *child = root -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
@@ -41,9 +41,16 @@ void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){
     else{
       draggable = false;
     }
-    this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos, draggable);
+    int rotation = std::atoi(child -> Attribute("rotation"));
+    int xPos = std::atoi(child -> Attribute("xPos"));
+    int yPos = std::atoi(child -> Attribute("yPos"));
+    int width = std::atoi(child -> Attribute("width"));
+    int height = std::atoi(child -> Attribute("height"));
 
-    yPos += 100;
+
+    this -> level.makePlatform(rotation, xPos, yPos, width, height, draggable);
+
+    //yPos += 100;
     child = child -> NextSiblingElement();
   }
 
