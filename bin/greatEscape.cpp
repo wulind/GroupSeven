@@ -4,6 +4,7 @@
 #include "MenuView.h"
 #include "Level.h"
 #include "Dialogue.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -24,7 +25,7 @@ int main(int argc, char** argv){
 
 
 	//Target 60 fps
-  double targetMs = 1000/240;
+  double targetMs = 1000/1000;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
@@ -39,16 +40,19 @@ int main(int argc, char** argv){
 
 		//Get the elapsed time since the loop started
 		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
-		//deltaMs = 1000/250;
+		std::cout << deltaMs << "\n";
 
 		//Adjust game timing by sleeping
 		if(deltaMs < targetMs){
+			std::cout << "Ahead, sleeping";
 			sf::sleep(sf::milliseconds(targetMs-deltaMs));
 		}
 		//If behind skip frames
 		else{
+
 			if (gameLogic.state.getState() == GameState::State::PLAY){
-				int change = deltaMs/targetMs;
+				std::cout << "Skipping Frames..." << "\n";
+				int change = deltaMs - targetMs;
 				for (int x; x < change; x++){
 					gameLogic.progressSimluation();
 				}
