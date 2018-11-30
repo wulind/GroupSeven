@@ -25,38 +25,6 @@ void LevelSelect::drawBackground(sf::RenderWindow *App){
 
 }
 
-/* Draws the individual level dots that represent unlocked levels to select a level
- * @param *App: pointer to game window
- */
-
-void LevelSelect::drawLevelDots(sf::RenderWindow *App){
-
-	  sf::Texture levelDot;
-    if (!levelDot.loadFromFile("../data/LevelDot.png")) {
-
-    }
-
-
-
-    levels.resize(10);
-    levels[0].setRadius(25);
-    levels[0].setTexture(&levelDot);
-    levels[0].setPosition(190, 243);
-    
-    levels[1].setRadius(25);
-    levels[1].setTexture(&levelDot);
-    levels[1].setPosition(90, 173);
-
-
-
-    for(int i = 0; i < levelUnlocked; i++){
-        App -> draw(levels[i]);
-    }
-
-
-}
-
-
 
 /* Handles the mouse clicking on a level selection dot. Changes the game state to loading if level is selected.
  * @param *App: pointer to game window
@@ -68,8 +36,6 @@ void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
     //Return an int of the level selected
     //In greatEscape.cpp, have level = levelSelect.levelClick().
     //int level will be a global variable in greatEscape
-
-
 
 
         for (int i = 0; i < levelUnlocked; ++i){

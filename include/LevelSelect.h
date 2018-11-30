@@ -14,7 +14,6 @@ namespace escape{
 
 			
 		  	sf::Sprite sprite;
-		  	std::vector<sf::CircleShape> levels;
 
 
 		  	sf::RenderWindow *App;
@@ -32,9 +31,10 @@ namespace escape{
 		public:
 			LevelSelect();
 			void drawBackground(sf::RenderWindow *App);
-			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
       		void levelClick(sf::Vector2i mousePosition, GameState &state);
+      		std::vector<sf::CircleShape> levels;
+
 	};
 }
 #endif

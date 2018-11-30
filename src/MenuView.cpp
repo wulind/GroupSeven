@@ -46,11 +46,43 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
     	titleText.setString("Select A Level");
     	titleText.setPosition(380,520);
     	titleText.setFillColor(sf::Color::White);
-
 		drawText(titleText);
-    	levelSelect.drawLevelDots(App);
+		drawLevelDots(App, levelSelect);
+
+
+    	// levelSelect.drawLevelDots(App);
 		this -> App -> display();
 }
+
+
+/* Draws the individual level dots that represent unlocked levels to select a level
+ * @param *App: pointer to game window
+ */
+
+void MenuView::drawLevelDots(sf::RenderWindow *App, LevelSelect &levelSelect){
+
+	  sf::Texture levelDot;
+    if (!levelDot.loadFromFile("../data/LevelDot.png")) {
+
+    }
+
+    levelSelect.levels.resize(10);
+    levelSelect.levels[0].setRadius(25);
+    levelSelect.levels[0].setTexture(&levelDot);
+    levelSelect.levels[0].setPosition(190, 243);
+    
+    levelSelect.levels[1].setRadius(25);
+    levelSelect.levels[1].setTexture(&levelDot);
+    levelSelect.levels[1].setPosition(90, 173);
+
+
+
+    for(int i = 0; i < 2; i++){
+        App -> draw(levelSelect.levels[i]);
+    }
+}
+
+
 
 /*
 * Draws text onto screen

@@ -5,11 +5,13 @@
 #include "GameState.h"
 #include "TitlePage.h"
 #include "LevelSelect.h"
+#include <vector>
 
 namespace escape{
 	class MenuView{
 
 		private:
+
 			float screenX = 800;
 			float screenY = 600;
 
@@ -27,6 +29,7 @@ namespace escape{
 
 			void loadTitleScreen(TitlePage &titlePage);
       		void loadLevelSelect(LevelSelect &levelSelect);
+      		void drawLevelDots(sf::RenderWindow *App, LevelSelect &levelSelect);
 
 	    void update(GameState &state);
 
