@@ -64,16 +64,24 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::PLAY:
 			drawLevel(gameLogic.level, gameView);
-			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
+
+			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
 				gameLogic.state.setState(GameState::State::SUCCESS);
+			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
+				gameLogic.state.setState(GameState::State::FAIL);
 			}
+
 			break;
 
 		case GameState::State::SUCCESS:
 			gameLogic.state.incrementCurrentLevel();
+			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.nextLevelWorld();
 			break;
 
 		case GameState::State::FAIL:
+			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.nextLevelWorld();
 			break;
 	}
 }

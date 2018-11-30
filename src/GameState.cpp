@@ -1,5 +1,5 @@
 #include "../include/GameState.h"
-
+#include <iostream>
 using namespace escape;
 
 /*
@@ -24,6 +24,8 @@ void GameState::setState(GameState::State _state){
 */
 void GameState::incrementCurrentLevel(){
   ++this -> currentLevel;
+  std::cout << this -> currentLevel << std::endl;
+
 }
 
 /*

@@ -108,7 +108,6 @@ sf::RectangleShape GameView::makeRectangle(int width, int height, int xCoord, in
 	rectangle.setFillColor(color);
 
 	return rectangle;
-
 }
 
 sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){

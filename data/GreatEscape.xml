@@ -1,14 +1,10 @@
 <?xml version="1.0" ?>
 <Level level="1">
-    <!-- <Background>../data/Met.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
     <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>1</Platform>
+    <Platform>3</Platform>
     <StolenObject Filename="../data/money.jpg"/>
 </Level>
 <Level level="2">
-    <!-- <Background>../data/Louvre.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
     <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
     <Platform>tbd</Platform>
     <StolenObject/>

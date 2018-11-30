@@ -1,4 +1,6 @@
 #include "Goal.h"
+#include <math.h>
+
 
 static const float SCALE = 30.f;
 
@@ -9,10 +11,10 @@ using namespace escape;
 */
 Goal::Goal(){
   this -> width = 250;
-  this -> height = 55;
+  this -> height = 70;
 
-  this -> xCoord = 670;
-  this -> yCoord = 570;
+  this -> xCoord = 350;//670
+  this -> yCoord = 550;//570
 }
 
 /*
@@ -30,26 +32,33 @@ void Goal::setWorld(b2World* World){
   b2PolygonShape shape;
   const float density = 100.f;
 
-  shape.SetAsBox(10/SCALE, this -> height/2/SCALE, b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE), 0);
+  shape.SetAsBox(10/SCALE, this -> height/4/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, -this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 
-  // shape.SetAsBox(this -> width/2/SCALE, 10/SCALE, b2Vec2(this -> xCoord/SCALE, (this -> yCoord + this -> height - 20)/SCALE), 0);
-  // this -> Body -> CreateFixture(&shape, density);
-
-  shape.SetAsBox(10/SCALE, this -> height/2/SCALE, b2Vec2((this -> xCoord + this -> width - 20)/SCALE, this -> yCoord/SCALE), 0);
+  shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 5)/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
+
+  shape.SetAsBox(10/SCALE, this -> height/4/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, -this -> height/2/SCALE), 0);
+  this -> Body -> CreateFixture(&shape, density);
+
+  this -> World = World;
 }
 
 /*
 * Detects win
+* TODO: not return ints?
 * @param &stolenObject: stolen object needed to detect collision
 */
-bool Goal::detectWin(StolenObject &stolenObject){
+int Goal::detectWin(StolenObject &stolenObject){
+  if(stolenObject.Body -> IsAwake()){
+    return -1;
+  }
 
   bool intersect = this -> bounds.intersects(stolenObject.bounds);
-  bool bottom = (stolenObject.bounds.top + (stolenObject.radius * 2)) == 600? true: false;
+  bool bottom = ceil(stolenObject.bounds.top + (stolenObject.radius * 2) + 10) == this -> bounds.top + this -> height ? true: false;
+
   if(intersect && bottom){
-    return true;
+    return 1;
   }
-  return false;
+  return 0;
 }

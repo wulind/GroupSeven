@@ -15,7 +15,7 @@ namespace escape{
       LevelFactory();
       LevelFactory(Level &_level);
 
-      Level* makeLevel(int levelToLoad, b2World* World);
+      Level* makeLevel(int levelToLoad);
 
       Level level;
   };

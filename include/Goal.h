@@ -24,7 +24,7 @@ namespace escape{
 
       void setWorld(b2World* World);
 
-      bool detectWin(StolenObject &stolenObject);
+      int detectWin(StolenObject &stolenObject);
 
   };
 }

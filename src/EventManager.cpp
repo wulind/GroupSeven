@@ -41,6 +41,7 @@ void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vecto
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
 			platforms[i].mouseDragOffsetY = mousePosition.y - platforms[i].yCoord;
+			break;
 	  }
 	}
 }

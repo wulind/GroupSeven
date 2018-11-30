@@ -42,6 +42,7 @@ namespace escape {
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 			void loadLevel(int level);
 			void progressSimluation();
+
 	};
 }
 #endif
