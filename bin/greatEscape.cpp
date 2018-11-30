@@ -3,7 +3,7 @@
 #include "GameView.h"
 #include "MenuView.h"
 #include "Level.h"
-#include "Dialogue.h"
+// #include "Dialogue.h"
 
 using namespace escape;
 
@@ -44,7 +44,6 @@ int main(int argc, char** argv){
 * Checks game state and updates screen based on that
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
-	Dialogue dialogue = Dialogue();
 	switch(gameLogic.state.getState()){
 		case GameState::State::TITLE:
 			menuView.loadTitleScreen(gameLogic.titlePage);
@@ -67,7 +66,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::STORY:
-			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel());
+			gameLogic.dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel(), &gameView);
 			break;
 
 		case GameState::State::PLAY:

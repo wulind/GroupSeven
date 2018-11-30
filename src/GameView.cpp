@@ -60,7 +60,7 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 
 void GameView::setGraphics(Level &level){
 		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
-		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.startX, level.startY, 800, 600)))
+		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600)))
 		{	
 			//Error
 		}

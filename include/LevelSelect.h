@@ -3,18 +3,17 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
+// #include "MenuView.h"
 #include <vector>
 
 namespace escape{
 	class LevelSelect{
 
 		private:
-			int levelUnlocked = 5;
-			sf::Text titleText;
-			sf::Font font;
+			int levelUnlocked = 2;
 
+			
 		  	sf::Sprite sprite;
-
 		  	std::vector<sf::CircleShape> levels;
 
 
@@ -35,7 +34,6 @@ namespace escape{
 			void drawBackground(sf::RenderWindow *App);
 			void drawLevelDots(sf::RenderWindow *App);
 			void availableLevels();
-			void drawText();
       		void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};
 }

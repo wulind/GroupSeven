@@ -54,28 +54,6 @@ void LevelSelect::drawLevelDots(sf::RenderWindow *App){
     }
 
 
-    drawText();
-    App -> draw(titleText);
-}
-
-
-/*
-*   Draws the text on the level select screen using the game font
-*
-*/
-void LevelSelect::drawText(){
-    if (!font.loadFromFile("../data/aliensCows.ttf"))
-    {
-    // error...
-    }
-
-    
-    titleText.setFont(font);
-    titleText.setCharacterSize(74); 
-    titleText.setString("Select A Level");
-    titleText.setPosition(380,520);
-    titleText.setFillColor(sf::Color::White);
-
 }
 
 
@@ -94,7 +72,7 @@ void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
 
 
 
-        for (int i = 0; i < 2; ++i){
+        for (int i = 0; i < levelUnlocked; ++i){
             if(this -> levels[i].getGlobalBounds().contains(mousePosition.x, mousePosition.y)){
                 state.setState(GameState::State::STORY);
                 state.setCurrentLevel(i+1);

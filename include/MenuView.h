@@ -26,7 +26,7 @@ namespace escape{
 			MenuView(sf::RenderWindow *_App, sf::Font *_font);
 
 			void loadTitleScreen(TitlePage &titlePage);
-      void loadLevelSelect(LevelSelect &levelSelect);
+      		void loadLevelSelect(LevelSelect &levelSelect);
 
 	    void update(GameState &state);
 
