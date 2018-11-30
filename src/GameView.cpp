@@ -13,11 +13,6 @@ GameView::GameView(){
 GameView::GameView(sf::Font *_font){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 	this -> font = _font;
-
-	// if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(800, 600, 800, 600)))
-	// 	{	
-	// 		//Error
-	// 	}
 }
 
 /*
@@ -55,17 +50,30 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
-
-
-
 void GameView::setGraphics(Level &level){
 		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
 		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600)))
-		{	
+		{
 			//Error
 		}
-		sprite.setTexture(backgroundTexture);
+		this -> sprite.setTexture(backgroundTexture);
+}
 
+/*
+* Writes dialogue pages
+*/
+void GameView::dialogue(sf::Text &text){
+	this -> App.clear();
+	this -> drawText(text);
+
+	sf::Text escapePage;
+	escapePage.setCharacterSize(20);
+	escapePage.setString("Click anywhere or press any key to continue.");
+	escapePage.setPosition(10,500);
+
+	this -> drawText(escapePage);
+
+	this -> App.display();
 }
 
 /*
@@ -73,7 +81,8 @@ void GameView::setGraphics(Level &level){
 * @param level: Level object representing current level
 */
 void GameView::update(Level &level){
-	this -> App.draw(sprite);
+	this -> App.clear();
+	this -> App.draw(this -> sprite);
 
 	if(level.finishButton.show){//if GameState setup
 		sf::RectangleShape menu(sf::Vector2f(180, screenY));

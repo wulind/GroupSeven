@@ -80,5 +80,6 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 */
 void MenuView::drawText(sf::Text &text){
 	text.setFont(*font);
+	text.setFillColor(sf::Color::White);
 	this -> App -> draw(text);
 }

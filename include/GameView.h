@@ -25,17 +25,20 @@ namespace escape{
 
 			sf::Font *font;
 
-			
+
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
+			void drawText(sf::Text &text);
 
 		public:
-    		GameView();
-      		GameView(sf::Font *_font);
-      		void setGraphics(Level &level);
+    	GameView();
+      GameView(sf::Font *_font);
+
+			void setGraphics(Level &level);
 			void update(Level &level);
-			void drawText(sf::Text &text);
-      		sf::RenderWindow* getApp();
+			void dialogue(sf::Text &text);
+
+			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
 
 

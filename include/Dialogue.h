@@ -7,11 +7,13 @@
 namespace escape{
 	class Dialogue{
 		private:
-			sf::Sprite sprite;
 
 		public:
 			Dialogue();
-			void playStory(sf::RenderWindow *App, GameState *state, int levelSelected, GameView *gameView);
+
+			sf::Text text;
+			
+			void playStory(int levelSelected);
 			void drawBackground(sf::RenderWindow *App);
 	};
 }

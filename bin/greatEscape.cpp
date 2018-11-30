@@ -8,6 +8,7 @@ using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
 void drawLevel(Level &level, GameView &gameView);
+void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
 int main(int argc, char** argv){
 
@@ -52,6 +53,11 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			gameLogic.makeNextLevelDot();
 			break;
 
+		case GameState::State::STORY:
+			gameLogic.dialogue.playStory(gameLogic.state.getCurrentLevel());
+			writeDialogue(gameLogic, gameView);
+			break;
+
 		case GameState::State::LOADING:
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
 			drawLevel(gameLogic.level, gameView);
@@ -62,10 +68,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
 			gameView.setGraphics(gameLogic.level);
 			drawLevel(gameLogic.level, gameView);
-			break;
-
-		case GameState::State::STORY:
-			gameLogic.dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel(), &gameView);
 			break;
 
 		case GameState::State::PLAY:
@@ -88,4 +90,11 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 */
 void drawLevel(Level &level, GameView &gameView){
 	gameView.update(level);
+}
+
+/*
+* Calls on game view to write dialogue pages
+*/
+void writeDialogue(GameLogic &gameLogic, GameView &gameView){
+	gameView.dialogue(gameLogic.dialogue.text);
 }
