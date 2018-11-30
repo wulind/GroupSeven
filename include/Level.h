@@ -14,6 +14,7 @@ namespace escape{
     private:
       const char *backgroundFile = "";
       const char *stolenObjectFile = "";
+      float gravity;
 
 
     public:
@@ -30,7 +31,7 @@ namespace escape{
       void setStolenObjectFile(const char *_stolenObjectFile);
       void makePlatform(int rotation, int yPos);
       void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
-
+      void setGravity(float g);
   };
 }
 #endif

@@ -27,7 +27,7 @@ void Level::setWorld(b2World* World){
 * Sets starting x and y for image in sprite sheet
 */
 void Level::setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY){
-  //Pull 
+  //Pull
   this -> backgroundFile = _backgroundFile;
   this -> startX = std::atoi(_startX);
   this -> startY = std::atoi(_startY);
@@ -53,4 +53,12 @@ void Level::makePlatform(int rotation, int yPos){
 void Level::setStolenObjectFile(const char *_stolenObjectFile){
   // this -> stolenObject = StolenObject(50, 100, 25, this -> World);
   this -> stolenObjectFile = _stolenObjectFile;
+}
+
+/*
+* Sets the gravity for the level.
+* @param g: gravity for the level. Negative gravity is up on the screen
+*/
+void Level::setGravity(float g){
+  this -> gravity = g;
 }

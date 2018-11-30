@@ -25,6 +25,7 @@ void LevelFactory::readXML(int levelToLoad){
   this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"), root -> FirstChildElement("Background") -> Attribute("startX"), root -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(root);
   this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
+  this -> level.setGravity(std::stof(root -> FirstChildElement("Gravity") -> Attribute("value")));
 }
 
 void LevelFactory::makePlatforms(tinyxml2::XMLElement *root){

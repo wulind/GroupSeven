@@ -21,7 +21,7 @@ int main(int argc, char** argv){
 	//Views
 	GameView mainView(gameLogic.resources.getFont());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
-	
+
 
 	//Target 60 fps
   double targetMs = 1000/240;
@@ -32,6 +32,14 @@ int main(int argc, char** argv){
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
 		if (gameLogic.state.getState() == GameState::State::PLAY){
 			gameLogic.progressSimluation();
+		}
+
+		//Get the elapsed time since the loop started
+		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+		//Adjust game timing by sleeping
+		if(deltaMs < targetMs){
+			sf::sleep(sf::milliseconds(targetMs-deltaMs));
 		}
 		updateGame(gameLogic, menuView, mainView);
 	}

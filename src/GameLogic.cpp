@@ -69,14 +69,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 				}
 			}
 		}
-	//Get the elapsed time since the loop started
-	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
-
-	//Adjust game timing by sleeping
-	if(deltaMs < targetMs){
-		sf::sleep(sf::milliseconds(targetMs-deltaMs));
-	}
-
 }
 
 /*
