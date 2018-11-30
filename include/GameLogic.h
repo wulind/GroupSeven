@@ -12,6 +12,7 @@
 #include "EventManager.h"
 #include "LevelFactory.h"
 #include "Level.h"
+#include "Dialogue.h"
 
 namespace escape {
 	class GameLogic {
@@ -26,13 +27,12 @@ namespace escape {
 
 		public:
 			GameLogic();
-
 			GameState state;
 
 			Level level;
-
 			TitlePage titlePage;
 			LevelSelect levelSelect;
+			Dialogue dialogue;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;

@@ -36,26 +36,24 @@ void LevelSelect::drawLevelDots(sf::RenderWindow *App){
 
     }
 
-    //Sets the size, texture, and coordinates of the level 1 dot
+
+
+    levels.resize(10);
+    levels[0].setRadius(25);
+    levels[0].setTexture(&levelDot);
+    levels[0].setPosition(190, 243);
     
-    this -> level1.setRadius(25);
-    this -> level1.setTexture(&levelDot);
-    this -> level1.setPosition(190, 243);
-
-    this -> level2.setRadius(25);
-    this -> level2.setTexture(&levelDot);
-    this -> level2.setPosition(90, 173);
+    levels[1].setRadius(25);
+    levels[1].setTexture(&levelDot);
+    levels[1].setPosition(90, 173);
 
 
 
-
-
-    if(this -> levelUnlocked >= 1){
-        App -> draw(level1);
+    for(int i = 0; i < levelUnlocked; i++){
+        App -> draw(levels[i]);
     }
-    if(this -> levelUnlocked >= 2){
-        App -> draw(level2);
-    }
+
+
     drawText();
     App -> draw(titleText);
 }
@@ -80,9 +78,6 @@ void LevelSelect::drawText(){
 
 }
 
-void LevelSelect::availableLevels(){
-
-}
 
 
 /* Handles the mouse clicking on a level selection dot. Changes the game state to loading if level is selected.
@@ -90,19 +85,20 @@ void LevelSelect::availableLevels(){
  * @param *state: pointer to the game state
  */
 void LevelSelect::levelClick(sf::Vector2i mousePosition, GameState &state){
-    //Get the level selection dot coordinaes
-    sf::FloatRect bound1 = this -> level1.getGlobalBounds();
-    sf::FloatRect bound2 = this -> level2.getGlobalBounds();
-    sf::FloatRect bound3 = this -> level3.getGlobalBounds();
 
-    //If the mouse clicks on the level 1 selector dot then change the state to game loading.
-    if(bound1.contains(mousePosition.x, mousePosition.y)){
-        state.setState(GameState::State::STORY);
-        state.setCurrentLevel(1);
+    //This should be the same as the EventManger checkMouseOverPlatforms method.
+    //Return an int of the level selected
+    //In greatEscape.cpp, have level = levelSelect.levelClick().
+    //int level will be a global variable in greatEscape
+
+
+
+
+        for (int i = 0; i < 2; ++i){
+            if(this -> levels[i].getGlobalBounds().contains(mousePosition.x, mousePosition.y)){
+                state.setState(GameState::State::STORY);
+                state.setCurrentLevel(i+1);
+            }
         }
 
-    if(bound2.contains(mousePosition.x, mousePosition.y)){
-        state.setState(GameState::State::STORY);
-        state.setCurrentLevel(2);
-        }
 }

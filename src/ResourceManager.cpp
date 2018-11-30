@@ -10,6 +10,8 @@ ResourceManager::ResourceManager(){
 	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){
 		// TODO:error...
 	}
+	
+	
 }
 
 /*

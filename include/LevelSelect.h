@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
+#include <vector>
 
 namespace escape{
 	class LevelSelect{
@@ -14,11 +15,8 @@ namespace escape{
 
 		  	sf::Sprite sprite;
 
-		  	sf::CircleShape level1;
-		  	sf::CircleShape level2;
-		  	sf::CircleShape level3;
-		  	sf::CircleShape level4;
-		  	sf::CircleShape level5;
+		  	std::vector<sf::CircleShape> levels;
+
 
 		  	sf::RenderWindow *App;
 		  	GameState *state;

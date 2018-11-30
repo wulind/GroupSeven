@@ -24,6 +24,9 @@ GameLogic::GameLogic(){
 
 	//Resources
 	this -> resources = ResourceManager();
+
+	//Dialgoue object
+	this -> dialogue = Dialogue();
 }
 
 /*
