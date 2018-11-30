@@ -41,7 +41,7 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 		levelSelect.drawBackground(App);
 
  		sf::Text titleText;
- 		titleText.setFont(*font);
+ 		titleText.setFont(*this -> font);
  		titleText.setCharacterSize(74);
     titleText.setString("Select A Level");
     titleText.setPosition(380,520);
@@ -76,7 +76,9 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 
 /*
 * Draws text onto screen
+* @param text: text to be drawn
 */
 void MenuView::drawText(sf::Text &text){
+	text.setFont(*font);
 	this -> App -> draw(text);
 }
