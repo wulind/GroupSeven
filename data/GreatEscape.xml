@@ -2,6 +2,21 @@
 <Level level="1">
     <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
     <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "90" draggable = "0" xPos="0" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "90" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+
+      <!-- Level layout -->
+      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="200" yPos ="200" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="300" yPos ="250" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="400" yPos ="300" width = "100" height = "10"/>
+      <Platform rotation = "-10" draggable = "0" xPos="500" yPos ="400" width = "100" height = "10"/>
+      <Platform rotation = "-10" draggable = "0" xPos="400" yPos ="450" width = "100" height = "10"/>
+      <Platform rotation = "-10" draggable = "0" xPos="300" yPos ="500" width = "100" height = "10"/>
+
+
+      <!-- Draggables -->
       <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="500" width = "100" height = "10"/>
