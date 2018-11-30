@@ -21,7 +21,6 @@ int main(int argc, char** argv){
 	GameView mainView(gameLogic.resources.getFont());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
-
 	//Target 60 fps
   double targetMs = 1000/240;
 
