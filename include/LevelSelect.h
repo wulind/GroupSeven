@@ -3,42 +3,40 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
+#include <vector>
 
 namespace escape{
 	class LevelSelect{
 
 		private:
-			int levelUnlocked = 5;
-			sf::Text titleText;
-			sf::Font font;
+	  	sf::Sprite sprite;
 
-		  	sf::Sprite sprite;
+	  	sf::RenderWindow *App;
+	  	GameState *state;
 
-		  	sf::CircleShape level1;
-		  	sf::CircleShape level2;
-		  	sf::CircleShape level3;
-		  	sf::CircleShape level4;
-		  	sf::CircleShape level5;
+	  	float screenX = 800;
+	  	float screenY = 600;
 
-		  	sf::RenderWindow *App;
-		  	GameState *state;
-
-		  	float screenX = 800;
-		  	float screenY = 600;
-
-		  	float imageX = 1114;
-		  	float imageY = 590;
-
-
-
+	  	float imageX = 1114;
+	  	float imageY = 590;
 
 		public:
 			LevelSelect();
-			void drawBackground(sf::RenderWindow *App);
-			void drawLevelDots(sf::RenderWindow *App);
-			void availableLevels();
-			void drawText();
-      		void levelClick(sf::Vector2i mousePosition, GameState &state);
+
+			typedef struct {
+        int xCoord;
+        int yCoord;
+				sf::CircleShape circle;
+      } SelectOrb;
+
+			std::vector<SelectOrb> levels;
+
+        void appendDot(SelectOrb orb);
+			
+        void levelClick(sf::Vector2i mousePosition, GameState &state);
+
+
+
 	};
 }
 #endif

@@ -19,13 +19,6 @@ StolenObject::StolenObject(float x, float y, int radius){
 
 	this -> radius = radius;
 
-
-	if(!this -> objTexture.loadFromFile("../data/MoneyBagColor.png")){
-
-	}
-
-	// this -> color = sf::Color::Red;
-
 	float r = (float) radius;
 
 	this -> rotation  = 0;

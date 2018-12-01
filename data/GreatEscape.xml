@@ -1,7 +1,8 @@
 <?xml version="1.0" ?>
 <!-- Level 1 -->
 <Level level="1">
-    <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+    <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>

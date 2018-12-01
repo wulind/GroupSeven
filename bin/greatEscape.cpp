@@ -3,12 +3,12 @@
 #include "GameView.h"
 #include "MenuView.h"
 #include "Level.h"
-#include "Dialogue.h"
 
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
 void drawLevel(Level &level, GameView &gameView);
+void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
 int main(int argc, char** argv){
 
@@ -19,8 +19,8 @@ int main(int argc, char** argv){
 	sf::Clock gameTime;
 
 	//Views
-	GameView mainView(gameLogic.resources.getFont());
-	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
+	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
+	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
 
 	//Target 60 fps
@@ -66,7 +66,6 @@ int main(int argc, char** argv){
 * Checks game state and updates screen based on that
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
-	Dialogue dialogue = Dialogue();
 	switch(gameLogic.state.getState()){
 		case GameState::State::TITLE:
 			menuView.loadTitleScreen(gameLogic.titlePage);
@@ -74,6 +73,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
+			gameLogic.makeNextLevelDot();
+			break;
+
+		case GameState::State::STORY:
+			gameLogic.dialogue.playStory(gameLogic.state.getCurrentLevel());
+			writeDialogue(gameLogic, gameView);
 			break;
 
 		case GameState::State::LOADING:
@@ -84,12 +89,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
-			gameView.setGraphics(gameLogic.level);
 			drawLevel(gameLogic.level, gameView);
-			break;
-
-		case GameState::State::STORY:
-			dialogue.playStory(gameView.getApp(), &gameLogic.state, gameLogic.state.getCurrentLevel());
 			break;
 
 		case GameState::State::PLAY:
@@ -97,7 +97,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			gameLogic.state.incrementCurrentLevel();
+			gameLogic.state.incrementUnlockedLevels();
 			break;
 
 		case GameState::State::FAIL:
@@ -112,4 +112,11 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 */
 void drawLevel(Level &level, GameView &gameView){
 	gameView.update(level);
+}
+
+/*
+* Calls on game view to write dialogue pages
+*/
+void writeDialogue(GameLogic &gameLogic, GameView &gameView){
+	gameView.displayLevelStory(gameLogic.dialogue.text);
 }
