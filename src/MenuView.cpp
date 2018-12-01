@@ -36,20 +36,34 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * Loads level selection screen
 * @param &levelSelect: Level Selection object
 */
-void MenuView::loadLevelSelect(LevelSelect &levelSelect){
-    //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
-		levelSelect.drawBackground(App);
-
+void MenuView::loadLevelSelect(LevelSelect &levelSelect, sf::Texture* _mapTexture){
+        //Load the mapTexture from the resource manager
+        this -> mapTexture = _mapTexture;
+        //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
  		sf::Text titleText;
  		titleText.setFont(*this -> font);
  		titleText.setCharacterSize(74);
-    titleText.setString("Select A Level");
-    titleText.setPosition(380,520);
-    titleText.setFillColor(sf::Color::White);
-		this -> drawText(titleText);
+        titleText.setString("Select A Level");
+        titleText.setPosition(380,520);
+        titleText.setFillColor(sf::Color::White);
+		this -> drawBackground(this -> App);
+        this -> drawText(titleText);
 		this -> drawLevelDots(levelSelect);
 
 		this -> App -> display();
+}
+
+
+
+void MenuView::drawBackground(sf::RenderWindow *App){
+
+    //Use the texture as a sprite
+    sf::Sprite mapSprite(*mapTexture);
+    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
+//     rm -> mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
+    App -> draw(mapSprite);
+//     App -> display();
+
 }
 
 
@@ -69,7 +83,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
-		this -> App -> display();
+// 		this -> App -> display();
 }
 
 

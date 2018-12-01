@@ -8,21 +8,6 @@ using namespace escape;
 */
 LevelSelect::LevelSelect(){}
 
-/* Draws the background image into a texture
- * @param *App: pointer to game window
- */
-void LevelSelect::drawBackground(sf::RenderWindow *App){
-	//Load the background map as a texture
-    sf::Texture mapTexture;
-    if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {
-
-    }
-    //Use the texture as a sprite
-    sf::Sprite mapSprite(mapTexture);
-    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
-    App -> draw(mapSprite);
-
-}
 
 /*
 * Adds the next glowing orb that represents the next level available

@@ -9,12 +9,21 @@ namespace escape {
 		private:
 			sf::Font font;
 
+//             float screenX = 800;
+// 			float screenY = 600;
+            
+//             float imageX = 1114;
+//             float imageY = 590;
+            
+            
 			//TODO: Add sprite sheets here
 
 		public:
+            sf::Texture mapTexture;
 			ResourceManager();
 
-      sf::Font* getFont();
+            sf::Font* getFont();
+            sf::Texture* getMapTexture();
 	};
 }
 #endif

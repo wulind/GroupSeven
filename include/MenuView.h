@@ -6,6 +6,7 @@
 #include "TitlePage.h"
 #include "LevelSelect.h"
 #include <vector>
+#include "ResourceManager.h"
 
 namespace escape{
 	class MenuView{
@@ -14,6 +15,9 @@ namespace escape{
 
 			float screenX = 800;
 			float screenY = 600;
+            
+            float imageX = 1114;
+            float imageY = 590;
 
 
 			//Window
@@ -22,16 +26,20 @@ namespace escape{
 			sf::Font *font;
 
 			void drawText(sf::Text &text);
+            
+            sf::Texture *mapTexture;
 
 		public:
 			MenuView();
 			MenuView(sf::RenderWindow *_App, sf::Font *_font);
 
 			void loadTitleScreen(TitlePage &titlePage);
-      void loadLevelSelect(LevelSelect &levelSelect);
-      void drawLevelDots(LevelSelect &levelSelect);
+            void loadLevelSelect(LevelSelect &levelSelect, sf::Texture *_mapTexture);
+            void drawLevelDots(LevelSelect &levelSelect);
 
-	    void update(GameState &state);
+            void update(GameState &state);
+            void drawBackground(sf::RenderWindow *App);
+
 
 	};
 }

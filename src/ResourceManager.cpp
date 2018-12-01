@@ -11,6 +11,10 @@ ResourceManager::ResourceManager(){
 		// TODO:error...
 	}
 	
+    if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {
+
+    }
+	
 	
 }
 
@@ -19,4 +23,12 @@ ResourceManager::ResourceManager(){
 */
 sf::Font* ResourceManager::getFont(){
   return &this -> font;
+}
+
+/*
+ * Returns Blank Map Texture
+ */
+sf::Texture *ResourceManager::getMapTexture(){
+    return &this -> mapTexture;
+    
 }

@@ -31,10 +31,9 @@ namespace escape{
 
 			std::vector<SelectOrb> levels;
 
-			void drawBackground(sf::RenderWindow *App);
-			void appendDot(SelectOrb orb);
+        void appendDot(SelectOrb orb);
 			
-      void levelClick(sf::Vector2i mousePosition, GameState &state);
+        void levelClick(sf::Vector2i mousePosition, GameState &state);
 
 
 
