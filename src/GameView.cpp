@@ -50,7 +50,7 @@ void GameView::drawRectangle(sf::RectangleShape &rect) {
 
 /*
  * Draws the CircleShape Object
- *
+ * @param &circle: circle shape to draw
  */
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
