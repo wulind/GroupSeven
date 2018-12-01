@@ -33,10 +33,10 @@ namespace escape{
 
 			void loadTitleScreen(TitlePage &titlePage);
             void loadLevelSelect(LevelSelect &levelSelect);
-            void drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot);
+            void drawLevelDots(LevelSelect &levelSelect);
 
             void update(GameState &state);
-            void drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture);
+            void drawBackground();
 
 
 	};

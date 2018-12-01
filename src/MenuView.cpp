@@ -48,29 +48,29 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
     titleText.setPosition(380,520);
     titleText.setFillColor(sf::Color::White);
 
-		this -> drawBackground(this -> App, this -> mapTexture);
+		this -> drawBackground();
     this -> drawText(titleText);
-		this -> drawLevelDots(levelSelect, this -> levelDot);
+		this -> drawLevelDots(levelSelect);
 
 		this -> App -> display();
 }
 
-void MenuView::drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture){
+void MenuView::drawBackground(){
     //Use the texture as a sprite
-    sf::Sprite mapSprite(*_mapTexture);
+    sf::Sprite mapSprite(*this -> mapTexture);
     mapSprite.setScale(this -> screenX / this -> mapImageFullX, this -> screenY / this -> mapImageFullY);
-    App -> draw(mapSprite);
+    this -> App -> draw(mapSprite);
 
 }
 
 /* Draws the individual level dots that represent unlocked levels to select a level
  * @param LevelSelect &levelSelect: Holds the level dots information stored in LevelSelect
  */
-void MenuView::drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot){
+void MenuView::drawLevelDots(LevelSelect &levelSelect){
 		int i = 0;
 		for (i; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
-			levelSelect.levels[i].circle.setTexture(_levelDot);
+			levelSelect.levels[i].circle.setTexture(this -> levelDot);
 	    	levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
