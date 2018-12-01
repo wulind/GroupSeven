@@ -81,6 +81,5 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 */
 void Platform::setRotation(int rotation){
 	this -> rotation = rotation;
-	// this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), rotation * b2_pi / 180 );
 
 }
