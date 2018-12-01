@@ -1,4 +1,5 @@
 #include "../include/Platform.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -33,6 +34,8 @@ Platform::Platform(float x, float y, int height, int width){
 
 	//Set a default rotational value
 	this -> rotation = 0;
+
+	this -> Body = NULL;
 }
 
 /*
@@ -55,6 +58,9 @@ void Platform::setWorld(b2World* World){
 	FixtureDef.shape = &Shape;
 	Body -> CreateFixture(&FixtureDef);
 	this -> Body = Body;
+
+	//Set rotation since this is where the b2Body is made
+	this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180);
 }
 
 /*
@@ -72,6 +78,8 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 		this -> xCoord = mouseX - mouseDragOffsetX;
 		this -> yCoord = mouseY - mouseDragOffsetY;
 		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180);
+
+
 	}
 }
 
@@ -81,6 +89,4 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 */
 void Platform::setRotation(int rotation){
 	this -> rotation = rotation;
-	// this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), rotation * b2_pi / 180 );
-
 }

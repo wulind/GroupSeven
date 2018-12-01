@@ -43,7 +43,6 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
 
   platform.setRotation(rotation);
 
-  //TODO: Change so that it reads from XML
   platform.draggable = draggable;
 
   this -> platforms.push_back(platform);
