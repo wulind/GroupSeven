@@ -14,7 +14,7 @@ GameLogic::GameLogic(){
 
 	//Initializes world.
 	//Takes in Gravity (change second param to change gravity)
-	b2Vec2 Gravity(0.f, 8.0f);
+	b2Vec2 Gravity(0.f, 3.0f);
 	this -> World = new b2World(Gravity);
 
 	//LevelFactory & Level

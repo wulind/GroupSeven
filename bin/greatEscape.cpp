@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 	sf::Clock gameTime;
 
 	//Views
-	GameView mainView(gameLogic.resources.getFont());
+	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
 
 	//Target 60 fps
@@ -66,7 +66,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
-			gameView.setGraphics(gameLogic.level, gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 			drawLevel(gameLogic.level, gameView);
 			break;
 

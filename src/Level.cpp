@@ -4,7 +4,7 @@ using namespace escape;
 Level::Level(){
   // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
   this -> base = Platform(0, 600, 10, 800);
-  this -> stolenObject = StolenObject(50, 100, 25);
+  this -> stolenObject = StolenObject(50, 100, 32);
   this -> finishButton = FinishButton();
 
 }
@@ -50,6 +50,11 @@ void Level::makePlatform(int rotation, int yPos){
 /*
 * Sets Filename for stolen object
 */
-void Level::setStolenObjectFile(const char *_stolenObjectFile){
+void Level::setStolenObjectFile(const char *_stolenObjectFile, const char *_objStartX, const char *_objStartY){
   this -> stolenObjectFile = _stolenObjectFile;
+  
+  this -> objectStartX = std::atoi(_objStartX);
+  this -> objectStartY = std::atoi(_objStartY);
+  
+  
 }

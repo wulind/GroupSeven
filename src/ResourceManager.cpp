@@ -24,6 +24,7 @@ ResourceManager::ResourceManager(){
 
     if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {
 	}
+	
 	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {
 	}
 	
