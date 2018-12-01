@@ -10,9 +10,13 @@ GameView::GameView(){
 * @param *App: pointer to game window
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::Font *_font){
+GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
-	this -> font = _font;
+    
+	this -> font = font;
+    
+    this -> backgroundSpriteSheet = backgroundSprite;
+    this -> objectSpriteSheet = objectSprite;
 }
 
 /*
@@ -50,13 +54,9 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
-void GameView::setGraphics(Level &level){
-		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
-		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600)))
-		{
-			//Error
-		}
-		this -> sprite.setTexture(backgroundTexture);
+void GameView::drawBackground(Level &level){
+    sf::Sprite background(*this -> backgroundSpriteSheet, sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
+    this -> App.draw(background);    
 }
 
 /*
@@ -82,7 +82,7 @@ void GameView::dialogue(sf::Text &text){
 */
 void GameView::update(Level &level){
 	this -> App.clear();
-	this -> App.draw(this -> sprite);
+    this -> drawBackground(level);
 
 	if(level.finishButton.show){//if GameState setup
 		sf::RectangleShape menu(sf::Vector2f(180, screenY));
@@ -114,15 +114,22 @@ void GameView::update(Level &level){
 	base.setPosition(level.base.xCoord, level.base.yCoord);
 	base.setFillColor(level.base.color);
 
-	sf::CircleShape circle(level.stolenObject.radius);
-	circle.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-	circle.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-	circle.setTexture(&level.stolenObject.objTexture);
-	// circle.setFillColor(level.stolenObject.color);
-	//TODO: Smooth it out when we pick a texture
-
+    
+//     objectSprite.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
+	
+    sf::CircleShape stolenObject(level.stolenObject.radius);
+    stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
+    stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
+    stolenObject.setTexture(this -> objectSpriteSheet, false);
+    stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
+    
+    
+//     sf::Sprite stolenObject(*this -> objectSpriteSheet, sf::IntRect(0,0,256,256));/*
+//     stolenObject.setScale(sf::Vector2f(.3, .3));
+//     stolenObject.setOrigin(sf::Vector2f(.3 * (256/2), 0.3 * 256/2));
+//     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord)*/;
+    
 	this -> drawRectangle(base);
-	this -> drawCircle(circle);
-
+    this -> App.draw(stolenObject);
 	this -> App.display();
 }

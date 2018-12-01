@@ -36,40 +36,46 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * Loads level selection screen
 * @param &levelSelect: Level Selection object
 */
-void MenuView::loadLevelSelect(LevelSelect &levelSelect){
-    //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
-		levelSelect.drawBackground(App);
-
+void MenuView::loadLevelSelect(LevelSelect &levelSelect, sf::Texture* _mapTexture, sf::Texture* _levelDot){
+        //Load the mapTexture from the resource manager
+        // this -> mapTexture = _mapTexture;
+        // this -> levelDot = _levelDot;
+        //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
  		sf::Text titleText;
  		titleText.setFont(*this -> font);
  		titleText.setCharacterSize(74);
-    titleText.setString("Select A Level");
-    titleText.setPosition(380,520);
-    titleText.setFillColor(sf::Color::White);
-		this -> drawText(titleText);
-		this -> drawLevelDots(levelSelect);
+        titleText.setString("Select A Level");
+        titleText.setPosition(380,520);
+        titleText.setFillColor(sf::Color::White);
+		this -> drawBackground(this -> App, _mapTexture);
+        this -> drawText(titleText);
+		this -> drawLevelDots(levelSelect, _levelDot);
 
 		this -> App -> display();
 }
 
 
+
+void MenuView::drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture){
+    //Use the texture as a sprite
+    sf::Sprite mapSprite(*_mapTexture);
+    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
+    App -> draw(mapSprite);
+
+}
+
+
 /* Draws the individual level dots that represent unlocked levels to select a level
- * @param *App: pointer to game window
+ * @param LevelSelect &levelSelect: Holds the level dots information stored in LevelSelect
  */
-void MenuView::drawLevelDots(LevelSelect &levelSelect){
-	  sf::Texture levelDot;
-    if (!levelDot.loadFromFile("../data/LevelDot.png")) {
-
-    }
-
+void MenuView::drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot){
 		int i = 0;
 		for (i; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
-			levelSelect.levels[i].circle.setTexture(&levelDot);
-	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
+			levelSelect.levels[i].circle.setTexture(_levelDot);
+	    	levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
-		this -> App -> display();
 }
 
 

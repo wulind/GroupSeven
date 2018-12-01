@@ -14,10 +14,11 @@ namespace escape{
 	class GameView{
 
 		private:
-
-			sf::Texture backgroundTexture;
-			sf::Sprite sprite;
-	    //Window
+			sf::Sprite sprite; // should not be a this- >sprite
+            sf::Texture *backgroundSpriteSheet;
+            sf::Texture *objectSpriteSheet;
+            
+            //Window
 			sf::RenderWindow App;
 
 			float screenX = 800;
@@ -29,12 +30,12 @@ namespace escape{
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 			void drawText(sf::Text &text);
-
+            void drawBackground(Level &level);
+            
 		public:
-    	GameView();
-      GameView(sf::Font *_font);
-
-			void setGraphics(Level &level);
+            GameView();
+            GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
+			
 			void update(Level &level);
 			void dialogue(sf::Text &text);
 
