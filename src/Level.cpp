@@ -1,10 +1,11 @@
 #include "Level.h"
-
 using namespace escape;
 
 Level::Level(){
-  this -> base = Platform(0, 600, 10, 1080);
-  this -> stolenObject = StolenObject(50, 100, 25);
+  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
+  this -> base = Platform(0, 600, 10, 800);
+  this -> stolenObject = StolenObject(50, 100, 32);
+
 }
 
 /*
@@ -23,27 +24,33 @@ void Level::setWorld(b2World* World){
 
 /*
 * Sets Filename for background
-* TODO: put all of this info into the respective classes
+* Sets starting x and y for image in sprite sheet
 */
-void Level::setBackgroundFile(const char *_backgroundFile){
-  this -> backgroundFile = _backgroundFile;
+void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgroundStartY){
+  this -> backgroundStartX = std::atoi(_backgroundStartX);
+  this -> backgroundStartY = std::atoi(_backgroundStartY);
 }
 
 /*
 * Makes platforms available for level
-* @param count: the amount of platforms needed in the level
+* @param rotation: rotation in degrees of platform
+* @param yPos: y axis position on screen
 */
-void Level::makePlatform(int count){
-  int i = 0;
-  for (i; i < count; i++){
-    this -> platforms.push_back(Platform(100, 300, 10, 100));//DO NOT CHANGER
-  }
+void Level::makePlatform(int rotation, int yPos){
+  Platform platform(700, yPos, 10, 100);
+
+  platform.setRotation(rotation);
+
+  this -> platforms.push_back(platform);
+
 }
 
 /*
 * Sets Filename for stolen object
 */
-void Level::setStolenObjectFile(const char *_stolenObjectFile){
-  // this -> stolenObject = StolenObject(50, 100, 25, this -> World);
-  this -> stolenObjectFile = _stolenObjectFile;
+void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
+  this -> objectStartX = std::atoi(_objStartX);
+  this -> objectStartY = std::atoi(_objStartY);
+
+
 }

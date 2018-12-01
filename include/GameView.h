@@ -14,8 +14,11 @@ namespace escape{
 	class GameView{
 
 		private:
+			sf::Sprite sprite; // should not be a this- >sprite
+            sf::Texture *backgroundSpriteSheet;
+            sf::Texture *objectSpriteSheet;
 
-	    //Window
+            //Window
 			sf::RenderWindow App;
 
 			float screenX = 800;
@@ -23,22 +26,23 @@ namespace escape{
 
 			sf::Font *font;
 
-			void drawText(sf::Text &text);
-			void drawSprite(sf::Sprite &sprite);
+
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
+			void drawText(sf::Text &text);
+      void drawBackground(Level &level);
 
 			sf::RectangleShape makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color);
 			sf::CircleShape makeStolenObject(StolenObject &stolenObject);
 
-
 		public:
-    	GameView();
-      GameView(sf::Font *_font);
+            GameView();
+            GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
 
 			void update(Level &level);
+			void displayLevelStory(sf::Text &text);
 
-      sf::RenderWindow* getApp();
+			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
 	};
 }

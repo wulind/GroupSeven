@@ -8,9 +8,13 @@ GameView::GameView(){}
 * @param *App: pointer to game window
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::Font *_font){
-	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape");
-	this -> font = _font;
+GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
+	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
+
+	this -> font = font;
+
+    this -> backgroundSpriteSheet = backgroundSprite;
+    this -> objectSpriteSheet = objectSprite;
 }
 
 /*
@@ -38,32 +42,63 @@ void GameView::drawText(sf::Text &text) {
 }
 
 /*
-* Draws any sprite needed for the level
-* @param sprite: sprite to draw
-*/
-void GameView::drawSprite(sf::Sprite &sprite) {
-	this -> App.draw(sprite);
-}
-
-/*
 * TODO: get rid of these
 */
 void GameView::drawRectangle(sf::RectangleShape &rect) {
 	this -> App.draw(rect);
 }
 
+/*
+ * Draws the CircleShape Object
+ * @param &circle: circle shape to draw
+ */
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
 /*
+ * Draws the level background using sprite sheet coordinates from the XML
+ * @param level: Level object
+ */
+void GameView::drawBackground(Level &level){
+    sf::Sprite background(*this -> backgroundSpriteSheet, sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
+    this -> App.draw(background);
+}
+
+/*
+* Writes dialogue pages
+*/
+void GameView::displayLevelStory(sf::Text &text){
+	this -> App.clear();
+	this -> drawText(text);
+
+	sf::Text escapePage;
+	escapePage.setCharacterSize(20);
+	escapePage.setString("Click anywhere or press any key to continue.");
+	escapePage.setPosition(10,500);
+
+	this -> drawText(escapePage);
+
+	this -> App.display();
+}
+
+/*
 * Creates all of the SFML-related objects that need to be drawn
-* @param platform: platform needed for the level
-* @param stolenObject: objects that need to be stolen
-* @param menu: menu that contains platforms
+* @param level: Level object representing current level
 */
 void GameView::update(Level &level){
-	this -> App.clear(sf::Color::Black);
+	this -> App.clear();
+    this -> drawBackground(level);
+
+	if(level.finishButton.show){//if GameState setup
+		sf::RectangleShape menu(sf::Vector2f(180, screenY));
+		menu.setPosition(sf::Vector2f(620, 0)); // absolute position do not change
+		menu.setFillColor(sf::Color(0, 0, 0, 100));
+		this -> drawRectangle(menu);
+
+		this -> drawText(level.finishButton.button);
+		this -> drawText(level.platformMenu.title);
+	}
 
 	//Platforms
 	int i = 0;
@@ -73,9 +108,7 @@ void GameView::update(Level &level){
 		level.platforms[i].bounds = platform.getGlobalBounds();
 		level.platforms[i].origin = platform.getPosition();
 
-		level.platforms[i].setRotation(45);
 		platform.setRotation(level.platforms[i].rotation);
-
 		this -> drawRectangle(platform);
 	}
 
@@ -91,13 +124,9 @@ void GameView::update(Level &level){
 	this -> drawRectangle (goal);
 
 	//StolenObject
-	//TODO: Smooth it out when we pick a texture
 	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject);
 	this -> drawCircle(circle);
 
-	if(level.finishButton.show){
-		this -> drawText(level.finishButton.button);
-	}
 	this -> App.display();
 }
 
@@ -114,7 +143,8 @@ sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
 	sf::CircleShape circle(stolenObject.radius); //TODO: fix
 	circle.setOrigin(stolenObject.radius, stolenObject.radius);
 	circle.setPosition(stolenObject.xCoord, stolenObject.yCoord);
-	circle.setFillColor(stolenObject.color);
+	circle.setTexture(this -> objectSpriteSheet, false);
+	circle.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
 
 	stolenObject.bounds = circle.getGlobalBounds();
 

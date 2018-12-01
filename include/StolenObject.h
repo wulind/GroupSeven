@@ -27,6 +27,7 @@ namespace escape {
 			sf::FloatRect bounds;
 
 			sf::Color color;
+			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
 			void updatePosition();

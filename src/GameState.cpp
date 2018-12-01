@@ -8,6 +8,7 @@ using namespace escape;
 GameState::GameState(){
   this -> state = GameState::State::TITLE;
   this -> currentLevel = 1;
+  this -> unlockedLevels = 1;
 }
 
 /*
@@ -22,10 +23,15 @@ void GameState::setState(GameState::State _state){
 /*
 * Increases highest level available to play
 */
-void GameState::incrementCurrentLevel(){
-  ++this -> currentLevel;
-  std::cout << this -> currentLevel << std::endl;
+void GameState::incrementUnlockedLevels(){
+  ++this -> unlockedLevels;
+}
 
+/*
+* Gets the amount of levels
+*/
+int GameState::getUnlockedLevels(){
+  return this -> unlockedLevels;
 }
 
 /*
@@ -40,4 +46,11 @@ GameState::State GameState::getState(){
 */
 int GameState::getCurrentLevel(){
   return this -> currentLevel;
+}
+
+/*
+* Sets the current level
+*/
+void GameState::setCurrentLevel(int level){
+	this -> currentLevel = level;
 }
