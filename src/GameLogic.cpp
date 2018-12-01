@@ -86,7 +86,7 @@ void GameLogic::loadLevel(int level){
 	delete this -> World;
 	this -> level = *this -> factory.makeLevel(level);
 
-	b2Vec2 Gravity(0.f, this -> level.gravity);
+	b2Vec2 Gravity(0.f, 1.f);
 	this -> World = new b2World(Gravity);
 
 	this -> level.setWorld(World);

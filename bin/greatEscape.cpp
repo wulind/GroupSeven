@@ -76,12 +76,10 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 		case GameState::State::SUCCESS:
 			gameLogic.state.incrementCurrentLevel();
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
-			gameLogic.nextLevelWorld();
 			break;
 
 		case GameState::State::FAIL:
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
-			gameLogic.nextLevelWorld();
 			break;
 	}
 }

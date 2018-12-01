@@ -11,7 +11,7 @@ using namespace escape;
 */
 Goal::Goal(){
   this -> width = 250;
-  this -> height = 70;
+  this -> height = 110;
 
   this -> xCoord = 350;//670
   this -> yCoord = 550;//570
@@ -32,13 +32,13 @@ void Goal::setWorld(b2World* World){
   b2PolygonShape shape;
   const float density = 100.f;
 
-  shape.SetAsBox(10/SCALE, this -> height/4/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, -this -> height/2/SCALE), 0);
+  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, -this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 
   shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 5)/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 
-  shape.SetAsBox(10/SCALE, this -> height/4/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, -this -> height/2/SCALE), 0);
+  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, -this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 
   this -> World = World;
@@ -51,6 +51,9 @@ void Goal::setWorld(b2World* World){
 */
 int Goal::detectWin(StolenObject &stolenObject){
   if(stolenObject.Body -> IsAwake()){
+    if(stolenObject.xCoord < 0 || stolenObject.xCoord > 800 || stolenObject.yCoord < 0 || stolenObject.yCoord > 600){
+      return 0;
+    }
     return -1;
   }
 
