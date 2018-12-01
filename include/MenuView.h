@@ -16,8 +16,8 @@ namespace escape{
 			float screenX = 800;
 			float screenY = 600;
             
-            float imageX = 1114;
-            float imageY = 590;
+            float mapImageFullX = 1114;
+            float mapImageFullY= 590;
 
 
 			//Window

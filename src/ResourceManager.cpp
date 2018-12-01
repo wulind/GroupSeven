@@ -11,7 +11,6 @@ ResourceManager::ResourceManager(){
 
   if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
 
-  if(!this -> objTexture.loadFromFile("../data/MoneyBagColor.png")){}
 
 	if (!levelDot.loadFromFile("../data/LevelDot.png")) {}
 

@@ -58,7 +58,7 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 void MenuView::drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture){
     //Use the texture as a sprite
     sf::Sprite mapSprite(*_mapTexture);
-    mapSprite.setScale(this -> screenX / this -> imageX, this -> screenY / this -> imageY);
+    mapSprite.setScale(this -> screenX / this -> mapImageFullX, this -> screenY / this -> mapImageFullY);
     App -> draw(mapSprite);
 
 }
