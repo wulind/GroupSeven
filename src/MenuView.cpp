@@ -12,9 +12,8 @@ MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTex
 	this -> App = _App;
 	this -> font = _font;
 
-    this -> mapTexture = _mapTexture;
-    this -> levelDot = _levelDot;
-
+  this -> mapTexture = _mapTexture;
+  this -> levelDot = _levelDot;
 }
 
 /*
@@ -56,8 +55,6 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 		this -> App -> display();
 }
 
-
-
 void MenuView::drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture){
     //Use the texture as a sprite
     sf::Sprite mapSprite(*_mapTexture);
@@ -65,7 +62,6 @@ void MenuView::drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture){
     App -> draw(mapSprite);
 
 }
-
 
 /* Draws the individual level dots that represent unlocked levels to select a level
  * @param LevelSelect &levelSelect: Holds the level dots information stored in LevelSelect
@@ -79,8 +75,6 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot){
 			App -> draw(levelSelect.levels[i].circle);
 		}
 }
-
-
 
 /*
 * Draws text onto screen
