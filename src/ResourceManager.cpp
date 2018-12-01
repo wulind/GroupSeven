@@ -11,7 +11,6 @@ ResourceManager::ResourceManager(){
 
   if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
 
-
 	if (!levelDot.loadFromFile("../data/LevelDot.png")) {}
 
   if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
