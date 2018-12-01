@@ -5,8 +5,8 @@
 #include "GameState.h"
 #include "TitlePage.h"
 #include "LevelSelect.h"
-#include <vector>
 #include "ResourceManager.h"
+#include <vector>
 
 namespace escape{
 	class MenuView{
@@ -23,14 +23,16 @@ namespace escape{
 			//Window
 			sf::RenderWindow *App;
 			sf::Font *font;
+            sf::Texture *mapTexture;
+            sf::Texture *levelDot;
 			void drawText(sf::Text &text);
             
 		public:
 			MenuView();
-			MenuView(sf::RenderWindow *_App, sf::Font *_font);
+			MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTexture, sf::Texture *_levelDot);
 
 			void loadTitleScreen(TitlePage &titlePage);
-            void loadLevelSelect(LevelSelect &levelSelect, sf::Texture *_mapTexture, sf::Texture *_levelDot);
+            void loadLevelSelect(LevelSelect &levelSelect);
             void drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot);
 
             void update(GameState &state);

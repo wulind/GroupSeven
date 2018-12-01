@@ -48,10 +48,18 @@ void GameView::drawRectangle(sf::RectangleShape &rect) {
 	this -> App.draw(rect);
 }
 
+/*
+ * Draws the CircleShape Object
+ *
+ */
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
+/*
+ * Draws the level background using sprite sheet coordinates from the XML
+ * @param level: Level object
+ */
 void GameView::drawBackground(Level &level){
     sf::Sprite background(*this -> backgroundSpriteSheet, sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
     this -> App.draw(background);
@@ -60,7 +68,7 @@ void GameView::drawBackground(Level &level){
 /*
 * Writes dialogue pages
 */
-void GameView::dialogue(sf::Text &text){
+void GameView::displayLevelStory(sf::Text &text){
 	this -> App.clear();
 	this -> drawText(text);
 

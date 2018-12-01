@@ -37,7 +37,7 @@ namespace escape{
             GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
 			
 			void update(Level &level);
-			void dialogue(sf::Text &text);
+			void displayLevelStory(sf::Text &text);
 
 			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();

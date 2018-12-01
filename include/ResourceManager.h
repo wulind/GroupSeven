@@ -8,7 +8,6 @@ namespace escape {
 
 		private:
 			sf::Font font;
-			sf::Texture objTexture;
 			sf::Texture levelDot;
             sf::Texture mapTexture;
 

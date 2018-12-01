@@ -21,9 +21,9 @@ Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
     levelRoot = levelRoot -> NextSiblingElement();
   }
 
-  this -> level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("Filename"), levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
+  this -> level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(levelRoot);
-  this -> level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("Filename"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
+  this -> level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
 
   this -> level.setWorld(World);
 

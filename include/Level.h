@@ -12,9 +12,6 @@ namespace escape{
   class Level{//TODO: make this class a struct instead?
 
     private:
-      const char *backgroundFile = "";
-      const char *stolenObjectFile = "";
-
     public:
       Level();
 
@@ -32,9 +29,9 @@ namespace escape{
       PlatformMenu platformMenu;
 
       void setWorld(b2World* World);
-      void setStolenObjectFile(const char *_stolenObjectFile, const char *_objStartX, const char *_objStartY);
+      void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
       void makePlatform(int rotation, int yPos);
-      void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
+      void setBackgroundFile(const char *_startX, const char *_startY);
       
 
   };
