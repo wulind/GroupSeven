@@ -1,5 +1,4 @@
 #include "GameLogic.h"
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -49,7 +48,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 
 							case GameState::State::LEVELSELECT:
 								this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
-								std::cout << "Mouse x: " << sf::Mouse::getPosition(*App).x << "  Mouse y: " << sf::Mouse::getPosition(*App).y << "\n";
 								break;
 
 							case GameState::State::STORY:
