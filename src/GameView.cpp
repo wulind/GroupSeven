@@ -53,6 +53,11 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 void GameView::setGraphics(Level &level, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet){
 		this -> sprite.setTexture(*backgroundSpriteSheet);
 		sprite.setTextureRect(sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
+        
+        this -> objectSprite.setTexture(*objectSpriteSheet);
+        this -> objectSprite.setTextureRect(sf::IntRect(500,0,256,256));
+        
+        
 }
 
 /*
@@ -119,6 +124,6 @@ void GameView::update(Level &level){
 
 	this -> drawRectangle(base);
 	this -> drawCircle(circle);
-
+    this -> App.draw(objectSprite);
 	this -> App.display();
 }

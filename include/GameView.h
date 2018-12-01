@@ -15,6 +15,7 @@ namespace escape{
 
 		private:
 			sf::Sprite sprite;
+            sf::Sprite objectSprite;
 	    //Window
 			sf::RenderWindow App;
 
