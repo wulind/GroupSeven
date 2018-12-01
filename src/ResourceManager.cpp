@@ -21,6 +21,9 @@ ResourceManager::ResourceManager(){
 	if (!levelDot.loadFromFile("../data/LevelDot.png")) {
 
     }
+
+    if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {
+	}
 	
 	
 }
@@ -44,4 +47,8 @@ sf::Texture *ResourceManager::getMapTexture(){
 */
 sf::Texture *ResourceManager::getLevelDot(){
     return &this -> levelDot;
+}
+
+sf::Texture *ResourceManager::getBackgroundTexture(){
+    return &this -> backgroundSpriteSheet;
 }

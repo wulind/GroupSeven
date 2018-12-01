@@ -14,8 +14,6 @@ namespace escape{
 	class GameView{
 
 		private:
-
-			sf::Texture backgroundTexture;
 			sf::Sprite sprite;
 	    //Window
 			sf::RenderWindow App;
@@ -34,7 +32,7 @@ namespace escape{
     	GameView();
       GameView(sf::Font *_font);
 
-			void setGraphics(Level &level);
+			void setGraphics(Level &level, sf::Texture* backgroundSpriteSheet);
 			void update(Level &level);
 			void dialogue(sf::Text &text);
 

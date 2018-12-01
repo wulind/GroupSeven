@@ -10,17 +10,19 @@ namespace escape {
 			sf::Font font;
 			sf::Texture objTexture;
 			sf::Texture levelDot;
+            sf::Texture mapTexture;
 
+            //Sprite Sheets
+			sf::Texture backgroundSpriteSheet;
             
-			//TODO: Add sprite sheets here
 
 		public:
-            sf::Texture mapTexture;
 			ResourceManager();
 
             sf::Font* getFont();
             sf::Texture* getMapTexture();
             sf::Texture* getLevelDot();
+            sf::Texture* getBackgroundTexture();
 	};
 }
 #endif

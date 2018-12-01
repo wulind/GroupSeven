@@ -50,13 +50,9 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
-void GameView::setGraphics(Level &level){
-		//Uses xml stored values of spirte sheet startX and startX for level specific backgrounds
-		if (!backgroundTexture.loadFromFile("../data/BackgroundsSpriteSheet.png", sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600)))
-		{
-			//Error
-		}
-		this -> sprite.setTexture(backgroundTexture);
+void GameView::setGraphics(Level &level, sf::Texture* backgroundSpriteSheet){
+		this -> sprite.setTexture(*backgroundSpriteSheet);
+		sprite.setTextureRect(sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
 }
 
 /*
