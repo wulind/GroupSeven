@@ -2,8 +2,7 @@
 
 using namespace escape;
 
-GameView::GameView(){
-}
+GameView::GameView(){}
 
 /*
 * @param *App: pointer to game window
@@ -11,9 +10,9 @@ GameView::GameView(){
 */
 GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
-    
+
 	this -> font = font;
-    
+
     this -> backgroundSpriteSheet = backgroundSprite;
     this -> objectSpriteSheet = objectSprite;
 }
@@ -51,7 +50,7 @@ void GameView::drawRectangle(sf::RectangleShape &rect) {
 
 /*
  * Draws the CircleShape Object
- * 
+ *
  */
 void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
@@ -63,7 +62,7 @@ void GameView::drawCircle(sf::CircleShape &circle) {
  */
 void GameView::drawBackground(Level &level){
     sf::Sprite background(*this -> backgroundSpriteSheet, sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
-    this -> App.draw(background);    
+    this -> App.draw(background);
 }
 
 /*
@@ -121,21 +120,21 @@ void GameView::update(Level &level){
 	base.setPosition(level.base.xCoord, level.base.yCoord);
 	base.setFillColor(level.base.color);
 
-    
+
 //     objectSprite.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-	
+
     sf::CircleShape stolenObject(level.stolenObject.radius);
     stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
     stolenObject.setTexture(this -> objectSpriteSheet, false);
     stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
-    
-    
+
+
 //     sf::Sprite stolenObject(*this -> objectSpriteSheet, sf::IntRect(0,0,256,256));/*
 //     stolenObject.setScale(sf::Vector2f(.3, .3));
 //     stolenObject.setOrigin(sf::Vector2f(.3 * (256/2), 0.3 * 256/2));
 //     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord)*/;
-    
+
 	this -> drawRectangle(base);
     this -> App.draw(stolenObject);
 	this -> App.display();

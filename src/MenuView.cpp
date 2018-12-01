@@ -11,10 +11,10 @@ MenuView::MenuView(){}
 MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTexture, sf::Texture *_levelDot){
 	this -> App = _App;
 	this -> font = _font;
-    
+
     this -> mapTexture = _mapTexture;
     this -> levelDot = _levelDot;
-    
+
 }
 
 /*
@@ -41,18 +41,16 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * @param &levelSelect: Level Selection object
 */
 void MenuView::loadLevelSelect(LevelSelect &levelSelect){
-        //Load the mapTexture from the resource manager
-        // this -> mapTexture = _mapTexture;
-        // this -> levelDot = _levelDot;
-        //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
+    //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
  		sf::Text titleText;
  		titleText.setFont(*this -> font);
  		titleText.setCharacterSize(74);
-        titleText.setString("Select A Level");
-        titleText.setPosition(380,520);
-        titleText.setFillColor(sf::Color::White);
+    titleText.setString("Select A Level");
+    titleText.setPosition(380,520);
+    titleText.setFillColor(sf::Color::White);
+
 		this -> drawBackground(this -> App, this -> mapTexture);
-        this -> drawText(titleText);
+    this -> drawText(titleText);
 		this -> drawLevelDots(levelSelect, this -> levelDot);
 
 		this -> App -> display();
