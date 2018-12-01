@@ -7,30 +7,17 @@ using namespace escape;
 */
 ResourceManager::ResourceManager(){
 
-	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){
-		// TODO:error...
-	}
-	
-    if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {
+	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){}
 
-    }
+  if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
 
-    if(!this -> objTexture.loadFromFile("../data/MoneyBagColor.png")){
+  if(!this -> objTexture.loadFromFile("../data/MoneyBagColor.png")){}
 
-	}
-	if (!levelDot.loadFromFile("../data/LevelDot.png")) {
+	if (!levelDot.loadFromFile("../data/LevelDot.png")) {}
 
-    }
+  if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
 
-    if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {
-	}
-	
-	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {
-	}
-	
-	
-	
-	
+	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {}
 }
 
 /*
