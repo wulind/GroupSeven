@@ -15,9 +15,8 @@ namespace escape{
     public:
       LevelFactory();
 
-      Level* makeLevel(int levelToLoad, b2World* World);
+      Level* makeLevel(int levelToLoad);
       LevelSelect::SelectOrb makeOrbs(int level);
-      void makePlatforms(tinyxml2::XMLElement *levelRoot);
 
       Level level;
   };

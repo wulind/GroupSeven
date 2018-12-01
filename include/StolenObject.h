@@ -20,6 +20,9 @@ namespace escape {
 			float xCoord;
 			float yCoord;
 
+			int spriteSheetStartX;
+      int spriteSheetStartY;
+
 			int radius;
 
 			float rotation;

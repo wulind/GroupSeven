@@ -144,7 +144,7 @@ sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
 	circle.setOrigin(stolenObject.radius, stolenObject.radius);
 	circle.setPosition(stolenObject.xCoord, stolenObject.yCoord);
 	circle.setTexture(this -> objectSpriteSheet, false);
-	circle.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
+	circle.setTextureRect(sf::IntRect(stolenObject.spriteSheetStartX, stolenObject.spriteSheetStartY,256,256));
 
 	stolenObject.bounds = circle.getGlobalBounds();
 

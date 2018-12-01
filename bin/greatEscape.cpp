@@ -2,7 +2,6 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
-#include "Level.h"
 
 using namespace escape;
 
@@ -44,10 +43,12 @@ int main(int argc, char** argv){
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
+		//Title Screen
 		case GameState::State::TITLE:
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
+		//Level Selection page
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
@@ -77,7 +78,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
 				gameLogic.state.setState(GameState::State::FAIL);
 			}
-
 			break;
 
 		case GameState::State::SUCCESS:

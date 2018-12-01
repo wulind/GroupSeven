@@ -49,8 +49,8 @@ void Level::makePlatform(int rotation, int yPos){
 * Sets Filename for stolen object
 */
 void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
-  this -> objectStartX = std::atoi(_objStartX);
-  this -> objectStartY = std::atoi(_objStartY);
+  this -> stolenObject.spriteSheetStartX = std::atoi(_objStartX);
+  this -> stolenObject.spriteSheetStartY = std::atoi(_objStartY);
 
 
 }

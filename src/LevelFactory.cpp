@@ -10,7 +10,7 @@ LevelFactory::LevelFactory(){
 * @param levelToLoad: Level that needs to be loaded
 * @param *World: Box2D world
 */
-Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
+Level* LevelFactory::makeLevel(int levelToLoad){
   tinyxml2::XMLDocument doc;//TODO: move into resource manager
   doc.LoadFile( "../data/GreatEscape.xml" );
 
@@ -24,8 +24,6 @@ Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
   this -> level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(levelRoot);
   this -> level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
-
-  this -> level.setWorld(World);
 
   return &this -> level;
 }
