@@ -19,6 +19,8 @@ GameLogic::GameLogic(){
 
 	//Resources
 	this -> resources = ResourceManager();
+
+	this -> World = NULL;
 }
 
 /*
@@ -77,7 +79,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 					}
 				break;
 			}
-
 		}
 }
 
@@ -86,6 +87,12 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
+	//Delete World Bodies
+	if (this -> World != NULL){
+		for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext()){
+			BodyIterator -> GetWorld() -> DestroyBody( BodyIterator );
+		}
+	}
 	delete this -> World;
 	this -> level = *this -> factory.makeLevel(level);
 

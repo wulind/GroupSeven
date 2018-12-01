@@ -49,7 +49,7 @@ int main(int argc, char** argv){
 
 			if (gameLogic.state.getState() == GameState::State::PLAY){
 				int change = deltaMs - targetMs;
-				for (int x; x < change; x++){
+				for (int x = 0; x < change; x++){
 					gameLogic.progressSimluation();
 				}
 			}
