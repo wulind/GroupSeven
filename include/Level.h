@@ -33,6 +33,7 @@ namespace escape{
       void makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable);
       void setBackgroundFile(const char *_backgroundFile, const char *_startX, const char *_startY);
       void setGravity(float g);
+      void setStolenObject(int x, int y, int radius);
   };
 }
 #endif

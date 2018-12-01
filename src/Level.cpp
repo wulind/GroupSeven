@@ -64,3 +64,11 @@ void Level::setStolenObjectFile(const char *_stolenObjectFile){
 void Level::setGravity(float g){
   this -> gravity = g;
 }
+
+/*
+* Sets the stolen object for the level.
+* @param g: gravity for the level. Negative gravity is up on the screen
+*/
+void Level::setStolenObject(int x, int y, int radius){
+  this -> stolenObject = StolenObject(x, y, radius);
+}

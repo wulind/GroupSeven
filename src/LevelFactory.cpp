@@ -25,6 +25,7 @@ void LevelFactory::readXML(int levelToLoad){
   this -> level.setBackgroundFile(root -> FirstChildElement("Background") -> Attribute("Filename"), root -> FirstChildElement("Background") -> Attribute("startX"), root -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(root);
   this -> level.setStolenObjectFile(root -> FirstChildElement("StolenObject") -> Attribute("Filename"));
+  this -> level.setStolenObject(std::atoi(root -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(root -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(root -> FirstChildElement("StolenObject") -> Attribute("radius")));
   this -> level.setGravity(std::stof(root -> FirstChildElement("Gravity") -> Attribute("value")));
 }
 
