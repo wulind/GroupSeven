@@ -50,7 +50,7 @@ void GameView::drawCircle(sf::CircleShape &circle) {
 	this -> App.draw(circle);
 }
 
-void GameView::setGraphics(Level &level, sf::Texture* backgroundSpriteSheet){
+void GameView::setGraphics(Level &level, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet){
 		this -> sprite.setTexture(*backgroundSpriteSheet);
 		sprite.setTextureRect(sf::IntRect(level.backgroundStartX, level.backgroundStartY, 800, 600));
 }

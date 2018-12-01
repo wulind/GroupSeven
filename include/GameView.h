@@ -32,7 +32,7 @@ namespace escape{
     	GameView();
       GameView(sf::Font *_font);
 
-			void setGraphics(Level &level, sf::Texture* backgroundSpriteSheet);
+			void setGraphics(Level &level, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
 			void update(Level &level);
 			void dialogue(sf::Text &text);
 

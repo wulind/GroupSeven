@@ -14,6 +14,7 @@ namespace escape {
 
             //Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
+            sf::Texture objectSpriteSheet;
             
 
 		public:
@@ -23,6 +24,8 @@ namespace escape {
             sf::Texture* getMapTexture();
             sf::Texture* getLevelDot();
             sf::Texture* getBackgroundTexture();
-	};
+            sf::Texture* getObjectTexture();
+        
+    };
 }
 #endif

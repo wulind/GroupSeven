@@ -24,6 +24,10 @@ ResourceManager::ResourceManager(){
 
     if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {
 	}
+	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {
+	}
+	
+	
 	
 	
 }
@@ -51,4 +55,8 @@ sf::Texture *ResourceManager::getLevelDot(){
 
 sf::Texture *ResourceManager::getBackgroundTexture(){
     return &this -> backgroundSpriteSheet;
+}
+
+sf::Texture *ResourceManager::getObjectTexture(){
+    return &this -> objectSpriteSheet;
 }

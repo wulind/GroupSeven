@@ -66,7 +66,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
-			gameView.setGraphics(gameLogic.level, gameLogic.resources.getBackgroundTexture());
+			gameView.setGraphics(gameLogic.level, gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 			drawLevel(gameLogic.level, gameView);
 			break;
 
