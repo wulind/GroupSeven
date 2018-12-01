@@ -8,9 +8,13 @@ MenuView::MenuView(){}
 * MenuView Constructor
 * @param *App: pointer to game window
 */
-MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font){
+MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTexture, sf::Texture *_levelDot){
 	this -> App = _App;
 	this -> font = _font;
+    
+    this -> mapTexture = _mapTexture;
+    this -> levelDot = _levelDot;
+    
 }
 
 /*
@@ -36,7 +40,7 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 * Loads level selection screen
 * @param &levelSelect: Level Selection object
 */
-void MenuView::loadLevelSelect(LevelSelect &levelSelect, sf::Texture* _mapTexture, sf::Texture* _levelDot){
+void MenuView::loadLevelSelect(LevelSelect &levelSelect){
         //Load the mapTexture from the resource manager
         // this -> mapTexture = _mapTexture;
         // this -> levelDot = _levelDot;
@@ -47,9 +51,9 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect, sf::Texture* _mapTextur
         titleText.setString("Select A Level");
         titleText.setPosition(380,520);
         titleText.setFillColor(sf::Color::White);
-		this -> drawBackground(this -> App, _mapTexture);
+		this -> drawBackground(this -> App, this -> mapTexture);
         this -> drawText(titleText);
-		this -> drawLevelDots(levelSelect, _levelDot);
+		this -> drawLevelDots(levelSelect, this -> levelDot);
 
 		this -> App -> display();
 }

@@ -6,7 +6,6 @@
 
 namespace escape{
 	class Dialogue{
-		private:
 
 		public:
 			Dialogue();

@@ -15,9 +15,6 @@ ResourceManager::ResourceManager(){
 
     }
 
-    if(!this -> objTexture.loadFromFile("../data/MoneyBagColor.png")){
-
-	}
 	if (!levelDot.loadFromFile("../data/LevelDot.png")) {
 
     }

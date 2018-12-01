@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 
 	//Views
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
-	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
+	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
 	//Target 60 fps
   double targetMs = 1000/240;
@@ -49,7 +49,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
-			menuView.loadLevelSelect(gameLogic.levelSelect, gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
+			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
 			break;
 
@@ -95,5 +95,5 @@ void drawLevel(Level &level, GameView &gameView){
 * Calls on game view to write dialogue pages
 */
 void writeDialogue(GameLogic &gameLogic, GameView &gameView){
-	gameView.dialogue(gameLogic.dialogue.text);
+	gameView.displayLevelStory(gameLogic.dialogue.text);
 }
