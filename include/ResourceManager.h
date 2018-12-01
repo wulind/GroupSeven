@@ -8,13 +8,9 @@ namespace escape {
 
 		private:
 			sf::Font font;
+			sf::Texture objTexture;
+			sf::Texture levelDot;
 
-//             float screenX = 800;
-// 			float screenY = 600;
-            
-//             float imageX = 1114;
-//             float imageY = 590;
-            
             
 			//TODO: Add sprite sheets here
 
@@ -24,6 +20,7 @@ namespace escape {
 
             sf::Font* getFont();
             sf::Texture* getMapTexture();
+            sf::Texture* getLevelDot();
 	};
 }
 #endif

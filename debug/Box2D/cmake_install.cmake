@@ -1,4 +1,4 @@
-# Install script for directory: /home/f85/acday/Desktop/GroupSeven/Box2D
+# Install script for directory: /Users/alexday/Desktop/GroupSeven/Box2D
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,14 +27,14 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/cmake_install.cmake")
+  include("/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/cmake_install.cmake")
 
 endif()
 

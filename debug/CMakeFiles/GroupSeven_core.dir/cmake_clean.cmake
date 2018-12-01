@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/GroupSeven_core.dir/src/Dialogue.cpp.o"
   "CMakeFiles/GroupSeven_core.dir/src/EventManager.cpp.o"
   "CMakeFiles/GroupSeven_core.dir/src/FinishButton.cpp.o"
   "CMakeFiles/GroupSeven_core.dir/src/GameLogic.cpp.o"
@@ -14,7 +15,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/GroupSeven_core.dir/src/StolenObject.cpp.o"
   "CMakeFiles/GroupSeven_core.dir/src/TitlePage.cpp.o"
   "CMakeFiles/GroupSeven_core.dir/src/tinyxml2.cpp.o"
-  "CMakeFiles/GroupSeven_core.dir/src/Dialogue.cpp.o"
   "libGroupSeven_core.pdb"
   "libGroupSeven_core.a"
 )

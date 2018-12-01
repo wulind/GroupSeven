@@ -22,23 +22,19 @@ namespace escape{
 
 			//Window
 			sf::RenderWindow *App;
-
 			sf::Font *font;
-
 			void drawText(sf::Text &text);
             
-            sf::Texture *mapTexture;
-
 		public:
 			MenuView();
 			MenuView(sf::RenderWindow *_App, sf::Font *_font);
 
 			void loadTitleScreen(TitlePage &titlePage);
-            void loadLevelSelect(LevelSelect &levelSelect, sf::Texture *_mapTexture);
-            void drawLevelDots(LevelSelect &levelSelect);
+            void loadLevelSelect(LevelSelect &levelSelect, sf::Texture *_mapTexture, sf::Texture *_levelDot);
+            void drawLevelDots(LevelSelect &levelSelect, sf::Texture* _levelDot);
 
             void update(GameState &state);
-            void drawBackground(sf::RenderWindow *App);
+            void drawBackground(sf::RenderWindow *App, sf::Texture* _mapTexture);
 
 
 	};

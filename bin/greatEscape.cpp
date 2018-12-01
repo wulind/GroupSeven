@@ -49,7 +49,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
-			menuView.loadLevelSelect(gameLogic.levelSelect, gameLogic.resources.getMapTexture());
+			menuView.loadLevelSelect(gameLogic.levelSelect, gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 			gameLogic.makeNextLevelDot();
 			break;
 

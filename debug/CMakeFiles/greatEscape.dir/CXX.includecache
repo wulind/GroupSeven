@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -422,15 +422,15 @@ android/log.h
 assert.h
 -
 
-/home/f85/acday/Desktop/GroupSeven/bin/greatEscape.cpp
+/Users/alexday/Desktop/GroupSeven/bin/greatEscape.cpp
 SFML/Graphics.hpp
 -
 GameLogic.h
-/home/f85/acday/Desktop/GroupSeven/bin/GameLogic.h
+/Users/alexday/Desktop/GroupSeven/bin/GameLogic.h
 GameView.h
-/home/f85/acday/Desktop/GroupSeven/bin/GameView.h
+/Users/alexday/Desktop/GroupSeven/bin/GameView.h
 MenuView.h
-/home/f85/acday/Desktop/GroupSeven/bin/MenuView.h
+/Users/alexday/Desktop/GroupSeven/bin/MenuView.h
 Level.h
-/home/f85/acday/Desktop/GroupSeven/bin/Level.h
+/Users/alexday/Desktop/GroupSeven/bin/Level.h
 

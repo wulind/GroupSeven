@@ -1,4 +1,4 @@
-# Install script for directory: /home/f85/acday/Desktop/GroupSeven/Box2D/Box2D
+# Install script for directory: /Users/alexday/Desktop/GroupSeven/Box2D/Box2D
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,103 +27,107 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D" TYPE FILE FILES "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Box2D.h")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D" TYPE FILE FILES "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Box2D.h")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Collision" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2BroadPhase.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2Collision.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2Distance.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2DynamicTree.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2TimeOfImpact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2BroadPhase.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2Collision.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2Distance.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2DynamicTree.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/b2TimeOfImpact.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Collision/Shapes" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2CircleShape.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2EdgeShape.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2ChainShape.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2PolygonShape.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2Shape.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2CircleShape.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2EdgeShape.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2ChainShape.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2PolygonShape.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Collision/Shapes/b2Shape.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Common" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2BlockAllocator.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Draw.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2GrowableStack.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Math.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Settings.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2StackAllocator.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Timer.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2BlockAllocator.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Draw.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2GrowableStack.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Math.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Settings.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2StackAllocator.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Common/b2Timer.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Dynamics" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Body.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2ContactManager.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Fixture.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Island.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2TimeStep.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2World.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2WorldCallbacks.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Body.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2ContactManager.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Fixture.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2Island.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2TimeStep.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2World.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/b2WorldCallbacks.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Dynamics/Contacts" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2CircleContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2Contact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ContactSolver.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2PolygonContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2CircleContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2Contact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ContactSolver.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Contacts/b2PolygonContact.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Dynamics/Joints" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2DistanceJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2FrictionJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2GearJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2Joint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2MotorJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2MouseJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2PrismaticJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2PulleyJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2RevoluteJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2RopeJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2WeldJoint.h"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2WheelJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2DistanceJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2FrictionJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2GearJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2Joint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2MotorJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2MouseJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2PrismaticJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2PulleyJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2RevoluteJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2RopeJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2WeldJoint.h"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Dynamics/Joints/b2WheelJoint.h"
     )
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Rope" TYPE FILE FILES "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/Rope/b2Rope.h")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/Box2D/Rope" TYPE FILE FILES "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/Rope/b2Rope.h")
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/libBox2D.a")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/libBox2D.a")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libBox2D.a" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libBox2D.a")
+    execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libBox2D.a")
+  endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Box2D/Box2D-targets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Box2D/Box2D-targets.cmake"
-         "/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets.cmake")
+         "/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/Box2D/Box2D-targets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -132,16 +136,16 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Box2D" TYPE FILE FILES "/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Box2D" TYPE FILE FILES "/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^()$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Box2D" TYPE FILE FILES "/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets-noconfig.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/Box2D" TYPE FILE FILES "/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/CMakeFiles/Export/lib/Box2D/Box2D-targets-noconfig.cmake")
   endif()
 endif()
 
-if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/Box2D" TYPE FILE FILES
-    "/home/f85/acday/Desktop/GroupSeven/debug/Box2D/Box2D/Box2DConfig.cmake"
-    "/home/f85/acday/Desktop/GroupSeven/Box2D/Box2D/UseBox2D.cmake"
+    "/Users/alexday/Desktop/GroupSeven/debug/Box2D/Box2D/Box2DConfig.cmake"
+    "/Users/alexday/Desktop/GroupSeven/Box2D/Box2D/UseBox2D.cmake"
     )
 endif()
 
