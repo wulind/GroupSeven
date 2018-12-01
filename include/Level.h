@@ -6,26 +6,33 @@
 #include "Platform.h"
 #include "StolenObject.h"
 #include "FinishButton.h"
+#include "PlatformMenu.h"
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
 
     private:
-      const char *backgroundFile = "";
-      const char *stolenObjectFile = "";
-
     public:
       Level();
 
+      int backgroundStartX;
+      int backgroundStartY;
+
+      int objectStartX;
+      int objectStartY;
+      
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
       StolenObject stolenObject;
+
       FinishButton finishButton;
+      PlatformMenu platformMenu;
 
       void setWorld(b2World* World);
-      void setBackgroundFile(const char *_backgroundFile);
-      void setStolenObjectFile(const char *_stolenObjectFile);
-      void makePlatform(int count);
+      void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
+      void makePlatform(int rotation, int yPos);
+      void setBackgroundFile(const char *_startX, const char *_startY);
+      
 
   };
 }

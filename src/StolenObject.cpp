@@ -19,8 +19,6 @@ StolenObject::StolenObject(float x, float y, int radius){
 
 	this -> radius = radius;
 
-	this -> color = sf::Color::White;
-
 	float r = (float) radius;
 
 	this -> rotation  = 0;
@@ -38,9 +36,9 @@ void StolenObject::setWorld(b2World* World){
 
 	//Box2D body with a dynamic body so it moves.
 	b2BodyDef BodyDef;
-  BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
-  BodyDef.type = b2_dynamicBody;
-  this -> Body = this -> World -> CreateBody(&BodyDef);
+  	BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
+  	BodyDef.type = b2_dynamicBody;
+  	this -> Body = this -> World -> CreateBody(&BodyDef);
 
 	//Shape is a circle with radius r
 	b2CircleShape Shape;

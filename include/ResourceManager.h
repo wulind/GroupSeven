@@ -8,13 +8,23 @@ namespace escape {
 
 		private:
 			sf::Font font;
+			sf::Texture levelDot;
+            sf::Texture mapTexture;
 
-			//TODO: Add sprite sheets here
+            //Sprite Sheets
+			sf::Texture backgroundSpriteSheet;
+            sf::Texture objectSpriteSheet;
+            
 
 		public:
 			ResourceManager();
 
-      sf::Font* getFont();
-	};
+            sf::Font* getFont();
+            sf::Texture* getMapTexture();
+            sf::Texture* getLevelDot();
+            sf::Texture* getBackgroundTexture();
+            sf::Texture* getObjectTexture();
+        
+    };
 }
 #endif

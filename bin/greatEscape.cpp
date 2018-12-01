@@ -8,6 +8,7 @@ using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
 void drawLevel(Level &level, GameView &gameView);
+void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
 int main(int argc, char** argv){
 
@@ -18,8 +19,8 @@ int main(int argc, char** argv){
 	sf::Clock gameTime;
 
 	//Views
-	GameView mainView(gameLogic.resources.getFont());
-	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont());
+	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
+	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
 	//Target 60 fps
   double targetMs = 1000/240;
@@ -49,6 +50,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
+			gameLogic.makeNextLevelDot();
+			break;
+
+		case GameState::State::STORY:
+			gameLogic.dialogue.playStory(gameLogic.state.getCurrentLevel());
+			writeDialogue(gameLogic, gameView);
 			break;
 
 		case GameState::State::LOADING:
@@ -67,7 +74,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			gameLogic.state.incrementCurrentLevel();
+			gameLogic.state.incrementUnlockedLevels();
 			break;
 
 		case GameState::State::FAIL:
@@ -82,4 +89,11 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 */
 void drawLevel(Level &level, GameView &gameView){
 	gameView.update(level);
+}
+
+/*
+* Calls on game view to write dialogue pages
+*/
+void writeDialogue(GameLogic &gameLogic, GameView &gameView){
+	gameView.displayLevelStory(gameLogic.dialogue.text);
 }

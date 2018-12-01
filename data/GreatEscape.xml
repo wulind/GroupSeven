@@ -1,22 +1,98 @@
 <?xml version="1.0" ?>
 <Level level="1">
-    <!-- <Background>../data/Met.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/Met.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>2</Platform>
-    <StolenObject Filename="../data/money.jpg"/>
+    <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
 </Level>
 <Level level="2">
-    <!-- <Background>../data/Louvre.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>tbd</Platform>
+    <SelectOrb mapX = "" mapY = ""/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="256" startY="0"/>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
 </Level>
 <Level level="3">
-    <!-- <Background>../data/ForbiddenCity.jpg</Background> -->
-    <!-- <Location xCoord = "" yCoord = ""/> -->
-    <Background Filename="../data/ForbiddenCity.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platform>tbd</Platform>
+    <SelectOrb mapX = "" mapY = ""/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="512" startY="0"/>
+    <Platforms>tbd</Platforms>
     <StolenObject/>
+</Level>
+
+
+
+<Level level="4">
+    <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+    </Level>
+
+<Level level="5">
+    <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+</Level>
+
+<Level level="6">
+    <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+</Level>
+<Level level="7">
+        <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+</Level>
+<Level level="8">
+        <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+</Level>
+<Level level="9">
+        <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
+</Level>
+<Level level="10">
+        <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <Platform rotation = "45"/>
+      <Platform rotation = "0"/>
+      <Platform rotation = "0"/>
+    </Platforms>
+        <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" />
 </Level>

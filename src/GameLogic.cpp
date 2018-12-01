@@ -13,17 +13,8 @@ GameLogic::GameLogic(){
 
 	//Initializes world.
 	//Takes in Gravity (change second param to change gravity)
-	b2Vec2 Gravity(0.f, 1.0f);
+	b2Vec2 Gravity(0.f, 9.8f);
 	this -> World = new b2World(Gravity);
-
-	//LevelFactory & Level
-	this -> factory = LevelFactory();
-
-	//TitlePage
-	this -> titlePage = TitlePage();
-
-	//Resources
-	this -> resources = ResourceManager();
 }
 
 /*
@@ -40,6 +31,12 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 			case sf::Event::Closed:
 				App -> close();// TODO: move in GameView?
 				break;
+
+			case sf::Event::KeyPressed:
+				if(this -> state.getState() == GameState::State::STORY){
+					this -> state.setState(GameState::State::LOADING);
+				}
+        break;
 
 			case sf::Event::MouseButtonPressed:
 
@@ -59,6 +56,13 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
 							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
 							break;
+
+						case GameState::State::STORY:
+							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
+							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
+								this -> state.setState(GameState::State::LOADING);
+							}
+							break;
 					}
 				}
 				break;
@@ -68,6 +72,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 					this -> eventManager.releaseAllPlatforms(this -> level.platforms);
 				}
 			}
+
 		}
 	//Get the elapsed time since the loop started
 	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
@@ -77,6 +82,16 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 		sf::sleep(sf::milliseconds(targetMs-deltaMs));
 	}
 
+}
+
+/*
+* Adds the next glowing orb that represents the next level available
+* Only adds one at a time because only one new level can be unlocked at a time
+*/
+void GameLogic::makeNextLevelDot(){
+  if (this -> state.getUnlockedLevels() > this -> levelSelect.levels.size()){
+		this -> levelSelect.appendDot(this -> factory.makeOrbs(this -> state.getUnlockedLevels()));
+  }
 }
 
 /*
