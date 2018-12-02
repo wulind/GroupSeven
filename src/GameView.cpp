@@ -141,6 +141,7 @@ void GameView::update(Level &level){
 void GameView::pauseMusic(){
 	this -> music.pause();
 }
+
 /*
 * Plays menu music when playing a level
 */

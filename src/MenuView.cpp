@@ -30,9 +30,6 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 
 	titlePage.title.setPosition((this -> screenX/2.0f) - (titlePage.title.getLocalBounds().width/2.0f), 50);
 	titlePage.play.setPosition((this -> screenX/2.0f) - (titlePage.play.getLocalBounds().width/2.0f), 500);
-
-
-
 	//Draw to screen
 	this -> App -> clear(sf::Color::Black);
 	this -> drawText(titlePage.title);
@@ -92,11 +89,9 @@ void MenuView::drawText(sf::Text &text){
 	this -> App -> draw(text);
 }
 
-
 /*
 * Pauses music associated with any menus in the game
 */
-
 void MenuView::pauseMusic(){
 	this -> music.pause();
 }
