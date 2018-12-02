@@ -12,9 +12,12 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 
 	this -> font = font;
+  this -> backgroundSpriteSheet = backgroundSprite;
+  this -> objectSpriteSheet = objectSprite;
 
-    this -> backgroundSpriteSheet = backgroundSprite;
-    this -> objectSpriteSheet = objectSprite;
+	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+	}
+
 }
 
 /*
@@ -88,7 +91,7 @@ void GameView::displayLevelStory(sf::Text &text){
 */
 void GameView::update(Level &level){
 	this -> App.clear();
-    this -> drawBackground(level);
+  this -> drawBackground(level);
 
 	if(level.finishButton.show){//if GameState setup
 		sf::RectangleShape menu(sf::Vector2f(180, screenY));
@@ -120,22 +123,27 @@ void GameView::update(Level &level){
 	base.setPosition(level.base.xCoord, level.base.yCoord);
 	base.setFillColor(level.base.color);
 
+  sf::CircleShape stolenObject(level.stolenObject.radius);
+  stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
+  stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
+  stolenObject.setTexture(this -> objectSpriteSheet, false);
+  stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
 
-//     objectSprite.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-
-    sf::CircleShape stolenObject(level.stolenObject.radius);
-    stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-    stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-    stolenObject.setTexture(this -> objectSpriteSheet, false);
-    stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
-
-
-//     sf::Sprite stolenObject(*this -> objectSpriteSheet, sf::IntRect(0,0,256,256));/*
-//     stolenObject.setScale(sf::Vector2f(.3, .3));
-//     stolenObject.setOrigin(sf::Vector2f(.3 * (256/2), 0.3 * 256/2));
-//     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord)*/;
 
 	this -> drawRectangle(base);
-    this -> App.draw(stolenObject);
+  this -> App.draw(stolenObject);
 	this -> App.display();
+}
+
+/*
+* Pauses music associated with playing a level
+*/
+void GameView::pauseMusic(){
+	this -> music.pause();
+}
+/*
+* Plays menu music when playing a level
+*/
+void GameView::playMusic(){
+	this -> music.play();
 }
