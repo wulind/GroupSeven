@@ -23,6 +23,8 @@ StolenObject::StolenObject(float x, float y, int radius){
 	float r = (float) radius;
 
 	this -> rotation  = 0;
+
+	this -> health = 10;
 }
 
 /*
@@ -66,6 +68,11 @@ void StolenObject::updatePosition(){
 * Procedures to do when stolen object touches something
 */
 void StolenObject::startContact(){
+	//Decrease health.
+	//TODO: change functionality to have variable damage
+	this -> health -= 1;
+
+	//TODO: Play a short sound when mak contact
 	std::cout << "Contact!" << "\n";
 }
 
