@@ -31,8 +31,8 @@ namespace escape{
 			void drawText(sf::Text &text);
       void drawBackground(Level &level);
 
-			sf::RectangleShape makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color);
-			sf::CircleShape makeStolenObject(StolenObject &stolenObject);
+			sf::RectangleShape makeRectangle(int width, int height, float xCoord, float yCoord, int rotation);
+			sf::CircleShape makeStolenObject(int radius, float xCoord, float yCoord, float rotation);
 
 		public:
       GameView();
