@@ -1,5 +1,7 @@
 #include "GameLogic.h"
 
+static const float SCALE = 30.f;
+
 using namespace escape;
 
 /*
@@ -9,7 +11,14 @@ GameLogic::GameLogic(){
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
 
+<<<<<<< HEAD
 	this -> World = NULL;
+=======
+	//Initializes world.
+	//Takes in Gravity (change second param to change gravity)
+	b2Vec2 Gravity(0.f, 9.8f);
+	this -> World = new b2World(Gravity);
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 }
 
 /*
@@ -24,7 +33,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 		switch (event.type) {
 
 			case sf::Event::Closed:
-				delete this -> World;
 				App -> close();// TODO: move in GameView?
 				break;
 
@@ -74,6 +82,17 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 			}
 
 		}
+<<<<<<< HEAD
+=======
+	//Get the elapsed time since the loop started
+	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+	//Adjust game timing by sleeping
+	if(deltaMs < targetMs){
+		sf::sleep(sf::milliseconds(targetMs-deltaMs));
+	}
+
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 }
 
 /*
@@ -91,6 +110,7 @@ void GameLogic::makeNextLevelDot(){
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
+<<<<<<< HEAD
 	//Delete World Bodies
 	if (this -> World != NULL){
 		for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext()){
@@ -104,6 +124,9 @@ void GameLogic::loadLevel(int level){
 	this -> World = new b2World(Gravity);
 
 	this -> level.setWorld(World);
+=======
+	this -> level = *this -> factory.makeLevel(level, this -> World);
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 }
 
 /*

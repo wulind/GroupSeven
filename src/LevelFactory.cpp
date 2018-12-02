@@ -1,17 +1,19 @@
 #include "LevelFactory.h"
 using namespace escape;
 
-LevelFactory::LevelFactory(){}
+LevelFactory::LevelFactory(){
+  this -> level = Level();
+}
 
 /*
 * Builds and returns a level object that represents current level that the user is playing
 * @param levelToLoad: Level that needs to be loaded
 * @param *World: Box2D world
 */
-Level LevelFactory::makeLevel(int levelToLoad){
-  Level level;
-  tinyxml2::XMLDocument doc;
+Level* LevelFactory::makeLevel(int levelToLoad, b2World* World){
+  tinyxml2::XMLDocument doc;//TODO: move into resource manager
   doc.LoadFile( "../data/GreatEscape.xml" );
+
   //get to element that contains information for current level
   tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
 
@@ -19,13 +21,21 @@ Level LevelFactory::makeLevel(int levelToLoad){
     levelRoot = levelRoot -> NextSiblingElement();
   }
 
+<<<<<<< HEAD
   level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(level, levelRoot);
   level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")));
   level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
   level.setGravity(std::stof(levelRoot -> FirstChildElement("Gravity") -> Attribute("value")));
+=======
+  this -> level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
+  this -> makePlatforms(levelRoot);
+  this -> level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
 
-  return level;
+  this -> level.setWorld(World);
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
+
+  return &this -> level;
 }
 
 /*
@@ -34,7 +44,7 @@ Level LevelFactory::makeLevel(int levelToLoad){
 * @param level: level which orb that needs to be created
 */
 LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
-  tinyxml2::XMLDocument doc;
+  tinyxml2::XMLDocument doc;//TODO: move into resource manager
   doc.LoadFile( "../data/GreatEscape.xml" );
 
   //get to element that contains information for current level
@@ -53,11 +63,12 @@ LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
 /*
 * Makes the platforms for the level
 */
-void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
+void LevelFactory::makePlatforms(tinyxml2::XMLElement *levelRoot){
   int yPos = 200;
   tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
+<<<<<<< HEAD
     bool draggable;
     if (std::atoi(child -> Attribute("draggable"))){
       draggable = true;
@@ -70,6 +81,9 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     int yPos = std::atoi(child -> Attribute("yPos"));
     int width = std::atoi(child -> Attribute("width"));
     int height = std::atoi(child -> Attribute("height"));
+=======
+    this -> level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos);\
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 
     level.makePlatform(rotation, xPos, yPos, width, height, draggable);
 

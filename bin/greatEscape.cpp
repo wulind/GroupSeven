@@ -2,6 +2,8 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include "Level.h"
+
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
@@ -62,14 +64,12 @@ int main(int argc, char** argv){
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
-		//Title Screen
 		case GameState::State::TITLE:
 			gameView.pauseMusic();
 			menuView.playMusic();
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
-		//Level Selection page
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
@@ -95,23 +95,13 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::PLAY:
 			drawLevel(gameLogic.level, gameView);
-
-			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
-				gameLogic.state.setState(GameState::State::SUCCESS);
-			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
-				gameLogic.state.setState(GameState::State::FAIL);
-			}
 			break;
 
 		case GameState::State::SUCCESS:
-			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
-				gameLogic.state.incrementUnlockedLevels();
-			}
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.state.incrementUnlockedLevels();
 			break;
 
 		case GameState::State::FAIL:
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
 	}
 }

@@ -7,7 +7,7 @@
 namespace escape {
 	class Platform {
 		private:
-			b2Body* Body;//TODO: do we need these?
+			b2Body* Body;
 			b2World* World;
 
 		public:

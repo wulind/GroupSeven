@@ -45,7 +45,6 @@ namespace escape {
 			void loadLevel(int level);
 
 			void progressSimluation();
-
 	};
 }
 #endif

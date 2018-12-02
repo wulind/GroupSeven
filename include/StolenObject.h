@@ -9,31 +9,30 @@ namespace escape {
 
 		private:
 			//Box2D Stuff
+			b2Body* Body;
 			b2World* World;
+
+
 
 		public:
       StolenObject();
 			StolenObject(float x, float y, int radius);
 
-			b2Body* Body;
-
 			float xCoord;
 			float yCoord;
 
-			int spriteSheetStartX;
-      int spriteSheetStartY;
-
-			int radius;
+			int radius;//TODO: make this pertain to other shapes
 
 			float rotation;
 
-			sf::FloatRect bounds;
+			float health;
 
 			sf::Color color;
 			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
 			void updatePosition();
+			int checkAlive();
 	};
 }
 #endif

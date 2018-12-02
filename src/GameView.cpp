@@ -103,10 +103,13 @@ void GameView::update(Level &level){
 		this -> drawText(level.platformMenu.title);
 	}
 
-	//Platforms
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-		sf::RectangleShape platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].color);
+
+		sf::RectangleShape platform(sf::Vector2f(level.platforms[i].width, level.platforms[i].height));
+		platform.setOrigin(level.platforms[i].width/2, level.platforms[i].height/2);
+		platform.setPosition(level.platforms[i].xCoord, level.platforms[i].yCoord);
+		platform.setFillColor(level.platforms[i].color);
 
 		level.platforms[i].bounds = platform.getGlobalBounds();
 		level.platforms[i].origin = platform.getPosition();
@@ -115,24 +118,24 @@ void GameView::update(Level &level){
 		this -> drawRectangle(platform);
 	}
 
-	//=Base
-	sf::RectangleShape base = this -> makeRectangle(level.base.width, level.base.height, level.base.xCoord, level.base.yCoord, level.base.color);
-	level.base.bounds = base.getGlobalBounds();
-	level.base.origin = base.getPosition();
+	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height));
+	base.setOrigin(level.base.width/2, level.base.height/2);
+	base.setPosition(level.base.xCoord, level.base.yCoord);
+	base.setFillColor(level.base.color);
+
+  sf::CircleShape stolenObject(level.stolenObject.radius);
+  stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
+  stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
+  stolenObject.setTexture(this -> objectSpriteSheet, false);
+  stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
+
+
 	this -> drawRectangle(base);
-
-	//Goal
-	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, sf::Color(111, 82, 194));
-	level.goal.bounds = goal.getGlobalBounds();
-	this -> drawRectangle (goal);
-
-	//StolenObject
-	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject);
-	this -> drawCircle(circle);
-
+  this -> App.draw(stolenObject);
 	this -> App.display();
 }
 
+<<<<<<< HEAD
 sf::RectangleShape GameView::makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color){
 	sf::RectangleShape rectangle(sf::Vector2f(width, height));
 	rectangle.setOrigin(width/2, height/2);
@@ -155,6 +158,8 @@ sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
 	return circle;
 }
 
+=======
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 /*
 * Pauses music associated with playing a level
 */

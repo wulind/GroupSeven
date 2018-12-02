@@ -3,6 +3,12 @@ using namespace escape;
 
 Level::Level(){
   this -> base = Platform(0, 600, 10, 800);
+<<<<<<< HEAD
+=======
+  this -> stolenObject = StolenObject(50, 100, 32);
+  this -> finishButton = FinishButton();
+
+>>>>>>> parent of 5446823... Merge pull request #22 from wulind/LindaWu/goal
 }
 
 /*
@@ -16,14 +22,13 @@ void Level::setWorld(b2World* World){
   }
   this -> base.setWorld(World);
   this -> stolenObject.setWorld(World);
-  this -> goal.setWorld(World);
 }
 
 /*
 * Sets Filename for background
 * Sets starting x and y for image in sprite sheet
 */
-void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgroundStartY){
+void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgroundStartY){  
   this -> backgroundStartX = std::atoi(_backgroundStartX);
   this -> backgroundStartY = std::atoi(_backgroundStartY);
 }
@@ -48,15 +53,10 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
 * Sets Filename for stolen object
 */
 void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
-  this -> stolenObject.spriteSheetStartX = std::atoi(_objStartX);
-  this -> stolenObject.spriteSheetStartY = std::atoi(_objStartY);
-}
-
-/*
-* Clears the level object for the next level
-*/
-void Level::clearLevel(){
-  this -> platforms.clear();
+  this -> objectStartX = std::atoi(_objStartX);
+  this -> objectStartY = std::atoi(_objStartY);
+  
+  
 }
 
 /*
