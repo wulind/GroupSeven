@@ -57,5 +57,5 @@ void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
 * Clears the level object for the next level
 */
 void Level::clearLevel(){
-  
+  this -> platforms.clear();
 }

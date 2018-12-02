@@ -1,7 +1,4 @@
 #include "GameLogic.h"
-#include <iostream>
-
-static const float SCALE = 30.f;
 
 using namespace escape;
 
@@ -103,14 +100,12 @@ void GameLogic::loadLevel(int level){
 	b2Body* bodyList = this -> World -> GetBodyList();
 	int i = 0;
 	for (bodyList; bodyList; bodyList = bodyList -> GetNext()){
-		std::cout << i << std::endl;
-		i ++;
 		this -> World -> DestroyBody(bodyList);
  	}
 	delete this -> World;
 
 	//Make a new level
-	this -> level = *this -> factory.makeLevel(level);
+	this -> level = this -> factory.makeLevel(level);
 
 	b2Vec2 Gravity(0.f, 15.f);
 	this -> World = new b2World(Gravity);
