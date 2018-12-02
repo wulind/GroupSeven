@@ -18,9 +18,7 @@ namespace escape{
 
       int backgroundStartX;
       int backgroundStartY;
-
-      int startX;
-      int startY;
+      
       int objectStartX;
       int objectStartY;
 

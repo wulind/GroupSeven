@@ -2,9 +2,7 @@
 using namespace escape;
 
 Level::Level(){
-  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
   this -> base = Platform(0, 600, 10, 800);
-  //this -> stolenObject = StolenObject(50, 100, 32);
 }
 
 /*
@@ -71,7 +69,9 @@ void Level::setGravity(float g){
 
 /*
 * Sets the stolen object for the level.
-* @param g: gravity for the level. Negative gravity is up on the screen
+* @param x: xCoord for stolen object
+* @param y: yCoord for stolen Object
+* @param radius: radius for stolen object
 */
 void Level::setStolenObject(int x, int y, int radius){
   this -> stolenObject = StolenObject(x, y, radius);

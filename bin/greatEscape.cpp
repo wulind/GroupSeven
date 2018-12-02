@@ -32,7 +32,6 @@ int main(int argc, char** argv){
 			gameLogic.progressSimluation();
 		}
 
-
 		updateGame(gameLogic, menuView, mainView);
 
 		//Get the elapsed time since the loop started

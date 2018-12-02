@@ -9,15 +9,6 @@ GameLogic::GameLogic(){
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
 
-	//LevelFactory & Level
-	this -> factory = LevelFactory();
-
-	//TitlePage
-	this -> titlePage = TitlePage();
-
-	//Resources
-	this -> resources = ResourceManager();
-
 	this -> World = NULL;
 }
 
