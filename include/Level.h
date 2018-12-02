@@ -28,9 +28,8 @@ namespace escape{
       Platform base;
       PlatformMenu platformMenu;
       StolenObject stolenObject;
-
       FinishButton finishButton;
-      PlatformMenu platformMenu;
+
       float gravity;
       Goal goal;
 

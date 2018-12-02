@@ -1,4 +1,5 @@
 #include "../include/GameView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -143,11 +144,13 @@ sf::RectangleShape GameView::makeRectangle(int width, int height, int xCoord, in
 }
 
 sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
+	std::cout << "xCoord: " << stolenObject.xCoord << " yCoord: " << stolenObject.yCoord << "\n";
 	sf::CircleShape circle(stolenObject.radius); //TODO: fix
 	circle.setOrigin(stolenObject.radius, stolenObject.radius);
 	circle.setPosition(stolenObject.xCoord, stolenObject.yCoord);
 	circle.setTexture(this -> objectSpriteSheet, false);
 	circle.setTextureRect(sf::IntRect(stolenObject.spriteSheetStartX, stolenObject.spriteSheetStartY,256,256));
+	circle.setRotation(stolenObject.rotation);
 
 	stolenObject.bounds = circle.getGlobalBounds();
 
