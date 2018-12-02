@@ -2,7 +2,7 @@
 <!-- Level 1 -->
 <Level level="1">
     <SelectOrb mapX = "650" mapY = "230"/>
-    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>

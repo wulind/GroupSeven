@@ -12,9 +12,12 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 
 	this -> font = font;
+  this -> backgroundSpriteSheet = backgroundSprite;
+  this -> objectSpriteSheet = objectSprite;
 
-    this -> backgroundSpriteSheet = backgroundSprite;
-    this -> objectSpriteSheet = objectSprite;
+	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+	}
+
 }
 
 /*
@@ -88,7 +91,7 @@ void GameView::displayLevelStory(sf::Text &text){
 */
 void GameView::update(Level &level){
 	this -> App.clear();
-    this -> drawBackground(level);
+  this -> drawBackground(level);
 
 	if(level.finishButton.show){//if GameState setup
 		sf::RectangleShape menu(sf::Vector2f(180, screenY));
@@ -100,13 +103,10 @@ void GameView::update(Level &level){
 		this -> drawText(level.platformMenu.title);
 	}
 
+	//Platforms
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-
-		sf::RectangleShape platform(sf::Vector2f(level.platforms[i].width, level.platforms[i].height));
-		platform.setOrigin(level.platforms[i].width/2, level.platforms[i].height/2);
-		platform.setPosition(level.platforms[i].xCoord, level.platforms[i].yCoord);
-		platform.setFillColor(level.platforms[i].color);
+		sf::RectangleShape platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].color);
 
 		level.platforms[i].bounds = platform.getGlobalBounds();
 		level.platforms[i].origin = platform.getPosition();
@@ -115,28 +115,55 @@ void GameView::update(Level &level){
 		this -> drawRectangle(platform);
 	}
 
-	sf::RectangleShape base(sf::Vector2f(level.base.width, level.base.height));
-	base.setOrigin(level.base.width/2, level.base.height/2);
-	base.setPosition(level.base.xCoord, level.base.yCoord);
-	base.setFillColor(level.base.color);
-
-
-//     objectSprite.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-
-    sf::CircleShape stolenObject(level.stolenObject.radius);
-    stolenObject.setOrigin(level.stolenObject.radius, level.stolenObject.radius);
-    stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
-    stolenObject.setTexture(this -> objectSpriteSheet, false);
-    stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
-		stolenObject.setRotation(level.stolenObject.rotation);
-
-
-//     sf::Sprite stolenObject(*this -> objectSpriteSheet, sf::IntRect(0,0,256,256));/*
-//     stolenObject.setScale(sf::Vector2f(.3, .3));
-//     stolenObject.setOrigin(sf::Vector2f(.3 * (256/2), 0.3 * 256/2));
-//     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord)*/;
-
+	//=Base
+	sf::RectangleShape base = this -> makeRectangle(level.base.width, level.base.height, level.base.xCoord, level.base.yCoord, level.base.color);
+	level.base.bounds = base.getGlobalBounds();
+	level.base.origin = base.getPosition();
 	this -> drawRectangle(base);
-    this -> App.draw(stolenObject);
+
+	//Goal
+	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, sf::Color(111, 82, 194));
+	level.goal.bounds = goal.getGlobalBounds();
+	this -> drawRectangle (goal);
+
+	//StolenObject
+	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject);
+	this -> drawCircle(circle);
+
 	this -> App.display();
+}
+
+sf::RectangleShape GameView::makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color){
+	sf::RectangleShape rectangle(sf::Vector2f(width, height));
+	rectangle.setOrigin(width/2, height/2);
+	rectangle.setPosition(xCoord, yCoord);
+	rectangle.setFillColor(color);
+
+	return rectangle;
+}
+
+sf::CircleShape GameView::makeStolenObject(StolenObject &stolenObject){
+	sf::CircleShape circle(stolenObject.radius); //TODO: fix
+	circle.setOrigin(stolenObject.radius, stolenObject.radius);
+	circle.setPosition(stolenObject.xCoord, stolenObject.yCoord);
+	circle.setTexture(this -> objectSpriteSheet, false);
+	circle.setTextureRect(sf::IntRect(stolenObject.spriteSheetStartX, stolenObject.spriteSheetStartY,256,256));
+
+	stolenObject.bounds = circle.getGlobalBounds();
+
+	return circle;
+}
+
+/*
+* Pauses music associated with playing a level
+*/
+void GameView::pauseMusic(){
+	this -> music.pause();
+}
+
+/*
+* Plays menu music when playing a level
+*/
+void GameView::playMusic(){
+	this -> music.play();
 }

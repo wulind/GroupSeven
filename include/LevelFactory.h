@@ -12,15 +12,13 @@ namespace escape{
   class LevelFactory{
 
     private:
-      void makePlatforms(tinyxml2::XMLElement *levelRoot);
+      void makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot);
 
     public:
       LevelFactory();
 
-      Level* makeLevel(int levelToLoad);
+      Level makeLevel(int levelToLoad);
       LevelSelect::SelectOrb makeOrbs(int level);
-
-      Level level;
   };
 }
 #endif

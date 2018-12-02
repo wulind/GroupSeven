@@ -1,7 +1,5 @@
 #include "GameLogic.h"
 
-static const float SCALE = 30.f;
-
 using namespace escape;
 
 /*
@@ -35,6 +33,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 		switch (event.type) {
 
 			case sf::Event::Closed:
+				delete this -> World;
 				App -> close();// TODO: move in GameView?
 				break;
 

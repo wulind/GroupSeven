@@ -14,6 +14,10 @@ MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTex
 
   this -> mapTexture = _mapTexture;
   this -> levelDot = _levelDot;
+
+	if (!music.openFromFile("../data/MainTheme.wav")){
+	}
+
 }
 
 /*
@@ -28,7 +32,6 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.play.setPosition((this -> screenX/2.0f) - (titlePage.play.getLocalBounds().width/2.0f), 500);
 	//Draw to screen
 	this -> App -> clear(sf::Color::Black);
-
 	this -> drawText(titlePage.title);
 	this -> drawText(titlePage.play);
 
@@ -71,7 +74,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 		for (i; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
 			levelSelect.levels[i].circle.setTexture(this -> levelDot);
-	    	levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
+	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
 }
@@ -84,4 +87,17 @@ void MenuView::drawText(sf::Text &text){
 	text.setFont(*font);
 	text.setFillColor(sf::Color::White);
 	this -> App -> draw(text);
+}
+
+/*
+* Pauses music associated with any menus in the game
+*/
+void MenuView::pauseMusic(){
+	this -> music.pause();
+}
+/*
+* Plays menu music when player is in a menu
+*/
+void MenuView::playMusic(){
+	this -> music.play();
 }
