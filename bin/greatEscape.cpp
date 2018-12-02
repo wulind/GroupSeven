@@ -87,13 +87,15 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 				gameLogic.state.incrementUnlockedLevels();
 			}
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.dialogue.winLevel();
+			writeDialogue(gameLogic, gameView);
+			// gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
 
 		case GameState::State::FAIL:
 			gameLogic.dialogue.loseLevel();
 			writeDialogue(gameLogic, gameView);
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			// gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
 	}
 }

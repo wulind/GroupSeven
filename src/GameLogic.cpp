@@ -62,6 +62,18 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 								this -> state.setState(GameState::State::LOADING);
 							}
 							break;
+						case GameState::State::SUCCESS:
+							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
+							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
+								this -> state.setState(GameState::State::LEVELSELECT);
+						}
+						break;
+						case GameState::State::FAILURE:
+							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
+							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
+								this -> state.setState(GameState::State::LEVELSELECT);
+						}
+						break;
 					}
 				}
 				break;
