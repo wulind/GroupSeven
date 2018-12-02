@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -13,7 +14,7 @@ GameLogic::GameLogic(){
 
 	//Initializes world.
 	//Takes in Gravity (change second param to change gravity)
-	b2Vec2 Gravity(0.f, 9.8f);
+	b2Vec2 Gravity(0.f, 15.f);
 	this -> World = new b2World(Gravity);
 }
 
@@ -98,10 +99,20 @@ void GameLogic::makeNextLevelDot(){
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
+	//Clear all bodies in the world, then delete & make a new world
+	b2Body* bodyList = this -> World -> GetBodyList();
+	int i = 0;
+	for (bodyList; bodyList; bodyList = bodyList -> GetNext()){
+		std::cout << i << std::endl;
+		i ++;
+		this -> World -> DestroyBody(bodyList);
+ 	}
 	delete this -> World;
+
+	//Make a new level
 	this -> level = *this -> factory.makeLevel(level);
 
-	b2Vec2 Gravity(0.f, 1.f);
+	b2Vec2 Gravity(0.f, 15.f);
 	this -> World = new b2World(Gravity);
 
 	this -> level.setWorld(World);

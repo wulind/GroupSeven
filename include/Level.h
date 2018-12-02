@@ -32,6 +32,8 @@ namespace escape{
       void makePlatform(int rotation, int yPos);
       void setBackgroundFile(const char *_startX, const char *_startY);
 
+      void clearLevel();
+
 
   };
 }

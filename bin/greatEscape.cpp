@@ -2,6 +2,7 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -81,7 +82,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			gameLogic.state.incrementUnlockedLevels();
+			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
+				gameLogic.state.incrementUnlockedLevels();
+			}
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
 

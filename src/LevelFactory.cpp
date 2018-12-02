@@ -11,9 +11,8 @@ LevelFactory::LevelFactory(){
 * @param *World: Box2D world
 */
 Level* LevelFactory::makeLevel(int levelToLoad){
-  tinyxml2::XMLDocument doc;//TODO: move into resource manager
+  tinyxml2::XMLDocument doc;
   doc.LoadFile( "../data/GreatEscape.xml" );
-
   //get to element that contains information for current level
   tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
 
@@ -34,9 +33,9 @@ Level* LevelFactory::makeLevel(int levelToLoad){
 * @param level: level which orb that needs to be created
 */
 LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
-  tinyxml2::XMLDocument doc;//TODO: move into resource manager
+  tinyxml2::XMLDocument doc;
   doc.LoadFile( "../data/GreatEscape.xml" );
-
+  
   //get to element that contains information for current level
   tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
 
