@@ -6,6 +6,7 @@
 #include "Platform.h"
 #include "StolenObject.h"
 #include "FinishButton.h"
+#include "Goal.h"
 #include "PlatformMenu.h"
 
 namespace escape{
@@ -18,21 +19,21 @@ namespace escape{
       int backgroundStartX;
       int backgroundStartY;
 
-      int objectStartX;
-      int objectStartY;
-      
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
+      PlatformMenu platformMenu;
       StolenObject stolenObject;
 
       FinishButton finishButton;
-      PlatformMenu platformMenu;
+      Goal goal;
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
       void makePlatform(int rotation, int yPos);
       void setBackgroundFile(const char *_startX, const char *_startY);
-      
+
+      void clearLevel();
+
 
   };
 }

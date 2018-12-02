@@ -22,7 +22,7 @@ ResourceManager::ResourceManager(){
 * Returns aliens & cows font
 */
 sf::Font* ResourceManager::getFont(){
-  return &this -> font;
+  	return &this -> font;
 }
 
 /*
@@ -39,10 +39,16 @@ sf::Texture *ResourceManager::getLevelDot(){
     return &this -> levelDot;
 }
 
+/*
+* Returns the background texture for the levels unlocked on the level select screen
+*/
 sf::Texture *ResourceManager::getBackgroundTexture(){
     return &this -> backgroundSpriteSheet;
 }
 
+/*
+* Returns the object texture for the levels unlocked on the level select screen
+*/
 sf::Texture *ResourceManager::getObjectTexture(){
     return &this -> objectSpriteSheet;
 }
