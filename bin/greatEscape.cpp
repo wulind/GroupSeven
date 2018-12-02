@@ -2,8 +2,6 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
-#include <iostream>
-
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
