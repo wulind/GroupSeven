@@ -31,9 +31,13 @@ namespace escape{
 			void drawText(sf::Text &text);
       void drawBackground(Level &level);
 
+			sf::RectangleShape makeRectangle(int width, int height, int xCoord, int yCoord, sf::Color color);
+			sf::CircleShape makeStolenObject(StolenObject &stolenObject);
+
 		public:
       GameView();
       GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
+
 			void update(Level &level);
 			void displayLevelStory(sf::Text &text);
 			void pauseMusic();
@@ -41,10 +45,6 @@ namespace escape{
 
 			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
-
-
-
-
 	};
 }
 #endif

@@ -22,8 +22,6 @@ StolenObject::StolenObject(float x, float y, int radius){
 	float r = (float) radius;
 
 	this -> rotation  = 0;
-
-	this -> health = 100;
 }
 
 /*
@@ -57,24 +55,7 @@ void StolenObject::setWorld(b2World* World){
 * Update the Position of a Stolen Object based on Box2D Physics.
 */
 void StolenObject::updatePosition(){
-	//Set body to awake in case of it being 0 velocity in both x and y direction to prevent
-	//Freezing
-	this -> Body -> SetAwake(1);
-
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 	this -> rotation = this -> Body -> GetAngle() * 180 / b2_pi;
-
-}
-
-/*
-* Returns 1 if health is above 0
-*/
-int StolenObject::checkAlive(){
-	if (this -> health > 0){
-		return 1;
-	}
-	else{
-		return 0;
-	}
 }

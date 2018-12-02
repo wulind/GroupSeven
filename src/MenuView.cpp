@@ -74,7 +74,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 		for (i; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
 			levelSelect.levels[i].circle.setTexture(this -> levelDot);
-	    	levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
+	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
 }

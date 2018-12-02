@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "tinyxml2.h"
 
 namespace escape {
 	class ResourceManager {
@@ -12,20 +13,18 @@ namespace escape {
 			sf::Texture levelDot;
       sf::Texture mapTexture;
 
-            //Sprite Sheets
+      //Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
       sf::Texture objectSpriteSheet;
-
-
 
 		public:
 			ResourceManager();
 
-            sf::Font* getFont();
-            sf::Texture* getMapTexture();
-            sf::Texture* getLevelDot();
-            sf::Texture* getBackgroundTexture();
-            sf::Texture* getObjectTexture();
+    	sf::Font* getFont();
+      sf::Texture* getMapTexture();
+      sf::Texture* getLevelDot();
+      sf::Texture* getBackgroundTexture();
+      sf::Texture* getObjectTexture();
 
     };
 }
