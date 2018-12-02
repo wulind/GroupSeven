@@ -44,7 +44,6 @@ int main(int argc, char** argv){
 		}
 		//If behind skip frames
 		else{
-
 			if (gameLogic.state.getState() == GameState::State::PLAY){
 				int change = deltaMs - targetMs;
 				for (int x = 0; x < change; x++){
@@ -52,7 +51,6 @@ int main(int argc, char** argv){
 				}
 			}
 		}
-
 		gameTime.restart();
 	}
 
