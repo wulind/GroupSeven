@@ -1,6 +1,4 @@
 #include "MenuView.h"
-#include <iostream>
-
 
 using namespace escape;
 

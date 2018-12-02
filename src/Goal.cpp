@@ -36,7 +36,6 @@ void Goal::setWorld(b2World* World){
   this -> Body -> CreateFixture(&shape, density);
 
   shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 5)/SCALE), 0);
-  // shape.m_friction = 0.5f;
   this -> Body -> CreateFixture(&shape, density);
 
   shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, this -> height/2/SCALE), 0);

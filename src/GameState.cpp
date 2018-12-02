@@ -1,5 +1,5 @@
 #include "../include/GameState.h"
-#include <iostream>
+
 using namespace escape;
 
 /*
