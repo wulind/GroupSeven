@@ -2,6 +2,7 @@
 #define RESOURCEMANAGER_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 namespace escape {
 	class ResourceManager {
@@ -9,12 +10,13 @@ namespace escape {
 		private:
 			sf::Font font;
 			sf::Texture levelDot;
-            sf::Texture mapTexture;
+      sf::Texture mapTexture;
 
             //Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
-            sf::Texture objectSpriteSheet;
-            
+      sf::Texture objectSpriteSheet;
+
+
 
 		public:
 			ResourceManager();
@@ -24,7 +26,7 @@ namespace escape {
             sf::Texture* getLevelDot();
             sf::Texture* getBackgroundTexture();
             sf::Texture* getObjectTexture();
-        
+
     };
 }
 #endif
