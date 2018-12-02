@@ -19,6 +19,11 @@ void Level::setWorld(b2World* World){
   this -> base.setWorld(World);
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
+
+  //at global scope
+
+  //in FooTest constructor
+  World -> SetContactListener(&this -> myContactListenerInstance);
 }
 
 /*

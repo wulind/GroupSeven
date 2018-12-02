@@ -34,6 +34,8 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updatePosition();
+			static void startContact();
+			static void endContact();
 	};
 }
 #endif

@@ -1,4 +1,5 @@
 #include "../include/StolenObject.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -34,9 +35,9 @@ void StolenObject::setWorld(b2World* World){
 
 	//Box2D body with a dynamic body so it moves.
 	b2BodyDef BodyDef;
-  	BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
-  	BodyDef.type = b2_dynamicBody;
-  	this -> Body = this -> World -> CreateBody(&BodyDef);
+  BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
+  BodyDef.type = b2_dynamicBody;
+  this -> Body = this -> World -> CreateBody(&BodyDef);
 
 	//Shape is a circle with radius r
 	b2CircleShape Shape;
@@ -49,6 +50,7 @@ void StolenObject::setWorld(b2World* World){
 	FixtureDef.restitution = .5f;
 	this -> Body -> CreateFixture(&FixtureDef);
 	this -> Body -> SetAwake(1);
+	this -> Body -> SetUserData( this );
 }
 
 /*
@@ -58,4 +60,18 @@ void StolenObject::updatePosition(){
 	this -> xCoord = this -> Body -> GetPosition().x * SCALE;
 	this -> yCoord = this -> Body -> GetPosition().y * SCALE;
 	this -> rotation = this -> Body -> GetAngle() * 180 / b2_pi;
+}
+
+/*
+* Procedures to do when stolen object touches something
+*/
+void StolenObject::startContact(){
+	std::cout << "Contact!" << "\n";
+}
+
+/*
+* Procedures to do when stolen object stops touching something
+*/
+void StolenObject::endContact(){
+	std::cout << "Stopping!" << "\n";
 }
