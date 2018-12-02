@@ -106,7 +106,6 @@ void GameView::update(Level &level){
 
 	//Platforms
 	sf::RectangleShape platform;
-
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
 		platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
@@ -114,6 +113,18 @@ void GameView::update(Level &level){
 
 		level.platforms[i].bounds = platform.getGlobalBounds();
 		level.platforms[i].origin = platform.getPosition();
+
+		this -> drawRectangle(platform);
+	}
+
+	//Obstacles
+	i = 0;
+	for (i; i < level.obstacles.size(); ++i){
+		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
+		platform.setFillColor(sf::Color::Black);
+
+		level.obstacles[i].bounds = platform.getGlobalBounds();
+		level.obstacles[i].origin = platform.getPosition();
 
 		this -> drawRectangle(platform);
 	}

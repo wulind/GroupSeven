@@ -19,6 +19,9 @@ namespace escape {
 	    float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
+			int height;
+			int width;
+
 			//The absolute rotation of an object from base
 			int rotation;
 
@@ -26,11 +29,7 @@ namespace escape {
 			sf::FloatRect bounds;
 			sf::Vector2f origin;
 
-			int height;
-			int width;
-
 			bool isBeingDragged;
-			bool draggable;
 
 			void setWorld(b2World* World);
 			void updateDragPosition(float mouseX, float mouseY);

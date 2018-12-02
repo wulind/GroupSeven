@@ -46,7 +46,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 								this -> state.setState(GameState::State::LOADING);
 								break;
 
-
 							case GameState::State::SETUP:
 								this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
 								this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);

@@ -35,12 +35,13 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 */
 void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
   Platform platform(xPos, yPos, height, width);
-
   platform.setRotation(rotation);
 
-  platform.draggable = draggable;
-
-  this -> platforms.push_back(platform);
+  if(draggable){
+    this -> platforms.push_back(platform);
+  }else{
+    this -> obstacles.push_back(platform);
+  }
 
 }
 
@@ -57,6 +58,7 @@ void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
 */
 void Level::clearLevel(){
   this -> platforms.clear();
+  this -> obstacles.clear();
 }
 
 /*

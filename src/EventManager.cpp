@@ -3,7 +3,6 @@
 
 using namespace escape;
 
-
 /*
  * EventManager Constructor
  */
@@ -29,10 +28,6 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
-		//If platform is not draggable, ignore
-		if (platforms[i].draggable == false){
-			continue;
-		}
 		float s = sin(-1 * platforms[i].rotation * M_PI/180);
 		float c = cos(-1 * platforms[i].rotation * M_PI/180);
 

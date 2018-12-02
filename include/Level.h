@@ -18,11 +18,12 @@ namespace escape{
 
       int backgroundStartX;
       int backgroundStartY;
-      
+
       int objectStartX;
       int objectStartY;
 
-      std::vector<Platform> platforms;//TODO: store multiple platforms
+      std::vector<Platform> platforms;
+      std::vector<Platform> obstacles;
       Platform base;
       PlatformMenu platformMenu;
       StolenObject stolenObject;
