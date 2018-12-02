@@ -23,13 +23,14 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="500" width = "100" height = "10"/>
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 2 -->
 <Level level="2">
-    <Background Filename="../data/Louvre.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -54,14 +55,15 @@
       <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 3 -->
 <Level level="3">
-    <Background Filename="../data/ForbiddenCity.jpg" startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
-    <Platforms>
+  <SelectOrb mapX = "" mapY = ""/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="512" startY="0"/>
+  <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
@@ -103,16 +105,15 @@
       <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
       <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
 
-
-
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 4 -->
 <Level level="4">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+    <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -131,13 +132,14 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="350" yPos="50" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="350" yPos="50" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 5 -->
-<Level level="2">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+<Level level="5">
+  <SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -200,13 +202,14 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="550" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="550" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 6 -->
 <Level level="6">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -225,12 +228,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <Level level="7">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -249,12 +253,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
 <Level level="8">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -273,12 +278,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level> -->
 
 <Level level="9">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -297,12 +303,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="-9.8"/>
 </Level> -->
 
 <Level level="10">
-    <Background Filename=" " startX="0" startY="0" endX="2048" endY="2048" width="2048" height="2048"/>
+  <SelectOrb mapX = "650" mapY = "230"/>
+  <Background Filename="../data/BackgroundsSpriteSheet.png" startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -321,6 +328,6 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject Filename="../data/money.jpg" xPos="50" yPos="100" radius="25"/>
+    <StolenObject Filename="../data/StolenObjectsSpriteSheet" startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="-9.8"/>
 </Level> -->

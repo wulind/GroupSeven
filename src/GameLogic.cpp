@@ -74,10 +74,6 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 				case sf::Event::KeyPressed:
 					switch(this -> state.getState()){
 						case GameState::State::STORY:
-							this -> state.setState(GameState::State::LOADING);
-							break;
-
-						case GameState::State::STORY:
 							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
 							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
 								this -> state.setState(GameState::State::LOADING);

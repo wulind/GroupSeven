@@ -128,6 +128,7 @@ void GameView::update(Level &level){
     stolenObject.setPosition(level.stolenObject.xCoord, level.stolenObject.yCoord);
     stolenObject.setTexture(this -> objectSpriteSheet, false);
     stolenObject.setTextureRect(sf::IntRect(level.objectStartX,level.objectStartY,256,256));
+		stolenObject.setRotation(level.stolenObject.rotation);
 
 
 //     sf::Sprite stolenObject(*this -> objectSpriteSheet, sf::IntRect(0,0,256,256));/*
