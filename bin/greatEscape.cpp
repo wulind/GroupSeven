@@ -20,8 +20,9 @@ int main(int argc, char** argv){
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
+
 	//Target 60 fps
-  double targetMs = 1000/240;
+  double targetMs = 1000/1000;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
@@ -30,7 +31,26 @@ int main(int argc, char** argv){
 		if (gameLogic.state.getState() == GameState::State::PLAY){
 			gameLogic.progressSimluation();
 		}
+
 		updateGame(gameLogic, menuView, mainView);
+
+		//Get the elapsed time since the loop started
+		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+		//Adjust game timing by sleeping
+		if(deltaMs < targetMs){
+			sf::sleep(sf::milliseconds(targetMs-deltaMs));
+		}
+		//If behind skip frames
+		else{
+			if (gameLogic.state.getState() == GameState::State::PLAY){
+				int change = deltaMs - targetMs;
+				for (int x = 0; x < change; x++){
+					gameLogic.progressSimluation();
+				}
+			}
+		}
+		gameTime.restart();
 	}
 
 	// Done.

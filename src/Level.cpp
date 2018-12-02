@@ -2,10 +2,7 @@
 using namespace escape;
 
 Level::Level(){
-  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
   this -> base = Platform(0, 600, 10, 800);
-  this -> stolenObject = StolenObject(50, 100, 32);
-
 }
 
 /*
@@ -36,10 +33,12 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 * @param rotation: rotation in degrees of platform
 * @param yPos: y axis position on screen
 */
-void Level::makePlatform(int rotation, int yPos){
-  Platform platform(700, yPos, 10, 100);
+void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
+  Platform platform(xPos, yPos, height, width);
 
   platform.setRotation(rotation);
+
+  platform.draggable = draggable;
 
   this -> platforms.push_back(platform);
 
@@ -58,4 +57,22 @@ void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
 */
 void Level::clearLevel(){
   this -> platforms.clear();
+}
+
+/*
+* Sets the gravity for the level.
+* @param g: gravity for the level. Negative gravity is up on the screen
+*/
+void Level::setGravity(float g){
+  this -> gravity = g;
+}
+
+/*
+* Sets the stolen object for the level.
+* @param x: xCoord for stolen object
+* @param y: yCoord for stolen Object
+* @param radius: radius for stolen object
+*/
+void Level::setStolenObject(int x, int y, int radius){
+  this -> stolenObject = StolenObject(x, y, radius);
 }

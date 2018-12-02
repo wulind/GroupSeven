@@ -30,6 +30,7 @@ namespace escape {
 			int width;
 
 			bool isBeingDragged;
+			bool draggable;
 
 			void setWorld(b2World* World);
 			void updateDragPosition(float mouseX, float mouseY);

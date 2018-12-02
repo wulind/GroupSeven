@@ -18,19 +18,25 @@ namespace escape{
 
       int backgroundStartX;
       int backgroundStartY;
+      
+      int objectStartX;
+      int objectStartY;
 
       std::vector<Platform> platforms;//TODO: store multiple platforms
       Platform base;
       PlatformMenu platformMenu;
       StolenObject stolenObject;
-
       FinishButton finishButton;
+
+      float gravity;
       Goal goal;
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
-      void makePlatform(int rotation, int yPos);
+      void makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable);
       void setBackgroundFile(const char *_startX, const char *_startY);
+      void setGravity(float g);
+      void setStolenObject(int x, int y, int radius);
 
       void clearLevel();
 
