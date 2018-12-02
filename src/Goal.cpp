@@ -18,6 +18,17 @@ Goal::Goal(){
 }
 
 /*
+* Constructor
+*/
+Goal::Goal(int xCoord, int yCoord){
+  this -> width = 250;
+  this -> height = 110;
+
+  this -> xCoord = xCoord;//670
+  this -> yCoord = yCoord;//570
+}
+
+/*
 * Sets the world for Box2D
 * @param *World: current B2D world
 */

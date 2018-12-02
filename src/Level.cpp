@@ -76,8 +76,19 @@ void Level::setGravity(float g){
 
 /*
 * Sets the stolen object for the level.
-* @param g: gravity for the level. Negative gravity is up on the screen
+* @param x: x coordinate for stolen object
+* @param y: y coordinate for stolen object
+* @param radius: Radius of stolen object
 */
 void Level::setStolenObject(int x, int y, int radius){
   this -> stolenObject = StolenObject(x, y, radius);
+}
+
+/*
+* Sets the goal for the level.
+* @param xCoord: x coordinate for goal
+* @param yCoord: y coordinate for goal
+*/
+void Level::setGoal(int xCoord, int yCoord){
+  this -> goal = Goal(xCoord, yCoord);
 }

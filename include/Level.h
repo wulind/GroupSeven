@@ -42,6 +42,7 @@ namespace escape{
       void setBackgroundFile(const char *_startX, const char *_startY);
       void setGravity(float g);
       void setStolenObject(int x, int y, int radius);
+      void setGoal(int xCoord, int yCoord);
 
       void clearLevel();
 
