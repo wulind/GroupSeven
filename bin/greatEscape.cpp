@@ -79,9 +79,13 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 		case GameState::State::SUCCESS:
 			gameLogic.state.incrementUnlockedLevels();
+			gameLogic.state.setState(GameState::State:levelSelect);
 			break;
 
 		case GameState::State::FAIL:
+			gameLogic.dialogue.loseLevel();
+			writeDialogue(gameLogic, gameView);
+			gameLogic.state.setState(GameState::State:levelSelect);
 			break;
 	}
 }
