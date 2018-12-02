@@ -46,6 +46,8 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
 		//Title Screen
 		case GameState::State::TITLE:
+			gameView.pauseMusic();
+			menuView.playMusic();
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
@@ -61,6 +63,8 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LOADING:
+			menuView.pauseMusic();
+			gameView.playMusic();
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
 			drawLevel(gameLogic.level, gameView);
 			gameLogic.state.setState(GameState::State::SETUP);

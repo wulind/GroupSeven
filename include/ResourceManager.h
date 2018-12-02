@@ -2,6 +2,7 @@
 #define RESOURCEMANAGER_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "tinyxml2.h"
 
 namespace escape {
