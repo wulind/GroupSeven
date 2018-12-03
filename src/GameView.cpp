@@ -141,7 +141,7 @@ void GameView::update(Level &level, bool play){
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
 	goal.setTexture(this -> objectSpriteSheet, false);
-	goal.setTextureRect(sf::IntRect(75, 1050, 900, 400));
+	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
 
 
 	// goal.setFillColor(sf::Color(111, 82, 194));
