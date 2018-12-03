@@ -2,6 +2,7 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include <cmath>
 
 using namespace escape;
 
@@ -45,10 +46,7 @@ int main(int argc, char** argv){
 		//If behind skip frames
 		else{
 			if (gameLogic.state.getState() == GameState::State::PLAY){
-				int change = deltaMs - targetMs;
-				for (int x = 0; x < change; x++){
-					gameLogic.progressSimluation();
-				}
+				gameLogic.partialProgressSimluation(deltaMs - targetMs);
 			}
 		}
 		gameTime.restart();
