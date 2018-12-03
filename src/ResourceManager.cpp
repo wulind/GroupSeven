@@ -11,7 +11,6 @@ ResourceManager::ResourceManager(){
 
   if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
 
-	if (!levelDot.loadFromFile("../data/LevelDot.png")) {}
 
   if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
 
@@ -30,13 +29,6 @@ sf::Font* ResourceManager::getFont(){
  */
 sf::Texture *ResourceManager::getMapTexture(){
     return &this -> mapTexture;
-}
-
-/*
-* Returns the level dot texture for the levels unlocked on the level select screen
-*/
-sf::Texture *ResourceManager::getLevelDot(){
-    return &this -> levelDot;
 }
 
 /*
