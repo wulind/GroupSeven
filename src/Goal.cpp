@@ -1,6 +1,5 @@
 #include "Goal.h"
 #include <math.h>
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -55,7 +54,6 @@ int Goal::detectWin(StolenObject &stolenObject){
   bool right = stolenObject.bounds.left + stolenObject.bounds.width < this -> bounds.left + this -> width ? true: false;;
   bool top = stolenObject.bounds.top < this -> yCoord ? true: false;
 
-  std::cout << stolenObject.bounds.left + stolenObject.bounds.width << ", " << this -> xCoord + this -> width << std::endl;
   if(left && right && top){
     return 1;
   }
