@@ -1,6 +1,5 @@
 #include "Goal.h"
 #include <math.h>
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -53,8 +52,6 @@ int Goal::detectWin(StolenObject &stolenObject){
 
   bool intersect = this -> bounds.intersects(stolenObject.bounds);
   bool top = stolenObject.bounds.top < this -> yCoord ? true: false;
-  std::cout << stolenObject.bounds.top << std::endl;
-  std::cout << this -> bounds.top << std::endl;
   if(intersect && top){
     return 1;
   }

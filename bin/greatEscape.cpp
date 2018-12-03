@@ -3,7 +3,6 @@
 #include "GameView.h"
 #include "MenuView.h"
 
-#include <iostream>
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
@@ -99,10 +98,8 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			drawLevel(gameLogic.level, gameView, true);
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
-				std::cout << "win" << std::endl;
 					gameLogic.state.setState(GameState::State::SUCCESS);
 			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
-				std::cout << "lose" << std::endl;
 				gameLogic.state.setState(GameState::State::FAIL);
 			}
 			break;
@@ -110,7 +107,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 		case GameState::State::SUCCESS:
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 				gameLogic.state.incrementUnlockedLevels();
-				std::cout << gameLogic.state.getUnlockedLevels() << std::endl;
 			}
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
