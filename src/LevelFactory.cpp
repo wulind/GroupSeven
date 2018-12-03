@@ -73,7 +73,6 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
 
     level.makePlatform(rotation, xPos, yPos, width, height, draggable);
 
-    //yPos += 100;
     child = child -> NextSiblingElement();
   }
 }
