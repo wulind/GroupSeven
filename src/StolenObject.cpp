@@ -27,6 +27,8 @@ StolenObject::StolenObject(float x, float y, int radius){
 	this -> health = 10;
 
 	this -> timeSinceLastDamage = this -> timer.getElapsedTime().asMilliseconds();
+
+	this -> playSound = false;
 }
 
 /*
@@ -76,6 +78,7 @@ void StolenObject::startContact(){
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
 		this -> health -= 1;
+		this -> playSound = true;
 	}
 	this -> timeSinceLastDamage = newTime;
 

@@ -28,6 +28,7 @@ namespace escape {
 			int health;
 			double timeSinceLastDamage;
 			sf::Clock timer;
+			bool playSound;
 
 			float rotation;
 
