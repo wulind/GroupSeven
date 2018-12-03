@@ -1,4 +1,5 @@
 #include "../include/StolenObject.h"
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -24,6 +25,10 @@ StolenObject::StolenObject(float x, float y, int radius){
 	this -> rotation  = 0;
 
 	this -> health = 10;
+
+	this -> timeSinceLastDamage = this -> timer.getElapsedTime().asMilliseconds();
+
+	this -> playSound = false;
 }
 
 /*
@@ -69,7 +74,15 @@ void StolenObject::updatePosition(){
 void StolenObject::startContact(){
 	//Decrease health.
 	//TODO: change functionality to have variable damage
-	this -> health -= 1;
+
+	double newTime = this -> timer.getElapsedTime().asMilliseconds();
+	if (newTime > (this -> timeSinceLastDamage + 500)){
+		this -> health -= 1;
+		this -> playSound = true;
+	}
+	this -> timeSinceLastDamage = newTime;
+
+	std::cout << this -> health << "\n";
 
 	//TODO: Play a short sound when making contact
 

@@ -121,3 +121,13 @@ void GameLogic::progressSimluation(){
 	this -> level.stolenObject.updatePosition();
 	this -> World -> Step(1.f/1000.f, 5, 8);
 }
+
+
+/*
+* Progresses the simluation in the Box2D world by a portion
+*/
+void GameLogic::partialProgressSimluation(float portion){
+
+	this -> level.stolenObject.updatePosition();
+	this -> World -> Step(portion/1000.f, 5, 8);
+}

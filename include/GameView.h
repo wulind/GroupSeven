@@ -25,6 +25,8 @@ namespace escape{
 
 			sf::Font *font;
 			sf::Music music;
+			sf::SoundBuffer buffer;
+			sf::Sound thump;
 
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);

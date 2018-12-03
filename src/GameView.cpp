@@ -1,4 +1,5 @@
 #include "../include/GameView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -16,6 +17,10 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
   this -> objectSpriteSheet = objectSprite;
 
 	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+	}
+
+	if (buffer.loadFromFile("../data/thump.wav")){
+		thump.setBuffer(buffer);
 	}
 
 }
@@ -151,6 +156,12 @@ void GameView::update(Level &level, bool play){
 	level.stolenObject.bounds = circle.getGlobalBounds();
 	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
 	this -> drawCircle(circle);
+
+	if (level.stolenObject.playSound){
+		std::cout << "Thumping\n";
+		this -> thump.play();
+		level.stolenObject.playSound = false;
+	}
 
 	this -> App.display();
 }
