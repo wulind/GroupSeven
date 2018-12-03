@@ -1,7 +1,9 @@
 #ifndef LEVELFACTORY_H
 #define LEVELFACTORY_H
 
+#include <string>
 #include <cstdlib>
+#include <cstdio>
 #include "tinyxml2.h"
 #include "Level.h"
 #include "LevelSelect.h"

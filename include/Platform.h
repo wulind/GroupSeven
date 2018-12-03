@@ -7,17 +7,21 @@
 namespace escape {
 	class Platform {
 		private:
-			b2Body* Body;//TODO: do we need these?
-			b2World* World;
+			b2World* World;//TODO: do we need this?
 
 		public:
 			Platform();
 			Platform(float x, float y, int height, int width);
 
+			b2Body* Body;
+
 			float xCoord;
 			float yCoord;
 	    float mouseDragOffsetX;
 			float mouseDragOffsetY;
+
+			int height;
+			int width;
 
 			//The absolute rotation of an object from base
 			int rotation;
@@ -26,10 +30,10 @@ namespace escape {
 			sf::FloatRect bounds;
 			sf::Vector2f origin;
 
-			int height;
-			int width;
-
 			bool isBeingDragged;
+			//Boolean that determines whether or not platform should show incase
+			//user doesn't drag a platform out of the menu, then it will not show
+			bool show = false; //true when the platform has been dragged or is an obstacle.
 
 			void setWorld(b2World* World);
 			void updateDragPosition(float mouseX, float mouseY);

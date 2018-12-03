@@ -21,7 +21,9 @@ Level LevelFactory::makeLevel(int levelToLoad){
 
   level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(level, levelRoot);
+  level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")));
   level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
+  level.setGravity(std::stof(levelRoot -> FirstChildElement("Gravity") -> Attribute("value")));
 
   return level;
 }
@@ -56,9 +58,21 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
   tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
-    level.makePlatform(std::atoi(child -> Attribute("rotation")), yPos);\
+    bool draggable;
+    if (std::atoi(child -> Attribute("draggable"))){
+      draggable = true;
+    }
+    else{
+      draggable = false;
+    }
+    int rotation = std::atoi(child -> Attribute("rotation"));
+    int xPos = std::atoi(child -> Attribute("xPos"));
+    int yPos = std::atoi(child -> Attribute("yPos"));
+    int width = std::atoi(child -> Attribute("width"));
+    int height = std::atoi(child -> Attribute("height"));
 
-    yPos += 100;
+    level.makePlatform(rotation, xPos, yPos, width, height, draggable);
+
     child = child -> NextSiblingElement();
   }
 }

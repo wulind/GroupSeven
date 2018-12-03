@@ -25,7 +25,7 @@ namespace escape {
 
 			int radius;
 
-			float rotation;
+			int rotation;
 
 			sf::FloatRect bounds;
 
