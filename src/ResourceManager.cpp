@@ -8,10 +8,7 @@ using namespace escape;
 ResourceManager::ResourceManager(){
 
 	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){}
-
-  if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
-
-
+	
   if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
 
 	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {}
@@ -23,14 +20,6 @@ ResourceManager::ResourceManager(){
 sf::Font* ResourceManager::getFont(){
   	return &this -> font;
 }
-
-/*
- * Returns Blank Map Texture
- */
-sf::Texture *ResourceManager::getMapTexture(){
-    return &this -> mapTexture;
-}
-
 /*
 * Returns the background texture for the levels unlocked on the level select screen
 */

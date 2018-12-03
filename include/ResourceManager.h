@@ -10,8 +10,6 @@ namespace escape {
 
 		private:
 			sf::Font font;
-      sf::Texture mapTexture;
-
       //Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
       sf::Texture objectSpriteSheet;

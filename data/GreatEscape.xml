@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!-- Level 1 -->
 <Level level="1">
-    <SelectOrb mapX = "650" mapY = "230"/>
+    <SelectOrb mapX = "670" mapY = "230"/>
     <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
