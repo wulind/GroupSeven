@@ -19,7 +19,6 @@ GameLogic::GameLogic(){
 void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){//TODO: put clock in main loop
 	// process events
 	sf::Event event;
-	sf::Vector2i mousePosition;
 	while(App -> pollEvent(event)) {
 		gameTime.restart();
 		switch (event.type) {
@@ -61,16 +60,10 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 								}
 								break;
 							case GameState::State::SUCCESS:
-								mousePosition = sf::Mouse::getPosition(*App);
-								if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
-									this -> state.setState(GameState::State::LEVELSELECT);
-								}
+								this -> state.setState(GameState::State::LEVELSELECT);
 								break;
 							case GameState::State::FAIL:
-								mousePosition = sf::Mouse::getPosition(*App);
-								if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
-									this -> state.setState(GameState::State::LEVELSELECT);
-								}
+								this -> state.setState(GameState::State::LEVELSELECT);
 								break;
 
 
@@ -87,10 +80,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 				case sf::Event::KeyPressed:
 					switch(this -> state.getState()){
 						case GameState::State::STORY:
-							mousePosition = sf::Mouse::getPosition(*App);
-							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
-								this -> state.setState(GameState::State::LOADING);
-							}
+							this -> state.setState(GameState::State::LOADING);
 							break;
 						case GameState::State::SUCCESS:
 							this -> state.setState(GameState::State::LEVELSELECT);
