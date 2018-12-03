@@ -1,5 +1,4 @@
 #include "../include/GameView.h"
-#include <iostream>
 
 using namespace escape;
 
@@ -158,7 +157,6 @@ void GameView::update(Level &level, bool play){
 	this -> drawCircle(circle);
 
 	if (level.stolenObject.playSound){
-		std::cout << "Thumping\n";
 		this -> thump.play();
 		level.stolenObject.playSound = false;
 	}

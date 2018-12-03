@@ -1,5 +1,4 @@
 #include "../include/StolenObject.h"
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -81,8 +80,6 @@ void StolenObject::startContact(){
 		this -> playSound = true;
 	}
 	this -> timeSinceLastDamage = newTime;
-
-	std::cout << this -> health << "\n";
 
 	//TODO: Play a short sound when making contact
 
