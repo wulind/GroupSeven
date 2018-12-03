@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include "tinyxml2.h"
 #include "Level.h"
+#include <string>
+#include <cstdio>
 #include "LevelSelect.h"
 
 namespace escape{

@@ -2,10 +2,11 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
-void drawLevel(Level &level, GameView &gameView);
+void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
 int main(int argc, char** argv){
@@ -20,8 +21,9 @@ int main(int argc, char** argv){
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
+
 	//Target 60 fps
-  double targetMs = 1000/240;
+  double targetMs = 1000/1000;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
@@ -30,7 +32,26 @@ int main(int argc, char** argv){
 		if (gameLogic.state.getState() == GameState::State::PLAY){
 			gameLogic.progressSimluation();
 		}
+
 		updateGame(gameLogic, menuView, mainView);
+
+		//Get the elapsed time since the loop started
+		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+
+		//Adjust game timing by sleeping
+		if(deltaMs < targetMs){
+			sf::sleep(sf::milliseconds(targetMs-deltaMs));
+		}
+		//If behind skip frames
+		else{
+			if (gameLogic.state.getState() == GameState::State::PLAY){
+				int change = deltaMs - targetMs;
+				for (int x = 0; x < change; x++){
+					gameLogic.progressSimluation();
+				}
+			}
+		}
+		gameTime.restart();
 	}
 
 	// Done.
@@ -64,20 +85,20 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			menuView.pauseMusic();
 			gameView.playMusic();
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, false);
 			gameLogic.state.setState(GameState::State::SETUP);
 			break;
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, false);
 			break;
 
 		case GameState::State::PLAY:
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, true);
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
-				gameLogic.state.setState(GameState::State::SUCCESS);
+					gameLogic.state.setState(GameState::State::SUCCESS);
 			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
 				gameLogic.state.setState(GameState::State::FAIL);
 			}
@@ -100,9 +121,10 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 * Uses game view to draw level
 * @param level: level object that holds everything needed to draw
 * @param gameView: gameView object
+* @param play: true if game state is State::PLAY
 */
-void drawLevel(Level &level, GameView &gameView){
-	gameView.update(level);
+void drawLevel(Level &level, GameView &gameView, bool play){
+	gameView.update(level, play);
 }
 
 /*
