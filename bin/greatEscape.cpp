@@ -2,10 +2,12 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+
+#include <iostream>
 using namespace escape;
 
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
-void drawLevel(Level &level, GameView &gameView);
+void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
 int main(int argc, char** argv){
@@ -84,21 +86,23 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			menuView.pauseMusic();
 			gameView.playMusic();
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, false);
 			gameLogic.state.setState(GameState::State::SETUP);
 			break;
 
 		case GameState::State::SETUP:
 			gameLogic.eventManager.updateMouse(sf::Mouse::getPosition(*gameView.getApp()), gameLogic.level.platforms);
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, false);
 			break;
 
 		case GameState::State::PLAY:
-			drawLevel(gameLogic.level, gameView);
+			drawLevel(gameLogic.level, gameView, true);
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
-				gameLogic.state.setState(GameState::State::SUCCESS);
+				std::cout << "win" << std::endl;
+					gameLogic.state.setState(GameState::State::SUCCESS);
 			}else if (!gameLogic.level.goal.detectWin(gameLogic.level.stolenObject)){
+				std::cout << "lose" << std::endl;
 				gameLogic.state.setState(GameState::State::FAIL);
 			}
 			break;
@@ -106,6 +110,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 		case GameState::State::SUCCESS:
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 				gameLogic.state.incrementUnlockedLevels();
+				std::cout << gameLogic.state.getUnlockedLevels() << std::endl;
 			}
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
@@ -120,9 +125,10 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 * Uses game view to draw level
 * @param level: level object that holds everything needed to draw
 * @param gameView: gameView object
+* @param play: true if game state is State::PLAY
 */
-void drawLevel(Level &level, GameView &gameView){
-	gameView.update(level);
+void drawLevel(Level &level, GameView &gameView, bool play){
+	gameView.update(level, play);
 }
 
 /*

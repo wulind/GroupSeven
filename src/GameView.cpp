@@ -89,7 +89,7 @@ void GameView::displayLevelStory(sf::Text &text){
 * Creates all of the SFML-related objects that need to be drawn
 * @param level: Level object representing current level
 */
-void GameView::update(Level &level){
+void GameView::update(Level &level, bool play){
 	this -> App.clear();
   this -> drawBackground(level);
 
@@ -108,13 +108,24 @@ void GameView::update(Level &level){
 	sf::RectangleShape platform;
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-		platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
-		platform.setFillColor(sf::Color::White);
+		if(play && level.platforms[i].show){
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
 
-		level.platforms[i].bounds = platform.getGlobalBounds();
-		level.platforms[i].origin = platform.getPosition();
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
 
-		this -> drawRectangle(platform);
+			this -> drawRectangle(platform);
+		}else if (!play){
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
+
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
+
+			this -> drawRectangle(platform);
+		}
+
 	}
 
 	//Obstacles
@@ -128,13 +139,6 @@ void GameView::update(Level &level){
 
 		this -> drawRectangle(platform);
 	}
-
-	//Base
-	sf::RectangleShape base = this -> makeRectangle(level.base.width, level.base.height, level.base.xCoord, level.base.yCoord, 0);
-	base.setFillColor(level.base.color);
-	level.base.bounds = base.getGlobalBounds();
-	level.base.origin = base.getPosition();
-	this -> drawRectangle(base);
 
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
@@ -155,6 +159,7 @@ sf::RectangleShape GameView::makeRectangle(int width, int height, float xCoord, 
 	sf::RectangleShape rectangle(sf::Vector2f(width, height));
 	rectangle.setOrigin(width/2, height/2);
 	rectangle.setPosition(xCoord, yCoord);
+	rectangle.setRotation(rotation);
 
 	return rectangle;
 }

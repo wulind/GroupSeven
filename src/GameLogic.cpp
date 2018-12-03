@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -49,6 +50,15 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							case GameState::State::SETUP:
 								this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
 								this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+
+								if(this -> state.getState() == GameState::State::PLAY){
+
+									for (int i = 0; i < this -> level.platforms.size(); i++){
+										if(!this -> level.platforms[i].show){
+											this -> World -> DestroyBody(this -> level.platforms[i].Body);
+										}
+									}
+								}
 								break;
 						}
 					}

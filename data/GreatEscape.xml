@@ -7,6 +7,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "100" height = "10"/>
@@ -14,13 +15,10 @@
       <Platform rotation = "10" draggable = "0" xPos="300" yPos ="250" width = "100" height = "10"/>
       <Platform rotation = "10" draggable = "0" xPos="400" yPos ="300" width = "100" height = "10"/>
       <Platform rotation = "-10" draggable = "0" xPos="500" yPos ="400" width = "100" height = "10"/>
-      <Platform rotation = "-10" draggable = "0" xPos="400" yPos ="450" width = "100" height = "10"/>
-      <Platform rotation = "-10" draggable = "0" xPos="300" yPos ="500" width = "100" height = "10"/>
 
       <!-- Draggables -->
       <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="500" width = "100" height = "10"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="32"/>
     <Gravity value="9.8"/>
@@ -34,6 +32,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
@@ -66,6 +65,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "45" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
@@ -117,6 +117,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "-45" draggable = "0" xPos="270" yPos ="200" width = "200" height = "10"/>
@@ -143,6 +144,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "35" draggable = "0" xPos="600" yPos ="200" width = "100" height = "10"/>
@@ -192,9 +194,6 @@
       <Platform rotation = "35" draggable = "0" xPos="200" yPos ="500" width = "100" height = "10"/>
       <Platform rotation = "-35" draggable = "0" xPos="150" yPos ="500" width = "100" height = "10"/>
 
-
-
-
       <!-- Draggables -->
       <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="200" width = "100" height = "10"/>
@@ -213,6 +212,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "100" height = "10"/>
@@ -238,6 +238,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "100" height = "10"/>
@@ -263,6 +264,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "100" height = "10"/>
@@ -288,6 +290,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "100" height = "10"/>
@@ -313,6 +316,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
       <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "100" height = "10"/>

@@ -1,6 +1,6 @@
 #include "Goal.h"
 #include <math.h>
-
+#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -46,22 +46,18 @@ void Goal::setWorld(b2World* World){
 
 /*
 * Detects win
-* TODO: not return ints?
 * @param &stolenObject: stolen object needed to detect collision
 */
 int Goal::detectWin(StolenObject &stolenObject){
-  if(stolenObject.Body -> IsAwake()){
-    if(stolenObject.xCoord < 0 || stolenObject.xCoord > 800 || stolenObject.yCoord < 0 || stolenObject.yCoord > 600){
-      return 0;
-    }
-    return -1;
-  }
+  if(stolenObject.Body -> IsAwake()){return -1;}
 
   bool intersect = this -> bounds.intersects(stolenObject.bounds);
-  bool bottom = ceil(stolenObject.bounds.top + (stolenObject.radius * 2) + 10) == this -> bounds.top + this -> height ? true: false;
-
-  if(intersect && bottom){
+  bool top = stolenObject.bounds.top < this -> yCoord ? true: false;
+  std::cout << stolenObject.bounds.top << std::endl;
+  std::cout << this -> bounds.top << std::endl;
+  if(intersect && top){
     return 1;
   }
   return 0;
+
 }

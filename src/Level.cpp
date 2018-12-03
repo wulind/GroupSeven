@@ -1,9 +1,7 @@
 #include "Level.h"
 using namespace escape;
 
-Level::Level(){
-  this -> base = Platform(0, 600, 10, 800);
-}
+Level::Level(){}
 
 /*
 * Sets the world for Box2D for current level
@@ -14,7 +12,12 @@ void Level::setWorld(b2World* World){
   for (i; i < this -> platforms.size(); i++){
     this -> platforms[i].setWorld(World);
   }
-  this -> base.setWorld(World);
+
+  i = 0;
+  for (i; i < this -> obstacles.size(); i++){
+    this -> obstacles[i].setWorld(World);
+  }
+
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
 }
@@ -40,6 +43,7 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
   if(draggable){
     this -> platforms.push_back(platform);
   }else{
+    platform.show = true;
     this -> obstacles.push_back(platform);
   }
 

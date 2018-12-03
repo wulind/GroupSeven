@@ -24,7 +24,7 @@ namespace escape{
 
       std::vector<Platform> platforms;
       std::vector<Platform> obstacles;
-      Platform base;
+
       PlatformMenu platformMenu;
       StolenObject stolenObject;
       FinishButton finishButton;
