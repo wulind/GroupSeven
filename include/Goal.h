@@ -9,7 +9,6 @@ namespace escape{
 
     private:
       b2Body* Body;
-			b2World* World;
 
     public:
       Goal();
