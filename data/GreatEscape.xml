@@ -10,10 +10,10 @@
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
 
       <!-- Level layout -->
-      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "10" draggable = "0" xPos="200" yPos ="200" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "400" height = "10"/>
+      <!-- <Platform rotation = "10" draggable = "0" xPos="200" yPos ="200" width = "100" height = "10"/>
       <Platform rotation = "10" draggable = "0" xPos="300" yPos ="250" width = "100" height = "10"/>
-      <Platform rotation = "10" draggable = "0" xPos="400" yPos ="300" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="400" yPos ="300" width = "100" height = "10"/> -->
       <Platform rotation = "-10" draggable = "0" xPos="500" yPos ="400" width = "100" height = "10"/>
 
       <!-- Draggables -->
