@@ -1,5 +1,4 @@
 #include "../include/StolenObject.h"
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -72,13 +71,13 @@ void StolenObject::startContact(){
 	//TODO: change functionality to have variable damage
 	this -> health -= 1;
 
-	//TODO: Play a short sound when mak contact
-	std::cout << "Contact!" << "\n";
+	//TODO: Play a short sound when making contact
+
 }
 
 /*
 * Procedures to do when stolen object stops touching something
 */
 void StolenObject::endContact(){
-	std::cout << "Stopping!" << "\n";
+
 }
