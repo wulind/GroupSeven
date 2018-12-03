@@ -1,7 +1,5 @@
 #include "GameLogic.h"
 
-static const float SCALE = 30.f;
-
 using namespace escape;
 
 /*
@@ -11,19 +9,7 @@ GameLogic::GameLogic(){
 	//Game State
 	this -> state.setState(GameState::State::TITLE);
 
-	//Initializes world.
-	//Takes in Gravity (change second param to change gravity)
-	b2Vec2 Gravity(0.f, 1.0f);
-	this -> World = new b2World(Gravity);
-
-	//LevelFactory & Level
-	this -> factory = LevelFactory();
-
-	//TitlePage
-	this -> titlePage = TitlePage();
-
-	//Resources
-	this -> resources = ResourceManager();
+	this -> World = NULL;
 }
 
 /*
@@ -38,45 +24,74 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 		switch (event.type) {
 
 			case sf::Event::Closed:
+				delete this -> World;
 				App -> close();// TODO: move in GameView?
 				break;
 
-			case sf::Event::MouseButtonPressed:
+				case sf::Event::MouseButtonPressed:
 
-				if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
-					switch(this -> state.getState()){//TODO: put in event handler
+						switch(this -> state.getState()){//TODO: put in event handler
 
-						case GameState::State::TITLE:
-							this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
-							break;
+							case GameState::State::TITLE:
+								this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
+								break;
 
-						case GameState::State::LEVELSELECT:
-							this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
-							break;
+							case GameState::State::LEVELSELECT:
+								this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
+								break;
 
-						case GameState::State::SETUP:
-							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
-							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+							case GameState::State::STORY:
+								this -> state.setState(GameState::State::LOADING);
+								break;
+
+							case GameState::State::SETUP:
+								this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
+								this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+
+								if(this -> state.getState() == GameState::State::PLAY){
+
+									for (int i = 0; i < this -> level.platforms.size(); i++){
+										if(!this -> level.platforms[i].show){
+											this -> World -> DestroyBody(this -> level.platforms[i].Body);
+										}
+									}
+								}
+								break;
+						}
+					}
+					break;
+
+				case sf::Event::MouseButtonReleased:
+					if (this -> state.getState() == GameState::State::SETUP){
+						this -> eventManager.releaseAllPlatforms(this -> level.platforms);
+					}
+					break;
+
+				case sf::Event::KeyPressed:
+					switch(this -> state.getState()){
+						case GameState::State::STORY:
+							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
+							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
+								this -> state.setState(GameState::State::LOADING);
+							}
 							break;
 					}
-				}
 				break;
-
-			case sf::Event::MouseButtonReleased:
-				if (this -> state.getState() == GameState::State::SETUP){
-					this -> eventManager.releaseAllPlatforms(this -> level.platforms);
-				}
 			}
+
 		}
-	//Get the elapsed time since the loop started
-	double deltaMs = gameTime.getElapsedTime().asMilliseconds();
+}
 
-	//Adjust game timing by sleeping
-	if(deltaMs < targetMs){
-		sf::sleep(sf::milliseconds(targetMs-deltaMs));
-	}
-
+/*
+* Adds the next glowing orb that represents the next level available
+* Only adds one at a time because only one new level can be unlocked at a time
+*/
+void GameLogic::makeNextLevelDot(){
+  if (this -> state.getUnlockedLevels() > this -> levelSelect.levels.size()){
+		this -> levelSelect.appendDot(this -> factory.makeOrbs(this -> state.getUnlockedLevels()));
+  }
 }
 
 /*
@@ -84,7 +99,19 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 * @param level: int representation of current level to load
 */
 void GameLogic::loadLevel(int level){
-	this -> level = *this -> factory.makeLevel(level, this -> World);
+	//Delete World Bodies
+	if (this -> World != NULL){
+		for (b2Body* BodyIterator = this -> World -> GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext()){
+			BodyIterator -> GetWorld() -> DestroyBody( BodyIterator );
+		}
+	}
+	delete this -> World;
+	this -> level = this -> factory.makeLevel(level);
+
+	b2Vec2 Gravity(0.f, this -> level.gravity);
+	this -> World = new b2World(Gravity);
+
+	this -> level.setWorld(World);
 }
 
 /*

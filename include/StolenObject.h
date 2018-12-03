@@ -9,20 +9,28 @@ namespace escape {
 
 		private:
 			//Box2D Stuff
-			b2Body* Body;
 			b2World* World;
-
 
 		public:
       StolenObject();
 			StolenObject(float x, float y, int radius);
 
+			b2Body* Body;
+
 			float xCoord;
 			float yCoord;
 
-			int radius;//TODO: make this pertain to other shapes
+			int spriteSheetStartX;
+      int spriteSheetStartY;
+
+			int radius;
+
+			int rotation;
+
+			sf::FloatRect bounds;
 
 			sf::Color color;
+			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
 			void updatePosition();

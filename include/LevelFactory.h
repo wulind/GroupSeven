@@ -1,23 +1,24 @@
 #ifndef LEVELFACTORY_H
 #define LEVELFACTORY_H
 
+#include <string>
 #include <cstdlib>
+#include <cstdio>
 #include "tinyxml2.h"
 #include "Level.h"
+#include "LevelSelect.h"
 
 namespace escape{
   class LevelFactory{
 
     private:
-      void readXML(int levelToLoad);
+      void makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot);
 
     public:
       LevelFactory();
-      LevelFactory(Level &_level);
 
-      Level* makeLevel(int levelToLoad, b2World* World);
-
-      Level level;
+      Level makeLevel(int levelToLoad);
+      LevelSelect::SelectOrb makeOrbs(int level);
   };
 }
 #endif

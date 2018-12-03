@@ -1,14 +1,7 @@
 #include "Level.h"
-
 using namespace escape;
 
-Level::Level(){
-  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
-  this -> base = Platform(0, 600, 10, 800);
-  this -> stolenObject = StolenObject(50, 100, 25);
-  this -> finishButton = FinishButton();
-
-}
+Level::Level(){}
 
 /*
 * Sets the world for Box2D for current level
@@ -19,33 +12,73 @@ void Level::setWorld(b2World* World){
   for (i; i < this -> platforms.size(); i++){
     this -> platforms[i].setWorld(World);
   }
-  this -> base.setWorld(World);
+
+  i = 0;
+  for (i; i < this -> obstacles.size(); i++){
+    this -> obstacles[i].setWorld(World);
+  }
+
   this -> stolenObject.setWorld(World);
+  this -> goal.setWorld(World);
 }
 
 /*
 * Sets Filename for background
-* TODO: put all of this info into the respective classes
+* Sets starting x and y for image in sprite sheet
 */
-void Level::setBackgroundFile(const char *_backgroundFile){
-  this -> backgroundFile = _backgroundFile;
+void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgroundStartY){
+  this -> backgroundStartX = std::atoi(_backgroundStartX);
+  this -> backgroundStartY = std::atoi(_backgroundStartY);
 }
 
 /*
 * Makes platforms available for level
-* @param count: the amount of platforms needed in the level
+* @param rotation: rotation in degrees of platform
+* @param yPos: y axis position on screen
 */
-void Level::makePlatform(int count){
-  int i = 0;
-  for (i; i < count; i++){
-    this -> platforms.push_back(Platform(0, 300, 10, 100));
+void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
+  Platform platform(xPos, yPos, height, width);
+  platform.setRotation(rotation);
+
+  if(draggable){
+    this -> platforms.push_back(platform);
+  }else{
+    platform.show = true;
+    this -> obstacles.push_back(platform);
   }
+
 }
 
 /*
 * Sets Filename for stolen object
 */
-void Level::setStolenObjectFile(const char *_stolenObjectFile){
-  // this -> stolenObject = StolenObject(50, 100, 25, this -> World);
-  this -> stolenObjectFile = _stolenObjectFile;
+void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
+  this -> stolenObject.spriteSheetStartX = std::atoi(_objStartX);
+  this -> stolenObject.spriteSheetStartY = std::atoi(_objStartY);
+}
+
+/*
+* Clears the level object for the next level
+*/
+void Level::clearLevel(){
+  this -> platforms.clear();
+  this -> obstacles.clear();
+}
+
+/*
+* Sets the gravity for the level.
+* @param g: gravity for the level. Negative gravity is up on the screen
+*/
+void Level::setGravity(float g){
+  this -> gravity = g;
+}
+
+/*
+* Sets the stolen object for the level.
+* @param x: xCoord for stolen object
+* @param y: yCoord for stolen Object
+* @param radius: radius for stolen object
+*/
+void Level::setStolenObject(int x, int y, int radius){
+  this -> stolenObject = StolenObject(x, y, radius);
 }
