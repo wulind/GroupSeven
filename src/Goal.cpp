@@ -50,9 +50,11 @@ void Goal::setWorld(b2World* World){
 int Goal::detectWin(StolenObject &stolenObject){
   if(stolenObject.Body -> IsAwake()){return -1;}
 
-  bool intersect = this -> bounds.intersects(stolenObject.bounds);
+  bool left = stolenObject.bounds.left > this -> bounds.left ? true: false;
+  bool right = stolenObject.bounds.left + stolenObject.bounds.width < this -> bounds.left + this -> width ? true: false;;
   bool top = stolenObject.bounds.top < this -> yCoord ? true: false;
-  if(intersect && top){
+
+  if(left && right && top){
     return 1;
   }
   return 0;
