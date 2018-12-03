@@ -60,7 +60,7 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
 
   while(child != nullptr){
     bool draggable;
-    if (std::atoi(child -> Attribute("draggable")) == 1){
+    if (std::atoi(child -> Attribute("draggable"))){
       draggable = true;
     }
     else{
@@ -72,10 +72,8 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     int width = std::atoi(child -> Attribute("width"));
     int height = std::atoi(child -> Attribute("height"));
 
-
     level.makePlatform(rotation, xPos, yPos, width, height, draggable);
 
-    //yPos += 100;
     child = child -> NextSiblingElement();
   }
 }

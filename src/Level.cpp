@@ -1,11 +1,7 @@
 #include "Level.h"
 using namespace escape;
 
-Level::Level(){
-  // this -> platforms.push_back(Platform(0, 300, 10, 200, this -> World));//TODO: move into respective places
-  this -> base = Platform(0, 600, 10, 800);
-  //this -> stolenObject = StolenObject(50, 100, 32);
-}
+Level::Level(){}
 
 /*
 * Sets the world for Box2D for current level
@@ -16,7 +12,12 @@ void Level::setWorld(b2World* World){
   for (i; i < this -> platforms.size(); i++){
     this -> platforms[i].setWorld(World);
   }
-  this -> base.setWorld(World);
+
+  i = 0;
+  for (i; i < this -> obstacles.size(); i++){
+    this -> obstacles[i].setWorld(World);
+  }
+
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
 
@@ -42,12 +43,14 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 */
 void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
   Platform platform(xPos, yPos, height, width);
-
   platform.setRotation(rotation);
 
-  platform.draggable = draggable;
-
-  this -> platforms.push_back(platform);
+  if(draggable){
+    this -> platforms.push_back(platform);
+  }else{
+    platform.show = true;
+    this -> obstacles.push_back(platform);
+  }
 
 }
 
@@ -64,6 +67,7 @@ void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
 */
 void Level::clearLevel(){
   this -> platforms.clear();
+  this -> obstacles.clear();
 }
 
 /*

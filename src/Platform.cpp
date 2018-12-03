@@ -77,8 +77,6 @@ void Platform::updateDragPosition(float mouseX, float mouseY) {
 		this -> xCoord = mouseX - mouseDragOffsetX;
 		this -> yCoord = mouseY - mouseDragOffsetY;
 		this -> Body -> SetTransform(b2Vec2(this -> xCoord / SCALE, this -> yCoord / SCALE), this -> rotation * b2_pi / 180);
-
-
 	}
 }
 

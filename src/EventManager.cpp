@@ -3,7 +3,6 @@
 
 using namespace escape;
 
-
 /*
  * EventManager Constructor
  */
@@ -29,18 +28,16 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
-		//If platform is not draggable, ignore
-		if (platforms[i].draggable == false){
-			continue;
-		}
 		float s = sin(-1 * platforms[i].rotation * M_PI/180);
 		float c = cos(-1 * platforms[i].rotation * M_PI/180);
 
 		int localXMouse = -1 * ((c * (mousePosition.x - platforms[i].origin.x)) - (s * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
 		int localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
+		//this is the platform being dragged
 		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
 			platforms[i].isBeingDragged = true;
+			platforms[i].show = true;
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
 			platforms[i].mouseDragOffsetY = mousePosition.y - platforms[i].yCoord;
