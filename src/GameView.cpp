@@ -97,9 +97,7 @@ void GameView::update(Level &level, bool play){
 		sf::RectangleShape menu(sf::Vector2f(180, this -> screenY));
 		menu.setPosition(this -> screenX - 180, 0);
 		menu.setFillColor(sf::Color(0, 0, 0, 100));
-
 		this -> drawRectangle(menu);
-
 		this -> drawText(level.finishButton.button);
 		this -> drawText(level.platformMenu.title);
 	}
@@ -142,7 +140,11 @@ void GameView::update(Level &level, bool play){
 
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
-	goal.setFillColor(sf::Color(111, 82, 194));
+	goal.setTexture(this -> objectSpriteSheet, false);
+	goal.setTextureRect(sf::IntRect(75, 1050, 900, 400));
+
+
+	// goal.setFillColor(sf::Color(111, 82, 194));
 	level.goal.bounds = goal.getGlobalBounds();
 	this -> drawRectangle(goal);
 
@@ -151,7 +153,6 @@ void GameView::update(Level &level, bool play){
 	level.stolenObject.bounds = circle.getGlobalBounds();
 	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
 	this -> drawCircle(circle);
-
 	this -> App.display();
 }
 
