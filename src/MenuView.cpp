@@ -71,11 +71,15 @@ void MenuView::drawBackground(){
  * @param LevelSelect &levelSelect: Holds the level dots information stored in LevelSelect
  */
 void MenuView::drawLevelDots(LevelSelect &levelSelect){
-		int i = 0;
-		for (i; i < levelSelect.levels.size(); ++i){
+		for (int i = 0; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
 			levelSelect.levels[i].circle.setTexture(this -> levelDot);
+
 			levelSelect.levels[i].circle.setTextureRect(sf::IntRect(250, 950, 375, 375));
+
+			if(i < levelSelect.levels.size() - 1){
+				levelSelect.levels[i].circle.setTextureRect(sf::IntRect(640, 950, 375, 375));
+			}
 	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
