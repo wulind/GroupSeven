@@ -21,7 +21,7 @@ void Level::setWorld(b2World* World){
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
 
-  World -> SetContactListener(&this -> ContactListener);
+  World -> SetContactListener(&this -> contactListener);
 }
 
 /*
