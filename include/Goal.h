@@ -5,11 +5,9 @@
 #include "StolenObject.h"
 
 namespace escape{
-  class Goal{//TODO: make this class a struct instead?
-
+  class Goal{
     private:
       b2Body* Body;
-			b2World* World;
 
     public:
       Goal();
