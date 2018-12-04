@@ -122,7 +122,6 @@ void GameLogic::progressSimluation(){
 	this -> World -> Step(1.f/1000.f, 5, 8);
 }
 
-
 /*
 * Progresses the simluation in the Box2D world by a portion
 */

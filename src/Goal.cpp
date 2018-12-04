@@ -12,8 +12,8 @@ Goal::Goal(){
   this -> width = 250;
   this -> height = 110;
 
-  this -> xCoord = 350;//670
-  this -> yCoord = 550;//570
+  this -> xCoord = 350;
+  this -> yCoord = 550;
 }
 
 /*

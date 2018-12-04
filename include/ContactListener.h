@@ -6,7 +6,7 @@
 #include "Platform.h"
 
 namespace escape{
-  class StolenObjectContactListener : public b2ContactListener{
+  class ContactListener : public b2ContactListener{
     public:
       void BeginContact(b2Contact* contact);
       void EndContact(b2Contact* contact);

@@ -21,9 +21,6 @@ void Level::setWorld(b2World* World){
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
 
-  //at global scope
-
-  //in FooTest constructor
   World -> SetContactListener(&this -> ContactListener);
 }
 
