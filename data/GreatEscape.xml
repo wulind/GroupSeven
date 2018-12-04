@@ -97,10 +97,10 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 4 -->
+<!-- Level 4. Taj Mahal. India -->
 <Level level="4">
-  <SelectOrb mapX = "650" mapY = "230"/>
-    <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "600" mapY = "320"/>
+    <Background startX="0" startY="2400" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -120,13 +120,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="350" yPos="50" radius="32"/>
+    <StolenObject startX="768" startY="0" xPos="350" yPos="50" radius="32"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 5 -->
+<!-- Level 5 The Met. NYC.-->
 <Level level="5">
-  <SelectOrb mapX = "650" mapY = "230"/>
+  <SelectOrb mapX = "200" mapY = "210"/>
   <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -188,14 +188,14 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="550" yPos="100" radius="25"/>
+    <StolenObject startX="256" startY="0" xPos="550" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 6 -->
+<!-- Level 6 Turkey.Old coin with face-->
 <Level level="6">
-  <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "460" mapY = "290"/>
+  <Background startX="0" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -215,13 +215,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="256" startY="512" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
-
+<!-- Level 7. Forbidden Palace. N. Korea. Silver bracelet... -->
 <Level level="7">
-  <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "760" mapY = "210"/>
+  <Background startX="0" startY="0" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -241,13 +241,13 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="512" startY="256" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
-
+<!-- Museum. -->
 <Level level="8">
-  <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "410" mapY = "150"/>
+  <Background startX="1600" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -267,7 +267,7 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="768" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
 <!-- Jewel. Louvre. Paris-->
