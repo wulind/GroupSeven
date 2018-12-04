@@ -23,8 +23,8 @@ Goal::Goal(int xCoord, int yCoord){
   this -> width = 250;
   this -> height = 110;
 
-  this -> xCoord = xCoord;//670
-  this -> yCoord = yCoord;//570
+  this -> xCoord = xCoord;
+  this -> yCoord = yCoord;
 }
 
 /*
