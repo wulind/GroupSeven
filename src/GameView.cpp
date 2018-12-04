@@ -135,7 +135,7 @@ void GameView::update(Level &level, bool play){
 	i = 0;
 	for (i; i < level.obstacles.size(); ++i){
 		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
-		platform.setFillColor(sf::Color::Black);
+		platform.setFillColor(sf::Color(160,82,45));
 		level.obstacles[i].bounds = platform.getGlobalBounds();
 		level.obstacles[i].origin = platform.getPosition();
 		this -> drawRectangle(platform);
