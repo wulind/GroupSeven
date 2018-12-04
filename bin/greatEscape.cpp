@@ -59,7 +59,6 @@ int main(int argc, char** argv){
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
-		//Title Screen
 		case GameState::State::TITLE:
 			if (gameView.musicPlaying){
 				gameView.pauseMusic();
@@ -72,7 +71,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
-		//Level Selection page
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
