@@ -1,4 +1,5 @@
 #include "MenuView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -18,6 +19,7 @@ MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTex
 	if (!music.openFromFile("../data/MainTheme.wav")){
 	}
 
+	this -> musicPlaying = false;
 }
 
 /*

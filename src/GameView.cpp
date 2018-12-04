@@ -1,4 +1,4 @@
-#include "../include/GameView.h"
+#include "GameView.h"
 
 using namespace escape;
 
@@ -22,6 +22,7 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
 		thump.setBuffer(buffer);
 	}
 
+	this -> musicPlaying = false;
 }
 
 /*

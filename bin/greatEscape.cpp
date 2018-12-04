@@ -2,6 +2,7 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -62,8 +63,14 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
 		//Title Screen
 		case GameState::State::TITLE:
-			gameView.pauseMusic();
-			menuView.playMusic();
+			if (gameView.musicPlaying){
+				gameView.pauseMusic();
+				gameView.musicPlaying = false;
+			}
+			if (!menuView.musicPlaying){
+				menuView.playMusic();
+				menuView.musicPlaying = true;
+			}
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
@@ -79,8 +86,14 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LOADING:
-			menuView.pauseMusic();
-			gameView.playMusic();
+			if (menuView.musicPlaying){
+				menuView.pauseMusic();
+				menuView.musicPlaying = false;
+			}
+			if (!gameView.musicPlaying){
+				gameView.playMusic();
+				gameView.musicPlaying = true;
+			}
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
 			drawLevel(gameLogic.level, gameView, false);
 			gameLogic.state.setState(GameState::State::SETUP);

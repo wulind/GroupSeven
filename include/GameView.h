@@ -45,6 +45,8 @@ namespace escape{
 			void pauseMusic();
 			void playMusic();
 
+			bool musicPlaying;
+
 			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
 	};
