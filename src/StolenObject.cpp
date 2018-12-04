@@ -54,6 +54,8 @@ void StolenObject::setWorld(b2World* World){
 	this -> Body -> CreateFixture(&FixtureDef);
 	this -> Body -> SetAwake(1);
 	this -> Body -> SetUserData( this );
+
+	this -> health = 10;
 }
 
 /*
@@ -75,6 +77,7 @@ void StolenObject::startContact(){
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
 		this -> playSound = true;
+		this -> health -= 1;
 	}
 
 	this -> timeSinceLastDamage = newTime;

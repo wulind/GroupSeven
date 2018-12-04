@@ -1,4 +1,5 @@
 #include "GameView.h"
+#include <iostream>
 
 using namespace escape;
 
@@ -151,6 +152,17 @@ void GameView::update(Level &level, bool play){
 		this -> thump.play();
 		level.stolenObject.playSound = false;
 	}
+
+	//Display healthbar
+	//2 rectangles, top one is White, bottom is red. Make top one shorter on each hit
+	sf::RectangleShape top(sf::Vector2f(200 - (200 - level.stolenObject.health * 20), 10));
+	top.setFillColor(sf::Color::White);
+	top.setPosition(300,50);
+	sf::RectangleShape bottom(sf::Vector2f(200, 10));
+	bottom.setFillColor(sf::Color::Red);
+	bottom.setPosition(300,50);
+	this -> drawRectangle(bottom);
+	this -> drawRectangle(top);
 
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);

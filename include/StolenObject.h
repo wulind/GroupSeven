@@ -25,6 +25,7 @@ namespace escape {
 
 			int radius;
 
+			int health;
 			double timeSinceLastDamage;
 			sf::Clock timer;
 			bool playSound;
