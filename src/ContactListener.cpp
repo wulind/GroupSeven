@@ -5,7 +5,7 @@ using namespace escape;
 /*
 * Called when objects in b2World collide
 */
-void StolenObjectContactListener::BeginContact(b2Contact* contact){
+void ContactListener::BeginContact(b2Contact* contact){
   //check if fixture A was a ball
   void* bodyUserData = contact -> GetFixtureA() -> GetBody() -> GetUserData();
   if ( bodyUserData ){
@@ -21,6 +21,6 @@ void StolenObjectContactListener::BeginContact(b2Contact* contact){
 /*
 * Reserved for future use
 */
-void StolenObjectContactListener::EndContact(b2Contact* contact){
+void ContactListener::EndContact(b2Contact* contact){
 
 }
