@@ -67,7 +67,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							this -> state.setState(GameState::State::LEVELSELECT);
 							break;
 
-						case GameState::State::STORY:
+						case GameState::State::FINISHGAME:
 							this -> state.setState(GameState::State::TITLE);
 							break;
 					}
