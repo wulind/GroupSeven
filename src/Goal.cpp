@@ -43,9 +43,6 @@ void Goal::setWorld(b2World* World){
 
   shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
-
-  // this -> Body-> SetAngularDamping(0);
-  // this -> Body-> SetLinearDamping(0);
 }
 
 /*
@@ -53,13 +50,18 @@ void Goal::setWorld(b2World* World){
 * @param &stolenObject: stolen object needed to detect collision
 */
 int Goal::detectWin(StolenObject &stolenObject){
+  std::cout << stolenObject.Body -> GetLinearVelocity().x << ", " << stolenObject.Body -> GetLinearVelocity().y << std::endl;
+
   if(stolenObject.Body -> IsAwake()){
+    if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1){
+      stolenObject.Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
+    }
     return -1;
   }
 
   bool left = stolenObject.bounds.left > this -> bounds.left ? true: false;
   bool right = stolenObject.bounds.left + stolenObject.bounds.width < this -> bounds.left + this -> width ? true: false;;
-  bool top = stolenObject.bounds.top < this -> yCoord ? true: false;
+  bool top = stolenObject.bounds.top > this -> bounds.top ? true: false;
 
   if(left && right && top){
     return 1;
