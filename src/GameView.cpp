@@ -8,7 +8,7 @@ GameView::GameView(){}
 * @param *App: pointer to game window
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
+GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite, Timer* newTimer){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 
 	this -> font = font;
@@ -17,6 +17,8 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
 
 	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
 	}
+
+	this->timer = newTimer;
 
 }
 
@@ -152,7 +154,14 @@ void GameView::update(Level &level, bool play){
 	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
 	this -> drawCircle(circle);
 
+	// Timer
+	sf::Text timer;
+	timer.setCharacterSize(20);
+	timer.setString(this->timer->getFormattedTime());
+	timer.setPosition(20, 20);
+
 	this -> App.display();
+
 }
 
 sf::RectangleShape GameView::makeRectangle(int width, int height, float xCoord, float yCoord, int rotation){

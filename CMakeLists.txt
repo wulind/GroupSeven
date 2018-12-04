@@ -47,6 +47,8 @@ file(GLOB EXECLIST bin/*cpp)
 #################################################
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
 #$target_link_libraries(<math.h> m)
 
 add_subdirectory(Box2D)

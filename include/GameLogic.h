@@ -13,6 +13,7 @@
 #include "LevelFactory.h"
 #include "Level.h"
 #include "Dialogue.h"
+#include "Timer.h"
 
 namespace escape {
 	class GameLogic {
@@ -33,6 +34,7 @@ namespace escape {
 			TitlePage titlePage;
 			LevelSelect levelSelect;
 			Dialogue dialogue;
+			Timer timer;
 
 			//Resources (fonts, sprites)
 			ResourceManager resources;

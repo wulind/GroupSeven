@@ -9,6 +9,7 @@
 #include "StolenObject.h"
 #include "PlatformMenu.h"
 #include "Level.h"
+#include "Timer.h"
 
 namespace escape{
 	class GameView{
@@ -34,9 +35,11 @@ namespace escape{
 			sf::RectangleShape makeRectangle(int width, int height, float xCoord, float yCoord, int rotation);
 			sf::CircleShape makeStolenObject(int radius, float xCoord, float yCoord, float rotation);
 
+			Timer *timer;
+
 		public:
       GameView();
-      GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
+      GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet, Timer* timer);
 
 			void update(Level &level, bool play);
 			void displayLevelStory(sf::Text &text);

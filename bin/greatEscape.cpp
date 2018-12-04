@@ -9,6 +9,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
 void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
 
+//Game timer for scoring
+Timer timer = Timer();
+
 int main(int argc, char** argv){
 
 	//Game Logic
@@ -18,12 +21,12 @@ int main(int argc, char** argv){
 	sf::Clock gameTime;
 
 	//Views
-	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
+	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture(), &timer);
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
 
 	//Target 60 fps
-  double targetMs = 1000/1000;
+  double targetMs = 1000/60;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
@@ -95,6 +98,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::PLAY:
+
+			timer.tickClock();
+
 			drawLevel(gameLogic.level, gameView, true);
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
