@@ -29,6 +29,18 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setCharacterSize(24);
 			this -> text.setString("Good work Player. Next job’s easy: the Louvre.");
 			break;
-
 	}
+	
+/*
+* Dialogue if the player loses a level
+*/
+}
+void Dialogue::loseLevel(){
+	this -> text.setCharacterSize(24);
+	this -> text.setString("You're never gonna make it big if you can't do this. Give it another shot.");
+}
+
+void Dialogue::winLevel(){
+	this -> text.setCharacterSize(24);
+	this -> text.setString("Nice job player.");
 }

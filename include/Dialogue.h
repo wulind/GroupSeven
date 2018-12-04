@@ -11,8 +11,10 @@ namespace escape{
 			Dialogue();
 
 			sf::Text text;
-			
+
 			void playStory(int levelSelected);
+			void loseLevel();
+			void winLevel();
 			void drawBackground(sf::RenderWindow *App);
 	};
 }

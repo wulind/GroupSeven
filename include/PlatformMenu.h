@@ -9,20 +9,19 @@ namespace escape{
   class PlatformMenu{
 
   private:
-
-         //Graphical variables for the finish button
-         sf::Texture buttonTexture;
-         sf::Sprite finishButton;
-         float scale;
+     //Graphical variables for the finish button
+     sf::Texture buttonTexture;
+     sf::Sprite finishButton;
+     float scale;
 
   public:
-         //Graphical variables for the menu
-         sf::Font font;
-         sf::Text title;
-         sf::RectangleShape menu;
+     //Graphical variables for the menu
+     sf::Font font;
+     sf::Text title;
+     sf::RectangleShape menu;
 
-         //Constructor
-        PlatformMenu();
+     //Constructor
+    PlatformMenu();
   };
 }
 #endif

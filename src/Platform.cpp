@@ -1,4 +1,4 @@
-#include "../include/Platform.h"
+#include "Platform.h"
 
 static const float SCALE = 30.f;
 
@@ -12,7 +12,6 @@ Platform::Platform(){}
 * @param y: y coordinate of platform
 * @param height: height of platform
 * @param width: width of platform
-* @param World: Box2D World where platform is to be placed
 */
 Platform::Platform(float x, float y, int height, int width){
 	//TODO: Update this to be in the menu
@@ -43,11 +42,10 @@ Platform::Platform(float x, float y, int height, int width){
 */
 void Platform::setWorld(b2World* World){
 	//Creates Box2D Body.  Static body so that It won't move.
-	this -> World = World;
 	b2BodyDef BodyDef;
   BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
   BodyDef.type = b2_staticBody;
-  b2Body* Body = this -> World -> CreateBody(&BodyDef);
+  b2Body* Body = World -> CreateBody(&BodyDef);
 
 	// //Add a rectangle to go with the platform body
 	b2PolygonShape Shape;

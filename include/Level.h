@@ -8,11 +8,13 @@
 #include "FinishButton.h"
 #include "Goal.h"
 #include "PlatformMenu.h"
+#include "ContactListener.h"
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?
 
     private:
+
     public:
       Level();
 
@@ -29,6 +31,8 @@ namespace escape{
       StolenObject stolenObject;
       FinishButton finishButton;
 
+      ContactListener contactListener;
+
       float gravity;
       Goal goal;
 
@@ -38,10 +42,9 @@ namespace escape{
       void setBackgroundFile(const char *_startX, const char *_startY);
       void setGravity(float g);
       void setStolenObject(int x, int y, int radius);
+      void setGoal(int xCoord, int yCoord);
 
       void clearLevel();
-
-
   };
 }
 #endif

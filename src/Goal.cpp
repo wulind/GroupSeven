@@ -1,6 +1,5 @@
 #include "Goal.h"
 #include <math.h>
-#include <iostream>
 
 static const float SCALE = 30.f;
 
@@ -50,7 +49,6 @@ void Goal::setWorld(b2World* World){
 * @param &stolenObject: stolen object needed to detect collision
 */
 int Goal::detectWin(StolenObject &stolenObject){
-  std::cout << stolenObject.Body -> GetLinearVelocity().x << ", " << stolenObject.Body -> GetLinearVelocity().y << std::endl;
 
   if(stolenObject.Body -> IsAwake()){
     if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1){

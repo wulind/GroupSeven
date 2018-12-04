@@ -6,9 +6,6 @@
 
 namespace escape {
 	class Platform {
-		private:
-			b2World* World;//TODO: do we need this?
-
 		public:
 			Platform();
 			Platform(float x, float y, int height, int width);
@@ -39,8 +36,6 @@ namespace escape {
 			void updateDragPosition(float mouseX, float mouseY);
 
 			void setRotation(int rotation);
-
-
 	};
 }
 #endif
