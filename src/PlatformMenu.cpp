@@ -1,4 +1,4 @@
-#include "../include/PlatformMenu.h"
+#include "PlatformMenu.h"
 
 using namespace escape;
 /*

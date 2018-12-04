@@ -141,13 +141,6 @@ void GameView::update(Level &level, bool play){
 		this -> drawRectangle(platform);
 	}
 
-	//Goal
-	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
-	goal.setTexture(this -> objectSpriteSheet, false);
-	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
-	level.goal.bounds = goal.getGlobalBounds();
-  this -> drawRectangle(goal);
-
 	//StolenObject
 	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject.radius, level.stolenObject.xCoord, level.stolenObject.yCoord, level.stolenObject.rotation);
 	level.stolenObject.bounds = circle.getGlobalBounds();
@@ -158,6 +151,13 @@ void GameView::update(Level &level, bool play){
 		this -> thump.play();
 		level.stolenObject.playSound = false;
 	}
+
+	//Goal
+	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
+	goal.setTexture(this -> objectSpriteSheet, false);
+	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
+	level.goal.bounds = goal.getGlobalBounds();
+	this -> drawRectangle(goal);
 
 	this -> App.display();
 }

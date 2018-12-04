@@ -1,4 +1,4 @@
-#include "../include/ContactListener.h"
+#include "ContactListener.h"
 
 using namespace escape;
 

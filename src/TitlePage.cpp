@@ -1,4 +1,4 @@
-#include "../include/TitlePage.h"
+#include "TitlePage.h"
 #include <iostream>
 
 using namespace escape;

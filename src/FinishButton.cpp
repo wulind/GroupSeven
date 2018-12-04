@@ -1,4 +1,4 @@
-#include "../include/FinishButton.h"
+#include "FinishButton.h"
 
 using namespace escape;
 

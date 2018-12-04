@@ -1,4 +1,4 @@
-#include "../include/StolenObject.h"
+#include "StolenObject.h"
 
 static const float SCALE = 30.f;
 
