@@ -113,24 +113,27 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			
+
 			gameLogic.dialogue.winLevel();
 			writeDialogue(gameLogic, gameView);
-			
+
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 			  if(gameLogic.state.getUnlockedLevels() == 10 && gameLogic.state.getCurrentLevel() == 10){
-			    gameLogic.dialogue.winGame();
-			    writeDialogue(gameLogic, gameView);
-			    gameLogic.state.setState(GameState::State::TITLE);
+			    gameLogic.state.setState(GameState::State::FINISHGAME);
 			  }else{
 			    gameLogic.state.incrementUnlockedLevels();
 			  }
 			}
-			
+
 			break;
 
 		case GameState::State::FAIL:
 			gameLogic.dialogue.loseLevel();
+			writeDialogue(gameLogic, gameView);
+			break;
+
+		case GameState::State::FINISHGAME:
+			gameLogic.dialogue.winGame();
 			writeDialogue(gameLogic, gameView);
 			break;
 	}
