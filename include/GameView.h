@@ -25,11 +25,13 @@ namespace escape{
 			float screenY = 600;
 
 			sf::Font *font;
+			sf::Font *numFont;
 			sf::Music music;
 
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 			void drawText(sf::Text &text);
+			void drawNumText(sf::Text &text);
       void drawBackground(Level &level);
 
 			sf::RectangleShape makeRectangle(int width, int height, float xCoord, float yCoord, int rotation);
@@ -39,7 +41,7 @@ namespace escape{
 
 		public:
       GameView();
-      GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet, Timer* timer);
+      GameView(sf::Font* font, sf::Font* numFont, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet, Timer* timer);
 
 			void update(Level &level, bool play);
 			void displayLevelStory(sf::Text &text);

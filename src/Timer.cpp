@@ -35,20 +35,23 @@ void Timer::tickClock() {
 	}
 }
 
+string intToTwoLengthString(int number) {
+
+	string formattedString;
+
+	if (number < 10) {
+		formattedString.append("0");
+	}
+
+	formattedString.append(to_string(number));
+
+	return formattedString;
+}
+
 string Timer::getFormattedTime() {
 
-	string secondsFormatted;
-	string minutesFormatted;
+	string secondsFormatted = intToTwoLengthString(seconds);
+	string minutesFormatted = intToTwoLengthString(minutes);
 
-	if (this->seconds < 10)
-		secondsFormatted = "0" + to_string(this->seconds);
-	else
-		secondsFormatted = to_string(this->seconds);
-
-	if (this->minutes < 10)
-		minutesFormatted = "0" + to_string(this->minutes);
-	else
-		minutesFormatted = to_string(this->minutes);
-
-	return minutesFormatted + secondsFormatted;
+	return minutesFormatted + ":" + secondsFormatted;
 }

@@ -8,10 +8,11 @@ GameView::GameView(){}
 * @param *App: pointer to game window
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
-GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite, Timer* newTimer){
+GameView::GameView(sf::Font* font, sf::Font* numFont, sf::Texture* backgroundSprite, sf::Texture* objectSprite, Timer* newTimer){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
 
 	this -> font = font;
+	this->numFont = numFont;
   this -> backgroundSpriteSheet = backgroundSprite;
   this -> objectSpriteSheet = objectSprite;
 
@@ -44,6 +45,16 @@ void GameView::drawText(sf::Text &text) {
 	text.setFont(*this -> font);
 	text.setFillColor(sf::Color::White);
 	this -> App.draw(text);
+}
+
+/*
+* Draws numeric text for the level
+* @param text: text to draw
+*/
+void GameView::drawNumText(sf::Text &text) {
+	text.setFont(*this->numFont);
+	text.setFillColor(sf::Color::White);
+	this->App.draw(text);
 }
 
 /*
@@ -155,10 +166,11 @@ void GameView::update(Level &level, bool play){
 	this -> drawCircle(circle);
 
 	// Timer
-	sf::Text timer;
-	timer.setCharacterSize(20);
-	timer.setString(this->timer->getFormattedTime());
-	timer.setPosition(20, 20);
+	sf::Text timerText;
+	timerText.setCharacterSize(20);
+	timerText.setString(this->timer->getFormattedTime());
+	timerText.setPosition(20, 20);
+	this->drawNumText(timerText);
 
 	this -> App.display();
 

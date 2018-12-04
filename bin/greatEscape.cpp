@@ -21,12 +21,12 @@ int main(int argc, char** argv){
 	sf::Clock gameTime;
 
 	//Views
-	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture(), &timer);
+	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getNumFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture(), &timer);
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
 
 
 	//Target 60 fps
-  double targetMs = 1000/60;
+	double targetMs = 1000/1000;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {

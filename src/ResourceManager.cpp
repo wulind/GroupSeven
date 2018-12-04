@@ -9,6 +9,8 @@ ResourceManager::ResourceManager(){
 
 	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){}
 
+	if (!this->numFont.loadFromFile("../data/Roboto.ttf")) {}
+
   if (!mapTexture.loadFromFile("../data/LevelSelectionBlank.png")) {}
 
 	if (!levelDot.loadFromFile("../data/LevelDot.png")) {}
@@ -23,6 +25,13 @@ ResourceManager::ResourceManager(){
 */
 sf::Font* ResourceManager::getFont(){
   	return &this -> font;
+}
+
+/*
+* Returns aliens & cows font
+*/
+sf::Font* ResourceManager::getNumFont() {
+	return &this->numFont;
 }
 
 /*
