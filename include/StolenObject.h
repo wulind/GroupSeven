@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
+#include <math.h>
 
 namespace escape {
 	class StolenObject {
@@ -39,7 +40,7 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updatePosition();
-			void startContact();
+			void startContact(float yVel);
 			void endContact();
 	};
 }

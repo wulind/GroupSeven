@@ -70,14 +70,18 @@ void StolenObject::updatePosition(){
 /*
 * Procedures to do when stolen object touches something
 */
-void StolenObject::startContact(){
+void StolenObject::startContact(float yVel){
 	//Decrease health.
 	//TODO: change functionality to have variable damage
 
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
+		if (this -> health >= 0)
+			this -> health -= floor(yVel / 4);
+			if (this -> health < 0){
+				this -> health = 0;
+			}
 		this -> playSound = true;
-		this -> health -= 1;
 	}
 
 	this -> timeSinceLastDamage = newTime;
