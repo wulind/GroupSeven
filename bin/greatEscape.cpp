@@ -2,7 +2,6 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
-#include <iostream>
 
 using namespace escape;
 
@@ -23,7 +22,7 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 
 
-	//Target 60 fps
+	//Target 1000 fps
   double targetMs = 1000/1000;
 
 	// start main loop

@@ -15,7 +15,8 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
   this -> backgroundSpriteSheet = backgroundSprite;
   this -> objectSpriteSheet = objectSprite;
 
-	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+	if (music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+		music.setLoop(true);
 	}
 
 	if (buffer.loadFromFile("../data/thump.wav")){
