@@ -1,5 +1,4 @@
 #include "TitlePage.h"
-#include <iostream>
 
 using namespace escape;
 

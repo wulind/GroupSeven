@@ -21,9 +21,8 @@ int main(int argc, char** argv){
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 
-
 	//Target 1000 fps
-  double targetMs = 1000/1000;
+  double targetMs = 1000/480;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
