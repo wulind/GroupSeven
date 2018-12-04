@@ -24,7 +24,7 @@ void Level::setWorld(b2World* World){
   //at global scope
 
   //in FooTest constructor
-  World -> SetContactListener(&this -> myContactListenerInstance);
+  World -> SetContactListener(&this -> ContactListener);
 }
 
 /*

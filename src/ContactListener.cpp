@@ -2,10 +2,11 @@
 
 using namespace escape;
 
-
+/*
+* Called when objects in b2World collide
+*/
 void StolenObjectContactListener::BeginContact(b2Contact* contact){
   //check if fixture A was a ball
-  //std::cout << "Contact!\n";
   void* bodyUserData = contact -> GetFixtureA() -> GetBody() -> GetUserData();
   if ( bodyUserData ){
     static_cast<StolenObject*> ( bodyUserData ) -> startContact();
@@ -17,15 +18,9 @@ void StolenObjectContactListener::BeginContact(b2Contact* contact){
   }
 }
 
+/*
+* Reserved for future use
+*/
 void StolenObjectContactListener::EndContact(b2Contact* contact){
-  //check if fixture A was a ball
-  void* bodyUserData = contact->GetFixtureA()->GetBody()->GetUserData();
-  if ( bodyUserData ){
-    static_cast<StolenObject*> ( bodyUserData ) -> endContact();
-  }
 
-  bodyUserData = contact->GetFixtureB()->GetBody()->GetUserData();
-  if ( bodyUserData ){
-    static_cast<StolenObject*> ( bodyUserData ) -> endContact();
-  }
 }

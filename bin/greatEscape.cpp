@@ -2,7 +2,6 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
-#include <cmath>
 
 using namespace escape;
 

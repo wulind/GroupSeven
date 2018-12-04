@@ -30,7 +30,7 @@ namespace escape{
       StolenObject stolenObject;
       FinishButton finishButton;
 
-      StolenObjectContactListener myContactListenerInstance;
+      StolenObjectContactListener ContactListener;
 
       float gravity;
       Goal goal;
