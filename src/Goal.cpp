@@ -12,8 +12,19 @@ Goal::Goal(){
   this -> width = 250;
   this -> height = 110;
 
-  this -> xCoord = 350;//670
-  this -> yCoord = 550;//570
+  this -> xCoord = 350;
+  this -> yCoord = 550;
+}
+
+/*
+* Constructor
+*/
+Goal::Goal(int xCoord, int yCoord){
+  this -> width = 250;
+  this -> height = 110;
+
+  this -> xCoord = xCoord;
+  this -> yCoord = yCoord;
 }
 
 /*

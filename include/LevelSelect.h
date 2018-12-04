@@ -30,6 +30,7 @@ namespace escape{
       } SelectOrb;
 
 			std::vector<SelectOrb> levels;
+			
       void appendDot(SelectOrb orb);
       void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};

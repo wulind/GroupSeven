@@ -39,8 +39,6 @@ namespace escape {
 			void updateDragPosition(float mouseX, float mouseY);
 
 			void setRotation(int rotation);
-
-
 	};
 }
 #endif

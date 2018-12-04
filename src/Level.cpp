@@ -20,6 +20,8 @@ void Level::setWorld(b2World* World){
 
   this -> stolenObject.setWorld(World);
   this -> goal.setWorld(World);
+
+  World -> SetContactListener(&this -> contactListener);
 }
 
 /*
@@ -42,11 +44,11 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
 
   if(draggable){
     this -> platforms.push_back(platform);
-  }else{
+  }
+  else{
     platform.show = true;
     this -> obstacles.push_back(platform);
   }
-
 }
 
 /*
@@ -75,10 +77,19 @@ void Level::setGravity(float g){
 
 /*
 * Sets the stolen object for the level.
-* @param x: xCoord for stolen object
-* @param y: yCoord for stolen Object
-* @param radius: radius for stolen object
+* @param x: x coordinate for stolen object
+* @param y: y coordinate for stolen object
+* @param radius: Radius of stolen object
 */
 void Level::setStolenObject(int x, int y, int radius){
   this -> stolenObject = StolenObject(x, y, radius);
+}
+
+/*
+* Sets the goal for the level.
+* @param xCoord: x coordinate for goal
+* @param yCoord: y coordinate for goal
+*/
+void Level::setGoal(int xCoord, int yCoord){
+  this -> goal = Goal(xCoord, yCoord);
 }
