@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!-- Level 1. Michael Jordan Ball. Stadium. Chicago, Ill. -->
 <Level level="1">
-    <SelectOrb mapX = "190" mapY = "210"/>
+    <SelectOrb mapX = "170" mapY = "210"/>
     <Background startX="0" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -21,10 +21,10 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 2 -->
+<!-- Level 2. Money ball. Bank -->
 <Level level="2">
   <SelectOrb mapX = "190" mapY = "240"/>
-    <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+    <Background startX="1600" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -43,14 +43,14 @@
       <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="256" startY="0" xPos="50" yPos="100" radius="32"/>
+    <StolenObject startX="512" startY="512" xPos="50" yPos="100" radius="32"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 3 -->
+<!-- Level 3. Russian plate. Moscow. -->
 <Level level="3">
-  <SelectOrb mapX = "400" mapY = "210"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "600" mapY = "185"/>
+  <Background startX="1600" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
   <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -93,7 +93,7 @@
       <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="512" startY="0" xPos="50" yPos="100" radius="32"/>
+    <StolenObject startX="0" startY="512" xPos="50" yPos="100" radius="32"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -270,10 +270,10 @@
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="9.8"/>
 </Level>
-
+<!-- Jewel. Louvre. Paris-->
 <Level level="9">
-  <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <SelectOrb mapX = "415" mapY = "210"/>
+  <Background startX="0" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -296,10 +296,10 @@
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
     <Gravity value="-9.8"/>
 </Level>
-
+<!-- Babe Ruth Baesball. Baltimore. Other stadium art. -->
 <Level level="10">
   <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
@@ -319,6 +319,6 @@
       <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="25"/>
     <Gravity value="-9.8"/>
 </Level>
