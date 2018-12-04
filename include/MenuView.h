@@ -42,8 +42,6 @@ namespace escape{
 			void playMusic();
 
 			bool musicPlaying;
-
-
 	};
 }
 #endif

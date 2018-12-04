@@ -129,7 +129,6 @@ void GameView::update(Level &level, bool play){
 
 			this -> drawRectangle(platform);
 		}
-
 	}
 
 	//Obstacles

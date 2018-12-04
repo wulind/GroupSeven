@@ -14,6 +14,7 @@ namespace escape{
   class Level{//TODO: make this class a struct instead?
 
     private:
+
     public:
       Level();
 
@@ -44,8 +45,6 @@ namespace escape{
       void setGoal(int xCoord, int yCoord);
 
       void clearLevel();
-
-
   };
 }
 #endif

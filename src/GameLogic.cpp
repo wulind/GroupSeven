@@ -26,59 +26,38 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 			case sf::Event::Closed:
 				delete this -> World;
 				App -> close();// TODO: move in GameView?
-				break;
+			break;
 
-				case sf::Event::MouseButtonPressed:
+			case sf::Event::MouseButtonPressed:
 
-					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+				if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
-						switch(this -> state.getState()){//TODO: put in event handler
+					switch(this -> state.getState()){//TODO: put in event handler
 
-							case GameState::State::TITLE:
-								this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
-								break;
+						case GameState::State::TITLE:
+							this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
+							break;
 
-							case GameState::State::LEVELSELECT:
-								this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
-								break;
+						case GameState::State::LEVELSELECT:
+							this -> levelSelect.levelClick(sf::Mouse::getPosition(*App), this -> state);
+							break;
 
-							case GameState::State::STORY:
-								this -> state.setState(GameState::State::LOADING);
-								break;
-
-							case GameState::State::SETUP:
-								this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
-								this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
-
-								if(this -> state.getState() == GameState::State::PLAY){
-
-									for (int i = 0; i < this -> level.platforms.size(); i++){
-										if(!this -> level.platforms[i].show){
-											this -> World -> DestroyBody(this -> level.platforms[i].Body);
-										}
-									}
-								}
-								break;
-							case GameState::State::SUCCESS:
-								this -> state.setState(GameState::State::LEVELSELECT);
-								break;
-							case GameState::State::FAIL:
-								this -> state.setState(GameState::State::LEVELSELECT);
-								break;
-						}
-					}
-					break;
-
-				case sf::Event::MouseButtonReleased:
-					if (this -> state.getState() == GameState::State::SETUP){
-						this -> eventManager.releaseAllPlatforms(this -> level.platforms);
-					}
-					break;
-
-				case sf::Event::KeyPressed:
-					switch(this -> state.getState()){
 						case GameState::State::STORY:
 							this -> state.setState(GameState::State::LOADING);
+							break;
+
+						case GameState::State::SETUP:
+							this -> eventManager.checkMouseOverPlatform(sf::Mouse::getPosition(*App), this -> level.platforms);
+							this -> level.finishButton.changeToPlay(sf::Mouse::getPosition(*App), this -> state);
+
+							if(this -> state.getState() == GameState::State::PLAY){
+
+								for (int i = 0; i < this -> level.platforms.size(); i++){
+									if(!this -> level.platforms[i].show){
+										this -> World -> DestroyBody(this -> level.platforms[i].Body);
+									}
+								}
+							}
 							break;
 						case GameState::State::SUCCESS:
 							this -> state.setState(GameState::State::LEVELSELECT);
@@ -88,7 +67,28 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 							break;
 					}
 				}
-			break;
+				break;
+
+			case sf::Event::MouseButtonReleased:
+				if (this -> state.getState() == GameState::State::SETUP){
+					this -> eventManager.releaseAllPlatforms(this -> level.platforms);
+				}
+				break;
+
+			case sf::Event::KeyPressed:
+				switch(this -> state.getState()){
+					case GameState::State::STORY:
+						this -> state.setState(GameState::State::LOADING);
+						break;
+					case GameState::State::SUCCESS:
+						this -> state.setState(GameState::State::LEVELSELECT);
+						break;
+					case GameState::State::FAIL:
+						this -> state.setState(GameState::State::LEVELSELECT);
+						break;
+				}
+			}
+		break;
 		}
 }
 

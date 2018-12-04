@@ -44,11 +44,11 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
 
   if(draggable){
     this -> platforms.push_back(platform);
-  }else{
+  }
+  else{
     platform.show = true;
     this -> obstacles.push_back(platform);
   }
-
 }
 
 /*

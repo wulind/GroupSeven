@@ -46,7 +46,6 @@ namespace escape {
 
 			void progressSimluation();
 			void partialProgressSimluation(float portion);
-
 	};
 }
 #endif

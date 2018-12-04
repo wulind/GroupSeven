@@ -22,7 +22,6 @@ namespace escape{
       State state; //Current game state
       int unlockedLevels; //How many levels are unlocked
       int currentLevel; //Which level the player is currently playing
-
   };
 }
 #endif
