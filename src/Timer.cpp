@@ -10,20 +10,29 @@ Timer::Timer() {
 
 	this->color		= sf::Color::White;
 
-	this->minutes	= 0;
-	this->seconds	= 0;
-	this->frames	= 0;
+	this->minutes		= 0;
+	this->seconds		= 0;
+	this->milliseconds	= 0;
 }
 
 /*
  * Add 1 frame to the timer during "play" state
  */
 void Timer::tickClock() {
-	
-	this->frames += 1;
 
-	if (this->frames >= 60) {
-		this->frames = 0;
+	if (!this->isPlaying) {
+		this->isPlaying = true;
+		clock.restart();
+		return;
+	}
+
+	sf::Time elapsedTime = clock.getElapsedTime();
+
+	
+	this->milliseconds += elapsedTime.asMilliseconds();
+
+	if (this->milliseconds >= 1000) {
+		this->milliseconds = this->milliseconds - 1000;
 		this->seconds += 1;
 
 		string curTime = this->getFormattedTime();
@@ -33,25 +42,31 @@ void Timer::tickClock() {
 		this->seconds = 0;
 		this->minutes += 1;
 	}
+
+	clock.restart();
 }
 
-string intToTwoLengthString(int number) {
+void Timer::stopClock() {
+	this->isPlaying = false;
 
-	string formattedString;
+};
 
-	if (number < 10) {
-		formattedString.append("0");
+string intToLengthString(int number, int lengthOfString) {
+
+	string formattedString = to_string(number);
+
+	while (formattedString.length() < lengthOfString) {
+		formattedString = "0" + formattedString;
 	}
-
-	formattedString.append(to_string(number));
 
 	return formattedString;
 }
 
 string Timer::getFormattedTime() {
 
-	string secondsFormatted = intToTwoLengthString(seconds);
-	string minutesFormatted = intToTwoLengthString(minutes);
+	string millisecondsFormatted = intToLengthString(milliseconds, 3);
+	string secondsFormatted = intToLengthString(seconds, 2);
+	string minutesFormatted = intToLengthString(minutes, 2);
 
-	return minutesFormatted + ":" + secondsFormatted;
+	return minutesFormatted + ":" + secondsFormatted + ":" + millisecondsFormatted;
 }

@@ -11,11 +11,17 @@ namespace escape {
 
 		int minutes;
 		int seconds;
-		int frames;
+		int milliseconds;
+
+		bool isPlaying;
+
+		sf::Clock clock;
 
 		sf::Color color;
 
 		void tickClock();
+		void stopClock();
+
 		std::string getFormattedTime();
 	};
 }

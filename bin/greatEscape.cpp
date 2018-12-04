@@ -111,6 +111,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
+
+			timer.stopClock();
+
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 				gameLogic.state.incrementUnlockedLevels();
 			}
@@ -118,6 +121,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::FAIL:
+
+			timer.stopClock();
+
 			gameLogic.state.setState(GameState::State::LEVELSELECT);
 			break;
 	}
