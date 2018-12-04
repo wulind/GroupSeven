@@ -14,7 +14,6 @@ Platform::Platform(){}
 * @param width: width of platform
 */
 Platform::Platform(float x, float y, int height, int width){
-	//TODO: Update this to be in the menu
 	this -> xCoord = x;
 	this -> yCoord = y;
   this -> mouseDragOffsetX = 0;

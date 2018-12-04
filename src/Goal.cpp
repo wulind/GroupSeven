@@ -73,5 +73,4 @@ int Goal::detectWin(StolenObject &stolenObject){
   }
 
   return 0;
-
 }
