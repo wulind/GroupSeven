@@ -61,6 +61,7 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 void MenuView::drawBackground(){
     //Use the texture as a sprite
     sf::Sprite mapSprite(*this -> mapTexture);
+		mapSprite.setTextureRect(sf::IntRect(800, 0, this -> mapImageFullX, this -> mapImageFullY));
     mapSprite.setScale(this -> screenX / this -> mapImageFullX, this -> screenY / this -> mapImageFullY);
     this -> App -> draw(mapSprite);
 
@@ -74,6 +75,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 		for (i; i < levelSelect.levels.size(); ++i){
 			levelSelect.levels[i].circle.setRadius(25);
 			levelSelect.levels[i].circle.setTexture(this -> levelDot);
+			levelSelect.levels[i].circle.setTextureRect(sf::IntRect(250, 950, 375, 375));
 	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}

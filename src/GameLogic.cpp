@@ -59,6 +59,12 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 									}
 								}
 								break;
+							case GameState::State::SUCCESS:
+								this -> state.setState(GameState::State::LEVELSELECT);
+								break;
+							case GameState::State::FAIL:
+								this -> state.setState(GameState::State::LEVELSELECT);
+								break;
 						}
 					}
 					break;
@@ -72,15 +78,17 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 				case sf::Event::KeyPressed:
 					switch(this -> state.getState()){
 						case GameState::State::STORY:
-							sf::Vector2i mousePosition = sf::Mouse::getPosition(*App);
-							if (mousePosition.x >= 0 && mousePosition.x <= 800 && mousePosition.y >= 0 && mousePosition.y <= 600){
-								this -> state.setState(GameState::State::LOADING);
-							}
+							this -> state.setState(GameState::State::LOADING);
+							break;
+						case GameState::State::SUCCESS:
+							this -> state.setState(GameState::State::LEVELSELECT);
+							break;
+						case GameState::State::FAIL:
+							this -> state.setState(GameState::State::LEVELSELECT);
 							break;
 					}
-				break;
-			}
-
+				}
+			break;
 		}
 }
 

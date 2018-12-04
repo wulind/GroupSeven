@@ -10,9 +10,6 @@ namespace escape {
 
 		private:
 			sf::Font font;
-			sf::Texture levelDot;
-      sf::Texture mapTexture;
-
       //Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
       sf::Texture objectSpriteSheet;
@@ -22,7 +19,6 @@ namespace escape {
 
     	sf::Font* getFont();
       sf::Texture* getMapTexture();
-      sf::Texture* getLevelDot();
       sf::Texture* getBackgroundTexture();
       sf::Texture* getObjectTexture();
 

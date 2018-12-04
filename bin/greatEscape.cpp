@@ -19,7 +19,7 @@ int main(int argc, char** argv){
 
 	//Views
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
-	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getMapTexture(), gameLogic.resources.getLevelDot());
+	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 
 
 	//Target 60 fps
@@ -105,11 +105,13 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
 				gameLogic.state.incrementUnlockedLevels();
 			}
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.dialogue.winLevel();
+			writeDialogue(gameLogic, gameView);
 			break;
 
 		case GameState::State::FAIL:
-			gameLogic.state.setState(GameState::State::LEVELSELECT);
+			gameLogic.dialogue.loseLevel();
+			writeDialogue(gameLogic, gameView);
 			break;
 	}
 }
