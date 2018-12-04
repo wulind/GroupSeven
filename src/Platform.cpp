@@ -1,4 +1,4 @@
-#include "../include/Platform.h"
+#include "Platform.h"
 
 static const float SCALE = 30.f;
 

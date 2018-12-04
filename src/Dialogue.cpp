@@ -30,6 +30,7 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("Good work Player. Next job’s easy: the Louvre.");
 			break;
 	}
+	
 /*
 * Dialogue if the player loses a level
 */

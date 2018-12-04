@@ -1,4 +1,4 @@
-#include "../include/GameView.h"
+#include "GameView.h"
 
 using namespace escape;
 
@@ -15,9 +15,15 @@ GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* o
   this -> backgroundSpriteSheet = backgroundSprite;
   this -> objectSpriteSheet = objectSprite;
 
-	if (!music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+	if (music.openFromFile("../data/GreatEscapeTheiveryTheme.wav")){
+		music.setLoop(true);
 	}
 
+	if (buffer.loadFromFile("../data/thump.wav")){
+		thump.setBuffer(buffer);
+	}
+
+	this -> musicPlaying = false;
 }
 
 /*
@@ -123,7 +129,6 @@ void GameView::update(Level &level, bool play){
 
 			this -> drawRectangle(platform);
 		}
-
 	}
 
 	//Obstacles
@@ -136,18 +141,24 @@ void GameView::update(Level &level, bool play){
 		this -> drawRectangle(platform);
 	}
 
-	//Goal
-	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
-	goal.setTexture(this -> objectSpriteSheet, false);
-	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
-	level.goal.bounds = goal.getGlobalBounds();
-
 	//StolenObject
 	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject.radius, level.stolenObject.xCoord, level.stolenObject.yCoord, level.stolenObject.rotation);
 	level.stolenObject.bounds = circle.getGlobalBounds();
 	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
 	this -> drawCircle(circle);
+
+	if (level.stolenObject.playSound){
+		this -> thump.play();
+		level.stolenObject.playSound = false;
+	}
+
+	//Goal
+	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
+	goal.setTexture(this -> objectSpriteSheet, false);
+	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
+	level.goal.bounds = goal.getGlobalBounds();
 	this -> drawRectangle(goal);
+
 	this -> App.display();
 }
 

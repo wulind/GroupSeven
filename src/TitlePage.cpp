@@ -1,4 +1,4 @@
-#include "../include/TitlePage.h"
+#include "TitlePage.h"
 
 using namespace escape;
 
@@ -12,11 +12,9 @@ TitlePage::TitlePage(){
   this -> title.setCharacterSize(75);
 	this -> title.setFillColor(sf::Color::White);
 
-
 	this -> play.setString("play");
 	this -> play.setCharacterSize(50);
 	this -> play.setFillColor(sf::Color::White);
-
 }
 
 /*
@@ -30,5 +28,4 @@ void TitlePage::changeToLevelSelect(sf::Vector2i mousePosition, GameState &state
   if(playBoundingRectangle.contains(mousePosition.x, mousePosition.y)){
       state.setState(GameState::State::LEVELSELECT);
   }
-
 }

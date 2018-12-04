@@ -25,6 +25,8 @@ namespace escape{
 
 			sf::Font *font;
 			sf::Music music;
+			sf::SoundBuffer buffer;
+			sf::Sound thump;
 
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
@@ -42,6 +44,8 @@ namespace escape{
 			void displayLevelStory(sf::Text &text);
 			void pauseMusic();
 			void playMusic();
+
+			bool musicPlaying;
 
 			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();

@@ -18,6 +18,7 @@
       <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="32"/>
+    <Goal xPos = "150" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -44,6 +45,7 @@
 
     </Platforms>
     <StolenObject startX="256" startY="0" xPos="50" yPos="100" radius="32"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -94,6 +96,7 @@
 
     </Platforms>
     <StolenObject startX="512" startY="0" xPos="50" yPos="100" radius="32"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -121,6 +124,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="350" yPos="50" radius="32"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -189,6 +193,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="550" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -216,6 +221,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -242,6 +248,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -268,6 +275,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -294,6 +302,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="-9.8"/>
 </Level>
 
@@ -320,5 +329,6 @@
 
     </Platforms>
     <StolenObject startX="0" startY="0" xPos="50" yPos="100" radius="25"/>
+    <Goal xPos = "350" yPos = "550"/>
     <Gravity value="-9.8"/>
 </Level>

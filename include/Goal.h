@@ -13,6 +13,7 @@ namespace escape{
 
     public:
       Goal();
+      Goal(int xCoord, int yCoord);
 
       int width;
       int height;
@@ -25,7 +26,6 @@ namespace escape{
       void setWorld(b2World* World);
 
       int detectWin(StolenObject &stolenObject);
-
   };
 }
 #endif

@@ -25,7 +25,11 @@ namespace escape {
 
 			int radius;
 
-			int rotation;
+			double timeSinceLastDamage;
+			sf::Clock timer;
+			bool playSound;
+
+			float rotation;
 
 			sf::FloatRect bounds;
 
@@ -34,6 +38,8 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updatePosition();
+			void startContact();
+			void endContact();
 	};
 }
 #endif

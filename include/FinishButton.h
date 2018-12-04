@@ -1,7 +1,7 @@
 #ifndef FINISHBUTTON_H
 #define FINISHBUTTON_H
 
-#include "../include/GameState.h"
+#include "GameState.h"
 #include <SFML/Graphics.hpp>
 
 namespace escape {
