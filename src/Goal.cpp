@@ -12,8 +12,19 @@ Goal::Goal(){
   this -> width = 250;
   this -> height = 110;
 
-  this -> xCoord = 350;//670
-  this -> yCoord = 550;//570
+  this -> xCoord = 350;
+  this -> yCoord = 550;
+}
+
+/*
+* Constructor
+*/
+Goal::Goal(int xCoord, int yCoord){
+  this -> width = 250;
+  this -> height = 110;
+
+  this -> xCoord = xCoord;
+  this -> yCoord = yCoord;
 }
 
 /*
@@ -30,17 +41,13 @@ void Goal::setWorld(b2World* World){
   b2PolygonShape shape;
   const float density = 100.f;
 
-  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, this -> height/2/SCALE), 0);
+  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((-this -> width/2 + 30)/SCALE, this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 
-  shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 5)/SCALE), 0);
-  b2FixtureDef fixtureDef;
-  fixtureDef.shape = &shape;
-  fixtureDef.density = density;
-  fixtureDef.friction = 1.0f;
-  this -> Body -> CreateFixture(&fixtureDef);
+  shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 15)/SCALE), 0);
+  this -> Body -> CreateFixture(&shape, density);
 
-  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 10)/SCALE, this -> height/2/SCALE), 0);
+  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 20)/SCALE, this -> height/2/SCALE), 0);
   this -> Body -> CreateFixture(&shape, density);
 }
 
