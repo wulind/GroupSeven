@@ -79,10 +79,8 @@ void StolenObject::startContact(){
 		this -> health -= 1;
 		this -> playSound = true;
 	}
+
 	this -> timeSinceLastDamage = newTime;
-
-	//TODO: Play a short sound when making contact
-
 }
 
 /*

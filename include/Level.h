@@ -8,7 +8,7 @@
 #include "FinishButton.h"
 #include "Goal.h"
 #include "PlatformMenu.h"
-#include "StolenObjectContactListener.h"
+#include "ContactListener.h"
 
 namespace escape{
   class Level{//TODO: make this class a struct instead?

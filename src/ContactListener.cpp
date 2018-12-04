@@ -1,5 +1,4 @@
-#include "../include/StolenObjectContactListener.h"
-#include <iostream>
+#include "../include/ContactListener.h"
 
 using namespace escape;
 
