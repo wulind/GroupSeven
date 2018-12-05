@@ -28,15 +28,18 @@ MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTex
 void MenuView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.title.setFont(*this -> font);
 	titlePage.play.setFont(*this -> font);
+	titlePage.options.setFont(*this -> font);
 
 	//Set origins to the middle of the word
 	sf::FloatRect titleBounds = titlePage.title.getLocalBounds();
 	sf::FloatRect playBounds = titlePage.play.getLocalBounds();
 	titlePage.title.setOrigin(titleBounds.left + titleBounds.width/2.0f, titleBounds.top + titleBounds.height/2.0f);
 	titlePage.play.setOrigin(playBounds.left + playBounds.width/2.0f, playBounds.top + playBounds.height/2.0f);
+	titlePage.options.setOrigin(playBounds.left + playBounds.width/1.1f, playBounds.top + playBounds.height/2.0f);
 
 	titlePage.title.setPosition(sf::Vector2f(this -> screenX/2.0f, 100));
-	titlePage.play.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 75));
+	titlePage.play.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 125));
+	titlePage.options.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 25));
 
 	//Draw to screen
 
@@ -47,6 +50,7 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 	this -> App -> draw(backgroundSprite);
 	this -> drawText(titlePage.title);
 	this -> drawText(titlePage.play);
+	this -> drawText(titlePage.options);
 
 	this -> App -> display();
 }

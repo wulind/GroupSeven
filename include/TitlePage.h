@@ -12,6 +12,7 @@ namespace escape{
 
 			sf::Text title;
     	sf::Text play;
+			sf::Text options;
 
       void changeToLevelSelect(sf::Vector2i mousePosition, GameState &state);
 

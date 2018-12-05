@@ -15,6 +15,11 @@ TitlePage::TitlePage(){
 	this -> play.setString("play");
 	this -> play.setCharacterSize(50);
 	this -> play.setFillColor(sf::Color::White);
+
+  this -> options.setString("options");
+  this -> options.setCharacterSize(50);
+  this -> options.setFillColor(sf::Color::White);
+
 }
 
 /*
