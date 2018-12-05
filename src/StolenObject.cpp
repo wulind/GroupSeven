@@ -54,7 +54,9 @@ void StolenObject::setWorld(b2World* World){
 
 	this -> Body -> CreateFixture(&FixtureDef);
 	this -> Body -> SetAwake(1);
-	this -> Body -> SetUserData(this);
+	this -> Body -> SetUserData( this );
+
+	this -> health = 10;
 }
 
 /*
@@ -69,14 +71,27 @@ void StolenObject::updatePosition(){
 /*
 * Procedures to do when stolen object touches something
 */
-void StolenObject::startContact(){
+void StolenObject::startContact(float yVel){
 	//Decrease health.
 	//TODO: change functionality to have variable damage
 
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
+		if (this -> health >= 0)
+			this -> health -= floor(yVel / 4);
+			if (this -> health < 0){
+				this -> health = 0;
+			}
 		this -> playSound = true;
 	}
 
 	this -> timeSinceLastDamage = newTime;
+}
+
+/*
+* Kills the momentum of object
+*/
+void StolenObject::killSpeed(){
+	this -> Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
+	this -> Body -> SetAwake(0);
 }

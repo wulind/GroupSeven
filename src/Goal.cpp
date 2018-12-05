@@ -62,7 +62,7 @@ int Goal::detectWin(StolenObject &stolenObject){
 
   if(stolenObject.Body -> IsAwake()){
     if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1){
-      stolenObject.Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
+      stolenObject.killSpeed();
     }
     return -1;
   }
