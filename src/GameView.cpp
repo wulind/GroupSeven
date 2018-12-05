@@ -112,7 +112,7 @@ void GameView::update(Level &level, bool play){
 	sf::RectangleShape platform;
 	int i = 0;
 	for (i; i < level.platforms.size(); ++i){
-		if(play && level.platforms[i].show){
+		if(play && level.platforms[i].show){//If playing, don't show the platforms that haven't been dragged
 			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
 			platform.setFillColor(sf::Color::White);
 
@@ -135,7 +135,7 @@ void GameView::update(Level &level, bool play){
 	i = 0;
 	for (i; i < level.obstacles.size(); ++i){
 		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
-		platform.setFillColor(sf::Color(160,82,45));
+		platform.setFillColor(level.obstacles[i].color);
 		level.obstacles[i].bounds = platform.getGlobalBounds();
 		level.obstacles[i].origin = platform.getPosition();
 		this -> drawRectangle(platform);

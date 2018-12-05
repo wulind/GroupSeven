@@ -11,7 +11,7 @@
 #include "ContactListener.h"
 
 namespace escape{
-  class Level{//TODO: make this class a struct instead?
+  class Level{
 
     private:
 
@@ -38,7 +38,7 @@ namespace escape{
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
-      void makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable);
+      void makePlatform(int rotation, int xPos, int yPos, int width, int height, int* color, bool draggable);
       void setBackgroundFile(const char *_startX, const char *_startY);
       void setGravity(float g);
       void setStolenObject(int x, int y, int radius);

@@ -55,7 +55,6 @@ LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
 * Makes the platforms for the level
 */
 void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
-  int yPos = 200;
   tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
@@ -66,13 +65,20 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     else{
       draggable = false;
     }
+
     int rotation = std::atoi(child -> Attribute("rotation"));
     int xPos = std::atoi(child -> Attribute("xPos"));
     int yPos = std::atoi(child -> Attribute("yPos"));
     int width = std::atoi(child -> Attribute("width"));
     int height = std::atoi(child -> Attribute("height"));
 
-    level.makePlatform(rotation, xPos, yPos, width, height, draggable);
+    int color[3];
+    color[0] = std::atoi(child -> Attribute("red"));
+    color[1] = std::atoi(child -> Attribute("green"));
+    color[2] = std::atoi(child -> Attribute("blue"));
+
+
+    level.makePlatform(rotation, xPos, yPos, width, height, color, draggable);
 
     child = child -> NextSiblingElement();
   }
