@@ -62,11 +62,9 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 void MenuView::loadLevelSelect(LevelSelect &levelSelect){
   //Creates a Level Select object which handles drawing the background art for the level select screen and the available level dots on the screen that can be clicked
 	sf::Text titleText;
-	titleText.setFont(*this -> font);
 	titleText.setCharacterSize(74);
   titleText.setString("Select A Level");
   titleText.setPosition(380,520);
-  titleText.setFillColor(sf::Color::White);
 
 	this -> drawBackground();
   this -> drawText(titleText);
@@ -98,6 +96,30 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 			App -> draw(levelSelect.levels[i].circle);
 		}
 }
+
+/*
+ * Draws the screen for choosing options
+ */
+void MenuView::drawOptionsMenu(){
+	this -> App -> clear();
+
+	sf::Text title;
+	title.setCharacterSize(74);
+	title.setString("Options:");
+	title.setPosition(10,0);
+	this -> drawText(title);
+
+	sf::Text returnText;
+	returnText.setCharacterSize(35);
+	returnText.setString("Return");
+	returnText.setPosition(10,540);
+	this -> drawText(returnText);
+
+
+	this -> App -> display();
+
+}
+
 
 /*
 * Draws text onto screen

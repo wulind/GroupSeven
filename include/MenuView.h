@@ -34,6 +34,7 @@ namespace escape{
 			void loadTitleScreen(TitlePage &titlePage);
 			void loadLevelSelect(LevelSelect &levelSelect);
 			void drawLevelDots(LevelSelect &levelSelect);
+			void drawOptionsMenu();
 
 			void update(GameState &state);
 			void drawBackground();

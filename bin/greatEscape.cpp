@@ -8,6 +8,7 @@ using namespace escape;
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
 void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
+void drawOptionsMenu(MenuView &menuView);
 
 int main(int argc, char** argv){
 
@@ -114,6 +115,9 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 					gameLogic.state.setState(GameState::State::FAIL);
 			}
 			break;
+		case GameState::State::OPTIONS:
+			drawOptionsMenu(menuView);
+			break;
 
 		case GameState::State::SUCCESS:
 
@@ -156,4 +160,8 @@ void drawLevel(Level &level, GameView &gameView, bool play){
 */
 void writeDialogue(GameLogic &gameLogic, GameView &gameView){
 	gameView.displayLevelStory(gameLogic.dialogue.text);
+}
+
+void drawOptionsMenu(MenuView &menuView){
+	menuView.drawOptionsMenu();
 }
