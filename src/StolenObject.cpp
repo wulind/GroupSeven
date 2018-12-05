@@ -1,4 +1,5 @@
 #include "StolenObject.h"
+#include <cmath>
 
 static const float SCALE = 30.f;
 
@@ -78,10 +79,11 @@ void StolenObject::startContact(float yVel){
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
 		if (this -> health >= 0)
-			this -> health -= floor(yVel / 4);
+			this -> health -= floor(abs(yVel) / 4);
 			if (this -> health < 0){
 				this -> health = 0;
 			}
+
 		this -> playSound = true;
 	}
 
@@ -92,6 +94,6 @@ void StolenObject::startContact(float yVel){
 * Kills the momentum of object
 */
 void StolenObject::killSpeed(){
-	this -> Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
-	this -> Body -> SetAwake(0);
+	//this -> Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
+	//this -> Body -> SetAwake(0);
 }
