@@ -5,275 +5,303 @@
     <Background startX="0" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "400" height = "10"/>
-      <Platform rotation = "-10" draggable = "0" xPos="500" yPos ="400" width = "100" height = "10"/>
+      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "400" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
     </Platforms>
-    <StolenObject startX="768" startY="256" xPos="50" yPos="100" radius="32"/>
+
+    <StolenObject startX="768" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.7"/>
     <Goal xPos = "150" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 2. Money ball. Bank -->
+<!-- Level 2. Money ball. Bank. San Francisco. -->
 <Level level="2">
-  <SelectOrb mapX = "190" mapY = "240"/>
+  <SelectOrb mapX = "120" mapY = "250"/>
     <Background startX="1600" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125"/>
-      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10"/>
+      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
     </Platforms>
-    <StolenObject startX="512" startY="512" xPos="50" yPos="100" radius="32"/>
+
+    <StolenObject startX="512" startY="512" xPos="50" yPos="100" radius="32" restitution = "0.5"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 3. Russian plate. Moscow. -->
 <Level level="3">
-  <SelectOrb mapX = "600" mapY = "185"/>
+  <SelectOrb mapX = "470" mapY = "165"/>
   <Background startX="1600" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
   <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="300" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="300" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "0" xPos="250" yPos ="450" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="250" yPos ="450" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
-      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="250" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="350" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="200" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="350" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "0" xPos="450" yPos ="500" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "0" xPos="550" yPos ="500" width = "100" height = "10"/>
+      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="250" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="200" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "0" xPos="450" yPos ="500" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10"/>
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10"/>
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10"/>
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10"/>
-
-      <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
-      <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
-      <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
-      <Platform rotation = "-25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="512" xPos="50" yPos="100" radius="32"/>
+    <StolenObject startX="0" startY="512" xPos="50" yPos="100" radius="32" restitution = "0.6"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 4. Taj Mahal. India. Diamond. -->
 <Level level="4">
-  <SelectOrb mapX = "600" mapY = "320"/>
+  <SelectOrb mapX = "565" mapY = "270"/>
     <Background startX="0" startY="2400" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "-45" draggable = "0" xPos="270" yPos ="200" width = "200" height = "10"/>
-      <Platform rotation = "45" draggable = "0" xPos="420" yPos ="200" width = "200" height = "10"/>
+      <Platform rotation = "-45" draggable = "0" xPos="315" yPos ="230" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="465" yPos ="230" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="200" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
 
-    <StolenObject startX="0" startY="0" xPos="350" yPos="75" radius="25"/>
-    <Goal xPos = "350" yPos = "550"/>
+    <StolenObject startX="0" startY="0" xPos="390" yPos="105" radius="25" restitution = "0.6"/>
+    <Goal xPos = "395" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 5 The Met. NYC. Diamond Necklace-->
 <Level level="5">
-  <SelectOrb mapX = "200" mapY = "210"/>
+  <SelectOrb mapX = "200" mapY = "230"/>
   <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Level layout -->
-      <!-- Obstacles -->
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "600" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="500" yPos ="350" width = "600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="500" yPos ="350" width = "600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="200" width = "100" height = "10"/>
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="400" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="400" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
     </Platforms>
 
-    <StolenObject startX="512" startY="256" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="512" startY="256" xPos="50" yPos="100" radius="25" restitution = "0.4"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 6 Turkey. Old coin with face-->
+<!-- Level 6. Forbidden Palace. China. Gold Dragon Coin. -->
 <Level level="6">
-  <SelectOrb mapX = "460" mapY = "290"/>
-  <Background startX="0" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
-    <Platforms>
-      <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
-
-      <!-- Level layout -->
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "10" height = "350"/>
-      <Platform rotation = "0" draggable = "0" xPos="400" yPos ="300" width = "400" height = "10"/>
-
-      <!-- Draggables -->
-      <Platform rotation = "50" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="200" width = "10" height = "100"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10"/>
-
-    </Platforms>
-    <StolenObject startX="256" startY="512" xPos="50" yPos="100" radius="25"/>
-    <Goal xPos = "500" yPos = "550"/>
-    <Gravity value="9.8"/>
-</Level>
-
-<!-- Level 7. Forbidden Palace. China. Gold Dragon Coin. -->
-<Level level="7">
-  <SelectOrb mapX = "760" mapY = "210"/>
+  <SelectOrb mapX = "650" mapY = "240"/>
   <Background startX="0" startY="0" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "800" height = "10"/>
+      <Platform rotation = "20" draggable = "0" xPos="75" yPos ="150" width = "800" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "-55" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="200" width = "10" height = "100"/>
+      <Platform rotation = "-55" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="200" width = "10" height = "100" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
-    <StolenObject startX="768" startY="0" xPos="50" yPos="100" radius="25"/>
+    <StolenObject startX="768" startY="0" xPos="50" yPos="100" radius="25" restitution = "0.2"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 8. Laboratory. Finland. World's Rounded Object. -->
+<!-- Level 7 Turkey. Old coin with face-->
+<Level level="7">
+  <SelectOrb mapX = "465" mapY = "225"/>
+  <Background startX="0" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+      <!-- Level layout -->
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "10" height = "350" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="400" yPos ="300" width = "400" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+      <!-- Draggables -->
+      <Platform rotation = "50" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="200" width = "10" height = "100" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+    </Platforms>
+
+    <StolenObject startX="256" startY="512" xPos="50" yPos="100" radius="25" restitution = "0.5"/>
+    <Goal xPos = "450" yPos = "550"/>
+    <Gravity value="9.8"/>
+</Level>
+
+<!-- Level 8. Laboratory. Australia. World's Rounded Object. -->
 <Level level="8">
-  <SelectOrb mapX = "410" mapY = "150"/>
+  <SelectOrb mapX = "725" mapY = "490"/>
   <Background startX="1600" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125"/>
-      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10"/>
+      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
-
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
     </Platforms>
-    <StolenObject startX="256" startY="0" xPos="50" yPos="100" radius="32"/>
+
+    <StolenObject startX="256" startY="0" xPos="50" yPos="100" radius="32"  restitution = "0.7"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Louvre. Paris-->
+<!-- Level 9. Louvre. Paris. Cartier ring.-->
 <Level level="9">
-  <SelectOrb mapX = "415" mapY = "210"/>
+  <SelectOrb mapX = "400" mapY = "210"/>
   <Background startX="0" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125"/>
-      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10"/>
+      <Platform rotation = "-35" draggable = "0" xPos="270" yPos ="400" width = "300" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "35" draggable = "0" xPos="520" yPos ="400" width = "300" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
+      <Platform rotation = "35" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "0" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+    </Platforms>
+
+    <StolenObject startX="256" startY="256" xPos="50" yPos="100" radius="32"  restitution = "0.8"/>
+    <Goal xPos = "650" yPos = "550"/>
+    <Gravity value="9.8"/>
+</Level>
+
+<!-- Level 10. Babe Ruth Baseball. Baltimore. Other stadium art. -->
+<Level level="10">
+  <SelectOrb mapX = "210" mapY = "210"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+      <!-- Level layout -->
+      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+      <!-- Draggables -->
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
-    <StolenObject startX="768" startY="0" xPos="50" yPos="100" radius="32"/>
+    <StolenObject startX="0" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.2"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Babe Ruth Baseball. Baltimore. Other stadium art. -->
-<Level level="10">
-  <SelectOrb mapX = "650" mapY = "230"/>
-  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
+<!-- Level 11. Underwater. Doubloon. -->
+<Level level="11">
+  <SelectOrb mapX = "300" mapY = "200"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "20" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="100" yPos ="300" width = "150" height = "10"/>
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="350" width = "10" height = "125"/>
-      <Platform rotation = "0" draggable = "0" xPos="300" yPos ="400" width = "150" height = "10"/>
 
       <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
-    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32"/>
+    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32" restitution = "0.5"/>
     <Goal xPos = "350" yPos = "550"/>
-    <Gravity value="9.8"/>
+    <Gravity value="-9.8"/>
+</Level>
+
+<!-- Level 12. Underwater. Pearl. -->
+<Level level="12">
+  <SelectOrb mapX = "300" mapY = "350"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+      <!-- Level layout -->
+
+      <!-- Draggables -->
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+
+    </Platforms>
+    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32" restitution = "0.5"/>
+    <Goal xPos = "350" yPos = "550"/>
+    <Gravity value="-9.8"/>
 </Level>

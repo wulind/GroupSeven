@@ -99,59 +99,6 @@ void GameView::update(Level &level, bool play){
 	this -> App.clear();
   this -> drawBackground(level);
 
-	if(level.finishButton.show){//if GameState setup
-		sf::RectangleShape menu(sf::Vector2f(180, this -> screenY));
-		menu.setPosition(this -> screenX - 180, 0);
-		menu.setFillColor(sf::Color(0, 0, 0, 100));
-		this -> drawRectangle(menu);
-		this -> drawText(level.finishButton.button);
-		this -> drawText(level.platformMenu.title);
-	}
-
-	//Platforms
-	sf::RectangleShape platform;
-	int i = 0;
-	for (i; i < level.platforms.size(); ++i){
-		if(play && level.platforms[i].show){
-			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
-			platform.setFillColor(sf::Color::White);
-
-			level.platforms[i].bounds = platform.getGlobalBounds();
-			level.platforms[i].origin = platform.getPosition();
-
-			this -> drawRectangle(platform);
-		}else if (!play){
-			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
-			platform.setFillColor(sf::Color::White);
-
-			level.platforms[i].bounds = platform.getGlobalBounds();
-			level.platforms[i].origin = platform.getPosition();
-
-			this -> drawRectangle(platform);
-		}
-	}
-
-	//Obstacles
-	i = 0;
-	for (i; i < level.obstacles.size(); ++i){
-		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
-		platform.setFillColor(sf::Color(160,82,45));
-		level.obstacles[i].bounds = platform.getGlobalBounds();
-		level.obstacles[i].origin = platform.getPosition();
-		this -> drawRectangle(platform);
-	}
-
-	//StolenObject
-	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject.radius, level.stolenObject.xCoord, level.stolenObject.yCoord, level.stolenObject.rotation);
-	level.stolenObject.bounds = circle.getGlobalBounds();
-	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
-	this -> drawCircle(circle);
-
-	if (level.stolenObject.playSound){
-		this -> thump.play();
-		level.stolenObject.playSound = false;
-	}
-
 	//Display healthbar
 	//2 rectangles, top one is White, bottom is red. Make top one shorter on each hit
 	sf::RectangleShape top(sf::Vector2f(200 - (200 - level.stolenObject.health * 20), 10));
@@ -170,12 +117,66 @@ void GameView::update(Level &level, bool play){
 	health.setPosition(290, 10);
 	this -> drawText(health);
 
+	//Obstacles
+	sf::RectangleShape platform;
+	int i = 0;
+	for (i; i < level.obstacles.size(); ++i){
+		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
+		platform.setFillColor(level.obstacles[i].color);
+		level.obstacles[i].bounds = platform.getGlobalBounds();
+		level.obstacles[i].origin = platform.getPosition();
+		this -> drawRectangle(platform);
+	}
+
+	//StolenObject
+	sf::CircleShape circle = this -> makeStolenObject(level.stolenObject.radius, level.stolenObject.xCoord, level.stolenObject.yCoord, level.stolenObject.rotation);
+	level.stolenObject.bounds = circle.getGlobalBounds();
+	circle.setTextureRect(sf::IntRect(level.stolenObject.spriteSheetStartX, level.stolenObject.spriteSheetStartY, 256, 256));
+	this -> drawCircle(circle);
+
+	if (level.stolenObject.playSound){
+		this -> thump.play();
+		level.stolenObject.playSound = false;
+	}
+
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
 	goal.setTexture(this -> objectSpriteSheet, false);
 	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
 	level.goal.bounds = goal.getGlobalBounds();
 	this -> drawRectangle(goal);
+
+	//Platform menu
+	if(level.finishButton.show){//if GameState setup
+		sf::RectangleShape menu(sf::Vector2f(180, this -> screenY));
+		menu.setPosition(this -> screenX - 180, 0);
+		menu.setFillColor(sf::Color(0, 0, 0, 100));
+		this -> drawRectangle(menu);
+		this -> drawText(level.finishButton.button);
+		this -> drawText(level.platformMenu.title);
+	}
+
+	//Platforms
+	i = 0;
+	for (i; i < level.platforms.size(); ++i){
+		if(play && level.platforms[i].show){//If playing, don't show the platforms that haven't been dragged
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
+
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
+
+			this -> drawRectangle(platform);
+		}else if (!play){
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
+
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
+
+			this -> drawRectangle(platform);
+		}
+	}
 
 	this -> App.display();
 }

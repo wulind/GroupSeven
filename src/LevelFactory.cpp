@@ -21,7 +21,7 @@ Level LevelFactory::makeLevel(int levelToLoad){
 
   level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(level, levelRoot);
-  level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")));
+  level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")), std::stof(levelRoot -> FirstChildElement("StolenObject") -> Attribute("restitution")));
   level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
   level.setGravity(std::stof(levelRoot -> FirstChildElement("Gravity") -> Attribute("value")));
   level.setGoal(std::atoi(levelRoot -> FirstChildElement("Goal") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("Goal") -> Attribute("yPos")));
@@ -55,7 +55,6 @@ LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
 * Makes the platforms for the level
 */
 void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
-  int yPos = 200;
   tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
 
   while(child != nullptr){
@@ -66,13 +65,20 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     else{
       draggable = false;
     }
+
     int rotation = std::atoi(child -> Attribute("rotation"));
     int xPos = std::atoi(child -> Attribute("xPos"));
     int yPos = std::atoi(child -> Attribute("yPos"));
     int width = std::atoi(child -> Attribute("width"));
     int height = std::atoi(child -> Attribute("height"));
 
-    level.makePlatform(rotation, xPos, yPos, width, height, draggable);
+    int color[4];//[red value, green value, blue value, alpha value]
+    color[0] = std::atoi(child -> Attribute("red"));
+    color[1] = std::atoi(child -> Attribute("green"));
+    color[2] = std::atoi(child -> Attribute("blue"));
+    color[3] = std::atoi(child -> Attribute("alpha"));
+
+    level.makePlatform(rotation, xPos, yPos, width, height, color, draggable);
 
     child = child -> NextSiblingElement();
   }

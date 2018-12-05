@@ -121,13 +121,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			writeDialogue(gameLogic, gameView);
 
 			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
-			  if(gameLogic.state.getUnlockedLevels() == 10 && gameLogic.state.getCurrentLevel() == 10){
+			  if(gameLogic.state.getUnlockedLevels() == 10 && gameLogic.state.getCurrentLevel() == 12){
 			    gameLogic.state.setState(GameState::State::FINISHGAME);
 			  }else{
 			    gameLogic.state.incrementUnlockedLevels();
 			  }
 			}
-
 			break;
 
 		case GameState::State::FAIL:

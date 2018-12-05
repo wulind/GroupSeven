@@ -38,9 +38,10 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 * @param rotation: rotation in degrees of platform
 * @param yPos: y axis position on screen
 */
-void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, bool draggable){
+void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, int* color, bool draggable){
   Platform platform(xPos, yPos, height, width);
   platform.setRotation(rotation);
+  platform.color = sf::Color(color[0], color[1], color[2], color[3]);
 
   if(draggable){
     this -> platforms.push_back(platform);
@@ -81,8 +82,8 @@ void Level::setGravity(float g){
 * @param y: y coordinate for stolen object
 * @param radius: Radius of stolen object
 */
-void Level::setStolenObject(int x, int y, int radius){
-  this -> stolenObject = StolenObject(x, y, radius);
+void Level::setStolenObject(int x, int y, int radius, float restitution){
+  this -> stolenObject = StolenObject(x, y, radius, restitution);
 }
 
 /*

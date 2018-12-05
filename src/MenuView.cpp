@@ -29,8 +29,15 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.title.setFont(*this -> font);
 	titlePage.play.setFont(*this -> font);
 
-	titlePage.title.setPosition((this -> screenX/2.0f) - (titlePage.title.getLocalBounds().width/2.0f), 50);
-	titlePage.play.setPosition((this -> screenX/2.0f) - (titlePage.play.getLocalBounds().width/2.0f), 500);
+	//Set origins to the middle of the word
+	sf::FloatRect titleBounds = titlePage.title.getLocalBounds();
+	sf::FloatRect playBounds = titlePage.play.getLocalBounds();
+	titlePage.title.setOrigin(titleBounds.left + titleBounds.width/2.0f, titleBounds.top + titleBounds.height/2.0f);
+	titlePage.play.setOrigin(playBounds.left + playBounds.width/2.0f, playBounds.top + playBounds.height/2.0f);
+
+	titlePage.title.setPosition(sf::Vector2f(this -> screenX/2.0f, 100));
+	titlePage.play.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 75));
+
 	//Draw to screen
 	this -> App -> clear(sf::Color::Black);
 	this -> drawText(titlePage.title);
@@ -63,7 +70,7 @@ void MenuView::drawBackground(){
   //Use the texture as a sprite
   sf::Sprite mapSprite(*this -> mapTexture);
 	mapSprite.setTextureRect(sf::IntRect(800, 0, this -> mapImageFullX, this -> mapImageFullY));
-  mapSprite.setScale(this -> screenX / this -> mapImageFullX, this -> screenY / this -> mapImageFullY);
+  mapSprite.setScale(this -> App -> getSize().x / this -> mapImageFullX, this -> App -> getSize().y / this -> mapImageFullY);
   this -> App -> draw(mapSprite);
 }
 
