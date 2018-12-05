@@ -38,6 +38,8 @@ namespace escape {
 			void updatePosition();
 			void startContact(float yVel);
 			void endContact();
+
+			void killSpeed();
 	};
 }
 #endif

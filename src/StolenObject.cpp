@@ -85,3 +85,11 @@ void StolenObject::startContact(float yVel){
 
 	this -> timeSinceLastDamage = newTime;
 }
+
+/*
+* Kills the momentum of object
+*/
+void StolenObject::killSpeed(){
+	this -> Body -> SetLinearVelocity(b2Vec2(0.f,0.f));
+	this -> Body -> SetAwake(0);
+}

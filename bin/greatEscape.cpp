@@ -105,7 +105,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 
 			//If stolen object breaks, failure
 			if (gameLogic.level.stolenObject.health == 0){
-				gameLogic.state.setState(GameState::State::FAIL);
+				gameLogic.level.stolenObject.killSpeed();
 			}
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
