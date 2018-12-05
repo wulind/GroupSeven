@@ -41,7 +41,7 @@ void Goal::setWorld(b2World* World){
   b2PolygonShape shape;
   const float density = 100.f;
 
-  shape.SetAsBox(2/SCALE, this -> height/2/SCALE, b2Vec2((-this -> width/2 + 2)/SCALE, this -> height/4/SCALE), 0);//Headlights of van
+  shape.SetAsBox(2/SCALE, this -> height/2/SCALE, b2Vec2((-this -> width/2 + 4)/SCALE, this -> height/4/SCALE), 0);//Headlights of van
   this -> Body -> CreateFixture(&shape, density);
 
   shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((-this -> width/2 + 55)/SCALE, this -> height/2/SCALE), 0);//Left van body
@@ -50,7 +50,7 @@ void Goal::setWorld(b2World* World){
   shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 15)/SCALE), 0);//Bottom van body
   this -> Body -> CreateFixture(&shape, density);
 
-  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 20)/SCALE, this -> height/2/SCALE), 0);//Right van body
+  shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 15)/SCALE, this -> height/2/SCALE), 0);//Right van body & butt of the van
   this -> Body -> CreateFixture(&shape, density);
 }
 
