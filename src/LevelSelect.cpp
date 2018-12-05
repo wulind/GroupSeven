@@ -4,7 +4,6 @@ using namespace escape;
 
 /*
 * Constructor
-* @param *App: Render Window
 */
 LevelSelect::LevelSelect(){}
 
