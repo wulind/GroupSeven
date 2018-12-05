@@ -8,10 +8,6 @@
 namespace escape {
 	class StolenObject {
 
-		private:
-			//Box2D Stuff
-			b2World* World;
-
 		public:
       StolenObject();
 			StolenObject(float x, float y, int radius);

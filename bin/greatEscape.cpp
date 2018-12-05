@@ -59,7 +59,6 @@ int main(int argc, char** argv){
 */
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
-		//Title Screen
 		case GameState::State::TITLE:
 			if (gameView.musicPlaying){
 				gameView.pauseMusic();
@@ -72,7 +71,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			menuView.loadTitleScreen(gameLogic.titlePage);
 			break;
 
-		//Level Selection page
 		case GameState::State::LEVELSELECT:
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
@@ -118,15 +116,27 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::SUCCESS:
-			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
-				gameLogic.state.incrementUnlockedLevels();
-			}
+
 			gameLogic.dialogue.winLevel();
 			writeDialogue(gameLogic, gameView);
+
+			if (gameLogic.state.getCurrentLevel() == gameLogic.state.getUnlockedLevels()){
+			  if(gameLogic.state.getUnlockedLevels() == 10 && gameLogic.state.getCurrentLevel() == 10){
+			    gameLogic.state.setState(GameState::State::FINISHGAME);
+			  }else{
+			    gameLogic.state.incrementUnlockedLevels();
+			  }
+			}
+
 			break;
 
 		case GameState::State::FAIL:
 			gameLogic.dialogue.loseLevel();
+			writeDialogue(gameLogic, gameView);
+			break;
+
+		case GameState::State::FINISHGAME:
+			gameLogic.dialogue.winGame();
 			writeDialogue(gameLogic, gameView);
 			break;
 	}

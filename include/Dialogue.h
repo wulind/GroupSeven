@@ -15,6 +15,7 @@ namespace escape{
 			void playStory(int levelSelected);
 			void loseLevel();
 			void winLevel();
+			void winGame();
 			void drawBackground(sf::RenderWindow *App);
 	};
 }

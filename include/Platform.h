@@ -6,9 +6,6 @@
 
 namespace escape {
 	class Platform {
-		private:
-			b2World* World;//TODO: do we need this?
-
 		public:
 			Platform();
 			Platform(float x, float y, int height, int width);
