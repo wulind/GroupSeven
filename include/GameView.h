@@ -9,7 +9,6 @@
 #include "StolenObject.h"
 #include "PlatformMenu.h"
 #include "Level.h"
-#include <string>
 
 namespace escape{
 	class GameView{

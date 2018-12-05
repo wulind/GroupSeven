@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <Box2D/Box2D.h>
-#include <math.h>
 
 namespace escape {
 	class StolenObject {
