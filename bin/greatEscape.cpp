@@ -122,7 +122,6 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			    gameLogic.state.incrementUnlockedLevels();
 			  }
 			}
-
 			break;
 
 		case GameState::State::FAIL:

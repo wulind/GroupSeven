@@ -34,10 +34,10 @@ namespace escape {
 			LevelSelect levelSelect;
 			Dialogue dialogue;
 
+			EventManager eventManager;
+
 			//Resources (fonts, sprites)
 			ResourceManager resources;
-
-			EventManager eventManager;
 
 			void pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs);
 

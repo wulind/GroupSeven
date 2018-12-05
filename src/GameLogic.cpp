@@ -26,7 +26,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 			case sf::Event::Closed:
 				delete this -> World;
 				App -> close();// TODO: move in GameView?
-			break;
+				break;
 
 			case sf::Event::MouseButtonPressed:
 

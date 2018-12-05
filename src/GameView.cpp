@@ -9,7 +9,7 @@ GameView::GameView(){}
 * @param &font: reference to Cows & Aliens font used throughout the game
 */
 GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
-	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
+	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape");
 
 	this -> font = font;
   this -> backgroundSpriteSheet = backgroundSprite;
