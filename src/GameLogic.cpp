@@ -1,4 +1,5 @@
 #include "GameLogic.h"
+#include <cmath>
 
 using namespace escape;
 
@@ -132,13 +133,16 @@ void GameLogic::loadLevel(int level){
 */
 void GameLogic::progressSimluation(){
 	this -> level.stolenObject.updatePosition();
-	this -> World -> Step(1.f/480.f, 5, 8);
+	this -> World -> Step(1.f/1024.f, 5, 8);
 }
 
 /*
 * Progresses the simluation in the Box2D world by a portion
 */
 void GameLogic::partialProgressSimluation(float portion){
+	for (int x = 0; x < floor(portion); x++){
+		this -> World -> Step(1.f/1024.f, 5, 8);
+	}
+
 	this -> level.stolenObject.updatePosition();
-	this -> World -> Step(portion/480.f, 5, 8);
 }

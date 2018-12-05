@@ -101,7 +101,7 @@ void GameView::update(Level &level, bool play){
 
 	//Display healthbar
 	//2 rectangles, top one is White, bottom is red. Make top one shorter on each hit
-	sf::RectangleShape top(sf::Vector2f(200 - (200 - level.stolenObject.health * 20), 10));
+	sf::RectangleShape top(sf::Vector2f(level.stolenObject.health * 20, 10));
 	top.setFillColor(sf::Color::White);
 	top.setPosition(300, 50);
 	sf::RectangleShape bottom(sf::Vector2f(200, 10));
