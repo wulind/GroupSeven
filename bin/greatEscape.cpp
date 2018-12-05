@@ -22,34 +22,44 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 
 	//Target 1000 fps
-  double targetMs = 1000/512;
+  double targetMs = 1000/120;
+	bool pause = false;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
-		if (gameLogic.state.getState() == GameState::State::PLAY){
-			gameLogic.progressSimluation();
-		}
-
-		updateGame(gameLogic, menuView, mainView);
 
 		//Get the elapsed time since the loop started
 		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
 
-		//Adjust game timing by sleeping
-		if(deltaMs < targetMs){
-			sf::sleep(sf::milliseconds(targetMs-deltaMs));
-		}
-		//If behind skip frames
-		else{
+		updateGame(gameLogic, menuView, mainView);
+
+		//Checks to see if to keep checking for input but not update the screen
+		if (!pause){
 			if (gameLogic.state.getState() == GameState::State::PLAY){
-				gameLogic.partialProgressSimluation(deltaMs - targetMs);
+				gameLogic.progressSimluation();
+			}
+
+			//if ahead stop processing gamelogic and switch to just input management
+			if(deltaMs < targetMs){
+				pause = true;
+			}
+			//If behind skip frames
+			else{
+				if (gameLogic.state.getState() == GameState::State::PLAY){
+					gameLogic.partialProgressSimluation(deltaMs - targetMs);
+				}
+				gameTime.restart();
 			}
 		}
-		gameTime.restart();
+		else{
+			if(deltaMs > targetMs){
+				pause = false;
+				gameTime.restart();
+			}
+		}
 	}
-
 	// Done.
 	return 0;
 }

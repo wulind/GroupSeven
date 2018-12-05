@@ -133,7 +133,7 @@ void GameLogic::loadLevel(int level){
 */
 void GameLogic::progressSimluation(){
 	this -> level.stolenObject.updatePosition();
-	this -> World -> Step(1.f/1024.f, 5, 8);
+	this -> World -> Step(1.f/120.f, 5, 8);
 }
 
 /*
@@ -141,7 +141,7 @@ void GameLogic::progressSimluation(){
 */
 void GameLogic::partialProgressSimluation(float portion){
 	for (int x = 0; x < floor(portion); x++){
-		this -> World -> Step(1.f/1024.f, 5, 8);
+		this -> World -> Step(1.f/120.f, 5, 8);
 	}
 
 	this -> level.stolenObject.updatePosition();
