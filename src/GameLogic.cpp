@@ -35,7 +35,7 @@ void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targ
 					switch(this -> state.getState()){//TODO: put in event handler
 
 						case GameState::State::TITLE:
-							this -> titlePage.changeToLevelSelect(sf::Mouse::getPosition(*App), this -> state);
+							this -> titlePage.changeState(sf::Mouse::getPosition(*App), this -> state);
 							break;
 
 						case GameState::State::LEVELSELECT:

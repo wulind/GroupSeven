@@ -23,14 +23,18 @@ TitlePage::TitlePage(){
 }
 
 /*
-* Checks if mouse cliked "play" button, and if it has, changes game state to level select
+* Checks if mouse cliked "play" or "Options" button, and if it has, changes game state to LEVELSELECT or OPTIONS respectively
 * @param &App: Reference to current window
 * @param state: current game state
 */
-void TitlePage::changeToLevelSelect(sf::Vector2i mousePosition, GameState &state){
+void TitlePage::changeState(sf::Vector2i mousePosition, GameState &state){
   sf::FloatRect playBoundingRectangle = this -> play.getGlobalBounds();
+  sf::FloatRect optionsBoundingRectangle = this -> options.getGlobalBounds();
 
   if(playBoundingRectangle.contains(mousePosition.x, mousePosition.y)){
       state.setState(GameState::State::LEVELSELECT);
+  }
+  if(optionsBoundingRectangle.contains(mousePosition.x, mousePosition.y)){
+      state.setState(GameState::State::OPTIONS);
   }
 }
