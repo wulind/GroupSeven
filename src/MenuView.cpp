@@ -100,7 +100,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 /*
  * Draws the screen for choosing options
  */
-void MenuView::drawOptionsMenu(){
+void MenuView::drawOptionsMenu(Options &options){
 	this -> App -> clear();
 
 	sf::Text title;
@@ -114,6 +114,13 @@ void MenuView::drawOptionsMenu(){
 	returnText.setString("Return");
 	returnText.setPosition(10,540);
 	this -> drawText(returnText);
+
+	sf::Text volumeText;
+	volumeText.setCharacterSize(50);
+	volumeText.setString(options.getVolume());
+	volumeText.setPosition(0,300);
+	this -> drawText(volumeText);
+
 
 
 	this -> App -> display();

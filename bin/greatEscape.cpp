@@ -2,13 +2,14 @@
 #include "GameLogic.h"
 #include "GameView.h"
 #include "MenuView.h"
+#include "Options.h"
 
 using namespace escape;
 
-void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView);
+void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Options &options);
 void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
-void drawOptionsMenu(MenuView &menuView);
+void drawOptionsMenu(MenuView &menuView, Options &options);
 
 int main(int argc, char** argv){
 
@@ -17,6 +18,9 @@ int main(int argc, char** argv){
 
 	//Game Time for fps
 	sf::Clock gameTime;
+
+	//Options
+	Options options = Options();
 
 	//Views
 	GameView mainView(gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
@@ -33,7 +37,7 @@ int main(int argc, char** argv){
 			gameLogic.progressSimluation();
 		}
 
-		updateGame(gameLogic, menuView, mainView);
+		updateGame(gameLogic, menuView, mainView, options);
 
 		//Get the elapsed time since the loop started
 		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
@@ -58,7 +62,7 @@ int main(int argc, char** argv){
 /*
 * Checks game state and updates screen based on that
 */
-void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
+void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Options &options){
 	switch(gameLogic.state.getState()){
 		case GameState::State::TITLE:
 			if (gameView.musicPlaying){
@@ -116,7 +120,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			}
 			break;
 		case GameState::State::OPTIONS:
-			drawOptionsMenu(menuView);
+			drawOptionsMenu(menuView, options);
 			break;
 
 		case GameState::State::SUCCESS:
@@ -162,6 +166,7 @@ void writeDialogue(GameLogic &gameLogic, GameView &gameView){
 	gameView.displayLevelStory(gameLogic.dialogue.text);
 }
 
-void drawOptionsMenu(MenuView &menuView){
-	menuView.drawOptionsMenu();
+void drawOptionsMenu(MenuView &menuView, Options &options){
+	options.adjustVolume();
+	menuView.drawOptionsMenu(options);
 }
