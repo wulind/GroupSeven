@@ -99,40 +99,9 @@ void GameView::update(Level &level, bool play){
 	this -> App.clear();
   this -> drawBackground(level);
 
-	if(level.finishButton.show){//if GameState setup
-		sf::RectangleShape menu(sf::Vector2f(180, this -> screenY));
-		menu.setPosition(this -> screenX - 180, 0);
-		menu.setFillColor(sf::Color(0, 0, 0, 100));
-		this -> drawRectangle(menu);
-		this -> drawText(level.finishButton.button);
-		this -> drawText(level.platformMenu.title);
-	}
-
-	//Platforms
+	//Obstacles
 	sf::RectangleShape platform;
 	int i = 0;
-	for (i; i < level.platforms.size(); ++i){
-		if(play && level.platforms[i].show){//If playing, don't show the platforms that haven't been dragged
-			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
-			platform.setFillColor(sf::Color::White);
-
-			level.platforms[i].bounds = platform.getGlobalBounds();
-			level.platforms[i].origin = platform.getPosition();
-
-			this -> drawRectangle(platform);
-		}else if (!play){
-			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
-			platform.setFillColor(sf::Color::White);
-
-			level.platforms[i].bounds = platform.getGlobalBounds();
-			level.platforms[i].origin = platform.getPosition();
-
-			this -> drawRectangle(platform);
-		}
-	}
-
-	//Obstacles
-	i = 0;
 	for (i; i < level.obstacles.size(); ++i){
 		platform = this -> makeRectangle(level.obstacles[i].width, level.obstacles[i].height, level.obstacles[i].xCoord, level.obstacles[i].yCoord, level.obstacles[i].rotation);
 		platform.setFillColor(level.obstacles[i].color);
@@ -158,6 +127,38 @@ void GameView::update(Level &level, bool play){
 	goal.setTextureRect(sf::IntRect(0, 1320, 900, 400));
 	level.goal.bounds = goal.getGlobalBounds();
 	this -> drawRectangle(goal);
+
+	//Platform menu
+	if(level.finishButton.show){//if GameState setup
+		sf::RectangleShape menu(sf::Vector2f(180, this -> screenY));
+		menu.setPosition(this -> screenX - 180, 0);
+		menu.setFillColor(sf::Color(0, 0, 0, 100));
+		this -> drawRectangle(menu);
+		this -> drawText(level.finishButton.button);
+		this -> drawText(level.platformMenu.title);
+	}
+
+	//Platforms
+	i = 0;
+	for (i; i < level.platforms.size(); ++i){
+		if(play && level.platforms[i].show){//If playing, don't show the platforms that haven't been dragged
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
+
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
+
+			this -> drawRectangle(platform);
+		}else if (!play){
+			platform = this -> makeRectangle(level.platforms[i].width, level.platforms[i].height, level.platforms[i].xCoord, level.platforms[i].yCoord, level.platforms[i].rotation);
+			platform.setFillColor(sf::Color::White);
+
+			level.platforms[i].bounds = platform.getGlobalBounds();
+			level.platforms[i].origin = platform.getPosition();
+
+			this -> drawRectangle(platform);
+		}
+	}
 
 	this -> App.display();
 }

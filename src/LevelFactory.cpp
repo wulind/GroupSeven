@@ -72,11 +72,11 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     int width = std::atoi(child -> Attribute("width"));
     int height = std::atoi(child -> Attribute("height"));
 
-    int color[3];
+    int color[4];//[red value, green value, blue value, alpha value]
     color[0] = std::atoi(child -> Attribute("red"));
     color[1] = std::atoi(child -> Attribute("green"));
     color[2] = std::atoi(child -> Attribute("blue"));
-
+    color[3] = std::atoi(child -> Attribute("alpha"));
 
     level.makePlatform(rotation, xPos, yPos, width, height, color, draggable);
 

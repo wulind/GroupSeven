@@ -41,7 +41,7 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, int* color, bool draggable){
   Platform platform(xPos, yPos, height, width);
   platform.setRotation(rotation);
-  platform.color = sf::Color(color[0], color[1], color[2]);
+  platform.color = sf::Color(color[0], color[1], color[2], color[3]);
 
   if(draggable){
     this -> platforms.push_back(platform);
