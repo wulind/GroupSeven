@@ -277,3 +277,47 @@
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
+
+<!-- Underwater. Pearl. -->
+<Level level="11">
+  <SelectOrb mapX = "300" mapY = "200"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+
+      <!-- Level layout -->
+
+      <!-- Draggables -->
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
+
+    </Platforms>
+    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32"/>
+    <Goal xPos = "350" yPos = "550"/>
+    <Gravity value="-9.8"/>
+</Level>
+
+<!-- Underwater. Pearl. -->
+<Level level="12">
+  <SelectOrb mapX = "300" mapY = "200"/>
+  <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
+    <Platforms>
+      <!-- boundaries for window -->
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10"/>
+
+      <!-- Level layout -->
+
+      <!-- Draggables -->
+      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10"/>
+      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10"/>
+
+    </Platforms>
+    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32"/>
+    <Goal xPos = "350" yPos = "550"/>
+    <Gravity value="-9.8"/>
+</Level>
