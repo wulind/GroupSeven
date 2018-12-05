@@ -164,6 +164,15 @@ void GameView::update(Level &level, bool play){
 	this -> drawRectangle(bottom);
 	this -> drawRectangle(top);
 
+	//Display some text indictating bar at the top is healthbar
+	sf::Text health;
+	health.setCharacterSize(30);
+	health.setString("Object Health");
+	health.setPosition(325,10);
+	health.setFillColor(sf::Color::White);
+
+	this -> drawText(health);
+
 	//Goal
 	sf::RectangleShape goal = this -> makeRectangle(level.goal.width, level.goal.height, level.goal.xCoord, level.goal.yCoord, 0);
 	goal.setTexture(this -> objectSpriteSheet, false);
