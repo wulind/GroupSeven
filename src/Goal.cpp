@@ -47,7 +47,7 @@ void Goal::setWorld(b2World* World){
   shape.SetAsBox(10/SCALE, this -> height/SCALE, b2Vec2((-this -> width/2 + 55)/SCALE, this -> height/2/SCALE), 0);//Left van body
   this -> Body -> CreateFixture(&shape, density);
 
-  shape.SetAsBox(this -> width/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 15)/SCALE), 0);//Bottom van body
+  shape.SetAsBox(this -> width - 10/SCALE, 5/SCALE, b2Vec2((-this -> width/2 + 10)/SCALE, (this -> height/2 - 15)/SCALE), 0);//Bottom van body
   this -> Body -> CreateFixture(&shape, density);
 
   shape.SetAsBox(5/SCALE, this -> height/SCALE, b2Vec2((this -> width/2 - 20)/SCALE, this -> height/2/SCALE), 0);//Right van body & butt of the van
