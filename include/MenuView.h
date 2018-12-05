@@ -6,7 +6,6 @@
 #include "TitlePage.h"
 #include "LevelSelect.h"
 #include "ResourceManager.h"
-#include <vector>
 
 namespace escape{
 	class MenuView{

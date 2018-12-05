@@ -8,18 +8,6 @@
 namespace escape{
 	class LevelSelect{
 
-		private:
-	  	sf::Sprite sprite;
-
-	  	sf::RenderWindow *App;
-	  	GameState *state;
-
-	  	float screenX = 800;
-	  	float screenY = 600;
-
-	  	float imageX = 1114;
-	  	float imageY = 590;
-
 		public:
 			LevelSelect();
 
@@ -30,7 +18,7 @@ namespace escape{
       } SelectOrb;
 
 			std::vector<SelectOrb> levels;
-			
+
       void appendDot(SelectOrb orb);
       void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};

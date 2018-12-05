@@ -7,10 +7,6 @@
 namespace escape{
 	class TitlePage{
 
-		private:
-			float screenX = 800;
-			float screenY = 600;
-
 		public:
 			TitlePage();
 
