@@ -21,6 +21,7 @@ namespace escape {
 
 			int radius;
 
+			int health;
 			double timeSinceLastDamage;
 			sf::Clock timer;
 			bool playSound;
@@ -34,8 +35,10 @@ namespace escape {
 
 			void setWorld(b2World* World);
 			void updatePosition();
-			void startContact();
+			void startContact(float yVel);
 			void endContact();
+
+			void killSpeed();
 	};
 }
 #endif

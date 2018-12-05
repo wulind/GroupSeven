@@ -34,15 +34,15 @@ void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vecto
 		int localXMouse = -1 * ((c * (mousePosition.x - platforms[i].origin.x)) - (s * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.x));
 		int localYMouse = (s * (mousePosition.x - platforms[i].origin.x)) + (c * (mousePosition.y - platforms[i].origin.y) + platforms[i].origin.y);
 
-		//this is the platform being dragged
-		if(platforms[i].bounds.contains(localXMouse, localYMouse)){
+		//Checks if in transformed box
+		if(localXMouse < (platforms[i].xCoord + (platforms[i].width/2)) && localXMouse > (platforms[i].xCoord - (platforms[i].width/2)) && localYMouse > (platforms[i].yCoord - (platforms[i].height/2)) && localYMouse < (platforms[i].yCoord + (platforms[i].height/2))){
 			platforms[i].isBeingDragged = true;
 			platforms[i].show = true;
 
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
 			platforms[i].mouseDragOffsetY = mousePosition.y - platforms[i].yCoord;
 			break;
-	  }
+		}
 	}
 }
 
