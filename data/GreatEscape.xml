@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- Level 1. Michael Jordan Ball. Stadium. Chicago, Ill. -->
-<Level level="12">
+<Level level="1">
     <SelectOrb mapX = "170" mapY = "210"/>
     <Background startX="0" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
@@ -22,7 +22,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 2. Money ball. Bank -->
+<!-- Level 2. Money ball. Bank. San Francisco. -->
 <Level level="2">
   <SelectOrb mapX = "120" mapY = "250"/>
     <Background startX="1600" startY="600" endX="1600" endY="1200" width="800" height="600"/>
@@ -185,8 +185,8 @@
 </Level>
 
 <!-- Level 8. Laboratory. Australia. World's Rounded Object. -->
-<Level level="1">
-  <SelectOrb mapX = "725" mapY = "500"/>
+<Level level="8">
+  <SelectOrb mapX = "725" mapY = "490"/>
   <Background startX="1600" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -210,7 +210,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Louvre. Paris. Cartier ring.-->
+<!-- Level 9. Louvre. Paris. Cartier ring.-->
 <Level level="9">
   <SelectOrb mapX = "400" mapY = "210"/>
   <Background startX="0" startY="600" endX="1600" endY="1200" width="800" height="600"/>
@@ -236,9 +236,9 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Babe Ruth Baseball. Baltimore. Other stadium art. -->
+<!-- Level 10. Babe Ruth Baseball. Baltimore. Other stadium art. -->
 <Level level="10">
-  <SelectOrb mapX = "760" mapY = "210"/>
+  <SelectOrb mapX = "210" mapY = "210"/>
   <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -262,7 +262,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Underwater. Doubloon. -->
+<!-- Level 11. Underwater. Doubloon. -->
 <Level level="11">
   <SelectOrb mapX = "300" mapY = "200"/>
   <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
@@ -284,9 +284,9 @@
     <Gravity value="-9.8"/>
 </Level>
 
-<!-- Underwater. Pearl. -->
+<!-- Level 12. Underwater. Pearl. -->
 <Level level="12">
-  <SelectOrb mapX = "300" mapY = "200"/>
+  <SelectOrb mapX = "300" mapY = "350"/>
   <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
