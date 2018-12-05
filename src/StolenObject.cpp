@@ -11,11 +11,13 @@ StolenObject::StolenObject(){}
 * @param x: x coordinate of stolen object
 * @param y: y coordinate of stolen object
 * @param radius: radius of stolen object
-* @param World: Box2D Object where the object will be placed
+* @param restitution: bounciness of stolen object
 */
-StolenObject::StolenObject(float x, float y, int radius){
+StolenObject::StolenObject(float x, float y, int radius, float restitution){
 	this -> xCoord = x;
 	this -> yCoord = y;
+
+	this -> restitution = restitution; //0.5f is average
 
 	this -> radius = radius;
 
@@ -48,7 +50,7 @@ void StolenObject::setWorld(b2World* World){
 	FixtureDef.density = 1.f;
 	FixtureDef.friction = .7f;
 	FixtureDef.shape = &Shape;
-	FixtureDef.restitution = .5f;
+	FixtureDef.restitution = this -> restitution;
 
 	this -> Body -> CreateFixture(&FixtureDef);
 	this -> Body -> SetAwake(1);

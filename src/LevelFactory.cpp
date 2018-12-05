@@ -21,7 +21,7 @@ Level LevelFactory::makeLevel(int levelToLoad){
 
   level.setBackgroundFile(levelRoot -> FirstChildElement("Background") -> Attribute("startX"), levelRoot -> FirstChildElement("Background") -> Attribute("startY"));
   this -> makePlatforms(level, levelRoot);
-  level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")));
+  level.setStolenObject(std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("yPos")), std::atoi(levelRoot -> FirstChildElement("StolenObject") -> Attribute("radius")), std::stof(levelRoot -> FirstChildElement("StolenObject") -> Attribute("restitution")));
   level.setStolenObjectFile(levelRoot -> FirstChildElement("StolenObject") -> Attribute("startX"), levelRoot -> FirstChildElement("StolenObject") -> Attribute("startY"));
   level.setGravity(std::stof(levelRoot -> FirstChildElement("Gravity") -> Attribute("value")));
   level.setGoal(std::atoi(levelRoot -> FirstChildElement("Goal") -> Attribute("xPos")), std::atoi(levelRoot -> FirstChildElement("Goal") -> Attribute("yPos")));

@@ -82,8 +82,8 @@ void Level::setGravity(float g){
 * @param y: y coordinate for stolen object
 * @param radius: Radius of stolen object
 */
-void Level::setStolenObject(int x, int y, int radius){
-  this -> stolenObject = StolenObject(x, y, radius);
+void Level::setStolenObject(int x, int y, int radius, float restitution){
+  this -> stolenObject = StolenObject(x, y, radius, restitution);
 }
 
 /*

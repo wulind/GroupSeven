@@ -9,9 +9,10 @@ namespace escape {
 
 		public:
       StolenObject();
-			StolenObject(float x, float y, int radius);
+			StolenObject(float x, float y, int radius, float restitution);
 
 			b2Body* Body;
+			float restitution;
 
 			float xCoord;
 			float yCoord;
@@ -33,6 +34,7 @@ namespace escape {
 			sf::Texture objTexture;
 
 			void setWorld(b2World* World);
+
 			void updatePosition();
 			void startContact();
 			void endContact();
