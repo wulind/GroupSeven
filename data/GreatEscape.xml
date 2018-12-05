@@ -95,8 +95,8 @@
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "-45" draggable = "0" xPos="315" yPos ="200" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "45" draggable = "0" xPos="465" yPos ="200" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-45" draggable = "0" xPos="315" yPos ="230" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "45" draggable = "0" xPos="465" yPos ="230" width = "200" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Draggables -->
       <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
@@ -105,7 +105,7 @@
 
     </Platforms>
 
-    <StolenObject startX="0" startY="0" xPos="390" yPos="75" radius="25" restitution = "0.6"/>
+    <StolenObject startX="0" startY="0" xPos="390" yPos="105" radius="25" restitution = "0.6"/>
     <Goal xPos = "395" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
@@ -257,7 +257,7 @@
       <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
-    <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32" restitution = "0.2"/>
+    <StolenObject startX="0" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.2"/>
     <Goal xPos = "350" yPos = "550"/>
     <Gravity value="9.8"/>
 </Level>
