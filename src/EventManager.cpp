@@ -3,7 +3,6 @@
 
 using namespace escape;
 
-
 /*
  * EventManager Constructor
  */
@@ -39,7 +38,7 @@ void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vecto
 		if(localXMouse < (platforms[i].xCoord + (platforms[i].width/2)) && localXMouse > (platforms[i].xCoord - (platforms[i].width/2)) && localYMouse > (platforms[i].yCoord - (platforms[i].height/2)) && localYMouse < (platforms[i].yCoord + (platforms[i].height/2))){
 			platforms[i].isBeingDragged = true;
 			platforms[i].show = true;
-			
+
 			platforms[i].mouseDragOffsetX = mousePosition.x - platforms[i].xCoord;
 			platforms[i].mouseDragOffsetY = mousePosition.y - platforms[i].yCoord;
 			break;
