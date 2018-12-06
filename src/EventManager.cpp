@@ -28,6 +28,7 @@ void EventManager::updateMouse(sf::Vector2i mousePosition, std::vector<Platform>
 void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms){
 	int i = 0;
 	for (i; i < platforms.size(); ++i){
+		//Get mouse coordinates transformed around origin of platform -rotation in radians
 		float s = sin(-1 * platforms[i].rotation * M_PI/180);
 		float c = cos(-1 * platforms[i].rotation * M_PI/180);
 

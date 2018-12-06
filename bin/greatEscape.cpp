@@ -53,6 +53,7 @@ int main(int argc, char** argv){
 				pause = true;
 			}
 		}
+		//If enough time has passed enable next frame
 		else{
 			if(deltaMs > targetMs){
 				pause = false;
@@ -70,6 +71,7 @@ int main(int argc, char** argv){
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 	switch(gameLogic.state.getState()){
 		case GameState::State::TITLE:
+			//Switch audio tracks
 			if (gameView.musicPlaying){
 				gameView.pauseMusic();
 				gameView.musicPlaying = false;
@@ -82,10 +84,12 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
+			//Switch audio tracks
 			if (gameView.musicPlaying){
 				gameView.pauseMusic();
 				gameView.musicPlaying = false;
 			}
+			
 			if (!menuView.musicPlaying){
 				menuView.playMusic();
 				menuView.musicPlaying = true;
@@ -101,14 +105,17 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LOADING:
+			//Switch audio tracks
 			if (menuView.musicPlaying){
 				menuView.pauseMusic();
 				menuView.musicPlaying = false;
 			}
+
 			if (!gameView.musicPlaying){
 				gameView.playMusic();
 				gameView.musicPlaying = true;
 			}
+
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
 			drawLevel(gameLogic.level, gameView, false);
 			gameLogic.state.setState(GameState::State::SETUP);
