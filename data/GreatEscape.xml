@@ -48,7 +48,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 3. Russian plate. Moscow. -->
+<!-- Level 3. Russian plate. Moscow, Russia. -->
 <Level level="3">
   <SelectOrb mapX = "470" mapY = "165"/>
   <Background startX="1600" startY="1800" width="800" height="600"/>
