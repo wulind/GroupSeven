@@ -42,7 +42,7 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.options.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 25));
 
 	//Draw to screen
-
+	this -> App -> clear(sf::Color::Black);
 	sf::Sprite backgroundSprite;
 	backgroundSprite.setTexture(*this -> mapTexture);
 	backgroundSprite.setTextureRect(sf::IntRect(1600, 2400, this -> screenX, this -> screenY));
