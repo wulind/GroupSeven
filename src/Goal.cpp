@@ -60,7 +60,7 @@ void Goal::setWorld(b2World* World){
 */
 int Goal::detectWin(StolenObject &stolenObject){
   if(stolenObject.Body -> IsAwake()){
-    if(abs(stolenObject.Body -> GetLinearVelocity().y) == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1){
+    if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1 && !(stolenObject.Body -> GetLinearVelocity().y == 0 && stolenObject.Body -> GetLinearVelocity().x == 0)){
       stolenObject.killSpeed();
     }
     return -1;
