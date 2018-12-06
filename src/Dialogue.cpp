@@ -102,10 +102,17 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("Thanks for the help, Eagle.\nThey were right.\nYou're the best there ever was.");
 
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. This lost city of Atlantis holds treasures we cannot even imagine today.");
+			this -> funFact.setString("Fun fact. This lost city of Atlantis is real.");
 			break;
 
-		
+		case 11:
+				this -> text.setCharacterSize(30);
+				this -> text.setString("Eagle, we're going to the Arctic pole. Dress appropriately, but you should know what to do considering you're the best.");
+
+				this -> text.setCharacterSize(30);
+				this -> funFact.setString("Fun fact..");
+				break;
+
 	}
 
 /*
