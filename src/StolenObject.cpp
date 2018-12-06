@@ -74,7 +74,6 @@ void StolenObject::updatePosition(){
 */
 void StolenObject::startContact(float yVel){
 	//Decrease health.
-	//TODO: change functionality to have variable damage
 
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
