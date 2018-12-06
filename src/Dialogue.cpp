@@ -51,10 +51,10 @@ void Dialogue::playStory(int levelSelected){
 
 		case 5:
 			this -> text.setCharacterSize(30);
-			this -> text.setString("Let's bring it home to the Big Apple.\nTiffany's just launched their new collection.\nLet's do a little collectin' of our own.");
+			this -> text.setString("Let's visit the Old Country, Italy.\nTiffany's just launched their new collection.\nLet's do a little collectin' of our own.");
 
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. If NYC were its own state. It would rank Fifty First in energy consumption.");
+			this -> funFact.setString("Fun fact. This Tiffany's necklace is over 91-carats of uniquley cut diamonds set in platinum. We're gonna grab it before its even released.");
 
 			break;
 
@@ -87,7 +87,6 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("You've done well so far.\nLet's relax a little bit.\nI hear that Paris is rather nice this time of year");
 			this -> text.setCharacterSize(30);
 			this -> funFact.setString("Fun fact. Originally the Louvre was a fortress, not a museum.");
-
 			break;
 
 		case 10:
@@ -99,18 +98,16 @@ void Dialogue::playStory(int levelSelected){
 
 		case 11:
 			this -> text.setCharacterSize(30);
-			this -> text.setString("Thanks for the help, Eagle.\nThey were right.\nYou're the best there ever was.");
-
+			this -> text.setString("Eagle, we're going to the North Pole in search of Atlantis. Dress appropriately, but you should know what to do considering you're the best.");
 			this -> text.setCharacterSize(30);
 			this -> funFact.setString("Fun fact. This lost city of Atlantis is real.");
 			break;
 
 		case 12:
 				this -> text.setCharacterSize(30);
-				this -> text.setString("Eagle, we're going to the Arctic pole. Dress appropriately, but you should know what to do considering you're the best.");
-
+				this -> text.setString("Thanks for the help, Eagle.\nThey were right.\nYou're the best there ever was.");
 				this -> text.setCharacterSize(30);
-				this -> funFact.setString("Fun fact..");
+				this -> funFact.setString("Fun fact. Atlantis holds great treasures that we cannot even comprehend today.");
 				break;
 
 	}

@@ -110,9 +110,9 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 5 The Met. NYC. Diamond Necklace-->
+<!-- Level 5 The Metropolitan. Italy. Diamond Necklace-->
 <Level level="5">
-  <SelectOrb mapX = "200" mapY = "230"/>
+  <SelectOrb mapX = "420" mapY = "210"/>
   <Background startX="800" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -264,7 +264,7 @@
 
 <!-- Level 11. Underwater. Doubloon. -->
 <Level level="11">
-  <SelectOrb mapX = "300" mapY = "200"/>
+  <SelectOrb mapX = "410" mapY = "0"/>
   <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -286,7 +286,7 @@
 
 <!-- Level 12. Underwater. Pearl. -->
 <Level level="12">
-  <SelectOrb mapX = "300" mapY = "350"/>
+  <SelectOrb mapX = "360" mapY = "25"/>
   <Background startX="800" startY="1800" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
