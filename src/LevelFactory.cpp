@@ -83,3 +83,24 @@ void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
     child = child -> NextSiblingElement();
   }
 }
+
+/*
+* Loads dialgue for level
+* @param level: level which orb that needs to be created
+*/
+Dialogue LevelFactory::loadDialogue(int level){
+  Dialogue dialogue;
+  tinyxml2::XMLDocument doc;
+  doc.LoadFile( "../data/GreatEscape.xml" );
+
+  //get to element that contains information for current level
+  tinyxml2::XMLElement *levelRoot = doc.FirstChildElement("Level");
+
+  while(std::atoi(levelRoot -> Attribute("level")) != level){
+    levelRoot = levelRoot -> NextSiblingElement();
+  }
+
+  dialogue.setStory(levelRoot -> FirstChildElement("Dialogue") -> GetText(), levelRoot -> FirstChildElement("Funfact") -> GetText());
+  return dialogue;
+
+}

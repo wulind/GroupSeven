@@ -14,20 +14,21 @@
 #include "Level.h"
 #include "Dialogue.h"
 
+
 namespace escape {
 	class GameLogic {
 
 		private:
 			b2World* World;
-			b2Body** Body;
-
-			LevelFactory factory;
+			b2Body** Body;		
 
 			void changeToLoading();
 
 		public:
 			GameLogic();
 			GameState state;
+
+			LevelFactory factory;
 
 			Level level;
 			TitlePage titlePage;

@@ -6,6 +6,7 @@
 #include <cstdio>
 #include "tinyxml2.h"
 #include "Level.h"
+#include "Dialogue.h"
 #include "LevelSelect.h"
 
 namespace escape{
@@ -19,6 +20,7 @@ namespace escape{
 
       Level makeLevel(int levelToLoad);
       LevelSelect::SelectOrb makeOrbs(int level);
+      Dialogue loadDialogue(int level);
   };
 }
 #endif
