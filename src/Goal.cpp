@@ -1,5 +1,4 @@
 #include "Goal.h"
-#include <math.h>
 
 static const float SCALE = 30.f;
 
@@ -59,7 +58,7 @@ void Goal::setWorld(b2World* World){
 * @param &stolenObject: stolen object needed to detect collision
 */
 int Goal::detectWin(StolenObject &stolenObject){
-  //Checks if object is awake, and if it is movnig slow enough then kill it if its moving too slowly
+  //Checks if object is awake, and if it is moving slow enough, then kill it if its moving too slowly
   if(stolenObject.Body -> IsAwake()){
     if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1 && !(stolenObject.Body -> GetLinearVelocity().y == 0 && stolenObject.Body -> GetLinearVelocity().x == 0)){
       stolenObject.killSpeed();
