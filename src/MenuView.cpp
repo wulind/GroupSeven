@@ -40,6 +40,11 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 
 	//Draw to screen
 	this -> App -> clear(sf::Color::Black);
+	sf::Sprite backgroundSprite;
+	backgroundSprite.setTexture(*this -> mapTexture);
+	backgroundSprite.setTextureRect(sf::IntRect(1600, 2400, this -> screenX, this -> screenY));
+
+	this -> App -> draw(backgroundSprite);
 	this -> drawText(titlePage.title);
 	this -> drawText(titlePage.play);
 
