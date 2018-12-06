@@ -41,7 +41,7 @@ namespace escape{
       GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
 
 			void update(Level &level, bool play);
-			void displayLevelStory(sf::Text &text);
+			void displayLevelStory(sf::Text &text, sf::Text &funFact);
 			void pauseMusic();
 			void playMusic();
 

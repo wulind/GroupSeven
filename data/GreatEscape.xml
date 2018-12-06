@@ -22,7 +22,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 2. Money ball. Bank. San Francisco. -->
+<!-- Level 2. Money ball. Bank. South America. -->
 <Level level="2">
   <SelectOrb mapX = "120" mapY = "250"/>
     <Background startX="1600" startY="600" width="800" height="600"/>
@@ -110,7 +110,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 5 The Met. NYC. Diamond Necklace-->
+<!-- Level 5 The Metropolitan. Italy. Diamond Necklace-->
 <Level level="5">
   <SelectOrb mapX = "200" mapY = "230"/>
   <Background startX="800" startY="600" width="800" height="600"/>
@@ -261,7 +261,7 @@
 
 <!-- Level 11. Underwater. Doubloon. -->
 <Level level="11">
-  <SelectOrb mapX = "300" mapY = "200"/>
+  <SelectOrb mapX = "410" mapY = "0"/>
   <Background startX="800" startY="2400" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -284,8 +284,8 @@
 
 <!-- Level 12. Underwater. Pearl. -->
 <Level level="12">
-  <SelectOrb mapX = "300" mapY = "350"/>
-  <Background startX="800" startY="2400" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
+  <SelectOrb mapX = "360" mapY = "25"/>
+  <Background startX="800" startY="2400" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>

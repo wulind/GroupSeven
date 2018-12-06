@@ -77,9 +77,10 @@ void GameView::drawBackground(Level &level){
 /*
 * Writes dialogue pages
 */
-void GameView::displayLevelStory(sf::Text &text){
+void GameView::displayLevelStory(sf::Text &text, sf::Text &funFact){
 	this -> App.clear();
 	this -> drawText(text);
+	this -> drawText(funFact);
 
 	sf::Text escapePage;
 	escapePage.setCharacterSize(20);
