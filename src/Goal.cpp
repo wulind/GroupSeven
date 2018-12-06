@@ -63,6 +63,9 @@ int Goal::detectWin(StolenObject &stolenObject){
     if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1 && !(stolenObject.Body -> GetLinearVelocity().y == 0 && stolenObject.Body -> GetLinearVelocity().x == 0)){
       stolenObject.killSpeed();
     }
+    if(stolenObject.yCoord + stolenObject.height < 0){//For underwater levels
+      stolenObject.killSpeed();
+    }
     return -1;
   }
 
@@ -72,7 +75,7 @@ int Goal::detectWin(StolenObject &stolenObject){
   bool top = stolenObject.bounds.top > this -> bounds.top ? true: false;
 
   //Detects of ball is in goal and alive
-  if(left && right && top){
+  if((left && right && top) || stolenObject.yCoord + stolenObject.height < 0){
     if (stolenObject.health != 0){
       return 1;
     }
