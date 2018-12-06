@@ -29,7 +29,7 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("Not bad, Eagle. Alright you’re in.\nFirst job’s easy.\nAll you gotta do is get some money from the bank.\nWe gotta fund our heists somehow.");
 
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. San Fransisco is home to the largest \ncompetition of American wines in the world.");
+			this -> funFact.setString("Fun fact. The highest mountain in South America is Aconcagua in Argentina.");
 
 			break;
 
@@ -38,7 +38,7 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("Good work . Let's step this up a bit.\nI hear there's some pretty expensive porcelain in Russia.");
 
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. Moscow has the most billionares of any city in the world.");
+			this -> funFact.setString("Fun fact. St. Basil's cathedral was built by Ivan The Terrible.");
 			break;
 
 		case 4:
@@ -79,14 +79,14 @@ void Dialogue::playStory(int levelSelected){
 			this -> text.setString("Some scientists created the world's roundest object.\nI bet it's worth some real money");
 
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. This sphere was built in a lab and is perfectly round. Nothing is like it.");
+			this -> funFact.setString("Fun fact. Perfectly round spheres do not occur in nature. This is one of its kind.");
 			break;
 
 		case 9:
 			this -> text.setCharacterSize(30);
 			this -> text.setString("You've done well so far.\nLet's relax a little bit.\nI hear that Paris is rather nice this time of year");
 			this -> text.setCharacterSize(30);
-			this -> funFact.setString("Fun fact. The Eiffel Tower was originally supposed to be a temporary installation for twenty years.");
+			this -> funFact.setString("Fun fact. Originally the Louvre was a fortress, not a museum.");
 
 			break;
 
@@ -105,7 +105,7 @@ void Dialogue::playStory(int levelSelected){
 			this -> funFact.setString("Fun fact. This lost city of Atlantis is real.");
 			break;
 
-		case 11:
+		case 12:
 				this -> text.setCharacterSize(30);
 				this -> text.setString("Eagle, we're going to the Arctic pole. Dress appropriately, but you should know what to do considering you're the best.");
 

@@ -22,9 +22,9 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 2. Money ball. Bank. San Francisco. -->
+<!-- Level 2. Money ball. Bank. South America. -->
 <Level level="2">
-  <SelectOrb mapX = "120" mapY = "250"/>
+  <SelectOrb mapX = "230" mapY = "450"/>
     <Background startX="1600" startY="600" endX="1600" endY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
