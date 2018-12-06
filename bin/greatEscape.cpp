@@ -50,7 +50,7 @@ int main(int argc, char** argv){
 				if (gameLogic.state.getState() == GameState::State::PLAY){
 					gameLogic.partialProgressSimluation(deltaMs - targetMs);
 				}
-				gameTime.restart();
+				pause = true;
 			}
 		}
 		else{
@@ -82,6 +82,15 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::LEVELSELECT:
+			if (gameView.musicPlaying){
+				gameView.pauseMusic();
+				gameView.musicPlaying = false;
+			}
+			if (!menuView.musicPlaying){
+				menuView.playMusic();
+				menuView.musicPlaying = true;
+			}
+
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
 			break;
