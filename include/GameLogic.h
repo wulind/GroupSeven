@@ -14,13 +14,12 @@
 #include "Level.h"
 #include "Dialogue.h"
 
-
 namespace escape {
 	class GameLogic {
 
 		private:
 			b2World* World;
-			b2Body** Body;		
+			b2Body** Body;
 
 			void changeToLoading();
 
