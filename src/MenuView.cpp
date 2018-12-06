@@ -39,7 +39,7 @@ void MenuView::loadTitleScreen(TitlePage &titlePage){
 	titlePage.play.setPosition(sf::Vector2f(this -> screenX/2.0f, this -> screenY - 75));
 
 	//Draw to screen
-
+	this -> App -> clear(sf::Color::Black);
 	sf::Sprite backgroundSprite;
 	backgroundSprite.setTexture(*this -> mapTexture);
 	backgroundSprite.setTextureRect(sf::IntRect(1600, 2400, this -> screenX, this -> screenY));
@@ -73,7 +73,6 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 
 void MenuView::drawBackground(){
   //Use the texture as a sprite
-  this -> App -> clear(sf::Color::Black)
   sf::Sprite mapSprite(*this -> mapTexture);
 	mapSprite.setTextureRect(sf::IntRect(800, 0, this -> mapImageFullX, this -> mapImageFullY));
   mapSprite.setScale(this -> App -> getSize().x / this -> mapImageFullX, this -> App -> getSize().y / this -> mapImageFullY);
