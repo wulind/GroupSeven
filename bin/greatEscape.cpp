@@ -96,7 +96,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView){
 			break;
 
 		case GameState::State::STORY:
-			gameLogic.dialogue.playStory(gameLogic.state.getCurrentLevel());
+			gameLogic.dialogue = gameLogic.factory.loadDialogue(gameLogic.state.getCurrentLevel());
 			writeDialogue(gameLogic, gameView);
 			break;
 

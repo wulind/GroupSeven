@@ -1,32 +1,51 @@
 <?xml version="1.0" ?>
 <!-- Level 1. Michael Jordan Ball. Stadium. Chicago, Ill. -->
 <Level level="1">
-    <SelectOrb mapX = "170" mapY = "210"/>
-    <Background startX="0" startY="1800" width="800" height="600"/>
-    <Platforms>
-      <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+  <SelectOrb mapX = "170" mapY = "210"/>
 
-      <!-- Level layout -->
-      <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "400" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+  <Dialogue>We are looking to form a crew, and we heard you were pretty good.
+We are going to have to test your skills first.
 
-      <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
-    </Platforms>
+You will need a code name... How about Eagle.
+Try stealing a Michael Jordan autographed ball from the Chicago Cubs.
+Use the platform to guide it into our truck.
+We’ll be waiting for you on the ground.</Dialogue>
 
-    <StolenObject startX="768" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.7"/>
-    <Goal xPos = "150" yPos = "550"/>
-    <Gravity value="9.8"/>
+  <Funfact>Fun fact. Michael Jordan played NCAA Basketball for UNC Chapel Hill</Funfact>
+
+  <Background startX="0" startY="1800" width="800" height="600"/>
+  <Platforms>
+    <!-- boundaries for window -->
+    <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+    <!-- Level layout -->
+    <Platform rotation = "10" draggable = "0" xPos="100" yPos ="150" width = "400" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+
+    <!-- Draggables -->
+    <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
+    <Platform rotation = "-45" draggable = "1" xPos="700" yPos ="300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "10"/>
+  </Platforms>
+
+  <StolenObject startX="768" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.7"/>
+  <Goal xPos = "150" yPos = "550"/>
+  <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 2. Money ball. Bank. South America. -->
 <Level level="2">
   <SelectOrb mapX = "120" mapY = "250"/>
-    <Background startX="1600" startY="600" width="800" height="600"/>
-    <Platforms>
+
+  <Dialogue>Not bad, Eagle. Alright you’re in.
+First job’s easy.
+All you gotta do is get some money from the bank.
+We gotta fund our heists somehow.</Dialogue>
+
+  <Funfact>Fun fact. The highest mountain in South America is Aconcagua in Argentina.</Funfact>
+
+  <Background startX="1600" startY="600" width="800" height="600"/>
+  <Platforms>
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "0" green = "0" blue = "0" alpha = "255"/>
@@ -51,42 +70,54 @@
 <!-- Level 3. Russian plate. Moscow, Russia. -->
 <Level level="3">
   <SelectOrb mapX = "470" mapY = "165"/>
+
+  <Dialogue>Good work. Let's step this up a bit.
+I hear there's some pretty expensive porcelain in Russia.</Dialogue>
+
+  <Funfact>Fun fact. St. Basil's cathedral was built by Ivan The Terrible.</Funfact>
+
   <Background startX="1600" startY="1800" width="800" height="600"/>
   <Platforms>
-      <!-- boundaries for window -->
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <!-- boundaries for window -->
+    <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
-      <!-- Level layout -->
-      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "45" draggable = "0" xPos="50" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "45" draggable = "0" xPos="350" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "45" draggable = "0" xPos="250" yPos ="450" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <!-- Level layout -->
+    <Platform rotation = "45" draggable = "0" xPos="50" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "45" draggable = "0" xPos="50" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "45" draggable = "0" xPos="350" yPos ="150" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "45" draggable = "0" xPos="350" yPos ="300" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "45" draggable = "0" xPos="250" yPos ="450" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
-      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="250" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="200" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "-45" draggable = "0" xPos="450" yPos ="500" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="250" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "0" xPos="200" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="200" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "0" xPos="500" yPos ="350" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "0" xPos="450" yPos ="500" width = "100" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
-      <!-- Draggables -->
-      <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
-      <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
-      <Platform rotation = "25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
-
+    <!-- Draggables -->
+    <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+    <Platform rotation = "-45" draggable = "1" xPos="700" yPos = "200" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+    <Platform rotation = "25" draggable = "1" xPos="700" yPos = "300" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
+    <Platform rotation = "25" draggable = "1" xPos="700" yPos = "400" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
 
     </Platforms>
-    <StolenObject startX="0" startY="512" xPos="50" yPos="100" radius="32" restitution = "0.6"/>
-    <Goal xPos = "350" yPos = "550"/>
-    <Gravity value="9.8"/>
+  <StolenObject startX="0" startY="512" xPos="50" yPos="100" radius="32" restitution = "0.6"/>
+  <Goal xPos = "350" yPos = "550"/>
+  <Gravity value="9.8"/>
 </Level>
 
 <!-- Level 4. Taj Mahal. India. Diamond. -->
 <Level level="4">
-  <SelectOrb mapX = "565" mapY = "270"/>
+    <SelectOrb mapX = "565" mapY = "270"/>
+
+    <Dialogue>Alright you've proven yourself to be trustworthy.
+I'll let you in on the real jobs now.
+The Koh-i-Noor is in India temporarily. I want it in my truck.</Dialogue>
+
+    <Funfact>Fun fact. The Taj Mahal is made out of white marble.</Funfact>
+
     <Background startX="0" startY="2400" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -113,6 +144,13 @@
 <!-- Level 5 The Metropolitan. Italy. Diamond Necklace-->
 <Level level="5">
   <SelectOrb mapX = "200" mapY = "230"/>
+
+  <Dialogue>Let's visit the Old Country, Italy.
+Tiffany's just launched their new collection.
+Let's do a little collectin of our own.</Dialogue>
+
+  <Funfact>Fun fact. This Tiffany's necklace is over 91-carats of uniquley cut diamonds set in platinum.</Funfact>
+
   <Background startX="800" startY="600" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -139,6 +177,12 @@
 <!-- Level 6. Forbidden Palace. China. Gold Dragon Coin. -->
 <Level level="6">
   <SelectOrb mapX = "650" mapY = "240"/>
+
+  <Dialogue>I don't know what's so valuable about this Liberty coin,
+but there are some people willing to pay big money.</Dialogue>
+
+  <Funfact>Fun fact. The Forbidden City is the worlds largest palace.</Funfact>
+
   <Background startX="0" startY="0" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -162,6 +206,12 @@
 <!-- Level 7 Turkey. Old coin with face-->
 <Level level="7">
   <SelectOrb mapX = "465" mapY = "225"/>
+
+  <Dialogue>Overheard someone talking about this dragon coin in China.
+Kind of peaked my interest.</Dialogue>
+
+  <Funfact>Fun fact. The Grand Bazaar in Istanbul is one of the largest markets in the world.</Funfact>
+
   <Background startX="0" startY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -187,6 +237,11 @@
 <!-- Level 8. Csiro Headquarters. Canberry, Australia. World's Rounded Object. -->
 <Level level="8">
   <SelectOrb mapX = "725" mapY = "490"/>
+
+  <Dialogue>Some scientists created the world's roundest object.
+I bet it's worth some real money</Dialogue>
+  <Funfact>Fun fact. Perfectly round spheres do not occur in nature. This is one of its kind.</Funfact>
+
   <Background startX="1600" startY="1200" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -209,6 +264,13 @@
 <!-- Level 9. Louvre. Paris, France. Cartier ring.-->
 <Level level="9">
   <SelectOrb mapX = "400" mapY = "210"/>
+
+  <Dialogue>You've done well so far.
+Let's relax a little bit.
+I hear that Paris is rather nice this time of year.</Dialogue>
+
+  <Funfact>Fun fact. Originally the Louvre was a fortress, not a museum.</Funfact>
+
   <Background startX="0" startY="600" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -217,8 +279,8 @@
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "-35" draggable = "0" xPos="270" yPos ="400" width = "300" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "35" draggable = "0" xPos="520" yPos ="400" width = "300" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "-41" draggable = "0" xPos="265" yPos ="410" width = "330" height = "10" red = "255" green = "255" blue = "255" alpha = "0"/>
+      <Platform rotation = "39" draggable = "0" xPos="510" yPos ="410" width = "330" height = "10" red = "160" green = "82" blue = "45" alpha = "0"/>
 
       <!-- Draggables -->
       <Platform rotation = "35" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
@@ -233,6 +295,11 @@
 <!-- Level 10. Babe Ruth Baseball. Baltimore. Other stadium art. -->
 <Level level="10">
   <SelectOrb mapX = "210" mapY = "210"/>
+
+  <Dialogue>My daddy's a Babe Ruth Fan, and his birthday's coming up.
+What do you say you help me get his gift?</Dialogue>
+  <Funfact>Fun fact. Babe Ruth was elected to the baseball hall of fame in Nineteen thirty six</Funfact>
+
   <Background startX="800" startY="1800" width="800" height="600"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -262,6 +329,12 @@
 <!-- Level 11. Underwater. Doubloon. -->
 <Level level="11">
   <SelectOrb mapX = "410" mapY = "0"/>
+
+  <Dialogue>Eagle, we're going to the North Pole in search of Atlantis.
+Dress appropriately, you're going in the water.
+Float the treasures you find up above the ice and we'll do the rest.</Dialogue>
+  <Funfact>Fun fact. This lost city of Atlantis is real.</Funfact>
+
   <Background startX="800" startY="2400" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->
@@ -285,6 +358,11 @@
 <!-- Level 12. Underwater. Pearl. -->
 <Level level="12">
   <SelectOrb mapX = "360" mapY = "25"/>
+
+  <Dialogue>One last run, Eagle.
+I know Atlantis has more to offer.</Dialogue>
+  <Funfact>Fun fact. Atlantis holds great treasures that we cannot even comprehend today.</Funfact>
+
   <Background startX="800" startY="2400" endX="1600" endY="1200" width="800" height="600" red = "160" green = "82" blue = "45" alpha = "255"/>
     <Platforms>
       <!-- boundaries for window -->

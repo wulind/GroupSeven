@@ -13,7 +13,7 @@ namespace escape{
 			sf::Text text;
 			sf::Text funFact;
 
-			void playStory(int levelSelected);
+			void setStory(const char* text, const char* funFact);
 			void loseLevel();
 			void winLevel();
 			void winGame();
