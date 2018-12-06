@@ -121,8 +121,8 @@
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Level layout -->
-      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="500" yPos ="350" width = "600" height = "10" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="200" yPos ="200" width = "600" height = "20" red = "0" green = "0" blue = "0" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="500" yPos ="350" width = "600" height = "20" red = "0" green = "0" blue = "0" alpha = "255"/>
 
       <!-- Draggables -->
       <Platform rotation = "45" draggable = "1" xPos="700" yPos = "100" width = "100" height = "10" red = "255" green = "255" blue = "255" alpha = "255"/>
@@ -184,7 +184,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 8. Laboratory. Australia. World's Rounded Object. -->
+<!-- Level 8. Csiro Headquarters. Canberry, Australia. World's Rounded Object. -->
 <Level level="8">
   <SelectOrb mapX = "725" mapY = "490"/>
   <Background startX="1600" startY="1200" endX="1600" endY="1200" width="800" height="600"/>
@@ -210,7 +210,7 @@
     <Gravity value="9.8"/>
 </Level>
 
-<!-- Level 9. Louvre. Paris. Cartier ring.-->
+<!-- Level 9. Louvre. Paris, France. Cartier ring.-->
 <Level level="9">
   <SelectOrb mapX = "400" mapY = "210"/>
   <Background startX="0" startY="600" endX="1600" endY="1200" width="800" height="600"/>
@@ -258,7 +258,7 @@
 
     </Platforms>
     <StolenObject startX="0" startY="256" xPos="50" yPos="100" radius="32" restitution = "0.2"/>
-    <Goal xPos = "350" yPos = "550"/>
+    <Goal xPos = "350" yPos = "500"/>
     <Gravity value="9.8"/>
 </Level>
 
@@ -270,7 +270,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "-1" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
 
@@ -280,7 +280,7 @@
 
     </Platforms>
     <StolenObject startX="200" startY="230" xPos="50" yPos="100" radius="32" restitution = "0.5"/>
-    <Goal xPos = "350" yPos = "550"/>
+    <Goal xPos = "350" yPos = "700"/>
     <Gravity value="-9.8"/>
 </Level>
 
@@ -292,7 +292,7 @@
       <!-- boundaries for window -->
       <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
       <Platform rotation = "0" draggable = "0" xPos="800" yPos = "400" width = "1" height = "800" red = "160" green = "82" blue = "45" alpha = "255"/>
-      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "602" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
+      <Platform rotation = "0" draggable = "0" xPos="-1" yPos = "-1" width = "1600" height = "10" red = "160" green = "82" blue = "45" alpha = "255"/>
 
       <!-- Level layout -->
 
