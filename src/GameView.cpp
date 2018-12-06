@@ -77,9 +77,10 @@ void GameView::drawBackground(Level &level){
 /*
 * Writes dialogue pages
 */
-void GameView::displayLevelStory(sf::Text &text){
+void GameView::displayLevelStory(sf::Text &text, sf::Text &funFact){
 	this -> App.clear();
 	this -> drawText(text);
+	this -> drawText(funFact);
 
 	sf::Text escapePage;
 	escapePage.setCharacterSize(20);
@@ -101,12 +102,12 @@ void GameView::update(Level &level, bool play){
 
 	//Display healthbar
 	//2 rectangles, top one is White, bottom is red. Make top one shorter on each hit
-	sf::RectangleShape top(sf::Vector2f(200 - (200 - level.stolenObject.health * 20), 10));
+	sf::RectangleShape top(sf::Vector2f(level.stolenObject.health * 20, 10));
 	top.setFillColor(sf::Color::White);
-	top.setPosition(300, 50);
+	top.setPosition(300, 80);
 	sf::RectangleShape bottom(sf::Vector2f(200, 10));
 	bottom.setFillColor(sf::Color::Red);
-	bottom.setPosition(300, 50);
+	bottom.setPosition(300, 80);
 	this -> drawRectangle(bottom);
 	this -> drawRectangle(top);
 
@@ -114,7 +115,7 @@ void GameView::update(Level &level, bool play){
 	sf::Text health;
 	health.setCharacterSize(30);
 	health.setString("Object Durability");
-	health.setPosition(290, 10);
+	health.setPosition(290, 40);
 	this -> drawText(health);
 
 	//Obstacles

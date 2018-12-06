@@ -27,34 +27,44 @@ int main(int argc, char** argv){
 	MenuView menuView(mainView.getApp(), gameLogic.resources.getFont(), gameLogic.resources.getBackgroundTexture(), gameLogic.resources.getObjectTexture());
 
 	//Target 1000 fps
-  double targetMs = 1000/480;
+  double targetMs = 1000/120;
+	bool pause = false;
 
 	// start main loop
 	while(mainView.getApp() -> isOpen()) {
 
     gameLogic.pollEvent(mainView.getApp(), gameTime, targetMs);
-		if (gameLogic.state.getState() == GameState::State::PLAY){
-			gameLogic.progressSimluation();
-		}
 
 		updateGame(gameLogic, menuView, mainView, options);
 
 		//Get the elapsed time since the loop started
 		double deltaMs = gameTime.getElapsedTime().asMilliseconds();
 
-		//Adjust game timing by sleeping
-		if(deltaMs < targetMs){
-			sf::sleep(sf::milliseconds(targetMs-deltaMs));
-		}
-		//If behind skip frames
-		else{
+		//Checks to see if to keep checking for input but not update the screen
+		if (!pause){
 			if (gameLogic.state.getState() == GameState::State::PLAY){
-				gameLogic.partialProgressSimluation(deltaMs - targetMs);
+				gameLogic.progressSimluation();
+			}
+
+			//if ahead stop processing gamelogic and switch to just input management
+			if(deltaMs < targetMs){
+				pause = true;
+			}
+			//If behind skip frames
+			else{
+				if (gameLogic.state.getState() == GameState::State::PLAY){
+					gameLogic.partialProgressSimluation(deltaMs - targetMs);
+				}
+				pause = true;
 			}
 		}
-		gameTime.restart();
+		else{
+			if(deltaMs > targetMs){
+				pause = false;
+				gameTime.restart();
+			}
+		}
 	}
-
 	// Done.
 	return 0;
 }
@@ -77,6 +87,15 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Op
 			break;
 
 		case GameState::State::LEVELSELECT:
+			if (gameView.musicPlaying){
+				gameView.pauseMusic();
+				gameView.musicPlaying = false;
+			}
+			if (!menuView.musicPlaying){
+				menuView.playMusic(options.volumeOn());
+				menuView.musicPlaying = true;
+			}
+
 			menuView.loadLevelSelect(gameLogic.levelSelect);
 			gameLogic.makeNextLevelDot();
 			break;
@@ -111,6 +130,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Op
 			//If stolen object breaks, failure
 			if (gameLogic.level.stolenObject.health == 0){
 				gameLogic.level.stolenObject.killSpeed();
+				gameLogic.state.setState(GameState::State::FAIL);
 			}
 
 			if (gameLogic.level.goal.detectWin(gameLogic.level.stolenObject) > 0){
@@ -163,7 +183,7 @@ void drawLevel(Level &level, GameView &gameView, bool play){
 * Calls on game view to write dialogue pages
 */
 void writeDialogue(GameLogic &gameLogic, GameView &gameView){
-	gameView.displayLevelStory(gameLogic.dialogue.text);
+	gameView.displayLevelStory(gameLogic.dialogue.text, gameLogic.dialogue.funFact);
 }
 
 void drawOptionsMenu(MenuView &menuView, Options &options, GameState &state){

@@ -111,17 +111,28 @@ void MenuView::drawOptionsMenu(Options &options){
 
 	sf::Text returnText;
 	returnText.setCharacterSize(35);
-	returnText.setString("Escape to Return");
+	returnText.setString("Escape To Go To Previous Screen");
 	returnText.setPosition(10,540);
 	this -> drawText(returnText);
 
 	sf::Text volumeText;
-	volumeText.setCharacterSize(50);
+	volumeText.setCharacterSize(35);
 	volumeText.setString(options.getVolume());
-	volumeText.setPosition(0,300);
+	volumeText.setPosition(12,105);
 	this -> drawText(volumeText);
 
+	sf::Text controls;
+	controls.setCharacterSize(74);
+	controls.setString("Controls:");
+	controls.setPosition(10,240);
+	this -> drawText(controls);
 
+
+	sf::Text controlsText;
+	controlsText.setCharacterSize(35);
+	controlsText.setString(" Left/Right keys to toggle Music\n Use mouse to drag platforms\n P to pause\n");
+	controlsText.setPosition(0,340);
+	this -> drawText(controlsText);
 
 	this -> App -> display();
 

@@ -5,14 +5,15 @@ using namespace escape;
 Options::Options(){}
 
 void Options::adjustVolume(GameState &state){
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-{
+
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
     this -> masterVolume--;
-}
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-  {
+  }
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
   this -> masterVolume++;
-}
+  }
+
+
   if(this->masterVolume < 0){
     masterVolume = 0;
   }
@@ -30,10 +31,10 @@ void Options::adjustVolume(GameState &state){
 char* Options::getVolume(){
     switch(this -> masterVolume){
         case 0:
-          return "Volume: Off";
+          return "Music: Off";
         break;
         case 1:
-          return "Volume: On";
+          return "Music: On";
         break;
     }
 }

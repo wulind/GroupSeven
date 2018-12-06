@@ -11,6 +11,7 @@ namespace escape{
 			Dialogue();
 
 			sf::Text text;
+			sf::Text funFact;
 
 			void playStory(int levelSelected);
 			void loseLevel();
