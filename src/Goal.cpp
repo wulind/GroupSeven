@@ -1,5 +1,4 @@
 #include "Goal.h"
-#include <math.h>
 
 static const float SCALE = 30.f;
 
@@ -59,20 +58,27 @@ void Goal::setWorld(b2World* World){
 * @param &stolenObject: stolen object needed to detect collision
 */
 int Goal::detectWin(StolenObject &stolenObject){
-
+  //Checks if object is awake, and if it is moving slow enough, then kill it if its moving too slowly
   if(stolenObject.Body -> IsAwake()){
-    if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1){
+    if(stolenObject.Body -> GetLinearVelocity().y == 0 && abs(stolenObject.Body -> GetLinearVelocity().x) < 1 && !(stolenObject.Body -> GetLinearVelocity().y == 0 && stolenObject.Body -> GetLinearVelocity().x == 0)){
+      stolenObject.killSpeed();
+    }
+    if(stolenObject.yCoord + (stolenObject.radius * 2) < 0){//For underwater levels
       stolenObject.killSpeed();
     }
     return -1;
   }
 
+  //Determines the left, right, and top boundaries
   bool left = stolenObject.bounds.left > this -> bounds.left ? true: false;
   bool right = stolenObject.bounds.left + stolenObject.bounds.width < this -> bounds.left + this -> width ? true: false;;
   bool top = stolenObject.bounds.top > this -> bounds.top ? true: false;
 
-  if(left && right && top){
-    return 1;
+  //Detects of ball is in goal and alive
+  if((left && right && top) || stolenObject.yCoord + (stolenObject.radius * 2) < 0){
+    if (stolenObject.health != 0){
+      return 1;
+    }
   }
 
   return 0;

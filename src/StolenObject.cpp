@@ -1,4 +1,5 @@
 #include "StolenObject.h"
+#include <cmath>
 
 static const float SCALE = 30.f;
 
@@ -78,10 +79,11 @@ void StolenObject::startContact(float yVel){
 	double newTime = this -> timer.getElapsedTime().asMilliseconds();
 	if (newTime > (this -> timeSinceLastDamage + 500)){
 		if (this -> health >= 0)
-			this -> health -= floor(yVel / 4);
+			this -> health -= floor(abs(yVel) / 4);
 			if (this -> health < 0){
 				this -> health = 0;
 			}
+
 		this -> playSound = true;
 	}
 
