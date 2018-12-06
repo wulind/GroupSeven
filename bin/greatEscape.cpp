@@ -155,5 +155,5 @@ void drawLevel(Level &level, GameView &gameView, bool play){
 * Calls on game view to write dialogue pages
 */
 void writeDialogue(GameLogic &gameLogic, GameView &gameView){
-	gameView.displayLevelStory(gameLogic.dialogue.text);
+	gameView.displayLevelStory(gameLogic.dialogue.text, gameLogic.dialogue.funFact);
 }
