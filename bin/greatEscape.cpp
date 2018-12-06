@@ -9,7 +9,7 @@ using namespace escape;
 void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Options &options);
 void drawLevel(Level &level, GameView &gameView, bool play);
 void writeDialogue(GameLogic &gameLogic, GameView &gameView);
-void drawOptionsMenu(MenuView &menuView, Options &options);
+void drawOptionsMenu(MenuView &menuView, Options &options, GameState &state);
 
 int main(int argc, char** argv){
 
@@ -70,7 +70,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Op
 				gameView.musicPlaying = false;
 			}
 			if (!menuView.musicPlaying){
-				menuView.playMusic();
+				menuView.playMusic(options.volumeOn());
 				menuView.musicPlaying = true;
 			}
 			menuView.loadTitleScreen(gameLogic.titlePage);
@@ -92,7 +92,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Op
 				menuView.musicPlaying = false;
 			}
 			if (!gameView.musicPlaying){
-				gameView.playMusic();
+				gameView.playMusic(options.volumeOn());
 				gameView.musicPlaying = true;
 			}
 			gameLogic.loadLevel(gameLogic.state.getCurrentLevel());
@@ -120,7 +120,7 @@ void updateGame(GameLogic &gameLogic, MenuView &menuView, GameView &gameView, Op
 			}
 			break;
 		case GameState::State::OPTIONS:
-			drawOptionsMenu(menuView, options);
+			drawOptionsMenu(menuView, options, gameLogic.state);
 			break;
 
 		case GameState::State::SUCCESS:
@@ -166,7 +166,7 @@ void writeDialogue(GameLogic &gameLogic, GameView &gameView){
 	gameView.displayLevelStory(gameLogic.dialogue.text);
 }
 
-void drawOptionsMenu(MenuView &menuView, Options &options){
-	options.adjustVolume();
+void drawOptionsMenu(MenuView &menuView, Options &options, GameState &state){
+	options.adjustVolume(state);
 	menuView.drawOptionsMenu(options);
 }

@@ -2,7 +2,7 @@
 #define MENUVIEW_H
 
 #include <SFML/Graphics.hpp>
-#include <string> 
+#include <string>
 #include "GameState.h"
 #include "TitlePage.h"
 #include "LevelSelect.h"
@@ -41,7 +41,7 @@ namespace escape{
 			void update(GameState &state);
 			void drawBackground();
 			void pauseMusic();
-			void playMusic();
+			void playMusic(bool volume);
 
 			bool musicPlaying;
 	};

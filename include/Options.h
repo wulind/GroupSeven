@@ -1,7 +1,7 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
 #include <SFML/Graphics.hpp>
-#include <string>
+#include "GameState.h"
 
 
 namespace escape{
@@ -9,8 +9,9 @@ namespace escape{
 
     public:
       Options();
-      void adjustVolume();
+      void adjustVolume(GameState &state);
       char* getVolume();
+      bool volumeOn();
 
 
     private:

@@ -210,6 +210,8 @@ void GameView::pauseMusic(){
 /*
 * Plays menu music when playing a level
 */
-void GameView::playMusic(){
-	this -> music.play();
+void GameView::playMusic(bool volume){
+	if(volume){
+		this -> music.play();
+	}
 }

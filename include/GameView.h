@@ -43,7 +43,7 @@ namespace escape{
 			void update(Level &level, bool play);
 			void displayLevelStory(sf::Text &text);
 			void pauseMusic();
-			void playMusic();
+			void playMusic(bool volume);
 
 			bool musicPlaying;
 

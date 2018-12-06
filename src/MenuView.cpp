@@ -111,7 +111,7 @@ void MenuView::drawOptionsMenu(Options &options){
 
 	sf::Text returnText;
 	returnText.setCharacterSize(35);
-	returnText.setString("Return");
+	returnText.setString("Escape to Return");
 	returnText.setPosition(10,540);
 	this -> drawText(returnText);
 
@@ -148,6 +148,8 @@ void MenuView::pauseMusic(){
 /*
 * Plays menu music when player is in a menu
 */
-void MenuView::playMusic(){
-	this -> music.play();
+void MenuView::playMusic(bool volume){
+	if(volume){
+		this -> music.play();
+	}
 }
