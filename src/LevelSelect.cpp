@@ -14,7 +14,9 @@ LevelSelect::LevelSelect(){}
 * @param orb: orb to append
 */
 void LevelSelect::appendDot(SelectOrb orb){
-  this -> levels.push_back(orb);
+	if(this -> levels.size() < 12){
+  		this -> levels.push_back(orb);
+  	}
 }
 
 /*
