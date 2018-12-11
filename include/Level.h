@@ -13,8 +13,6 @@
 namespace escape{
   class Level{
 
-    private:
-
     public:
       Level();
 
@@ -30,11 +28,11 @@ namespace escape{
       PlatformMenu platformMenu;
       StolenObject stolenObject;
       FinishButton finishButton;
+      Goal goal;
 
       ContactListener contactListener;
 
       float gravity;
-      Goal goal;
 
       void setWorld(b2World* World);
       void setStolenObjectFile(const char *_objStartX, const char *_objStartY);
