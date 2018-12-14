@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- Level 1. Michael Jordan Ball. Stadium. Chicago, Ill. -->
-<Level level="12">
+<Level level="1">
   <SelectOrb mapX = "170" mapY = "210"/>
 
   <Dialogue>We are looking to form a crew, and we heard you were pretty good.
@@ -379,7 +379,7 @@ Float the treasures you find up above the ice and we'll do the rest.</Dialogue>
 </Level>
 
 <!-- Level 12. Underwater. Pearl. -->
-<Level level="1">
+<Level level="12">
   <SelectOrb mapX = "440" mapY = "0"/>
 
   <Dialogue>One last run, Eagle.
