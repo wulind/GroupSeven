@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include "TitlePage.h"
 
+#include "TitlePage.h"
 #include "Platform.h"
 #include "StolenObject.h"
 #include "PlatformMenu.h"

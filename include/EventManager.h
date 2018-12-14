@@ -8,6 +8,17 @@
 
 namespace escape{
   class EventManager{
+    private:
+	      //The platform object
+	      Platform *platform;
+
+	      //The relative positions are used with window resizing.
+	      int relativeX;
+	      int relativeY;
+
+	      //The size of the sprite
+	      sf::FloatRect size;
+  
 	  public:
 	      EventManager();
 
@@ -18,16 +29,7 @@ namespace escape{
 	      void checkMouseOverPlatform(sf::Vector2i mousePosition, std::vector<Platform> &platforms);
 	      void releaseAllPlatforms(std::vector<Platform> &platforms);
 
-	  private:
-	      //The platform object
-	      Platform *platform;
-
-	      //The relative positions are used with window resizing.
-	      int relativeX;
-	      int relativeY;
-
-	      //The size of the sprite
-	      sf::FloatRect size;
+	  
     };
 }
 

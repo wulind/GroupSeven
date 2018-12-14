@@ -19,7 +19,6 @@ namespace escape {
 
 		private:
 			b2World* World;
-			b2Body** Body;
 
 			void changeToLoading();
 

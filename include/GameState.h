@@ -9,7 +9,7 @@ namespace escape{
 
       //Possible game states
       enum State {TITLE, LEVELSELECT, STORY, LOADING, SETUP, PLAY, SUCCESS, FAIL, FINISHGAME};
-
+      
       void setState(GameState::State _state);
       void incrementUnlockedLevels();
       void setCurrentLevel(int level);
@@ -17,11 +17,12 @@ namespace escape{
       GameState::State getState();
       int getCurrentLevel();
       int getUnlockedLevels();
-
+      
     private:
-      State state; //Current game state
       int unlockedLevels; //How many levels are unlocked
       int currentLevel; //Which level the player is currently playing
+      State state; //Current game state
+
   };
 }
 #endif
