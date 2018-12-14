@@ -11,3 +11,8 @@ Build a route from your location and collect special abilities on the way to hel
 **Genre:** Puzzle
 
 **Platform:** Windows, Max OS, Linux
+
+## How To Play
+The Great Escape utilizes SFML. Make sure you download it before you compile. A cmake CMakeLists.txt is included to help you.
+
+SFML: https://www.sfml-dev.org/download.php
