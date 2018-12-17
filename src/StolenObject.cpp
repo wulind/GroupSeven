@@ -1,5 +1,4 @@
 #include "StolenObject.h"
-#include <cmath>
 
 static const float SCALE = 30.f;
 
@@ -38,9 +37,9 @@ StolenObject::StolenObject(float x, float y, int radius, float restitution){
 void StolenObject::setWorld(b2World* World){
 	//Box2D body with a dynamic body so it moves.
 	b2BodyDef BodyDef;
-  BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
-  BodyDef.type = b2_dynamicBody;
-  this -> Body = World -> CreateBody(&BodyDef);
+	BodyDef.position = b2Vec2(this -> xCoord/SCALE, this -> yCoord/SCALE);
+	BodyDef.type = b2_dynamicBody;
+	this -> Body = World -> CreateBody(&BodyDef);
 
 	//Shape is a circle with radius r
 	b2CircleShape Shape;
@@ -71,6 +70,7 @@ void StolenObject::updatePosition(){
 
 /*
 * Procedures to do when stolen object touches something
+* @param yVel: velocity of y axis of stolen object
 */
 void StolenObject::startContact(float yVel){
 	//Decrease health.
