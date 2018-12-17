@@ -49,7 +49,8 @@ int GameState::getCurrentLevel(){
 }
 
 /*
-* Sets the current level
+* Sets the current level that the player has selected to play
+* @param level: level to set current level to
 */
 void GameState::setCurrentLevel(int level){
 	this -> currentLevel = level;
