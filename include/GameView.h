@@ -14,11 +14,11 @@ namespace escape{
 	class GameView{
 
 		private:
-			sf::Sprite sprite; // should not be a this- >sprite
-      sf::Texture *backgroundSpriteSheet;
-      sf::Texture *objectSpriteSheet;
+			sf::Sprite sprite;
+			sf::Texture *backgroundSpriteSheet;
+			sf::Texture *objectSpriteSheet;
 
-      //Window
+			//Window
 			sf::RenderWindow App;
 			float screenX = 800;
 			float screenY = 600;
@@ -26,26 +26,26 @@ namespace escape{
 			sf::Font *font;
 			sf::Music music;
 			sf::SoundBuffer buffer;
-			sf::Sound thump;
+			sf::Sound thump; //thump noise to play as stolen object hits platforms
 
 			void drawRectangle(sf::RectangleShape &rect);
 			void drawCircle(sf::CircleShape &circle);
 			void drawText(sf::Text &text);
-      void drawBackground(Level &level);
+			void drawBackground(Level &level);
 
 			sf::RectangleShape makeRectangle(int width, int height, float xCoord, float yCoord, int rotation);
 			sf::CircleShape makeStolenObject(int radius, float xCoord, float yCoord, float rotation);
 
 		public:
-      GameView();
-      GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
+			GameView();
+			GameView(sf::Font* font, sf::Texture* backgroundSpriteSheet, sf::Texture* objectSpriteSheet);
 
 			void update(Level &level, bool play);
 			void displayLevelStory(sf::Text &text, sf::Text &funFact);
 			void pauseMusic();
 			void playMusic();
 
-			bool musicPlaying;
+			bool musicPlaying; //true if music is plating
 
 			sf::RenderWindow* getApp();
 			sf::Vector2i getMousePosition();
