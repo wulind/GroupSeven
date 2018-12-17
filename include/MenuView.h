@@ -14,14 +14,14 @@ namespace escape{
 			float screenX = 800;
 			float screenY = 600;
 
-      float mapImageFullX = 1114;
-      float mapImageFullY= 590;
+			float mapImageFullX = 1114;
+			float mapImageFullY= 590;
 
 			//Window
 			sf::RenderWindow *App;
 			sf::Font *font;
-      sf::Texture *mapTexture;
-      sf::Texture *levelDot;
+			sf::Texture *mapTexture;
+			sf::Texture *levelDot;
 			sf::Music music;
 			void drawText(sf::Text &text);
 
@@ -40,7 +40,7 @@ namespace escape{
 			void pauseMusic();
 			void playMusic();
 
-			bool musicPlaying;
+			bool musicPlaying;//true if music is playing
 	};
 }
 #endif
