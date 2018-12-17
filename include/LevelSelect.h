@@ -12,15 +12,15 @@ namespace escape{
 			LevelSelect();
 
 			typedef struct {
-        int xCoord;
-        int yCoord;
+				int xCoord;
+				int yCoord;
 				sf::CircleShape circle;
-      } SelectOrb;
+      			} SelectOrb;
 
 			std::vector<SelectOrb> levels;
 
-      void appendDot(SelectOrb orb);
-      void levelClick(sf::Vector2i mousePosition, GameState &state);
+			void appendDot(SelectOrb orb);
+			void levelClick(sf::Vector2i mousePosition, GameState &state);
 	};
 }
 #endif
