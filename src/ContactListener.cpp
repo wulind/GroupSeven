@@ -4,6 +4,7 @@ using namespace escape;
 
 /*
 * Called when objects in b2World collide
+* @param *contact: Box2D object that manages contact between two shapes
 */
 void ContactListener::BeginContact(b2Contact* contact){
   //check if fixture A was a ball
