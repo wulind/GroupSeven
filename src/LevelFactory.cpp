@@ -6,7 +6,6 @@ LevelFactory::LevelFactory(){}
 /*
 * Builds and returns a level object that represents current level that the user is playing
 * @param levelToLoad: Level that needs to be loaded
-* @param *World: Box2D world
 */
 Level LevelFactory::makeLevel(int levelToLoad){
   Level level;
@@ -53,6 +52,8 @@ LevelSelect::SelectOrb LevelFactory::makeOrbs(int level){
 
 /*
 * Makes the platforms for the level
+* @param level: level object to make platforms in
+* @param *levelRoot: tinyXML2 XML element that is the current level to load
 */
 void LevelFactory::makePlatforms(Level &level, tinyxml2::XMLElement *levelRoot){
   tinyxml2::XMLElement *child = levelRoot -> FirstChildElement("Platforms") -> FirstChildElement("Platform");
