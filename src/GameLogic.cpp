@@ -15,8 +15,10 @@ GameLogic::GameLogic(){
 /*
 * Polls game events, to be replaced by EventHandler
 * @param *App: pointer to current window
+* @param gameTime: sfml clock object that keeps track of time
+* @param targetMs: target milliseconds
 */
-void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){//TODO: put clock in main loop
+void GameLogic::pollEvent(sf::RenderWindow *App, sf::Clock gameTime, double targetMs){
 	// process events
 	sf::Event event;
 	while(App -> pollEvent(event)) {
@@ -137,6 +139,7 @@ void GameLogic::progressSimluation(){
 
 /*
 * Progresses the simluation in the Box2D world by a portion
+* @param portion
 */
 void GameLogic::partialProgressSimluation(float portion){
 	for (int x = 0; x < floor(portion); x++){
