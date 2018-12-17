@@ -10,18 +10,18 @@ namespace escape {
 
 		private:
 			sf::Font font;
-      //Sprite Sheets
+      			//Sprite Sheets
 			sf::Texture backgroundSpriteSheet;
-      sf::Texture objectSpriteSheet;
+      			sf::Texture objectSpriteSheet;
 
 		public:
 			ResourceManager();
 
-    	sf::Font* getFont();
-      sf::Texture* getMapTexture();
-      sf::Texture* getBackgroundTexture();
-      sf::Texture* getObjectTexture();
+			sf::Font* getFont();
+			sf::Texture* getMapTexture();
+			sf::Texture* getBackgroundTexture();
+			sf::Texture* getObjectTexture();
 
-  };
+	};
 }
 #endif
