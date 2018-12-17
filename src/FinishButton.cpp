@@ -4,7 +4,6 @@ using namespace escape;
 
 /*
 * FinishButton Constructor
-* @param *App: pointer to game window
 */
 FinishButton::FinishButton(){
   this -> scale = .2f;
@@ -21,6 +20,7 @@ FinishButton::FinishButton(){
 /*
 * Updates the finish button based off the game state
 * If the player is in design mode & clicks button, switch mode to play mode and get rid of the button
+* @param mousePosition: current position of the mouse
 * @param &state: current state of the game
 */
 void FinishButton::changeToPlay(sf::Vector2i mousePosition, GameState &state){
