@@ -25,8 +25,9 @@ void Level::setWorld(b2World* World){
 }
 
 /*
-* Sets Filename for background
 * Sets starting x and y for image in sprite sheet
+* @param *_backgroundStartX: starting x coordinate on sprite sheet of background
+* @param *_backgroundStartY: starting y coordinate on sprite sheet of background
 */
 void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgroundStartY){
   this -> backgroundStartX = std::atoi(_backgroundStartX);
@@ -36,7 +37,12 @@ void Level::setBackgroundFile(const char *_backgroundStartX, const char *_backgr
 /*
 * Makes platforms available for level
 * @param rotation: rotation in degrees of platform
+* @param xPos: x axis position on screen
 * @param yPos: y axis position on screen
+* @param width: width of platform
+* @param height: height of platform
+* @param *color: pointer to array where array values are [red, green, blue, alpha]
+* @param draggable: true if platform can be dragged by user
 */
 void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height, int* color, bool draggable){
   Platform platform(xPos, yPos, height, width);
@@ -53,7 +59,9 @@ void Level::makePlatform(int rotation, int xPos, int yPos, int width, int height
 }
 
 /*
-* Sets Filename for stolen object
+* Sets starting x and y for image in sprite sheet
+* @param *_objStartX: starting x coordinate on sprite sheet of object
+* @param *_objStartY: starting y coordinate on sprite sheet of object
 */
 void Level::setStolenObjectFile(const char *_objStartX, const char *_objStartY){
   this -> stolenObject.spriteSheetStartX = std::atoi(_objStartX);
@@ -81,6 +89,7 @@ void Level::setGravity(float g){
 * @param x: x coordinate for stolen object
 * @param y: y coordinate for stolen object
 * @param radius: Radius of stolen object
+* @param restitution: bounciness of stolen object
 */
 void Level::setStolenObject(int x, int y, int radius, float restitution){
   this -> stolenObject = StolenObject(x, y, radius, restitution);
