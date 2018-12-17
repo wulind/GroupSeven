@@ -6,14 +6,17 @@ MenuView::MenuView(){}
 
 /*
 * MenuView Constructor
-* @param *App: pointer to game window
+* @param *_App: pointer to game window
+* @param *_font: font used throughout the game
+* @param *_mapTexture: pointer to background sprite sheet
+* @param *_levelDot: pointer to glowing orb texture
 */
 MenuView::MenuView(sf::RenderWindow *_App, sf::Font *_font, sf::Texture* _mapTexture, sf::Texture *_levelDot){
 	this -> App = _App;
 	this -> font = _font;
 
-  this -> mapTexture = _mapTexture;
-  this -> levelDot = _levelDot;
+ 	this -> mapTexture = _mapTexture;
+ 	this -> levelDot = _levelDot;
 
 	if (!music.openFromFile("../data/MainTheme.wav")){
 	}
@@ -60,23 +63,26 @@ void MenuView::loadLevelSelect(LevelSelect &levelSelect){
 	sf::Text titleText;
 	titleText.setFont(*this -> font);
 	titleText.setCharacterSize(74);
-  titleText.setString("Select A Level");
-  titleText.setPosition(380,520);
-  titleText.setFillColor(sf::Color::White);
+	titleText.setString("Select A Level");
+	titleText.setPosition(380,520);
+	titleText.setFillColor(sf::Color::White);
 
 	this -> drawBackground();
-  this -> drawText(titleText);
+  	this -> drawText(titleText);
 	this -> drawLevelDots(levelSelect);
 
 	this -> App -> display();
 }
 
+/*
+* Draws background of menu
+*/
 void MenuView::drawBackground(){
-  //Use the texture as a sprite
-  sf::Sprite mapSprite(*this -> mapTexture);
+	//Use the texture as a sprite
+	sf::Sprite mapSprite(*this -> mapTexture);
 	mapSprite.setTextureRect(sf::IntRect(800, 0, this -> mapImageFullX, this -> mapImageFullY));
-  mapSprite.setScale(this -> App -> getSize().x / this -> mapImageFullX, this -> App -> getSize().y / this -> mapImageFullY);
-  this -> App -> draw(mapSprite);
+	mapSprite.setScale(this -> App -> getSize().x / this -> mapImageFullX, this -> App -> getSize().y / this -> mapImageFullY);
+	this -> App -> draw(mapSprite);
 }
 
 /* Draws the individual level dots that represent unlocked levels to select a level
@@ -90,7 +96,7 @@ void MenuView::drawLevelDots(LevelSelect &levelSelect){
 			if(i < levelSelect.levels.size() - 1){
 				levelSelect.levels[i].circle.setTextureRect(sf::IntRect(640, 950, 375, 375));
 			}
-	    levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
+	    		levelSelect.levels[i].circle.setPosition(levelSelect.levels[i].xCoord, levelSelect.levels[i].yCoord);
 			App -> draw(levelSelect.levels[i].circle);
 		}
 }
