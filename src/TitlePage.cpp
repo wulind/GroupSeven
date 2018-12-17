@@ -4,12 +4,10 @@ using namespace escape;
 
 /*
 * Constructor
-* @param *App: Render Window
-* @param &_state: Current Game State
 */
 TitlePage::TitlePage(){
-  this -> title.setString("The Great Escape");
-  this -> title.setCharacterSize(75);
+	this -> title.setString("The Great Escape");
+	this -> title.setCharacterSize(75);
 	this -> title.setFillColor(sf::Color::White);
 
 	this -> play.setString("play");
@@ -19,7 +17,7 @@ TitlePage::TitlePage(){
 
 /*
 * Checks if mouse cliked "play" button, and if it has, changes game state to level select
-* @param &App: Reference to current window
+* @param mousePosition: current position of mouse as related to current window
 * @param state: current game state
 */
 void TitlePage::changeToLevelSelect(sf::Vector2i mousePosition, GameState &state){
