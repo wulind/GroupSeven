@@ -2,6 +2,9 @@
 
 using namespace escape;
 
+/*
+* Constructor
+*/
 Dialogue::Dialogue(){
 	this -> text.setPosition(10, 20);
 	this -> funFact.setPosition(10, 300);
