@@ -5,8 +5,10 @@ using namespace escape;
 GameView::GameView(){}
 
 /*
-* @param *App: pointer to game window
-* @param &font: reference to Cows & Aliens font used throughout the game
+* Constructor
+* @param *font: pointer to Cows & Aliens font used throughout the game
+* @param *backgroundSprite: pointer to background sprite sheet
+* @param *objectSprite: pointer to object sprite sheet
 */
 GameView::GameView(sf::Font* font, sf::Texture* backgroundSprite, sf::Texture* objectSprite){
 	this -> App.create(sf::VideoMode(800, 600, 32), "The Great Escape", sf::Style::Titlebar|sf::Style::Close);
@@ -51,7 +53,8 @@ void GameView::drawText(sf::Text &text) {
 }
 
 /*
-* TODO: get rid of these
+* Draws Rectangle Object
+* @param rect: rectangle to draw
 */
 void GameView::drawRectangle(sf::RectangleShape &rect) {
 	this -> App.draw(rect);
@@ -76,6 +79,8 @@ void GameView::drawBackground(Level &level){
 
 /*
 * Writes dialogue pages
+* @param text: text to draw that contains storyline
+* @param funFact: fun fact to write
 */
 void GameView::displayLevelStory(sf::Text &text, sf::Text &funFact){
 	this -> App.clear();
@@ -95,6 +100,7 @@ void GameView::displayLevelStory(sf::Text &text, sf::Text &funFact){
 /*
 * Creates all of the SFML-related objects that need to be drawn
 * @param level: Level object representing current level
+* @param play: true if in Game State PLAY
 */
 void GameView::update(Level &level, bool play){
 	this -> App.clear();
@@ -182,6 +188,15 @@ void GameView::update(Level &level, bool play){
 	this -> App.display();
 }
 
+/*
+* Makes SFML rectangle objects
+* Always sets origin to the center of the shape rather than default upper left corner
+* @param width: width of the rectangle
+* @param height: height of the rectangle
+* @param xCoord: x coordinate of rectangle
+* @param yCoord: y coordinate of rectangle 
+* @param rotation: rotation of rectangle
+*/
 sf::RectangleShape GameView::makeRectangle(int width, int height, float xCoord, float yCoord, int rotation){
 	sf::RectangleShape rectangle(sf::Vector2f(width, height));
 	rectangle.setOrigin(width/2, height/2);
@@ -191,6 +206,14 @@ sf::RectangleShape GameView::makeRectangle(int width, int height, float xCoord, 
 	return rectangle;
 }
 
+/*
+* Makes SFML circle objects
+* Always sets origin to the center of the shape rather than default upper left corner of bounding rectangle
+* @param radius: radius of circle
+* @param xCoord: x coordinate of circle
+* @param yCoord: y coordinate of circle
+* @param rotation: rotation of cirlce
+*/
 sf::CircleShape GameView::makeStolenObject(int radius, float xCoord, float yCoord, float rotation){
 	sf::CircleShape circle(radius);
 	circle.setOrigin(radius, radius);
