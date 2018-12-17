@@ -39,3 +39,4 @@
 *.vsproj.*
 
 Debug/
+Release/
