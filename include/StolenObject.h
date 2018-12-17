@@ -8,24 +8,24 @@ namespace escape {
 	class StolenObject {
 
 		public:
-      StolenObject();
+			StolenObject();
 			StolenObject(float x, float y, int radius, float restitution);
 
-			b2Body* Body;
-			float restitution;
+			b2Body* Body; //Box2D body
+			float restitution; //bounciness of stolen object
 
 			float xCoord;
 			float yCoord;
 
 			int spriteSheetStartX;
-      int spriteSheetStartY;
+      			int spriteSheetStartY;
 
 			int radius;
 
 			int health;
 			double timeSinceLastDamage;
 			sf::Clock timer;
-			bool playSound;
+			bool playSound;//true if sound is played
 
 			float rotation;
 
