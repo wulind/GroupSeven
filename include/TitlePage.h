@@ -6,14 +6,13 @@
 
 namespace escape{
 	class TitlePage{
-
 		public:
 			TitlePage();
 
-			sf::Text title;
-    	sf::Text play;
+			sf::Text title; //The great escape
+			sf::Text play; //play
 
-      void changeToLevelSelect(sf::Vector2i mousePosition, GameState &state);
+			void changeToLevelSelect(sf::Vector2i mousePosition, GameState &state);
 
 	};
 }
