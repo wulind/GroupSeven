@@ -4,12 +4,13 @@ using namespace escape;
 
 /*
 * Resource Manager Constructor
+* Loads all the resources
 */
 ResourceManager::ResourceManager(){
 
 	if (!this -> font.loadFromFile("../data/aliensCows.ttf")){}
 	
-  if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
+	if (!backgroundSpriteSheet.loadFromFile("../data/BackgroundsSpriteSheet.png")) {}
 
 	if (!objectSpriteSheet.loadFromFile("../data/StolenObjectsSpriteSheet.png")) {}
 }
@@ -20,6 +21,7 @@ ResourceManager::ResourceManager(){
 sf::Font* ResourceManager::getFont(){
   	return &this -> font;
 }
+
 /*
 * Returns the background texture for the levels unlocked on the level select screen
 */
