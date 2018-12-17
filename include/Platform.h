@@ -14,7 +14,8 @@ namespace escape {
 
 			float xCoord;
 			float yCoord;
-	    float mouseDragOffsetX;
+			//offset needed so that the mouse can drag anywhere on platform and platform won't jump to that location
+			float mouseDragOffsetX;
 			float mouseDragOffsetY;
 
 			int height;
@@ -27,7 +28,8 @@ namespace escape {
 			sf::FloatRect bounds;
 			sf::Vector2f origin;
 
-			bool isBeingDragged;
+			bool isBeingDragged;//true if user is currently draggin platform
+		
 			//Boolean that determines whether or not platform should show incase
 			//user doesn't drag a platform out of the menu, then it will not show
 			bool show = false; //true when the platform has been dragged or is an obstacle.
