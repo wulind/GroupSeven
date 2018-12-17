@@ -48,7 +48,7 @@ void EventManager::checkMouseOverPlatform(sf::Vector2i mousePosition, std::vecto
 
 /*
  * Releases all platforms. Sets the platform to not being dragged.
- * @param &platform: platform that needs to be released.
+ * @param &platforms: platforms that need to be released.
  */
 void EventManager::releaseAllPlatforms(std::vector<Platform> &platforms){
 	int i = 0;
