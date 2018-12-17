@@ -10,8 +10,8 @@ namespace escape{
 		public:
 			Dialogue();
 
-			sf::Text text;
-			sf::Text funFact;
+			sf::Text text; //SFML text that contains storyline
+			sf::Text funFact; //SFML text that contains fun fact of the level
 
 			void setStory(const char* text, const char* funFact);
 			void loseLevel();
