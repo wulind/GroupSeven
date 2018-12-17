@@ -24,6 +24,8 @@ void ContactListener::BeginContact(b2Contact* contact){
 
 /*
 * Reserved for future use
+* Needed to overwrite pure virtual function in parent class
+* @param *contact: Box2D object that manages contact between two shapes
 */
 void ContactListener::EndContact(b2Contact* contact){
 
