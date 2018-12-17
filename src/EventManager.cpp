@@ -1,5 +1,4 @@
 #include "EventManager.h"
-#include <math.h>
 
 using namespace escape;
 
